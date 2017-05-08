@@ -1,0 +1,37 @@
+﻿
+    fieldset{
+                width:500px;
+                margin:15px;
+                border:1px groove green;
+                border-radius:10px;
+                margin: auto;
+            }
+
+    .st1 {
+        width:450px;
+        margin:20px;
+        border-bottom:1px solid blue;
+        padding-bottom:10px;
+    }
+    .submit{
+        width:450px;
+        margin:20px;
+        text-align:center;
+        margin:auto;
+        padding-top:10px;
+    }
+    .title{
+        width:100px;
+        float:left;
+        text-align:right;
+        padding-right:3px;
+    }
+    .p{
+        position:relative;
+        left:55px;
+        top:0px;
+        line-height:1px;
+        font-size:12px;
+     
+       
+    }

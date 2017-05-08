@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.discount.model.DiscountVO" table="discount">
+
+		<id name="packageNo" column="packageNo">
+		</id>
+
+		<property name="discount1" column="discount1" />
+		<property name="discount2" column="discount2" />
+		<property name="quantity_condition" column="quantity_condition" />
+		<property name="descript" column="descript" />
+
+		<set name="products" table="production" lazy="false" cascade="all"  inverse="true"  order-by="productId asc">			
+			<key>
+				<column name="packageNo" />
+			</key>
+			<one-to-many class="com.production.model.ProductionVO" />
+		</set>
+
+	</class>
+</hibernate-mapping>
+

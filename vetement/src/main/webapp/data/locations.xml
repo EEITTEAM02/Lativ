@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<markers>
+	<marker name="飛特萌板橋店" lat="25.010914" lng="121.464478" category="store" address="114縣道152-154號" address2="" city="板橋區" state="新北市" postal="220" country="台灣" phone="02-2222-2222" email="info@tements.com" web="http://www.vetements.com" hours1="Mon-Sun 11am-10pm" hours2="" hours3="" featured="" features="Online Ordering" />
+	<marker name="飛特萌大安店" lat="25.033964" lng="121.564472" category="store" address="信義路五段7號" address2="" city="信義區" state="台北市" postal="110" country="台灣" phone="02-2222-2223" email="info@vetements.com" web="http://www.vetements.com" hours1="Mon-Sun 11am-10pm" hours2="" hours3="" featured="" features="Online Ordering " />
+	<marker name="飛特萌台南店" lat="22.984103" lng="120.208116" category="store" address="法華街112號" address2="" city="中西區" state="台南市" postal="700" country="台灣" phone="02-2222-2224" email="info@vetements.com" web="http://www.vetements.com" hours1="Mon-Sun 11am-10pm" hours2="" hours3="" featured="true" features="Online Ordering" />	
+</markers>
