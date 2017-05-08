@@ -40,7 +40,7 @@ public class RateProductServlet extends HttpServlet {
 		    Integer cid = (Integer) session.getAttribute("mno");
 		  //use jdbc since we dont have rating dao
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=DB01";
+		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
 		    conn1 = DriverManager.getConnection(url,"sa", "sa123456");
 		    pstmt1 = conn1.prepareStatement("select score,times from rating where productId=?");
 		    pstmt1.setInt(1,id);

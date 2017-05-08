@@ -27,7 +27,7 @@ public class GetCategoryIdServlet extends HttpServlet{
 		Connection conn = null;
 		PreparedStatement pstmt= null;
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=DB01";
+	    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
 	    conn = DriverManager.getConnection(url,"sa", "sa123456");
 	    pstmt = conn.prepareStatement("select * from category ");
         Map<Integer,String> map1 = new HashMap<Integer,String>();

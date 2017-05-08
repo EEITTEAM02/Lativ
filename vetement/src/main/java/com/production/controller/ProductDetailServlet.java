@@ -94,7 +94,7 @@ public class ProductDetailServlet extends HttpServlet{
 		    	color = psrvc.getOneProduct(l2.get(j)).getColor();
 		    	prodName = psrvc.getOneProduct(l2.get(j)).getProductName();
 		    	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=DB01";
+			    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
 			    conn = DriverManager.getConnection(url,"sa", "sa123456");
 			    pstmt = conn.prepareStatement("select size,quantity_in_stock,productId,price from production where color=? and productName=?");
 		    	pstmt.setString(1, color);

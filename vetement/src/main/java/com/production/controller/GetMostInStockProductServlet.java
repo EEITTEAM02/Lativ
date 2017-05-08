@@ -45,7 +45,7 @@ public class GetMostInStockProductServlet extends HttpServlet{
 			category = "兒童";
 		try{
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		String url = "jdbc:sqlserver://localhost:1433;DatabaseName=DB01";
+		String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
 		conn = DriverManager.getConnection(url,"sa", "sa123456");
 		pstmt = conn.prepareStatement("select categoryId from category where class_top=?");
 	    pstmt.setString(1,category);
