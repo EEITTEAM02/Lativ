@@ -1,0 +1,24 @@
+drop table category
+create table category(
+	categoryId int identity(1,1),
+	class_top varchar(30),
+	class_middle varchar(30),
+	class_bottom varchar(30),
+	constraint category_PK primary key(categoryId)
+)
+
+insert into categories values('男','T恤POLO','短袖背心');
+insert into categories values('男','外套類','休閒軍裝外套');
+insert into categories values('男','褲裝','牛仔褲');
+insert into categories values('男','家居服配件','家居服');
+insert into categories values('男','針織衫','針織衫毛衣');
+insert into categories values('女','T恤POLO','短袖印花T恤');
+insert into categories values('女','襯衫','休閒襯衫');
+insert into categories values('女','針織衫','美麗諾羊毛');
+insert into categories values('女','外套類','羽絨系列');
+insert into categories values('女','褲裝裙裝','裙裝洋裝');
+insert into categories values('兒童','T恤POLO','長袖');
+insert into categories values('兒童','襯衫','法蘭絨襯衫');
+insert into categories values('兒童','褲裝裙裝','短褲七分褲');
+insert into categories values('兒童','內衣&內褲&襪子','HEATUP_保暖衣');
+insert into categories values('兒童','外套類','保暖FLEECE系列');
