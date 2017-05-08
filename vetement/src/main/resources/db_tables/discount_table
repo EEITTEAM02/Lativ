@@ -1,0 +1,14 @@
+drop table discount
+create table discount (
+packageNo int  identity,
+discount1 float ,    --percentage
+discount2 float ,    --fixed price
+quantity_condition int,
+descript nvarchar(20),
+constraint discount_PK primary key(packageNo) )
+
+insert into discount values (1.0,null,null,'w.e');
+insert into discount values (0.8,555,2,'買兩件以上打8折');
+insert into discount values (0.6,333,3,'買三件以上合算333元');
+insert into discount values (0.5,222,4,'tbd');
+insert into discount values (0.1,111,5,'tbd');

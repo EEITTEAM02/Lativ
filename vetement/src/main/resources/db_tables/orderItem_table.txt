@@ -1,0 +1,20 @@
+drop table orderItem;
+create table orderItem (
+seqNo                 int IDENTITY (1,1) not null ,
+price_origin  float,
+price_discount  float,
+quantity_order        int ,
+price_item float,
+orderNo           int not null,
+productId                 int not null,
+
+
+
+
+
+
+ 
+constraint orderItem_PK primary key(seqNo),
+	constraint orderItem_FK1 foreign key(orderNo) references orders(orderNo),
+	constraint orderItem_FK2 foreign key(productId) references production(productId));
+
