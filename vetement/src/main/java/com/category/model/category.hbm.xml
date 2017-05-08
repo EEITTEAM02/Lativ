@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.category.model.CategoryVO" table="category">
+
+		<id name="categoryId" column="categoryId">
+		</id>
+
+		<property name="class_top" column="class_top" />
+		<property name="class_middle" column="class_middle" />
+		<property name="class_bottom" column="class_bottom" />
+
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,96 @@
+package com.search.model;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.category.model.CategoryDAO;
+import com.category.model.CategoryDAO_interface;
+import com.category.model.CategoryVO;
+import com.production.model.ProductionVO;
+
+import hibernate.util.HibernateUtil;
+
+public class SearcherDAO {
+	private static final String fuzzySearch=
+			"from ProductionVO where productName like :productName and for_sale = true and picture_model1 is not null";
+	
+	private static final String getClassTop=
+			"from ProductionVO where categoryId=:categoryId and for_sale = true and picture_model1 is not null";
+	
+	public List<ProductionVO> fuzzySearch(String keyWord){
+		List<ProductionVO> list = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			Query query = session.createQuery(fuzzySearch);
+			query.setParameter("productName", "%"+keyWord+"%" );
+			list = query.list();
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return list;
+	}
+	
+	public List<ProductionVO> pageSearch(String keyWord, Integer pageNumber){
+		List<ProductionVO> list = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			Query query = session.createQuery(fuzzySearch);
+			query.setParameter("productName", "%"+keyWord+"%" );
+			query.setFirstResult(3*(pageNumber-1));
+			query.setMaxResults(3);
+			list = query.list();
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return list;
+	}
+	
+	public List<ProductionVO> getClassTopProduction(List<CategoryVO> listCategory){
+		List<ProductionVO> listAll = new LinkedList<ProductionVO>();
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			for(CategoryVO VO:listCategory){
+				List<ProductionVO> list =null;
+				Query query = session.createQuery(getClassTop);
+				query.setParameter("categoryId", VO.getCategoryId());
+				list = query.list();
+				listAll.addAll(list);
+			}
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return listAll;
+	}
+	
+	public static void main(String[] args) {
+		SearcherDAO dao = new SearcherDAO();
+		List<ProductionVO> list = null;
+		
+//		list = dao.fuzzySearch("洋裝");
+//		list = dao.pageSearch("",2);
+//		for(ProductionVO VO:list){
+//			System.out.println(VO.getProductName());
+//		}
+		
+		CategoryDAO_interface dao2 = new CategoryDAO();
+		List<CategoryVO> listCategory = dao2.getClassTop("男");
+		
+		List<ProductionVO> listAll = dao.getClassTopProduction(listCategory);
+		for(ProductionVO VO:listAll){
+			System.out.println(VO.getProductName());
+		}
+	}
+
+}
