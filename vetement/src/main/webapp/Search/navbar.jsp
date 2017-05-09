@@ -8,25 +8,24 @@
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
 #navbar{ 
- 	width:1000px; 
- 	margin:auto;
+ 	width:480px; 
  	margin-top:50px;
- 	margin-bottom:50px; 
+ 	margin-bottom:10px; 
 } 
 #outter {
-	width: 1000px;
-	margin: auto;
+ 	width: 1000px; 
 }
 
 #display {
-	width: 1000px;
+ 	width: 1000px; 
 	height: 800px;
 	margin: auto;
+	margin-top:50px;
 }
 
 #display li {
-	width: 300px;
-	height: 400px;
+	width: 210px;
+	height: 300px;
 	float: none;
 	display: inline-block;
 	margin-left: 28px;
@@ -36,7 +35,7 @@
 }
 
 .productImage {
-	width: 250px;
+	width: 200px;
 	margin: auto;
 }
 
@@ -73,12 +72,6 @@
 			</div>
 		</div>
 		</nav>
-	</div>
-	<div id="outter">
-		<div id="display"></div>
-		<div id="imgDiv" style="text-align: center;">
-			<img id="img1" src="../img/ajax-loader.gif" />
-		</div>
 	</div>
 </body>
 </html>

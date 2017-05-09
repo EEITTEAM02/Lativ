@@ -16,4 +16,8 @@ public class CategoryService {
 	public List<CategoryVO> getClassTop(String class_top) {
 		return dao.getClassTop(class_top);
 	}
+	
+	public List<CategoryVO> getClassBottom(String class_top, String class_middle, String class_bottom) {
+		return dao.getClassBottom(class_top, class_middle, class_bottom);
+	}
 }

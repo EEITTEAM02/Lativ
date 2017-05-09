@@ -40,12 +40,24 @@ public class CategorySearchServlet extends HttpServlet {
 		
 		List<CategoryVO> listCategory = null;
 		String classTop = request.getParameter("classTop");
-		CategoryService dao = new CategoryService();
-		listCategory = dao.getClassTop(classTop);
+		String classMiddle = request.getParameter("classMiddle");
+		String classBottom = request.getParameter("classBottom");
 		
+		CategoryService dao = new CategoryService();
+		
+		if(classMiddle!=null&&classBottom!=null){
+			listCategory = dao.getClassBottom(classTop, classMiddle, classBottom);
+		}else{
+			listCategory = dao.getClassTop(classTop);
+		}
 		List<ProductionVO> listProduction = null;
 		SearcherService searchDao = new SearcherService();
-		listProduction = searchDao.getClassTopProduction(listCategory);
+		
+		if(classMiddle!=null&&classBottom!=null){
+			listProduction = searchDao.getClassBottomProduction(listCategory);
+		}else{
+			listProduction = searchDao.getClassTopProduction(listCategory);
+		}
 		
 		List jQueryList = new LinkedList();
 		for(ProductionVO VO:listProduction){

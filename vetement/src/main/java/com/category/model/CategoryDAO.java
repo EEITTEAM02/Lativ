@@ -40,6 +40,25 @@ public class CategoryDAO implements CategoryDAO_interface {
 		}
 		return list;
 	}
+	
+	public List<CategoryVO> getClassBottom(String class_top, String class_middle, String class_bottom) {
+		List<CategoryVO> list = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			Query query = session.createQuery("from CategoryVO where class_top=:class_top and class_middle=:class_middle and class_bottom=:class_bottom");
+			query.setParameter("class_top", class_top);
+			query.setParameter("class_middle", class_middle);
+			query.setParameter("class_bottom", class_bottom);
+			list = query.list();
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return list;
+	}
+	
 
 	public static void main(String[] args) {
 		CategoryDAO_interface dao = new CategoryDAO();
@@ -49,10 +68,10 @@ public class CategoryDAO implements CategoryDAO_interface {
 		System.out.print(categoryVO.getClass_middle()+",");
 		System.out.println(categoryVO.getClass_bottom());
 		
-		List<CategoryVO> list = dao.getClassTop("男");
+//		List<CategoryVO> list = dao.getClassTop("男");
+		List<CategoryVO> list = dao.getClassBottom("女","上身類","家居服");
 		for(CategoryVO VO : list){
 			System.out.print(VO.getCategoryId());
 		}
 	}
-
 }

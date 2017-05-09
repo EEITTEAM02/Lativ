@@ -8,6 +8,13 @@
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
+	<div id="outter">
+		<img src="${pageContext.request.contextPath}/img/kids.jpg"/>
+		<div id="display"></div>
+		<div id="imgDiv" style="text-align: center;">
+			<img id="img1" src="../img/ajax-loader.gif" />
+		</div>
+	</div>
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
 	<script>
 		$(function() {
