@@ -8,6 +8,7 @@
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
+	
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
 	<script>
 		$(function() {
