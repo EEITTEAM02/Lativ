@@ -297,6 +297,23 @@
 		<url-pattern>/GetDiscountProduct.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>NewsServlet</servlet-name>
+		<servlet-class>com.news.controller.NewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewsServlet</servlet-name>
+		<url-pattern>/news/news.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Customer_ServiceServlet</servlet-name>
+		<servlet-class>com.customer_service.controller.Customer_ServiceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Customer_ServiceServlet</servlet-name>
+		<url-pattern>/customer_service/customer_service.do</url-pattern>
+	</servlet-mapping>
 	
 	<session-config>
 	    <session-timeout>30</session-timeout>

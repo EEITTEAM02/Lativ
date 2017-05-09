@@ -112,7 +112,7 @@ public class FavoriteDAO implements Favorite_interface{
 
 	public static void main(String[] args){
 		
-		FavoriteDAO dao = new FavoriteDAO();
+//		FavoriteDAO dao = new FavoriteDAO();
 		
 //		FavoriteVO vo = new FavoriteVO();
 //		vo.setCustomerId(1);
