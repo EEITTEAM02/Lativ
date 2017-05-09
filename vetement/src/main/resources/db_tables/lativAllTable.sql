@@ -1,0 +1,1290 @@
+drop table news
+drop table comment
+drop table customer_service
+drop table favorite
+drop table orderItem
+drop table orders
+drop table production
+drop table category
+drop table discount 
+drop table customer
+
+
+create table customer(
+	customerId int identity(1,1) not null,
+	name nvarchar(50),
+	gender nvarchar(10),
+	mail nvarchar(60),
+	pswd nvarchar(30),
+	addr_customer nvarchar(80),
+	tel nvarchar(20),
+	constraint customer_PK primary key(customerId)
+)
+
+create table discount(
+	packageNo int  identity,
+	discount1 float ,    --percentage
+	discount2 float ,    --fixed price
+	quantity_condition int,
+	descript nvarchar(20),
+	constraint discount_PK primary key(packageNo),
+)
+
+create table category(
+	categoryId int identity(1,1),
+	class_top nvarchar(30),
+	class_middle nvarchar(30),
+	class_bottom nvarchar(30),
+	constraint category_PK primary key(categoryId)
+)
+
+create table production(
+	productId int IDENTITY (1,1) not null ,
+	productName nvarchar(50) ,
+	size nvarchar(15) ,
+	color nvarchar(20) ,
+	price float ,
+	quantity_in_stock int ,
+	for_sale bit ,
+	describe nvarchar(40),
+	packageNo int default 1 not null,
+	categoryId int not null,
+	icon  varbinary(max),
+	picture_main varbinary(max),
+	picture_color varbinary(max),
+	picture_model1 varbinary(max),
+	picture_model2 varbinary(max),
+	picture_model3 varbinary(max),
+	picture_model4 varbinary(max),
+	constraint production_PK primary key(productId),
+	constraint production_FK1 foreign key(packageNo) references discount(packageNo),
+	constraint production_FK2 foreign key(categoryId) references category(categoryId)
+)
+
+create table orders(
+	orderNo int IDENTITY (1,1) not null ,
+    dealDate date ,
+    customerId int not null,
+    addr_send nvarchar(80) ,
+    tel_send nvarchar(20),
+    name_send nvarchar(50),
+    price_total float ,
+    status1 bit not null, 
+	constraint orders_PK primary key(orderNo),
+	constraint orders_FK2 foreign key(customerId) references customer(customerId)
+)
+
+create table orderItem(
+	seqNo int identity(1,1)not null,
+	price_origin float,
+	price_discount float,
+	quantity_order int,
+	price_item float,
+	orderNo int not null,
+	productId int not null,
+	constraint orderItem_PK primary key(seqNo),
+	constraint orderItem_FK1 foreign key(orderNo) references orders(orderNo),
+	constraint orderItem_FK2 foreign key(productId) references production(productId)
+)
+
+
+create table favorite(
+	customerId int not null, 
+	productId int not null,
+	constraint favorite_FK1 foreign key(customerId) references customer(customerId),
+	constraint favorite_FK2 foreign key(productId) references production(productId)
+)
+
+create table customer_service(
+	title_service nvarchar(100),
+	content_service nvarchar(2000),
+	receive_date date,
+	customerId int,
+	constraint customer_service_FK1 foreign key(customerId) references customer(customerId),
+)
+
+create table comment(
+	commentNo int identity(1,1),
+	comment nvarchar(200),
+	pubtime datetime,
+	customerId int not null, 
+	productId int not null,
+	orderNo int not null,
+	constraint comment_PK primary key(commentNo),
+	constraint comment_FK1 foreign key(customerId) references customer(customerId),
+	constraint comment_FK2 foreign key(productId) references production(productId),
+	constraint comment_FK3 foreign key(orderNo) references orders(orderNo)
+)
+
+create table news(
+	newsno int identity(1,1),
+	title nvarchar(40),
+	content nvarchar(2000),
+	pubdate date,
+	constraint news_PK1 primary key(newsno)
+)
+
+insert into discount values (0.9,null,5,null);
+insert into discount values (null,100.0,6,null);
+insert into discount values (0.6,null,7,null);
+
+insert into category values('男','上身類','短袖背心');
+insert into category values('男','外套類','休閒外套');
+insert into category values('男','褲裝','牛仔褲');
+insert into category values('男','家居服配件','家居服');
+insert into category values('男','針織衫','針織衫毛衣');
+insert into category values('女','上身類','短袖印花T恤');
+insert into category values('女','襯衫類','休閒襯衫');
+insert into category values('女','針織衫','美麗諾羊毛');
+insert into category values('女','外套類','羽絨系列');
+insert into category values('女','褲裝裙裝','裙裝洋裝');
+insert into category values('兒童','上身類','長袖');
+insert into category values('兒童','襯衫類','法蘭絨襯衫');
+insert into category values('兒童','褲裝裙裝','短褲七分褲');
+insert into category values('兒童','內著類','HEATUP_保暖衣');
+insert into category values('兒童','外套類','保暖FLEECE系列');
+insert into category values('兒童','上身類','短袖');
+insert into category values('兒童','襯衫類','休閒襯衫');
+insert into category values('兒童','上身類','家居服');
+insert into category values('兒童','外套類','休閒外套');
+insert into category values('兒童','外套類','風衣');
+insert into category values('兒童','褲裝裙裝','束口褲');
+insert into category values('兒童','褲裝裙裝','洋裝');
+insert into category values('兒童','內著類','襪子');
+insert into category values('兒童','內著類','內搭褲');
+insert into category values('兒童','上身類','POLO衫');
+insert into category values('男','上身類','POLO衫');
+insert into category values('男','上身類','家居服');
+insert into category values('男','外套類','西裝外套');
+insert into category values('男','外套類','風衣');
+insert into category values('男','褲裝','束口褲');
+insert into category values('男','褲裝','長褲');
+insert into category values('男','襯衫類','休閒襯衫');
+insert into category values('男','襯衫類','商務襯衫');
+insert into category values('男','襯衫類','法蘭絨襯衫');
+insert into category values('男','內著類','襪子');
+insert into category values('女','上身類','POLO衫');
+insert into category values('女','上身類','家居服');
+insert into category values('女','襯衫類','商務襯衫');
+insert into category values('女','襯衫類','法蘭絨襯衫');
+insert into category values('女','外套類','休閒外套');
+insert into category values('女','外套類','風衣');
+insert into category values('女','褲裝裙裝','牛仔褲');
+insert into category values('女','褲裝裙裝','束口褲');
+insert into category values('女','內著類','清涼系列');
+insert into category values('女','內著類','襪子');
+
+
+insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select 'Pima 棉V領T恤','L','紅','290','55',1,'深淺色請分開洗滌',2,1,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortRed.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/red.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1MTSR.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2MTSR.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3MTSR.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4MTSR.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Pima 棉V領T恤','M','紅','290','44',1,2,1,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortRed.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Pima 棉V領T恤','S','紅','290','33',1,2,1,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortRed.jpg',
+   SINGLE_BLOB) AS img)
+   
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Pima 棉V領T恤','XL','紅','290','17',1,2,1,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortRed.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select 'Pima 棉V領T恤','L','藍','290','7',1,2,1,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Pima 棉V領T恤','M','藍','290','2',1,2,1,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortBlue.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Pima 棉V領T恤','S','藍','290','9',1,2,1,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+
+    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select  'Pima 棉V領T恤- 白','L','白','290','8',1,2,1 ,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortWhite.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/white.jpg',
+   SINGLE_BLOB) AS img) 
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Pima 棉V領T恤','M','白','290','49',1,2,1,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortWhite.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Pima 棉V領T恤','S','白','290','33',1,2,1,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortWhite.jpg',
+   SINGLE_BLOB) AS img)
+
+   --production in cat2
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select 'PIMA 棉抗UV連帽外套','L','藍','490','63',1,'請放入細網洗衣袋中弱速水洗，以保持商品型態',1,2,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCoatBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1MCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2MCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3MCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4MCoat.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'PIMA 棉抗UV連帽外套','M','藍','490','44',1,1,2,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCoatBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'PIMA 棉抗UV連帽外套','S','藍','490','33',1,1,2,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCoatBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select 'PIMA 棉抗UV連帽外套','L','紅','490','7',1,1,2,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCoatRed.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/red.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'PIMA 棉抗UV連帽外套','M','紅','490','2',1,1,2,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCoatRed.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'PIMA 棉抗UV連帽外套','S','紅','490','9',1,1,2,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCoatRed.jpg',
+   SINGLE_BLOB) AS img)
+
+
+    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select  'PIMA 棉抗UV連帽外套','L','黃','490','8',1,1,2 ,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCoatYellow.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/yellow.jpg',
+   SINGLE_BLOB) AS img) 
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'PIMA 棉抗UV連帽外套','M','黃','490','49',1,1,2,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCoatYellow.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'PIMA 棉抗UV連帽外套','S','黃','490','33',1,1,2,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCoatYellow.jpg',
+   SINGLE_BLOB) AS img)
+
+    --production in cat3
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '彈性 窄管多色牛仔褲','L','藍','690','121',1,'請勿使用漂白劑、螢光增白劑，以免破壞布料',1,3,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MJeansBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1MJeans.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2MJeans.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3MJeans.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4MJeans.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '彈性窄管多色牛仔褲','M','藍','690','44',1,1,3,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MJeansBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '彈性窄管多色牛仔褲','S','藍','690','33',1,1,3,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MJeansBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '彈性窄管多色牛仔褲','L','卡其','690','7',1,1,3,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MJeansKhaki.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/khaki.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '彈性窄管多色牛仔褲','M','卡其','690','2',1,1,3,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MJeansKhaki.jpg',
+   SINGLE_BLOB) AS img)
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '彈性窄管多色牛仔褲','S','卡其','690','9',1,1,3,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MJeansKhaki.jpg',
+   SINGLE_BLOB) AS img)
+
+
+    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select  '彈性窄管多色牛仔褲','L','白','690','8',1,1,3 ,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MJeansWhite.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/white.jpg',
+   SINGLE_BLOB) AS img) 
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '彈性窄管多色牛仔褲','M','白','690','49',1,1,3,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MJeansWhite.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '彈性窄管多色牛仔褲','S','白','690','33',1,1,3,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MJeansWhite.jpg',
+   SINGLE_BLOB) AS img)
+
+      --production in cat4
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select 'Fleece條紋套裝組','L','藍','390','78',1,'不可濕放，以免衣物染色；不可烘乾，請弱速輕脫水，勿大力搓揉',1,4,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1MFleeceStripes.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2MFleeceStripes.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3MFleeceStripes.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4MFleeceStripes.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece條紋套裝組','M','藍','390','14',1,1,4,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece條紋套裝組','S','藍','390','5',1,1,4,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select 'Fleece條紋套裝組','L','紅','390','7',1,1,4,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesRed.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/red.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece條紋套裝組','M','紅','390','2',1,1,4,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesRed.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece條紋套裝組','S','紅','390','9',1,1,4,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesRed.jpg',
+   SINGLE_BLOB) AS img)
+
+
+    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select  'Fleece條紋套裝組','L','白','390','8',1,1,4 ,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesWhite.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/white.jpg',
+   SINGLE_BLOB) AS img) 
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece條紋套裝組','M','白','390','3',1,1,4,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesWhite.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece條紋套裝組','S','白','390','33',1,1,4,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesWhite.jpg',
+   SINGLE_BLOB) AS img)
+
+      --production in cat5
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '棉質喀什米爾針織外套','L','藍','690','15',1,'不可濕放，以免衣物染色；不可烘乾，請弱速輕脫水，勿大力搓揉',1,5,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1MCashmere.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2MCashmere.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3MCashmere.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4MCashmere.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '棉質喀什米爾針織外套','M','藍','690','14',1,1,5,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '棉質喀什米爾針織外套','S','藍','690','5',1,1,5,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '棉質喀什米爾針織外套','L','黑','690','7',1,1,5,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlack.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/black.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '棉質喀什米爾針織外套','M','黑','690','7',1,1,5,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlack.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '棉質喀什米爾針織外套','S','黑','690','4',1,1,5,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlack.jpg',
+   SINGLE_BLOB) AS img)
+
+
+    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select  '棉質喀什米爾針織外套','L','灰','690','8',1,1,5 ,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCashmereGrey.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/grey.jpg',
+   SINGLE_BLOB) AS img) 
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '棉質喀什米爾針織外套','M','灰','690','3',1,1,5,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCashmereGrey.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '棉質喀什米爾針織外套','S','灰','690','1',1,1,5,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/MCashmereGrey.jpg',
+   SINGLE_BLOB) AS img)
+   
+      --production in cat6
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '迪士尼系列修身T-32','L','白','290','6',1,'印/繡花商品請反面放入細網洗衣袋中清洗，以保持商品型態',3,6,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FMermaidWhite.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/white.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1FMermaid.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2FMermaid.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3FMermaid.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4FMermaid.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '迪士尼系列修身T-32','M','白','290','54',1,3,6,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FMermaidWhite.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '迪士尼系列修身T-32','S','白','290','36',1,3,6,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FMermaidWhite.jpg',
+   SINGLE_BLOB) AS img)
+   
+   
+      --production in cat7
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '牛津綁帶洋裝','L','藍','590','9',1,'不可濕放，以免衣物染色；不可烘乾，請弱速輕脫水，勿大力搓揉',1,7,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDressBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1FDress.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2FDress.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3FDress.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4FDress.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '牛津綁帶洋裝','M','藍','590','13',1,1,7,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDressBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '牛津綁帶洋裝','S','藍','590','8',1,1,7,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDressBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '牛津綁帶洋裝','L','灰','590','2',1,1,7,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDressGrey.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/grey.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '牛津綁帶洋裝','M','灰','590','4',1,1,7,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDressGrey.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '牛津綁帶洋裝','S','灰','590','36',1,1,7,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDressGrey.jpg',
+   SINGLE_BLOB) AS img)
+   
+        --production in cat8
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '美麗諾羊毛V領針織外套','L','灰','790','54',1,'不可濕放，以免衣物染色；不可烘乾，請弱速輕脫水，勿大力搓揉',1,8,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FVCoatGrey.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/grey.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1FVCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2FVCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3FVCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4FVCoat.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '美麗諾羊毛V領針織外套','M','灰','790','14',1,1,8,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FVCoatGrey.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '美麗諾羊毛V領針織外套','S','灰','790','5',1,1,8,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FVCoatGrey.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '美麗諾羊毛V領針織外套','L','白','790','17',1,1,8,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FVCoatWhite.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/white.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '美麗諾羊毛V領針織外套','M','白','790','6',1,1,8,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FVCoatWhite.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '美麗諾羊毛V領針織外套','S','白','690','4',1,1,8,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FVCoatWhite.jpg',
+   SINGLE_BLOB) AS img)
+
+
+    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select  '美麗諾羊毛V領針織外套','L','藍','790','8',1,1,8 ,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FVCoatBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img) 
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '美麗諾羊毛V領針織外套','M','藍','790','3',1,1,8,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FVCoatBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '美麗諾羊毛V領針織外套','S','藍','790','1',1,1,8,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FVCoatBlue.jpg',
+   SINGLE_BLOB) AS img)
+   
+        --production in cat9
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '極輕羽絨立領外套','L','藍','1290','54',1,'本商品因採用輕柔面料，可能會因靜電或摩擦引起鑽絨，敬請諒解',1,9,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1FDownCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2FDownCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3FDownCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4FDownCoat.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '極輕羽絨立領外套','M','藍','1290','14',1,1,9,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '極輕羽絨立領外套','S','藍','1290','5',1,1,9,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '極輕羽絨立領外套','L','白','1290','17',1,1,9,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatWhite.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/white.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '極輕羽絨立領外套','M','白','1290','6',1,1,9,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatWhite.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '極輕羽絨立領外套','S','白','1290','4',1,1,9,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatWhite.jpg',
+   SINGLE_BLOB) AS img)
+
+
+    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select  '極輕羽絨立領外套','L','紅','1290','8',1,1,9 ,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatRed.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/red.jpg',
+   SINGLE_BLOB) AS img) 
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '極輕羽絨立領外套','M','紅','1290','3',1,1,9,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatRed.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '極輕羽絨立領外套','S','紅','1290','1',1,1,9,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatRed.jpg',
+   SINGLE_BLOB) AS img)
+   
+        --production in cat10
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '輕便窄裙','L','藍','390','31',1,'本商品因採用輕柔面料，可能會因靜電或摩擦引起鑽絨，敬請諒解',2,10,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1FSkirt.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2FSkirt.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3FSkirt.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4FSkirt.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '輕便窄裙','M','藍','390','14',1,2,10,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '輕便窄裙','S','藍','390','5',1,2,10,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '輕便窄裙','L','黑','390','17',1,2,10,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlack.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/black.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '輕便窄裙','M','黑','390','6',1,2,10,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlack.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '輕便窄裙','S','黑','390','4',1,2,10,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlack.jpg',
+   SINGLE_BLOB) AS img)
+
+
+    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select  '輕便窄裙','L','灰','390','8',1,2,10 ,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FSkirtGrey.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/grey.jpg',
+   SINGLE_BLOB) AS img) 
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '輕便窄裙','M','灰','390','3',1,2,10,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FSkirtGrey.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '輕便窄裙','S','灰','390','1',1,2,10,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/FSkirtGrey.jpg',
+   SINGLE_BLOB) AS img)
+   
+        --production in cat11
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '條紋圓領衫-童','L','紅','290','25',1,'本商品因採用輕柔面料，可能會因靜電或摩擦引起鑽絨，敬請諒解',1,11,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTshirtRed.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/red.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1KShirt.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2KShirt.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3KShirt.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4KShirt.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '條紋圓領衫-童','M','紅','290','14',1,1,11,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTshirtRed.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '條紋圓領衫-童','S','紅','290','5',1,1,11,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTshirtRed.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '條紋圓領衫-童','L','灰','290','15',1,1,11,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTshirtGrey.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/grey.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '條紋圓領衫-童','M','灰','290','6',1,1,11,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTshirtGrey.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '條紋圓領衫-童','S','灰','290','4',1,1,11,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTshirtGrey.jpg',
+   SINGLE_BLOB) AS img)
+
+
+    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select  '條紋圓領衫-童','L','藍','290','8',1,1,11 ,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTshirtBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img) 
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '條紋圓領衫-童','M','藍','290','3',1,1,11,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTshirtBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '條紋圓領衫-童','S','藍','290','1',1,1,11,(
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTshirtBlue.jpg',
+   SINGLE_BLOB) AS img)
+   
+        --production in cat12
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '法蘭絨格紋襯衫-童','L','紅','390','25',1,'如需整燙，請以低溫墊布熨燙',1,12,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtRed.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/red.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1KCheckered.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2KCheckered.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3KCheckered.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4KCheckered.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '法蘭絨格紋襯衫-童','M','紅','390','14',1,1,12,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtRed.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '法蘭絨格紋襯衫-童','S','紅','390','5',1,1,12,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtRed.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '法蘭絨格紋襯衫-童','L','灰','390','15',1,1,12,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtGrey.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/grey.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '法蘭絨格紋襯衫-童','M','灰','390','6',1,1,12,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtGrey.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '法蘭絨格紋襯衫-童','S','灰','390','4',1,1,12,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtGrey.jpg',
+   SINGLE_BLOB) AS img)
+   
+   
+        --production in cat13
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '荷葉邊鬆緊短褲-童','L','紅','190','25',1,'如需整燙，請以低溫墊布熨燙',1,13,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KShortsRed.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/red.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1KShorts.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2KShorts.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3KShorts.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4KShorts.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '荷葉邊鬆緊短褲-童','M','紅','190','14',1,1,13,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KShortsRed.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '荷葉邊鬆緊短褲-童','S','紅','190','5',1,1,13,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KShortsRed.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '荷葉邊鬆緊短褲-童','L','灰','190','15',1,1,13,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KShortsGrey.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/grey.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '荷葉邊鬆緊短褲-童','M','灰','190','6',1,1,13,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KShortsGrey.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '荷葉邊鬆緊短褲-童','S','灰','190','4',1,1,13,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KShortsGrey.jpg',
+   SINGLE_BLOB) AS img)
+
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '荷葉邊鬆緊短褲-童','L','藍','190','15',1,1,13,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KShortsBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '荷葉邊鬆緊短褲-童','M','藍','190','6',1,1,13,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KShortsBlue.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '荷葉邊鬆緊短褲-童','S','藍','190','4',1,1,13,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KShortsBlue.jpg',
+   SINGLE_BLOB) AS img)
+   
+      --production in cat14
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select '保暖純色立領衫-童','L','紅','290','25',1,'如需整燙，請以低溫墊布熨燙',1,14,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckRed.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/red.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1KTurtleneck.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2KTurtleneck.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3KTurtleneck.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4KTurtleneck.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '保暖純色立領衫-童','M','紅','290','14',1,1,14,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckRed.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '保暖純色立領衫-童','S','紅','290','5',1,1,14,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckRed.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '保暖純色立領衫-童','L','黑','290','15',1,1,14,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlack.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/black.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '保暖純色立領衫-童','M','黑','290','6',1,1,14,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlack.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '保暖純色立領衫-童','S','黑','290','4',1,1,14,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlack.jpg',
+   SINGLE_BLOB) AS img)
+
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select '保暖純色立領衫-童','L','藍','290','15',1,1,14,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '保暖純色立領衫-童','M','藍','290','6',1,1,14,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlue.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select '保暖純色立領衫-童','S','藍','290','4',1,1,14,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+        --production in cat15
+  insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
+   select 'Fleece長絨大衣-童','L','卡其','690','25',1,'洗滌時，水溫請低於30℃；請使用中性洗劑；請勿長時間浸泡',1,15,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatKhaki.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/khaki.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M1KFleeceCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M2KFleeceCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M3KFleeceCoat.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/M4KFleeceCoat.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece長絨大衣-童','M','卡其','690','14',1,1,15,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatKhaki.jpg',
+   SINGLE_BLOB) AS img)
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece長絨大衣-童','S','卡其','690','5',1,1,15,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatKhaki.jpg',
+   SINGLE_BLOB) AS img)
+
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
+   select 'Fleece長絨大衣-童','L','藍','690','15',1,1,15,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatBlue.jpg',
+   SINGLE_BLOB) AS img),(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/blue.jpg',
+   SINGLE_BLOB) AS img) 
+
+
+   
+   insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece長絨大衣-童','M','藍','690','6',1,1,15,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatBlue.jpg',
+   SINGLE_BLOB) AS img)  
+
+
+     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
+   select 'Fleece長絨大衣-童','S','藍','690','4',1,1,15,(  
+SELECT * FROM OPENROWSET(
+   BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatBlue.jpg',
+   SINGLE_BLOB) AS img)
+
+insert into customer values('陳小花','女','huahua@gmail.com','lativ123','106台北市大安區復興南路一段386號','0910123567');
+insert into customer values('黃琪琪','女','chichi123@gmail.com','lalala','231新北市新店區民權路108號','0912687987');
+insert into customer values('李阿男','男','south88@gmail.com','cloth12345','新北市板橋區府中路39號','0910888999');
+insert into customer values('許娜娜','女','na_na0505@gmail.com','lativ123','台北市大安區信義路3段100號','0918555666');
+insert into customer values('張格魯','男','kevin8081@gmail.com','sa123456','新北市蘆洲區三民路116號','0988588668');
+
+insert into orders values ('2107-04-03',1,'somewhere','123456','someone',600.1,1)
+insert into orders values ('2107-04-03',2,'somewhere','139754','someoneElse',500.1,1)
+insert into orders values (null,1,null,null,null,null,0)
+
+insert into orderItem values(null,null,3,null,3,1)   
+insert into orderItem values(null,null,2,null,3,2)   
