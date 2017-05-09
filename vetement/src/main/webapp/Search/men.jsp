@@ -11,22 +11,10 @@
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
 	<script>
 		$(function() {
+			getClassTopData("男");
+			
 			$('input[name="searcher"]').keydown(function() {
 				search(event)
-			})
-
-			$('.classTop').click(function() {
-				var value = $(this).text();
-
-				if (value == "WOMEN") {
-					value = "女";
-				} else if (value == "MEN") {
-					value = "男";
-				} else if (value == "KIDS") {
-					value = "兒童";
-				}
-				$('#display').empty();
-				getClassTopData(value);
 			})
 
 			function search(event) {
@@ -38,7 +26,7 @@
 				}
 			}
 
-			function getData(keyWord, pageNumber) {
+			function getData(keyWord) {
 				$.getJSON("Search.do", {
 					"keyWord" : keyWord
 				}, function(data) {

@@ -11,7 +11,8 @@
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
 	<script>
 		$(function() {
-			getClassTopData("women");
+			getClassTopData("女");
+			
 			$('input[name="searcher"]').keydown(function() {
 				search(event)
 			})
@@ -25,7 +26,7 @@
 				}
 			}
 
-			function getData(keyWord, pageNumber) {
+			function getData(keyWord) {
 				$.getJSON("Search.do", {
 					"keyWord" : keyWord
 				}, function(data) {
