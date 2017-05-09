@@ -1,4 +1,4 @@
-drop table news
+ï»¿drop table news
 drop table comment
 drop table customer_service
 drop table favorite
@@ -128,55 +128,55 @@ insert into discount values (0.9,null,5,null);
 insert into discount values (null,100.0,6,null);
 insert into discount values (0.6,null,7,null);
 
-insert into category values('¨k','¤W¨­Ãş','µu³S­I¤ß');
-insert into category values('¨k','¥~®MÃş','¥ğ¶¢¥~®M');
-insert into category values('¨k','¿Ç¸Ë','¤û¥J¿Ç');
-insert into category values('¨k','®a©~ªA°t¥ó','®a©~ªA');
-insert into category values('¨k','°wÂ´­m','°wÂ´­m¤ò¦ç');
-insert into category values('¤k','¤W¨­Ãş','µu³S¦LªáT«ò');
-insert into category values('¤k','Å¨­mÃş','¥ğ¶¢Å¨­m');
-insert into category values('¤k','°wÂ´­m','¬üÄR¿Õ¦Ï¤ò');
-insert into category values('¤k','¥~®MÃş','¦Ğµ³¨t¦C');
-insert into category values('¤k','¿Ç¸Ë¸È¸Ë','¸È¸Ë¬v¸Ë');
-insert into category values('¨àµ£','¤W¨­Ãş','ªø³S');
-insert into category values('¨àµ£','Å¨­mÃş','ªkÄõµ³Å¨­m');
-insert into category values('¨àµ£','¿Ç¸Ë¸È¸Ë','µu¿Ç¤C¤À¿Ç');
-insert into category values('¨àµ£','¤ºµÛÃş','HEATUP_«O·x¦ç');
-insert into category values('¨àµ£','¥~®MÃş','«O·xFLEECE¨t¦C');
-insert into category values('¨àµ£','¤W¨­Ãş','µu³S');
-insert into category values('¨àµ£','Å¨­mÃş','¥ğ¶¢Å¨­m');
-insert into category values('¨àµ£','¤W¨­Ãş','®a©~ªA');
-insert into category values('¨àµ£','¥~®MÃş','¥ğ¶¢¥~®M');
-insert into category values('¨àµ£','¥~®MÃş','­·¦ç');
-insert into category values('¨àµ£','¿Ç¸Ë¸È¸Ë','§ô¤f¿Ç');
-insert into category values('¨àµ£','¿Ç¸Ë¸È¸Ë','¬v¸Ë');
-insert into category values('¨àµ£','¤ºµÛÃş','Äû¤l');
-insert into category values('¨àµ£','¤ºµÛÃş','¤º·f¿Ç');
-insert into category values('¨àµ£','¤W¨­Ãş','POLO­m');
-insert into category values('¨k','¤W¨­Ãş','POLO­m');
-insert into category values('¨k','¤W¨­Ãş','®a©~ªA');
-insert into category values('¨k','¥~®MÃş','¦è¸Ë¥~®M');
-insert into category values('¨k','¥~®MÃş','­·¦ç');
-insert into category values('¨k','¿Ç¸Ë','§ô¤f¿Ç');
-insert into category values('¨k','¿Ç¸Ë','ªø¿Ç');
-insert into category values('¨k','Å¨­mÃş','¥ğ¶¢Å¨­m');
-insert into category values('¨k','Å¨­mÃş','°Ó°ÈÅ¨­m');
-insert into category values('¨k','Å¨­mÃş','ªkÄõµ³Å¨­m');
-insert into category values('¨k','¤ºµÛÃş','Äû¤l');
-insert into category values('¤k','¤W¨­Ãş','POLO­m');
-insert into category values('¤k','¤W¨­Ãş','®a©~ªA');
-insert into category values('¤k','Å¨­mÃş','°Ó°ÈÅ¨­m');
-insert into category values('¤k','Å¨­mÃş','ªkÄõµ³Å¨­m');
-insert into category values('¤k','¥~®MÃş','¥ğ¶¢¥~®M');
-insert into category values('¤k','¥~®MÃş','­·¦ç');
-insert into category values('¤k','¿Ç¸Ë¸È¸Ë','¤û¥J¿Ç');
-insert into category values('¤k','¿Ç¸Ë¸È¸Ë','§ô¤f¿Ç');
-insert into category values('¤k','¤ºµÛÃş','²M²D¨t¦C');
-insert into category values('¤k','¤ºµÛÃş','Äû¤l');
+insert into category values('ç”·','ä¸Šèº«é¡','çŸ­è¢–èƒŒå¿ƒ');
+insert into category values('ç”·','å¤–å¥—é¡','ä¼‘é–’å¤–å¥—');
+insert into category values('ç”·','è¤²è£','ç‰›ä»”è¤²');
+insert into category values('ç”·','å®¶å±…æœé…ä»¶','å®¶å±…æœ');
+insert into category values('ç”·','é‡ç¹”è¡«','é‡ç¹”è¡«æ¯›è¡£');
+insert into category values('å¥³','ä¸Šèº«é¡','çŸ­è¢–å°èŠ±Tæ¤');
+insert into category values('å¥³','è¥¯è¡«é¡','ä¼‘é–’è¥¯è¡«');
+insert into category values('å¥³','é‡ç¹”è¡«','ç¾éº—è«¾ç¾Šæ¯›');
+insert into category values('å¥³','å¤–å¥—é¡','ç¾½çµ¨ç³»åˆ—');
+insert into category values('å¥³','è¤²è£è£™è£','è£™è£æ´‹è£');
+insert into category values('å…’ç«¥','ä¸Šèº«é¡','é•·è¢–');
+insert into category values('å…’ç«¥','è¥¯è¡«é¡','æ³•è˜­çµ¨è¥¯è¡«');
+insert into category values('å…’ç«¥','è¤²è£è£™è£','çŸ­è¤²ä¸ƒåˆ†è¤²');
+insert into category values('å…’ç«¥','å…§è‘—é¡','HEATUP_ä¿æš–è¡£');
+insert into category values('å…’ç«¥','å¤–å¥—é¡','ä¿æš–FLEECEç³»åˆ—');
+insert into category values('å…’ç«¥','ä¸Šèº«é¡','çŸ­è¢–');
+insert into category values('å…’ç«¥','è¥¯è¡«é¡','ä¼‘é–’è¥¯è¡«');
+insert into category values('å…’ç«¥','ä¸Šèº«é¡','å®¶å±…æœ');
+insert into category values('å…’ç«¥','å¤–å¥—é¡','ä¼‘é–’å¤–å¥—');
+insert into category values('å…’ç«¥','å¤–å¥—é¡','é¢¨è¡£');
+insert into category values('å…’ç«¥','è¤²è£è£™è£','æŸå£è¤²');
+insert into category values('å…’ç«¥','è¤²è£è£™è£','æ´‹è£');
+insert into category values('å…’ç«¥','å…§è‘—é¡','è¥ªå­');
+insert into category values('å…’ç«¥','å…§è‘—é¡','å…§æ­è¤²');
+insert into category values('å…’ç«¥','ä¸Šèº«é¡','POLOè¡«');
+insert into category values('ç”·','ä¸Šèº«é¡','POLOè¡«');
+insert into category values('ç”·','ä¸Šèº«é¡','å®¶å±…æœ');
+insert into category values('ç”·','å¤–å¥—é¡','è¥¿è£å¤–å¥—');
+insert into category values('ç”·','å¤–å¥—é¡','é¢¨è¡£');
+insert into category values('ç”·','è¤²è£','æŸå£è¤²');
+insert into category values('ç”·','è¤²è£','é•·è¤²');
+insert into category values('ç”·','è¥¯è¡«é¡','ä¼‘é–’è¥¯è¡«');
+insert into category values('ç”·','è¥¯è¡«é¡','å•†å‹™è¥¯è¡«');
+insert into category values('ç”·','è¥¯è¡«é¡','æ³•è˜­çµ¨è¥¯è¡«');
+insert into category values('ç”·','å…§è‘—é¡','è¥ªå­');
+insert into category values('å¥³','ä¸Šèº«é¡','POLOè¡«');
+insert into category values('å¥³','ä¸Šèº«é¡','å®¶å±…æœ');
+insert into category values('å¥³','è¥¯è¡«é¡','å•†å‹™è¥¯è¡«');
+insert into category values('å¥³','è¥¯è¡«é¡','æ³•è˜­çµ¨è¥¯è¡«');
+insert into category values('å¥³','å¤–å¥—é¡','ä¼‘é–’å¤–å¥—');
+insert into category values('å¥³','å¤–å¥—é¡','é¢¨è¡£');
+insert into category values('å¥³','è¤²è£è£™è£','ç‰›ä»”è¤²');
+insert into category values('å¥³','è¤²è£è£™è£','æŸå£è¤²');
+insert into category values('å¥³','å…§è‘—é¡','æ¸…æ¶¼ç³»åˆ—');
+insert into category values('å¥³','å…§è‘—é¡','è¥ªå­');
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select 'Pima ´ÖV»âT«ò','L','¬õ','290','55',1,'²`²L¦â½Ğ¤À¶}¬~º°',2,1,(  
+   select 'Pima æ£‰Vé ˜Tæ¤','L','ç´…','290','55',1,'æ·±æ·ºè‰²è«‹åˆ†é–‹æ´—æ»Œ',2,1,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortRed.jpg',
    SINGLE_BLOB) AS img),(  
@@ -197,25 +197,25 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Pima ´ÖV»âT«ò','M','¬õ','290','44',1,2,1,(  
+   select 'Pima æ£‰Vé ˜Tæ¤','M','ç´…','290','44',1,2,1,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortRed.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Pima ´ÖV»âT«ò','S','¬õ','290','33',1,2,1,(  
+   select 'Pima æ£‰Vé ˜Tæ¤','S','ç´…','290','33',1,2,1,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortRed.jpg',
    SINGLE_BLOB) AS img)
    
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Pima ´ÖV»âT«ò','XL','¬õ','290','17',1,2,1,(  
+   select 'Pima æ£‰Vé ˜Tæ¤','XL','ç´…','290','17',1,2,1,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortRed.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select 'Pima ´ÖV»âT«ò','L','ÂÅ','290','7',1,2,1,(  
+   select 'Pima æ£‰Vé ˜Tæ¤','L','è—','290','7',1,2,1,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -226,21 +226,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Pima ´ÖV»âT«ò','M','ÂÅ','290','2',1,2,1,(  
+   select 'Pima æ£‰Vé ˜Tæ¤','M','è—','290','2',1,2,1,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortBlue.jpg',
    SINGLE_BLOB) AS img) 
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Pima ´ÖV»âT«ò','S','ÂÅ','290','9',1,2,1,(  
+   select 'Pima æ£‰Vé ˜Tæ¤','S','è—','290','9',1,2,1,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortBlue.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  'Pima ´ÖV»âT«ò- ¥Õ','L','¥Õ','290','8',1,2,1 ,(
+   select  'Pima æ£‰Vé ˜Tæ¤- ç™½','L','ç™½','290','8',1,2,1 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortWhite.jpg',
    SINGLE_BLOB) AS img),(  
@@ -249,20 +249,20 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Pima ´ÖV»âT«ò','M','¥Õ','290','49',1,2,1,(
+   select 'Pima æ£‰Vé ˜Tæ¤','M','ç™½','290','49',1,2,1,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortWhite.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Pima ´ÖV»âT«ò','S','¥Õ','290','33',1,2,1,(
+   select 'Pima æ£‰Vé ˜Tæ¤','S','ç™½','290','33',1,2,1,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortWhite.jpg',
    SINGLE_BLOB) AS img)
 
    --production in cat2
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select 'PIMA ´Ö§ÜUV³s´U¥~®M','L','ÂÅ','490','63',1,'½Ğ©ñ¤J²Óºô¬~¦ç³U¤¤®z³t¤ô¬~¡A¥H«O«ù°Ó«~«¬ºA',1,2,(  
+   select 'PIMA æ£‰æŠ—UVé€£å¸½å¤–å¥—','L','è—','490','63',1,'è«‹æ”¾å…¥ç´°ç¶²æ´—è¡£è¢‹ä¸­å¼±é€Ÿæ°´æ´—ï¼Œä»¥ä¿æŒå•†å“å‹æ…‹',1,2,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCoatBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -283,19 +283,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'PIMA ´Ö§ÜUV³s´U¥~®M','M','ÂÅ','490','44',1,1,2,(  
+   select 'PIMA æ£‰æŠ—UVé€£å¸½å¤–å¥—','M','è—','490','44',1,1,2,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCoatBlue.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'PIMA ´Ö§ÜUV³s´U¥~®M','S','ÂÅ','490','33',1,1,2,(  
+   select 'PIMA æ£‰æŠ—UVé€£å¸½å¤–å¥—','S','è—','490','33',1,1,2,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCoatBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select 'PIMA ´Ö§ÜUV³s´U¥~®M','L','¬õ','490','7',1,1,2,(  
+   select 'PIMA æ£‰æŠ—UVé€£å¸½å¤–å¥—','L','ç´…','490','7',1,1,2,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCoatRed.jpg',
    SINGLE_BLOB) AS img),(  
@@ -306,21 +306,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'PIMA ´Ö§ÜUV³s´U¥~®M','M','¬õ','490','2',1,1,2,(  
+   select 'PIMA æ£‰æŠ—UVé€£å¸½å¤–å¥—','M','ç´…','490','2',1,1,2,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCoatRed.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'PIMA ´Ö§ÜUV³s´U¥~®M','S','¬õ','490','9',1,1,2,(  
+   select 'PIMA æ£‰æŠ—UVé€£å¸½å¤–å¥—','S','ç´…','490','9',1,1,2,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCoatRed.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  'PIMA ´Ö§ÜUV³s´U¥~®M','L','¶À','490','8',1,1,2 ,(
+   select  'PIMA æ£‰æŠ—UVé€£å¸½å¤–å¥—','L','é»ƒ','490','8',1,1,2 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCoatYellow.jpg',
    SINGLE_BLOB) AS img),(  
@@ -329,20 +329,20 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'PIMA ´Ö§ÜUV³s´U¥~®M','M','¶À','490','49',1,1,2,(
+   select 'PIMA æ£‰æŠ—UVé€£å¸½å¤–å¥—','M','é»ƒ','490','49',1,1,2,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCoatYellow.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'PIMA ´Ö§ÜUV³s´U¥~®M','S','¶À','490','33',1,1,2,(
+   select 'PIMA æ£‰æŠ—UVé€£å¸½å¤–å¥—','S','é»ƒ','490','33',1,1,2,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCoatYellow.jpg',
    SINGLE_BLOB) AS img)
 
     --production in cat3
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '¼u©Ê ¯¶ºŞ¦h¦â¤û¥J¿Ç','L','ÂÅ','690','121',1,'½Ğ¤Å¨Ï¥Îº}¥Õ¾¯¡B¿Ã¥ú¼W¥Õ¾¯¡A¥H§K¯}Ãa¥¬®Æ',1,3,(  
+   select 'å½ˆæ€§ çª„ç®¡å¤šè‰²ç‰›ä»”è¤²','L','è—','690','121',1,'è«‹å‹¿ä½¿ç”¨æ¼‚ç™½åŠ‘ã€è¢å…‰å¢ç™½åŠ‘ï¼Œä»¥å…ç ´å£å¸ƒæ–™',1,3,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MJeansBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -363,19 +363,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¼u©Ê¯¶ºŞ¦h¦â¤û¥J¿Ç','M','ÂÅ','690','44',1,1,3,(  
+   select 'å½ˆæ€§çª„ç®¡å¤šè‰²ç‰›ä»”è¤²','M','è—','690','44',1,1,3,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MJeansBlue.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¼u©Ê¯¶ºŞ¦h¦â¤û¥J¿Ç','S','ÂÅ','690','33',1,1,3,(  
+   select 'å½ˆæ€§çª„ç®¡å¤šè‰²ç‰›ä»”è¤²','S','è—','690','33',1,1,3,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MJeansBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '¼u©Ê¯¶ºŞ¦h¦â¤û¥J¿Ç','L','¥d¨ä','690','7',1,1,3,(  
+   select 'å½ˆæ€§çª„ç®¡å¤šè‰²ç‰›ä»”è¤²','L','å¡å…¶','690','7',1,1,3,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MJeansKhaki.jpg',
    SINGLE_BLOB) AS img),(  
@@ -386,21 +386,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¼u©Ê¯¶ºŞ¦h¦â¤û¥J¿Ç','M','¥d¨ä','690','2',1,1,3,(  
+   select 'å½ˆæ€§çª„ç®¡å¤šè‰²ç‰›ä»”è¤²','M','å¡å…¶','690','2',1,1,3,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MJeansKhaki.jpg',
    SINGLE_BLOB) AS img)
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¼u©Ê¯¶ºŞ¦h¦â¤û¥J¿Ç','S','¥d¨ä','690','9',1,1,3,(  
+   select 'å½ˆæ€§çª„ç®¡å¤šè‰²ç‰›ä»”è¤²','S','å¡å…¶','690','9',1,1,3,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MJeansKhaki.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  '¼u©Ê¯¶ºŞ¦h¦â¤û¥J¿Ç','L','¥Õ','690','8',1,1,3 ,(
+   select  'å½ˆæ€§çª„ç®¡å¤šè‰²ç‰›ä»”è¤²','L','ç™½','690','8',1,1,3 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MJeansWhite.jpg',
    SINGLE_BLOB) AS img),(  
@@ -409,20 +409,20 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¼u©Ê¯¶ºŞ¦h¦â¤û¥J¿Ç','M','¥Õ','690','49',1,1,3,(
+   select 'å½ˆæ€§çª„ç®¡å¤šè‰²ç‰›ä»”è¤²','M','ç™½','690','49',1,1,3,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MJeansWhite.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¼u©Ê¯¶ºŞ¦h¦â¤û¥J¿Ç','S','¥Õ','690','33',1,1,3,(
+   select 'å½ˆæ€§çª„ç®¡å¤šè‰²ç‰›ä»”è¤²','S','ç™½','690','33',1,1,3,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MJeansWhite.jpg',
    SINGLE_BLOB) AS img)
 
       --production in cat4
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select 'Fleece±ø¯¾®M¸Ë²Õ','L','ÂÅ','390','78',1,'¤£¥iÀã©ñ¡A¥H§K¦çª«¬V¦â¡F¤£¥i¯M°®¡A½Ğ®z³t»´²æ¤ô¡A¤Å¤j¤O·b´|',1,4,(  
+   select 'Fleeceæ¢ç´‹å¥—è£çµ„','L','è—','390','78',1,'ä¸å¯æ¿•æ”¾ï¼Œä»¥å…è¡£ç‰©æŸ“è‰²ï¼›ä¸å¯çƒ˜ä¹¾ï¼Œè«‹å¼±é€Ÿè¼•è„«æ°´ï¼Œå‹¿å¤§åŠ›æ“æ‰',1,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -443,19 +443,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece±ø¯¾®M¸Ë²Õ','M','ÂÅ','390','14',1,1,4,(  
+   select 'Fleeceæ¢ç´‹å¥—è£çµ„','M','è—','390','14',1,1,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesBlue.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece±ø¯¾®M¸Ë²Õ','S','ÂÅ','390','5',1,1,4,(  
+   select 'Fleeceæ¢ç´‹å¥—è£çµ„','S','è—','390','5',1,1,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select 'Fleece±ø¯¾®M¸Ë²Õ','L','¬õ','390','7',1,1,4,(  
+   select 'Fleeceæ¢ç´‹å¥—è£çµ„','L','ç´…','390','7',1,1,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesRed.jpg',
    SINGLE_BLOB) AS img),(  
@@ -466,21 +466,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece±ø¯¾®M¸Ë²Õ','M','¬õ','390','2',1,1,4,(  
+   select 'Fleeceæ¢ç´‹å¥—è£çµ„','M','ç´…','390','2',1,1,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesRed.jpg',
    SINGLE_BLOB) AS img) 
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece±ø¯¾®M¸Ë²Õ','S','¬õ','390','9',1,1,4,(  
+   select 'Fleeceæ¢ç´‹å¥—è£çµ„','S','ç´…','390','9',1,1,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesRed.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  'Fleece±ø¯¾®M¸Ë²Õ','L','¥Õ','390','8',1,1,4 ,(
+   select  'Fleeceæ¢ç´‹å¥—è£çµ„','L','ç™½','390','8',1,1,4 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesWhite.jpg',
    SINGLE_BLOB) AS img),(  
@@ -489,20 +489,20 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece±ø¯¾®M¸Ë²Õ','M','¥Õ','390','3',1,1,4,(
+   select 'Fleeceæ¢ç´‹å¥—è£çµ„','M','ç™½','390','3',1,1,4,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesWhite.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece±ø¯¾®M¸Ë²Õ','S','¥Õ','390','33',1,1,4,(
+   select 'Fleeceæ¢ç´‹å¥—è£çµ„','S','ç™½','390','33',1,1,4,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesWhite.jpg',
    SINGLE_BLOB) AS img)
 
       --production in cat5
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '´Ö½è³Ø¤°¦Ìº¸°wÂ´¥~®M','L','ÂÅ','690','15',1,'¤£¥iÀã©ñ¡A¥H§K¦çª«¬V¦â¡F¤£¥i¯M°®¡A½Ğ®z³t»´²æ¤ô¡A¤Å¤j¤O·b´|',1,5,(  
+   select 'æ£‰è³ªå–€ä»€ç±³çˆ¾é‡ç¹”å¤–å¥—','L','è—','690','15',1,'ä¸å¯æ¿•æ”¾ï¼Œä»¥å…è¡£ç‰©æŸ“è‰²ï¼›ä¸å¯çƒ˜ä¹¾ï¼Œè«‹å¼±é€Ÿè¼•è„«æ°´ï¼Œå‹¿å¤§åŠ›æ“æ‰',1,5,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -523,19 +523,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '´Ö½è³Ø¤°¦Ìº¸°wÂ´¥~®M','M','ÂÅ','690','14',1,1,5,(  
+   select 'æ£‰è³ªå–€ä»€ç±³çˆ¾é‡ç¹”å¤–å¥—','M','è—','690','14',1,1,5,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlue.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '´Ö½è³Ø¤°¦Ìº¸°wÂ´¥~®M','S','ÂÅ','690','5',1,1,5,(  
+   select 'æ£‰è³ªå–€ä»€ç±³çˆ¾é‡ç¹”å¤–å¥—','S','è—','690','5',1,1,5,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '´Ö½è³Ø¤°¦Ìº¸°wÂ´¥~®M','L','¶Â','690','7',1,1,5,(  
+   select 'æ£‰è³ªå–€ä»€ç±³çˆ¾é‡ç¹”å¤–å¥—','L','é»‘','690','7',1,1,5,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlack.jpg',
    SINGLE_BLOB) AS img),(  
@@ -546,21 +546,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '´Ö½è³Ø¤°¦Ìº¸°wÂ´¥~®M','M','¶Â','690','7',1,1,5,(  
+   select 'æ£‰è³ªå–€ä»€ç±³çˆ¾é‡ç¹”å¤–å¥—','M','é»‘','690','7',1,1,5,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlack.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '´Ö½è³Ø¤°¦Ìº¸°wÂ´¥~®M','S','¶Â','690','4',1,1,5,(  
+   select 'æ£‰è³ªå–€ä»€ç±³çˆ¾é‡ç¹”å¤–å¥—','S','é»‘','690','4',1,1,5,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCashmereBlack.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  '´Ö½è³Ø¤°¦Ìº¸°wÂ´¥~®M','L','¦Ç','690','8',1,1,5 ,(
+   select  'æ£‰è³ªå–€ä»€ç±³çˆ¾é‡ç¹”å¤–å¥—','L','ç°','690','8',1,1,5 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCashmereGrey.jpg',
    SINGLE_BLOB) AS img),(  
@@ -569,20 +569,20 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '´Ö½è³Ø¤°¦Ìº¸°wÂ´¥~®M','M','¦Ç','690','3',1,1,5,(
+   select 'æ£‰è³ªå–€ä»€ç±³çˆ¾é‡ç¹”å¤–å¥—','M','ç°','690','3',1,1,5,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCashmereGrey.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '´Ö½è³Ø¤°¦Ìº¸°wÂ´¥~®M','S','¦Ç','690','1',1,1,5,(
+   select 'æ£‰è³ªå–€ä»€ç±³çˆ¾é‡ç¹”å¤–å¥—','S','ç°','690','1',1,1,5,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MCashmereGrey.jpg',
    SINGLE_BLOB) AS img)
    
       --production in cat6
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '­}¤h¥§¨t¦C­×¨­T-32','L','¥Õ','290','6',1,'¦L/Â¸ªá°Ó«~½Ğ¤Ï­±©ñ¤J²Óºô¬~¦ç³U¤¤²M¬~¡A¥H«O«ù°Ó«~«¬ºA',3,6,(  
+   select 'è¿ªå£«å°¼ç³»åˆ—ä¿®èº«T-32','L','ç™½','290','6',1,'å°/ç¹¡èŠ±å•†å“è«‹åé¢æ”¾å…¥ç´°ç¶²æ´—è¡£è¢‹ä¸­æ¸…æ´—ï¼Œä»¥ä¿æŒå•†å“å‹æ…‹',3,6,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FMermaidWhite.jpg',
    SINGLE_BLOB) AS img),(  
@@ -603,13 +603,13 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '­}¤h¥§¨t¦C­×¨­T-32','M','¥Õ','290','54',1,3,6,(  
+   select 'è¿ªå£«å°¼ç³»åˆ—ä¿®èº«T-32','M','ç™½','290','54',1,3,6,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FMermaidWhite.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '­}¤h¥§¨t¦C­×¨­T-32','S','¥Õ','290','36',1,3,6,(  
+   select 'è¿ªå£«å°¼ç³»åˆ—ä¿®èº«T-32','S','ç™½','290','36',1,3,6,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FMermaidWhite.jpg',
    SINGLE_BLOB) AS img)
@@ -617,7 +617,7 @@ SELECT * FROM OPENROWSET(
    
       --production in cat7
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '¤û¬z¸j±a¬v¸Ë','L','ÂÅ','590','9',1,'¤£¥iÀã©ñ¡A¥H§K¦çª«¬V¦â¡F¤£¥i¯M°®¡A½Ğ®z³t»´²æ¤ô¡A¤Å¤j¤O·b´|',1,7,(  
+   select 'ç‰›æ´¥ç¶å¸¶æ´‹è£','L','è—','590','9',1,'ä¸å¯æ¿•æ”¾ï¼Œä»¥å…è¡£ç‰©æŸ“è‰²ï¼›ä¸å¯çƒ˜ä¹¾ï¼Œè«‹å¼±é€Ÿè¼•è„«æ°´ï¼Œå‹¿å¤§åŠ›æ“æ‰',1,7,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDressBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -638,19 +638,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¤û¬z¸j±a¬v¸Ë','M','ÂÅ','590','13',1,1,7,(  
+   select 'ç‰›æ´¥ç¶å¸¶æ´‹è£','M','è—','590','13',1,1,7,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDressBlue.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¤û¬z¸j±a¬v¸Ë','S','ÂÅ','590','8',1,1,7,(  
+   select 'ç‰›æ´¥ç¶å¸¶æ´‹è£','S','è—','590','8',1,1,7,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDressBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '¤û¬z¸j±a¬v¸Ë','L','¦Ç','590','2',1,1,7,(  
+   select 'ç‰›æ´¥ç¶å¸¶æ´‹è£','L','ç°','590','2',1,1,7,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDressGrey.jpg',
    SINGLE_BLOB) AS img),(  
@@ -661,21 +661,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¤û¬z¸j±a¬v¸Ë','M','¦Ç','590','4',1,1,7,(  
+   select 'ç‰›æ´¥ç¶å¸¶æ´‹è£','M','ç°','590','4',1,1,7,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDressGrey.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¤û¬z¸j±a¬v¸Ë','S','¦Ç','590','36',1,1,7,(  
+   select 'ç‰›æ´¥ç¶å¸¶æ´‹è£','S','ç°','590','36',1,1,7,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDressGrey.jpg',
    SINGLE_BLOB) AS img)
    
         --production in cat8
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '¬üÄR¿Õ¦Ï¤òV»â°wÂ´¥~®M','L','¦Ç','790','54',1,'¤£¥iÀã©ñ¡A¥H§K¦çª«¬V¦â¡F¤£¥i¯M°®¡A½Ğ®z³t»´²æ¤ô¡A¤Å¤j¤O·b´|',1,8,(  
+   select 'ç¾éº—è«¾ç¾Šæ¯›Vé ˜é‡ç¹”å¤–å¥—','L','ç°','790','54',1,'ä¸å¯æ¿•æ”¾ï¼Œä»¥å…è¡£ç‰©æŸ“è‰²ï¼›ä¸å¯çƒ˜ä¹¾ï¼Œè«‹å¼±é€Ÿè¼•è„«æ°´ï¼Œå‹¿å¤§åŠ›æ“æ‰',1,8,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FVCoatGrey.jpg',
    SINGLE_BLOB) AS img),(  
@@ -696,19 +696,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¬üÄR¿Õ¦Ï¤òV»â°wÂ´¥~®M','M','¦Ç','790','14',1,1,8,(  
+   select 'ç¾éº—è«¾ç¾Šæ¯›Vé ˜é‡ç¹”å¤–å¥—','M','ç°','790','14',1,1,8,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FVCoatGrey.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¬üÄR¿Õ¦Ï¤òV»â°wÂ´¥~®M','S','¦Ç','790','5',1,1,8,(  
+   select 'ç¾éº—è«¾ç¾Šæ¯›Vé ˜é‡ç¹”å¤–å¥—','S','ç°','790','5',1,1,8,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FVCoatGrey.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '¬üÄR¿Õ¦Ï¤òV»â°wÂ´¥~®M','L','¥Õ','790','17',1,1,8,(  
+   select 'ç¾éº—è«¾ç¾Šæ¯›Vé ˜é‡ç¹”å¤–å¥—','L','ç™½','790','17',1,1,8,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FVCoatWhite.jpg',
    SINGLE_BLOB) AS img),(  
@@ -719,21 +719,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¬üÄR¿Õ¦Ï¤òV»â°wÂ´¥~®M','M','¥Õ','790','6',1,1,8,(  
+   select 'ç¾éº—è«¾ç¾Šæ¯›Vé ˜é‡ç¹”å¤–å¥—','M','ç™½','790','6',1,1,8,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FVCoatWhite.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¬üÄR¿Õ¦Ï¤òV»â°wÂ´¥~®M','S','¥Õ','690','4',1,1,8,(  
+   select 'ç¾éº—è«¾ç¾Šæ¯›Vé ˜é‡ç¹”å¤–å¥—','S','ç™½','690','4',1,1,8,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FVCoatWhite.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  '¬üÄR¿Õ¦Ï¤òV»â°wÂ´¥~®M','L','ÂÅ','790','8',1,1,8 ,(
+   select  'ç¾éº—è«¾ç¾Šæ¯›Vé ˜é‡ç¹”å¤–å¥—','L','è—','790','8',1,1,8 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FVCoatBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -742,20 +742,20 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¬üÄR¿Õ¦Ï¤òV»â°wÂ´¥~®M','M','ÂÅ','790','3',1,1,8,(
+   select 'ç¾éº—è«¾ç¾Šæ¯›Vé ˜é‡ç¹”å¤–å¥—','M','è—','790','3',1,1,8,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FVCoatBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '¬üÄR¿Õ¦Ï¤òV»â°wÂ´¥~®M','S','ÂÅ','790','1',1,1,8,(
+   select 'ç¾éº—è«¾ç¾Šæ¯›Vé ˜é‡ç¹”å¤–å¥—','S','è—','790','1',1,1,8,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FVCoatBlue.jpg',
    SINGLE_BLOB) AS img)
    
         --production in cat9
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '·¥»´¦Ğµ³¥ß»â¥~®M','L','ÂÅ','1290','54',1,'¥»°Ó«~¦]±Ä¥Î»´¬X­±®Æ¡A¥i¯à·|¦]ÀR¹q©Î¼¯À¿¤Ş°_Æpµ³¡A·q½Ğ½Ì¸Ñ',1,9,(  
+   select 'æ¥µè¼•ç¾½çµ¨ç«‹é ˜å¤–å¥—','L','è—','1290','54',1,'æœ¬å•†å“å› æ¡ç”¨è¼•æŸ”é¢æ–™ï¼Œå¯èƒ½æœƒå› éœé›»æˆ–æ‘©æ“¦å¼•èµ·é‘½çµ¨ï¼Œæ•¬è«‹è«’è§£',1,9,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -776,19 +776,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '·¥»´¦Ğµ³¥ß»â¥~®M','M','ÂÅ','1290','14',1,1,9,(  
+   select 'æ¥µè¼•ç¾½çµ¨ç«‹é ˜å¤–å¥—','M','è—','1290','14',1,1,9,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatBlue.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '·¥»´¦Ğµ³¥ß»â¥~®M','S','ÂÅ','1290','5',1,1,9,(  
+   select 'æ¥µè¼•ç¾½çµ¨ç«‹é ˜å¤–å¥—','S','è—','1290','5',1,1,9,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '·¥»´¦Ğµ³¥ß»â¥~®M','L','¥Õ','1290','17',1,1,9,(  
+   select 'æ¥µè¼•ç¾½çµ¨ç«‹é ˜å¤–å¥—','L','ç™½','1290','17',1,1,9,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatWhite.jpg',
    SINGLE_BLOB) AS img),(  
@@ -799,21 +799,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '·¥»´¦Ğµ³¥ß»â¥~®M','M','¥Õ','1290','6',1,1,9,(  
+   select 'æ¥µè¼•ç¾½çµ¨ç«‹é ˜å¤–å¥—','M','ç™½','1290','6',1,1,9,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatWhite.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '·¥»´¦Ğµ³¥ß»â¥~®M','S','¥Õ','1290','4',1,1,9,(  
+   select 'æ¥µè¼•ç¾½çµ¨ç«‹é ˜å¤–å¥—','S','ç™½','1290','4',1,1,9,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatWhite.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  '·¥»´¦Ğµ³¥ß»â¥~®M','L','¬õ','1290','8',1,1,9 ,(
+   select  'æ¥µè¼•ç¾½çµ¨ç«‹é ˜å¤–å¥—','L','ç´…','1290','8',1,1,9 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatRed.jpg',
    SINGLE_BLOB) AS img),(  
@@ -822,20 +822,20 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '·¥»´¦Ğµ³¥ß»â¥~®M','M','¬õ','1290','3',1,1,9,(
+   select 'æ¥µè¼•ç¾½çµ¨ç«‹é ˜å¤–å¥—','M','ç´…','1290','3',1,1,9,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatRed.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '·¥»´¦Ğµ³¥ß»â¥~®M','S','¬õ','1290','1',1,1,9,(
+   select 'æ¥µè¼•ç¾½çµ¨ç«‹é ˜å¤–å¥—','S','ç´…','1290','1',1,1,9,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FDownCoatRed.jpg',
    SINGLE_BLOB) AS img)
    
         --production in cat10
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '»´«K¯¶¸È','L','ÂÅ','390','31',1,'¥»°Ó«~¦]±Ä¥Î»´¬X­±®Æ¡A¥i¯à·|¦]ÀR¹q©Î¼¯À¿¤Ş°_Æpµ³¡A·q½Ğ½Ì¸Ñ',2,10,(  
+   select 'è¼•ä¾¿çª„è£™','L','è—','390','31',1,'æœ¬å•†å“å› æ¡ç”¨è¼•æŸ”é¢æ–™ï¼Œå¯èƒ½æœƒå› éœé›»æˆ–æ‘©æ“¦å¼•èµ·é‘½çµ¨ï¼Œæ•¬è«‹è«’è§£',2,10,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -856,19 +856,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '»´«K¯¶¸È','M','ÂÅ','390','14',1,2,10,(  
+   select 'è¼•ä¾¿çª„è£™','M','è—','390','14',1,2,10,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlue.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '»´«K¯¶¸È','S','ÂÅ','390','5',1,2,10,(  
+   select 'è¼•ä¾¿çª„è£™','S','è—','390','5',1,2,10,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '»´«K¯¶¸È','L','¶Â','390','17',1,2,10,(  
+   select 'è¼•ä¾¿çª„è£™','L','é»‘','390','17',1,2,10,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlack.jpg',
    SINGLE_BLOB) AS img),(  
@@ -879,21 +879,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '»´«K¯¶¸È','M','¶Â','390','6',1,2,10,(  
+   select 'è¼•ä¾¿çª„è£™','M','é»‘','390','6',1,2,10,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlack.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '»´«K¯¶¸È','S','¶Â','390','4',1,2,10,(  
+   select 'è¼•ä¾¿çª„è£™','S','é»‘','390','4',1,2,10,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FSkirtBlack.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  '»´«K¯¶¸È','L','¦Ç','390','8',1,2,10 ,(
+   select  'è¼•ä¾¿çª„è£™','L','ç°','390','8',1,2,10 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FSkirtGrey.jpg',
    SINGLE_BLOB) AS img),(  
@@ -902,20 +902,20 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '»´«K¯¶¸È','M','¦Ç','390','3',1,2,10,(
+   select 'è¼•ä¾¿çª„è£™','M','ç°','390','3',1,2,10,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FSkirtGrey.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '»´«K¯¶¸È','S','¦Ç','390','1',1,2,10,(
+   select 'è¼•ä¾¿çª„è£™','S','ç°','390','1',1,2,10,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/FSkirtGrey.jpg',
    SINGLE_BLOB) AS img)
    
         --production in cat11
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '±ø¯¾¶ê»â­m-µ£','L','¬õ','290','25',1,'¥»°Ó«~¦]±Ä¥Î»´¬X­±®Æ¡A¥i¯à·|¦]ÀR¹q©Î¼¯À¿¤Ş°_Æpµ³¡A·q½Ğ½Ì¸Ñ',1,11,(  
+   select 'æ¢ç´‹åœ“é ˜è¡«-ç«¥','L','ç´…','290','25',1,'æœ¬å•†å“å› æ¡ç”¨è¼•æŸ”é¢æ–™ï¼Œå¯èƒ½æœƒå› éœé›»æˆ–æ‘©æ“¦å¼•èµ·é‘½çµ¨ï¼Œæ•¬è«‹è«’è§£',1,11,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTshirtRed.jpg',
    SINGLE_BLOB) AS img),(  
@@ -936,19 +936,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '±ø¯¾¶ê»â­m-µ£','M','¬õ','290','14',1,1,11,(  
+   select 'æ¢ç´‹åœ“é ˜è¡«-ç«¥','M','ç´…','290','14',1,1,11,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTshirtRed.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '±ø¯¾¶ê»â­m-µ£','S','¬õ','290','5',1,1,11,(  
+   select 'æ¢ç´‹åœ“é ˜è¡«-ç«¥','S','ç´…','290','5',1,1,11,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTshirtRed.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '±ø¯¾¶ê»â­m-µ£','L','¦Ç','290','15',1,1,11,(  
+   select 'æ¢ç´‹åœ“é ˜è¡«-ç«¥','L','ç°','290','15',1,1,11,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTshirtGrey.jpg',
    SINGLE_BLOB) AS img),(  
@@ -959,21 +959,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '±ø¯¾¶ê»â­m-µ£','M','¦Ç','290','6',1,1,11,(  
+   select 'æ¢ç´‹åœ“é ˜è¡«-ç«¥','M','ç°','290','6',1,1,11,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTshirtGrey.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '±ø¯¾¶ê»â­m-µ£','S','¦Ç','290','4',1,1,11,(  
+   select 'æ¢ç´‹åœ“é ˜è¡«-ç«¥','S','ç°','290','4',1,1,11,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTshirtGrey.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  '±ø¯¾¶ê»â­m-µ£','L','ÂÅ','290','8',1,1,11 ,(
+   select  'æ¢ç´‹åœ“é ˜è¡«-ç«¥','L','è—','290','8',1,1,11 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTshirtBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -982,20 +982,20 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '±ø¯¾¶ê»â­m-µ£','M','ÂÅ','290','3',1,1,11,(
+   select 'æ¢ç´‹åœ“é ˜è¡«-ç«¥','M','è—','290','3',1,1,11,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTshirtBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '±ø¯¾¶ê»â­m-µ£','S','ÂÅ','290','1',1,1,11,(
+   select 'æ¢ç´‹åœ“é ˜è¡«-ç«¥','S','è—','290','1',1,1,11,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTshirtBlue.jpg',
    SINGLE_BLOB) AS img)
    
         --production in cat12
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select 'ªkÄõµ³®æ¯¾Å¨­m-µ£','L','¬õ','390','25',1,'¦p»İ¾ã¿S¡A½Ğ¥H§C·Å¹Ô¥¬¼÷¿S',1,12,(  
+   select 'æ³•è˜­çµ¨æ ¼ç´‹è¥¯è¡«-ç«¥','L','ç´…','390','25',1,'å¦‚éœ€æ•´ç‡™ï¼Œè«‹ä»¥ä½æº«å¢Šå¸ƒç†¨ç‡™',1,12,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtRed.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1016,19 +1016,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'ªkÄõµ³®æ¯¾Å¨­m-µ£','M','¬õ','390','14',1,1,12,(  
+   select 'æ³•è˜­çµ¨æ ¼ç´‹è¥¯è¡«-ç«¥','M','ç´…','390','14',1,1,12,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtRed.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'ªkÄõµ³®æ¯¾Å¨­m-µ£','S','¬õ','390','5',1,1,12,(  
+   select 'æ³•è˜­çµ¨æ ¼ç´‹è¥¯è¡«-ç«¥','S','ç´…','390','5',1,1,12,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtRed.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select 'ªkÄõµ³®æ¯¾Å¨­m-µ£','L','¦Ç','390','15',1,1,12,(  
+   select 'æ³•è˜­çµ¨æ ¼ç´‹è¥¯è¡«-ç«¥','L','ç°','390','15',1,1,12,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtGrey.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1039,14 +1039,14 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'ªkÄõµ³®æ¯¾Å¨­m-µ£','M','¦Ç','390','6',1,1,12,(  
+   select 'æ³•è˜­çµ¨æ ¼ç´‹è¥¯è¡«-ç«¥','M','ç°','390','6',1,1,12,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtGrey.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'ªkÄõµ³®æ¯¾Å¨­m-µ£','S','¦Ç','390','4',1,1,12,(  
+   select 'æ³•è˜­çµ¨æ ¼ç´‹è¥¯è¡«-ç«¥','S','ç°','390','4',1,1,12,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KCheckeredShirtGrey.jpg',
    SINGLE_BLOB) AS img)
@@ -1054,7 +1054,7 @@ SELECT * FROM OPENROWSET(
    
         --production in cat13
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '²ü¸­ÃäÃPºòµu¿Ç-µ£','L','¬õ','190','25',1,'¦p»İ¾ã¿S¡A½Ğ¥H§C·Å¹Ô¥¬¼÷¿S',1,13,(  
+   select 'è·è‘‰é‚Šé¬†ç·ŠçŸ­è¤²-ç«¥','L','ç´…','190','25',1,'å¦‚éœ€æ•´ç‡™ï¼Œè«‹ä»¥ä½æº«å¢Šå¸ƒç†¨ç‡™',1,13,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KShortsRed.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1075,19 +1075,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '²ü¸­ÃäÃPºòµu¿Ç-µ£','M','¬õ','190','14',1,1,13,(  
+   select 'è·è‘‰é‚Šé¬†ç·ŠçŸ­è¤²-ç«¥','M','ç´…','190','14',1,1,13,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KShortsRed.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '²ü¸­ÃäÃPºòµu¿Ç-µ£','S','¬õ','190','5',1,1,13,(  
+   select 'è·è‘‰é‚Šé¬†ç·ŠçŸ­è¤²-ç«¥','S','ç´…','190','5',1,1,13,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KShortsRed.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '²ü¸­ÃäÃPºòµu¿Ç-µ£','L','¦Ç','190','15',1,1,13,(  
+   select 'è·è‘‰é‚Šé¬†ç·ŠçŸ­è¤²-ç«¥','L','ç°','190','15',1,1,13,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KShortsGrey.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1098,21 +1098,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '²ü¸­ÃäÃPºòµu¿Ç-µ£','M','¦Ç','190','6',1,1,13,(  
+   select 'è·è‘‰é‚Šé¬†ç·ŠçŸ­è¤²-ç«¥','M','ç°','190','6',1,1,13,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KShortsGrey.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '²ü¸­ÃäÃPºòµu¿Ç-µ£','S','¦Ç','190','4',1,1,13,(  
+   select 'è·è‘‰é‚Šé¬†ç·ŠçŸ­è¤²-ç«¥','S','ç°','190','4',1,1,13,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KShortsGrey.jpg',
    SINGLE_BLOB) AS img)
 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '²ü¸­ÃäÃPºòµu¿Ç-µ£','L','ÂÅ','190','15',1,1,13,(  
+   select 'è·è‘‰é‚Šé¬†ç·ŠçŸ­è¤²-ç«¥','L','è—','190','15',1,1,13,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KShortsBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1123,21 +1123,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '²ü¸­ÃäÃPºòµu¿Ç-µ£','M','ÂÅ','190','6',1,1,13,(  
+   select 'è·è‘‰é‚Šé¬†ç·ŠçŸ­è¤²-ç«¥','M','è—','190','6',1,1,13,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KShortsBlue.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '²ü¸­ÃäÃPºòµu¿Ç-µ£','S','ÂÅ','190','4',1,1,13,(  
+   select 'è·è‘‰é‚Šé¬†ç·ŠçŸ­è¤²-ç«¥','S','è—','190','4',1,1,13,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KShortsBlue.jpg',
    SINGLE_BLOB) AS img)
    
       --production in cat14
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select '«O·x¯Â¦â¥ß»â­m-µ£','L','¬õ','290','25',1,'¦p»İ¾ã¿S¡A½Ğ¥H§C·Å¹Ô¥¬¼÷¿S',1,14,(  
+   select 'ä¿æš–ç´”è‰²ç«‹é ˜è¡«-ç«¥','L','ç´…','290','25',1,'å¦‚éœ€æ•´ç‡™ï¼Œè«‹ä»¥ä½æº«å¢Šå¸ƒç†¨ç‡™',1,14,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckRed.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1158,19 +1158,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '«O·x¯Â¦â¥ß»â­m-µ£','M','¬õ','290','14',1,1,14,(  
+   select 'ä¿æš–ç´”è‰²ç«‹é ˜è¡«-ç«¥','M','ç´…','290','14',1,1,14,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckRed.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '«O·x¯Â¦â¥ß»â­m-µ£','S','¬õ','290','5',1,1,14,(  
+   select 'ä¿æš–ç´”è‰²ç«‹é ˜è¡«-ç«¥','S','ç´…','290','5',1,1,14,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckRed.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '«O·x¯Â¦â¥ß»â­m-µ£','L','¶Â','290','15',1,1,14,(  
+   select 'ä¿æš–ç´”è‰²ç«‹é ˜è¡«-ç«¥','L','é»‘','290','15',1,1,14,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlack.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1181,21 +1181,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '«O·x¯Â¦â¥ß»â­m-µ£','M','¶Â','290','6',1,1,14,(  
+   select 'ä¿æš–ç´”è‰²ç«‹é ˜è¡«-ç«¥','M','é»‘','290','6',1,1,14,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlack.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '«O·x¯Â¦â¥ß»â­m-µ£','S','¶Â','290','4',1,1,14,(  
+   select 'ä¿æš–ç´”è‰²ç«‹é ˜è¡«-ç«¥','S','é»‘','290','4',1,1,14,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlack.jpg',
    SINGLE_BLOB) AS img)
 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select '«O·x¯Â¦â¥ß»â­m-µ£','L','ÂÅ','290','15',1,1,14,(  
+   select 'ä¿æš–ç´”è‰²ç«‹é ˜è¡«-ç«¥','L','è—','290','15',1,1,14,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1206,21 +1206,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '«O·x¯Â¦â¥ß»â­m-µ£','M','ÂÅ','290','6',1,1,14,(  
+   select 'ä¿æš–ç´”è‰²ç«‹é ˜è¡«-ç«¥','M','è—','290','6',1,1,14,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlue.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select '«O·x¯Â¦â¥ß»â­m-µ£','S','ÂÅ','290','4',1,1,14,(  
+   select 'ä¿æš–ç´”è‰²ç«‹é ˜è¡«-ç«¥','S','è—','290','4',1,1,14,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KTurtleneckBlue.jpg',
    SINGLE_BLOB) AS img)
 
         --production in cat15
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select 'Fleeceªøµ³¤j¦ç-µ£','L','¥d¨ä','690','25',1,'¬~º°®É¡A¤ô·Å½Ğ§C©ó30¢J¡F½Ğ¨Ï¥Î¤¤©Ê¬~¾¯¡F½Ğ¤Åªø®É¶¡®ûªw',1,15,(  
+   select 'Fleeceé•·çµ¨å¤§è¡£-ç«¥','L','å¡å…¶','690','25',1,'æ´—æ»Œæ™‚ï¼Œæ°´æº«è«‹ä½æ–¼30â„ƒï¼›è«‹ä½¿ç”¨ä¸­æ€§æ´—åŠ‘ï¼›è«‹å‹¿é•·æ™‚é–“æµ¸æ³¡',1,15,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatKhaki.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1241,19 +1241,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleeceªøµ³¤j¦ç-µ£','M','¥d¨ä','690','14',1,1,15,(  
+   select 'Fleeceé•·çµ¨å¤§è¡£-ç«¥','M','å¡å…¶','690','14',1,1,15,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatKhaki.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleeceªøµ³¤j¦ç-µ£','S','¥d¨ä','690','5',1,1,15,(  
+   select 'Fleeceé•·çµ¨å¤§è¡£-ç«¥','S','å¡å…¶','690','5',1,1,15,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatKhaki.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select 'Fleeceªøµ³¤j¦ç-µ£','L','ÂÅ','690','15',1,1,15,(  
+   select 'Fleeceé•·çµ¨å¤§è¡£-ç«¥','L','è—','690','15',1,1,15,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -1264,23 +1264,23 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleeceªøµ³¤j¦ç-µ£','M','ÂÅ','690','6',1,1,15,(  
+   select 'Fleeceé•·çµ¨å¤§è¡£-ç«¥','M','è—','690','6',1,1,15,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatBlue.jpg',
    SINGLE_BLOB) AS img)  
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleeceªøµ³¤j¦ç-µ£','S','ÂÅ','690','4',1,1,15,(  
+   select 'Fleeceé•·çµ¨å¤§è¡£-ç«¥','S','è—','690','4',1,1,15,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/KFleeceCoatBlue.jpg',
    SINGLE_BLOB) AS img)
 
-insert into customer values('³¯¤pªá','¤k','huahua@gmail.com','lativ123','106¥x¥_¥«¤j¦w°Ï´_¿³«n¸ô¤@¬q386¸¹','0910123567');
-insert into customer values('¶ÀµXµX','¤k','chichi123@gmail.com','lalala','231·s¥_¥«·s©±°Ï¥ÁÅv¸ô108¸¹','0912687987');
-insert into customer values('§õªü¨k','¨k','south88@gmail.com','cloth12345','·s¥_¥«ªO¾ô°Ï©²¤¤¸ô39¸¹','0910888999');
-insert into customer values('³\®R®R','¤k','na_na0505@gmail.com','lativ123','¥x¥_¥«¤j¦w°Ï«H¸q¸ô3¬q100¸¹','0918555666');
-insert into customer values('±i®æ¾|','¨k','kevin8081@gmail.com','sa123456','·s¥_¥«Äª¬w°Ï¤T¥Á¸ô116¸¹','0988588668');
+insert into customer values('é™³å°èŠ±','å¥³','huahua@gmail.com','lativ123','106å°åŒ—å¸‚å¤§å®‰å€å¾©èˆˆå—è·¯ä¸€æ®µ386è™Ÿ','0910123567');
+insert into customer values('é»ƒçªçª','å¥³','chichi123@gmail.com','lalala','231æ–°åŒ—å¸‚æ–°åº—å€æ°‘æ¬Šè·¯108è™Ÿ','0912687987');
+insert into customer values('æé˜¿ç”·','ç”·','south88@gmail.com','cloth12345','æ–°åŒ—å¸‚æ¿æ©‹å€åºœä¸­è·¯39è™Ÿ','0910888999');
+insert into customer values('è¨±å¨œå¨œ','å¥³','na_na0505@gmail.com','lativ123','å°åŒ—å¸‚å¤§å®‰å€ä¿¡ç¾©è·¯3æ®µ100è™Ÿ','0918555666');
+insert into customer values('å¼µæ ¼é­¯','ç”·','kevin8081@gmail.com','sa123456','æ–°åŒ—å¸‚è˜†æ´²å€ä¸‰æ°‘è·¯116è™Ÿ','0988588668');
 
 insert into orders values ('2107-04-03',1,'somewhere','123456','someone',600.1,1)
 insert into orders values ('2107-04-03',2,'somewhere','139754','someoneElse',500.1,1)

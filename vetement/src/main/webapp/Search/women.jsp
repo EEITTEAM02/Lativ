@@ -8,7 +8,20 @@
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
-	
+	<div>
+		<ul>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
 	<script>
 		$(function() {
