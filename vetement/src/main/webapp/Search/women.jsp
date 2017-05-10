@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <style>
 .vertical-menu {
-    width: 200px;
-    margin-left:250px;
+    width: 250px;
+/*     margin-left:250px; */
     margin-top:150px;
-    display:inline-block;
+/*     display:inline-block; */
 }
 
 .vertical-menu a {
@@ -32,10 +32,16 @@
     background-color: #888888;
     color:white;
 }
+
+img{
+	width:100%;
+}
 </style>
 </head>
 <body>
-	<div class="col-md-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
 		<div class="vertical-menu">
 			<div class="side">
 				<a name="middle" class="active">上身類</a> 
@@ -74,13 +80,15 @@
 	</div>
 	<div class="col-md-9">
 	<div id="outter">
-		<jsp:include page="navbar.jsp"></jsp:include>
+		<jsp:include page="/util/navbar.jsp"></jsp:include>
 		<img src="${pageContext.request.contextPath}/img/women.jpg"/>
 		<div id="display"></div>
 		<div id="imgDiv" style="text-align: center;">
 			<img id="img1" src="../img/ajax-loader.gif" />
 		</div>
 	</div>
+	</div>
+		</div>
 	</div>
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
 	<script>
