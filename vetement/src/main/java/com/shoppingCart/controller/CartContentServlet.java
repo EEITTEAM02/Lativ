@@ -124,13 +124,16 @@ public class CartContentServlet extends HttpServlet {
             Integer pID = Integer.parseInt(key3);     
             DiscountService dsrvc = new DiscountService();                                           
             Double unitPriceD = 0d;
+            Double unitPriceO = psrvc.getOneProduct(pID).getPrice();
             Double sum = 0d;
             Integer dc = aProduct.getPackageNo();
             LinkedList<Integer> l1 = new LinkedList<Integer>(); 
             Integer sumOfQuantity =0;
             DiscountVO myDiscount = dsrvc.getOneDiscount(dc);
 			Integer discountNo = myDiscount.getQuantity_condition();
-          
+            if (discountNo==null){
+            	discountNo=1;
+            }
                     Set<OrderItemVO> targetOI = target.getOrderItemVOs();
                     Iterator it2 = targetOI.iterator();
                     while(it2.hasNext()){
@@ -143,7 +146,7 @@ public class CartContentServlet extends HttpServlet {
                 	if(sumOfQuantity>=discountNo){
                 		
                 		if (myDiscount.getDiscount1() != null)
-	  						unitPriceD = unitPriceD * myDiscount.getDiscount1();
+	  						unitPriceD = unitPriceO * myDiscount.getDiscount1();
 	  					else {
 	  						Double dd = new Double(myDiscount.getDiscount2() / discountNo);
 	  						Long roundedDD = Math.round(dd);

@@ -85,10 +85,13 @@ public class CartContentServlet1 extends HttpServlet{
 	  				}
 	  				DiscountVO myDiscount = dsrvc.getOneDiscount(packageNo);
 	  				Integer discountNo = myDiscount.getQuantity_condition();
+	  				if (discountNo==null){
+	  					discountNo=1;
+	  				}
 	  				if (sumOfQuantity >= discountNo) {
 
 	  					if (myDiscount.getDiscount1() != null)
-	  						unitPriceD = unitPriceD * myDiscount.getDiscount1();
+	  						unitPriceD = unitPriceO * myDiscount.getDiscount1();
 	  					else {
 	  						Double dd = new Double(myDiscount.getDiscount2() / discountNo);
 	  						Long roundedDD = Math.round(dd);
