@@ -98,9 +98,8 @@ img.displayImg {
 				</button>
 				<a style="opacity: 1; color: black;" class="navbar-brand"
 					href="indexTemplate.jsp">首頁</a> <a class="navbar-brand"
-					href="productDisplay.jsp">產品</a> <a class="navbar-brand"
-					href="uploadProduct2.jsp">ModifyProducts</a> <a
-					class="navbar-brand" href="memberLounge.jsp"><c:if
+					href="productDisplay.jsp">產品</a> 	
+					 <a class="navbar-brand" href="memberLounge.jsp"><c:if
 						test="${user == 'authenticated'}">會員專區</c:if></a> <a
 					class="navbar-brand" href="aboutUs.jsp">關於我們</a>
 			</div>

@@ -22,6 +22,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONValue;
 
+import com.category.model.CategoryService;
+import com.category.model.CategoryVO;
 import com.discount.model.DiscountService;
 import com.discount.model.DiscountVO;
 import com.production.model.ProductionService;
@@ -35,15 +37,22 @@ public class ProductDetailServlet extends HttpServlet{
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		Integer pno = Integer.parseInt(request.getParameter("pno"));
+		
 		Integer pno1 = pno;
 		Integer pno2 = pno-1;
 		List<Integer> l1= new LinkedList<Integer>();          //list of pnos/productId with the same name
 		List<Integer> l2= new LinkedList<Integer>();          //list of pnos/productId with color images
+		
+		
 		try{
 			ProductionService psrvc = new ProductionService();
 			int size = psrvc.getAll().size();
 			ProductionVO aProduct = psrvc.getOneProduct(pno);
 			String pName = aProduct.getProductName();
+			
+			CategoryService csrvc = new CategoryService();
+			CategoryVO category = csrvc.findByPrimaryKey(aProduct.getCategoryId());
+			String mainCat = category.getClass_top();
 			
 			for(;pno1<=size;pno1++){
 				if(pName.equals(psrvc.getOneProduct(pno1).getProductName())){
@@ -144,6 +153,7 @@ public class ProductDetailServlet extends HttpServlet{
             m1.put("array10", array10);
             m1.put("discountType", discountDescript);
             m1.put("unitPriceDiscounted", unitPriceDiscounted);
+            m1.put("mainCat", mainCat);
             String jsonString = JSONValue.toJSONString(m1); 
             out.println(jsonString);
 			 out.flush();
