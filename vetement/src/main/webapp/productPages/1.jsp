@@ -735,18 +735,15 @@ img.displayImg {
 						    		  cancelButtonClass: 'btn btn-danger',
 						    	}  
 
-				
-						  
+		  
                                    ,function(isConfirm){
 						    			if(isConfirm){
 						                    $.ajax({
 				                    		    type: "POST",
-				                    		    url: "CheckoutWithDiscountServlet.do",
-				                    		    contentType: "application/json", 
-				                    		    data: JSON.stringify(list),
-				                    		    success: function(response) {
-				                    		    	window.location.replace("orderHistory.jsp");
-				                    		    }
+				                    		    url: "/vetement/ProductBack/Checkout.do",
+ 				                    		    success: function() {
+ 				                    		    	window.location ="/vetement/ProductBack/ProductCheck.jsp";
+ 				                    		    }
 						                    })
 						    			}}
 						    		
