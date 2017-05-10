@@ -133,7 +133,7 @@ create table rating (
 
 insert into discount values (1,null,1,'無打折');
 insert into discount values (null,500,3,'買三件500');
-insert into discount values (0.6,null,2,'買兩件打6折');
+insert into discount values (0.8,null,2,'媽媽節特價買兩件打8折');
 
 insert into category values('男','上身類','短袖背心');
 insert into category values('男','外套類','休閒外套');
@@ -9177,3 +9177,4 @@ insert into orderItem values(null,null,2,null,3,2)
  insert into rating values (107,4,1);
   insert into rating values (116,3,1);
   
+  Update production set packageNo = 3 where categoryId in(6,7,8,9,10,36,37,38,39,40,41,42,43,44,45);
