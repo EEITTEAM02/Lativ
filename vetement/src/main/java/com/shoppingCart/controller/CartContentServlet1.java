@@ -93,10 +93,8 @@ public class CartContentServlet1 extends HttpServlet{
 	  					if (myDiscount.getDiscount1() != null)
 	  						unitPriceD = unitPriceO * myDiscount.getDiscount1();
 	  					else {
-	  						Double dd = new Double(myDiscount.getDiscount2() / discountNo);
-	  						Long roundedDD = Math.round(dd);
-	  						String rDDs = roundedDD.toString();
-	  						unitPriceD = Double.parseDouble(rDDs);
+	  						
+	  						unitPriceD = myDiscount.getDiscount2();
 	  					}
 
 	  				} else {

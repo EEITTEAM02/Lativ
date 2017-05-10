@@ -12,8 +12,8 @@
 <meta name="author" content="">
 
 <title>ProductDetail</title>
-<link href="../css/clean-blog.min.css" rel="stylesheet">
-<link href="../vendor/font-awesome/css/font-awesome.min.css"
+<link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link
 	href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
@@ -30,13 +30,13 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="../js/jquerysession.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquerysession.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery.mycart.js"></script>
-<script src="../js/jquery.fancybox.min.js"></script>
-<script src="../js/sweetalert.min.js"></script>
-<script src="../js/clean-blog.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.mycart.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.fancybox.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/clean-blog.min.js"></script>
 <style>
 .colorImg {
 	margin: 5px;
@@ -110,7 +110,7 @@ img.displayImg {
 						class="fa fa-bars"></i>
 				</button>
 				<a style="opacity: 1; color: black;" class="navbar-brand" href="/WebsiteV1.3/indexTemplate.jsp">首頁</a> 
-				<a class="navbar-brand" href="${context}/Search/index.jsp">產品</a>
+				<a class="navbar-brand" href="${context}/Search/search.jsp">產品</a>
                 <a class="navbar-brand" href="${context}/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
 			</div>
 
@@ -1044,20 +1044,6 @@ img.displayImg {
 				$('.validateTips').text('All form fields are required.');
 			});
 			<!-- login/logout-->
-			
-			
-// 			 $('ul.list-group:eq(1)').on('click','li',function(){	
-// 				   var id = $(this).data('id');
-//                    window.location.replace(ctx+"/productDisplay.jsp"+"?"+id)
-// 				   $('ul.list-group:eq(1)>li').removeClass('active');
-// 				   $('ul.list-group:eq(1)>li[data-id="' + id + '"]').addClass('active');
-// 			   })
-// 			   $('ul.list-group:eq(0)').on('click','li',function(){	
-// 				   var id = $(this).data('id');
-//                    window.location.replace(ctx+"/productDisplay.jsp"+"?"+id)
-// 				   $('ul.list-group:eq(0)>li').removeClass('active');
-// 				   $('ul.list-group:eq(0)>li[data-id="' + id + '"]').addClass('active');
-// 			   })
 			   
 			   $('.fancybox').fancybox({
     fitToView: false,
