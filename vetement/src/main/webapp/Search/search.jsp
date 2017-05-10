@@ -1,163 +1,161 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+ <!-- Theme CSS -->
+    <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style>
-#outter{
-	width:1000px;
-	margin:auto;
-}
-#display{
-	width:1000px;
-	height:900px;
-	margin:auto;
-}
-	
-li {
-	width:300px;
-	height:400px;
-	float: none;
-	display: inline-block;
-	margin-left: 28px;
-	margin-buttom:30px;
-	vertical-align: top;
-	text-align:center;/*將li的內容置中*/
-}
 
-.productImage{
-	width:250px;
-	margin:auto;
-}
-
-.productName{
-	width:100%;
-	text-align:center;
-}
-
-.productPrice{
-	width:100%;
-	text-align:center;
-}
-
-#pageDiv{
- 	width:100%; 
- 	text-align:center; 
-}
-
-a:link{
-	font-size:25px;
-	font-family:sans-serif;
-	text-decoration:none;
-	margin-left:10px;
-}
-
-a:visited{
-	color:black;
-}
 </style>
 </head>
 <body>
-	<input type ="text" name="searcher" id="searcher"/>
-	<div id="outter">
-		<div id="display">
+<c:set var="context" value="${pageContext.request.contextPath}" />
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i
+						class="fa fa-bars"></i>
+				</button>
+				<a style="opacity: 1; color: black;" class="navbar-brand" href="/WebsiteV1.3/indexTemplate.jsp">首頁</a> 
+				<a class="navbar-brand" href="${context}/Search/search.jsp">產品</a>
+                <a class="navbar-brand" href="${context}/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="glyphicon glyphicon-user">${sName}<c:if
+								test="${user != 'authenticated'}">訪客</c:if></a></li>
+					<li id="login-user"><a href="#">登入</a></li>
+					<li id="register-user"><a href="#">註冊</a></li>
+					<li id="logout"><a href="#">登出</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
 		</div>
-		<div id="pageDiv">
+		
+		<!-- /.container -->
+	</nav>
+	
+	<header class="intro-header"
+		>
+		<div class="container" style="margin-bottom: 100px"></div>
+	</header>
+	
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-12">
+				<div class="col-md-12">
+					<jsp:include page="/util/navbar2.jsp"></jsp:include>
+				</div>
+			    <div class="col-md-12 ">
+				<div id="display" ></div>
+			</div>
+			</div>
 		</div>
 	</div>
-<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
-<script>
-	$(function(){
-		var pageDiv = $("#pageDiv");//變數給值時寫在最前面，確定不會有使用此變數的方法抓不到此變數
-		getData("",1);//一開始即列出所有商品，每頁呈現的產品數量，符合規定的每頁筆數
-		getPage("");//列出所有商品時，所需的頁碼 
+	
 		
-		//為搜尋欄位的keydown事件綁定search()方法
-		$('input[name="searcher"]').keydown(function(){search(event)})
+			<div>
+				<div id="display"></div>
+			</div>
 		
-		//search函式，將搜尋欄位的關鍵字傳給getPage()方法與getData()方法
-		function search(event){
-			var keyWord = $('input[name="searcher"]').val();
-			if(event.which==13){
-				$("#display").empty();
-				//每當搜尋時，從關鍵字相關的商品，第一頁開始列表
-				getPage(keyWord); //隨著蒐尋商品數量改變頁碼數
-				getData(keyWord,1); //列出第一頁的商品
+	
+	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
+	  <!-- jQuery -->
+    <script src="${context}/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="${context}/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!--     Theme JavaScript -->
+    <script src="${context}/js/clean-blog.min.js"></script>
+    
+    <script src="${context}/js/jquerysession.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(function() {
+			if("${sessionScope.SearchKeyword}"!=null){
+				$('input[name="searcher"]').val("${sessionScope.SearchKeyword}");
+				getData("${SearchKeyword}");	
+			}else{
+				getData("");
 			}
-		}
-		
-		//為動態產生的頁碼的click事件綁定方法，將頁碼數與關鍵字傳給getData()方法
-		pageDiv.on('click','.pageNumber',function(){
-			var keyWord = $('input[name="searcher"]').val();
-			var pageNumber = $(this).text();
-			$("#display").empty();
-			getData(keyWord,pageNumber);
-		});
-		
-		//隨著蒐尋到的資料筆數，設定頁碼數
-		function getPage(keyWord){
-			$.getJSON("Search.do",{"keyWord":keyWord},function(data){
-				//每次都重新產生頁碼
-				pageDiv.empty(); 
-				var docFragment = $(document.createDocumentFragment());
-				var productAmount = data.length;
-				//在SearcherDAO設定每頁3筆，query.setMaxResults(3);
-				//有餘數時，頁面加1;
-				var pageAmount = ((data.length)/3);
-				if((data.length)%3){
-					pageAmount = pageAmount+1;
-				}
-				//製造頁碼
-				for(i=1;i<=pageAmount;i++){
-					var pageA = $("<a></a>");
-					pageA.text(i);
-					pageA.attr("href","#");
-					pageA.addClass("pageNumber");
-					docFragment.append(pageA);
-				}
-				pageDiv.append(docFragment);
+ 			
+
+			$('input[name="searcher"]').keydown(function() {
+				search(event);
 			})
-		}
-		
-		//將關鍵字與所在頁碼傳給伺服器，回傳此頁碼擁有的產品資料
-		function getData(keyWord,pageNumber){
-			$.getJSON("Search.do",{"keyWord":keyWord,"pageNumber":pageNumber},function(data){
-				var docFragment = $(document.createDocumentFragment());
-				$.each(data,function(i,product){
-					var productLi = $("<li></li>"); 
-					
-					var elementA = $('<a></a>');
-					elementA.attr("href","../ProductBack/InformationCheck.jsp");//連接柏瑜的網址
-					
-					var img = $("<img/>");
-					img.attr("alt",product.productName);
-					img.attr("title",product.productName);
-					img.attr("src","Image.do?productId="+product.productId);
-					img.addClass("productImage");
-					elementA.append(img);
-					
-					var name = $("<p></p>");
-					name.text(product.productName);
-					name.addClass("productName");
-					
-					var price = $("<p></p>");
-					price.text("NT$ "+product.price);
-					price.addClass("productPrice");
-					
-					productLi.append(elementA);
-					productLi.append(name);
-					productLi.append(price);
-					
-					docFragment.append(productLi);
+
+			function search(event) {
+				var keyWord = $('input[name="searcher"]').val();
+				if (event.which == 13) {
+					$("#display").empty();
+					//列出搜尋的相關商品
+					getData(keyWord);
+				}
+			}
+
+			function getData(keyWord) {
+				$.getJSON("Search.do", {
+					"keyWord" : keyWord
+				}, function(data) {
+					var docFragment = $(document.createDocumentFragment());
+					$.each(data, function(i, product) {
+						content(product, docFragment);
+					})
+					$("#display").append(docFragment);
+
 				})
-				$("#display").append(docFragment);
-				
-			})
-		}
-	})
-</script>
+			}
+
+			function content(product, docFragment) {
+				var productLi = $("<li></li>");
+
+				var elementA = $('<a></a>');
+				elementA.attr("href", product.productId + ".jsp");//連接柏瑜的網址
+
+				var img = $("<img/>");
+				img.attr("alt", product.productName);
+				img.attr("title", product.productName);
+				img.attr("src", "Image.do?productId=" + product.productId);
+				img.addClass("productImage");
+				elementA.append(img);
+
+				var name = $("<p></p>");
+				name.text(product.productName);
+				name.addClass("productName");
+
+				var price = $("<p></p>");
+				price.text("NT$ " + product.price);
+				price.addClass("productPrice");
+
+				productLi.append(elementA);
+				productLi.append(name);
+				productLi.append(price);
+
+				docFragment.append(productLi);
+			}
+
+		})
+	</script>
+	<%session.removeAttribute("SearchKeyword");%>
 </body>
 </html>

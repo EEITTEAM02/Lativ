@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 import com.customer.model.CustomerService;
 import com.customer.model.CustomerVO;
 import com.discount.model.DiscountService;
+import com.discount.model.DiscountVO;
 import com.google.gson.Gson;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonArray;
@@ -123,53 +124,41 @@ public class CartContentServlet extends HttpServlet {
             Integer pID = Integer.parseInt(key3);     
             DiscountService dsrvc = new DiscountService();                                           
             Double unitPriceD = 0d;
+            Double unitPriceO = psrvc.getOneProduct(pID).getPrice();
             Double sum = 0d;
             Integer dc = aProduct.getPackageNo();
             LinkedList<Integer> l1 = new LinkedList<Integer>(); 
             Integer sumOfQuantity =0;
-                if(dc.equals(1)){
-                	unitPriceD =aProduct.getPrice();
-                	sum = unitPriceD * Integer.parseInt(value3);
-                }
-                else if (dc.equals(2)){
+            DiscountVO myDiscount = dsrvc.getOneDiscount(dc);
+			Integer discountNo = myDiscount.getQuantity_condition();
+            if (discountNo==null){
+            	discountNo=1;
+            }
                     Set<OrderItemVO> targetOI = target.getOrderItemVOs();
                     Iterator it2 = targetOI.iterator();
                     while(it2.hasNext()){
                     	OrderItemVO oi=(OrderItemVO) it2.next();                    	                  	
-                    	if(oi.getProductionVO().getPackageNo().equals(2)){
+                    	if(oi.getProductionVO().getPackageNo().equals(dc)){
                     		sumOfQuantity +=oi.getQuantity_order();
                     	}
                     }
                     sumOfQuantity+= Integer.parseInt(value3);
-                	if(sumOfQuantity>=2){
+                	if(sumOfQuantity>=discountNo){
                 		
-                	unitPriceD =aProduct.getPrice()*dsrvc.getOneDiscount(2).getDiscount1();
+                		if (myDiscount.getDiscount1() != null)
+	  						unitPriceD = unitPriceO * myDiscount.getDiscount1();
+	  					else {
+	  						
+	  						unitPriceD =myDiscount.getDiscount2();
+	  					}
+                		
                 	sum = unitPriceD * Integer.parseInt(value3);
                 	}
                 	else {
                 		unitPriceD =aProduct.getPrice();
                     	sum = unitPriceD * Integer.parseInt(value3);
                 	}
-                }
-                else if (dc.equals(3)){
-                	Set<OrderItemVO> targetOI = target.getOrderItemVOs();
-                    Iterator it2 = targetOI.iterator();
-                    while(it2.hasNext()){
-                    	OrderItemVO oi=(OrderItemVO) it2.next();                    	                  	
-                    	if(oi.getProductionVO().getPackageNo().equals(3)){
-                    		sumOfQuantity +=oi.getQuantity_order();
-                    	}
-                    }
-                    sumOfQuantity += Integer.parseInt(value3);
-                	if(sumOfQuantity>=3){
-                		unitPriceD =(dsrvc.getOneDiscount(3).getDiscount2())/(dsrvc.getOneDiscount(3).getQuantity_condition());
-                    	sum = unitPriceD * Integer.parseInt(value3);
-                	}
-                	else {
-                		unitPriceD =aProduct.getPrice();
-                    	sum = unitPriceD * Integer.parseInt(value3);
-                	}
-                }
+                              
             	oisrvc.addOrderItem(ono, aProduct.getProductId(), Integer.parseInt(value3), aProduct.getPrice(),unitPriceD,sum);
             	ssum+=sum;
             }

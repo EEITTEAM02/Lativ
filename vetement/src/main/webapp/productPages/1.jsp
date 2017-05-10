@@ -11,11 +11,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-
-
 <title>ProductDetail</title>
-<link href="../css/clean-blog.min.css" rel="stylesheet">
-<link href="../vendor/font-awesome/css/font-awesome.min.css"
+<link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link
 	href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
@@ -32,13 +30,13 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="../js/jquerysession.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquerysession.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery.mycart.js"></script>
-<script src="../js/jquery.fancybox.min.js"></script>
-<script src="../js/sweetalert.min.js"></script>
-<script src="../js/clean-blog.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.mycart.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.fancybox.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/clean-blog.min.js"></script>
 <style>
 .colorImg {
 	margin: 5px;
@@ -100,7 +98,7 @@ img.displayImg {
 </head>
 
 <body>
-
+<c:set var="context" value="${pageContext.request.contextPath}" />
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 		<div class="container-fluid">
@@ -111,11 +109,9 @@ img.displayImg {
 					<span class="sr-only">Toggle navigation</span> Menu <i
 						class="fa fa-bars"></i>
 				</button>
-				<a style="opacity: 1; color: black;" class="navbar-brand"
-					href="/WebsiteV1.3/indexTemplate.jsp">首頁</a> <a class="navbar-brand"
-					href="/WebsiteV1.3/productDisplay.jsp">產品</a> <a class="navbar-brand"
-					href="/WebsiteV1.3/uploadProduct2.jsp">ModifyProducts</a> <a
-					class="navbar-brand" href="/WebsiteV1.3/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
+				<a style="opacity: 1; color: black;" class="navbar-brand" href="/WebsiteV1.3/indexTemplate.jsp">首頁</a> 
+				<a class="navbar-brand" href="${context}/Search/search.jsp">產品</a>
+                <a class="navbar-brand" href="${context}/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -131,6 +127,7 @@ img.displayImg {
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
+		
 		<!-- /.container -->
 	</nav>
 
@@ -145,7 +142,7 @@ img.displayImg {
 	</div>
 	<div class="container">
 		<div class="row">
-
+            <jsp:include page="/util/navbar2.jsp"></jsp:include>
 			<div class="col-md-12">
 				<div class="jumbotron">
 
@@ -316,17 +313,6 @@ img.displayImg {
 							</div>
 							<div class="row">
 								<div class="col-sm-6 well" id="div25">
-<%-- 								<%String path = request.getContextPath();%> --%>
-<%-- 									<img id="idimg1" src=<%=path%>+"/images/star.gif" --%>
-<!-- 										style="width: 20px; height: 20px;" /> <img id="idimg2" -->
-<%-- 										src=<%=path%>+"/images/star.gif" --%>
-<!-- 										style="width: 20px; height: 20px;" /> <img id="idimg3" -->
-<%-- 										src=<%=path%>+"/images/star.gif" --%>
-<!-- 										style="width: 20px; height: 20px;" /> <img id="idimg4" -->
-<%-- 										src=<%=path%>+"/images/star.gif" --%>
-<!-- 										style="width: 20px; height: 20px;" /> <img id="idimg5" -->
-<%-- 										src=<%=path%>+"/images/star.gif" --%>
-<!-- 										style="width: 20px; height: 20px;" /> -->
 								</div>
 							</div>
 						</div>
@@ -398,46 +384,13 @@ img.displayImg {
 		</div>
 		<br></br>
 
-		<!-- 		<!-- Site footer -->
-		<!-- 		<footer class="footer"> -->
-		<!-- 		<p>&copy; IIIEDU</p> -->
-		<!-- 		</footer> -->
-
-
-
 		<script>
 	
 		$(function() {
 			var ctx = "<%=request.getContextPath()%>";
-    var discountList = $('ul.list-group:eq(0)');
+            var discountList = $('ul.list-group:eq(0)');
             
-            $.ajax({
-            	'url':ctx+'/GetDiscountCat.do',
-            	'success':function(data){
-            		
-            	var length = Object.keys(data).length;
-            	for (var i=1;i<=length;i++){
-            		var li = $('<li></li>').attr('data-id',i+3).addClass('list-group-item').text(data[i]);
-         			discountList.append(li);
-            	}
-            	 if (window.location.search){
-                     id = window.location.search.substring(1);	
-                 }
-                 else{
-                 	id = 1; 
-                 }
-                 if(id<=3){
-                          
-                 $('ul.list-group>li').removeClass('active');
-                 $('ul.list-group:eq(1)>li[data-id="' + id + '"]').addClass('active');
-                 }
-                 else{
-                
-                 	 $('ul.list-group>li').removeClass('active');
-                      $('ul.list-group:eq(0)>li[data-id="' + id + '"]').addClass('active');
-                 }
-            	}
-            	});	
+            
 		var universalPno = 1;
 			drawStar(universalPno);
 		    if(!checkAuth()){
@@ -493,17 +446,6 @@ img.displayImg {
 				    return rating;
 		    }
 			
-// 			if(checkAuth()){
-// 				if(!checkPurchase()){
-// 					$('#div25').hide();
-// 				}
-// 				else{
-// 					$('#div25').show();
-// 				}
-// 			}
-// 			else {
-// 				$('#div25').hide();
-// 			}
 		    if(checkAuth()){
 		    	if(checkPurchase()){
 			for (var i = 1; i < 6;i++)
@@ -514,27 +456,7 @@ img.displayImg {
                 document.getElementById("idimg" + i).onmousedown = mousedown;
 		    	}
 		    }
-//             function mousedown1() {
-// //                 document.body.removeChild(document.body.childNodes[2]);
-//                 document.getElementById('div25');
-//                 for (var i = 6; i < 11; i++)
-//                     document.getElementById('idimg' + i).parentNode.removeChild(document.getElementById('idimg' + i));
-//                 var ele1 = document.createElement('img');
-//                 ele1.src = '/WebsiteV1.3/images/star.gif';
-//                 for (var i =1; i <6 ; i++) {
-//                     var e = ele1.cloneNode();
-//                     e.style.width ="20px";
-//                     e.style.height ="20px";
-//                     e.id = 'idimg' + (i);
-//                     document.getElementById('div25').appendChild(e);
-//                 }
-//                 for (var i = 1; i < 6; i++)
-//                     document.getElementById("idimg" + i).onmouseout = mouseout;
-//                 for (var i = 1; i < 6; i++)
-//                     document.getElementById("idimg" + i).onmouseover = mouseover;
-//                 for (var i = 1; i < 6; i++)
-//                     document.getElementById("idimg" + i).onmousedown = mousedown;
-//             }
+
 
             function mouseover(e) {
                 var x = e.target.id.substr(5);
@@ -621,22 +543,20 @@ img.displayImg {
 
                 function loadPage(){
                 
-                    $('ul.list-group>li').removeClass('active');
-                    var y = window.location.search.substring(1);
-                    if(y<=3)
-                        $('ul.list-group:eq(1)>li[data-id="' +y + '"]').addClass('active');
-                    else
-                    	 $('ul.list-group:eq(0)>li[data-id="' +y + '"]').addClass('active');
+                     $('ul.list-group>li').removeClass('active');
+//                     var y = window.location.search.substring(1);
+//                     if(y<=3)
+//                         $('ul.list-group:eq(1)>li[data-id="' +y + '"]').addClass('active');
+//                     else
+//                     	 $('ul.list-group:eq(0)>li[data-id="' +y + '"]').addClass('active');
   				 $.ajax({
              		type: "GET",
          		    url: ctx+"/ProductDetailServlet.do",
          		    async:false,
          		    data:{"pno":universalPno},
          		    dataType:'json',
-          		    success:function(datas){ 
-          		    	
-          		        var img =null;
-                     
+          		    success:function(datas){          		    	
+          		      var img =null;                     
           		      var div21 = $('#div21');
                       var div22 = $('#div22');
                       var div23 = $('#div23');
@@ -647,14 +567,31 @@ img.displayImg {
                       var div214 = $('#div214');
                      var priceO = $(datas.array10)[0][0];
                      var priceD = datas.unitPriceDiscounted;
-       		        var h1 = $('<h4></h4>').html(datas.pName).css('display','inline-block')
-       		        var small = $('<small></small>').html(datas.discountType);
+       		         var h1 = $('<h4></h4>').html(datas.pName).css('display','inline-block')
+       		         var small = $('<small></small>').html(datas.discountType);
        		        div21.append(h1);
        		        div211.append(priceO).css('text-decoration','line-through');
        		        $('#div212 > h3').html('NT$'+priceD).addClass('text-danger');
        		        div213.html(small);
-          		      
-          		        for (var i=0;i<datas.l2.length;i++){
+
+       	                $.ajax({
+            	'url':ctx+'/GetDiscountCat.do',
+            	async:false,
+            	'success':function(data){
+            		
+            	var length = Object.keys(data).length;
+            	for (var i=1;i<=length;i++){
+            		var li = $('<li></li>').attr('data-id',i+3).addClass('list-group-item').text(data[i]);
+         			discountList.append(li);
+            	}
+
+            	}
+            	})
+
+                 $('li:contains("'+datas.discountType+'")').addClass('active');
+       	         $('li:contains("'+datas.mainCat+'")').addClass('active');      
+       	                
+       	                for (var i=0;i<datas.l2.length;i++){
           		            img = $('<img></img>').attr({"src":"colorImages/"+datas.l2[i],"id":i}).addClass("colorImg").click(function(event){
           		            	span2.empty();
           		            	span1.empty();
@@ -687,13 +624,13 @@ img.displayImg {
                                  	    select.append(option);  
                                  		}                                  	
                                      select.change(function(){
-//                                     	 console.log("in select change:"+select.val());
+
                                     	 button.data('quantity',select.val());
                                      })
                                      
                                      var button = $('<button></button').myCart(cartCart).addClass('btn btn-danger my-cart-btn').attr
                                      ({'data-size':selectedSize,'data-unitPriceD':price,'data-unitPriceO':price,'data-id':selectedPno,'data-quantity':1,'data-name':datas.pName,'data-image':"productImages/"+selectedPno}).html('add to cart').mouseover(function(){                                    	
-//                                         	console.log("selected quantity:"+button.data('quantity')); 
+
                                      });
                                      
                                      div214.text('產品編號:'+selectedPno);
@@ -798,18 +735,15 @@ img.displayImg {
 						    		  cancelButtonClass: 'btn btn-danger',
 						    	}  
 
-				
-						  
+		  
                                    ,function(isConfirm){
 						    			if(isConfirm){
 						                    $.ajax({
 				                    		    type: "POST",
-				                    		    url: "CheckoutWithDiscountServlet.do",
-				                    		    contentType: "application/json", 
-				                    		    data: JSON.stringify(list),
-				                    		    success: function(response) {
-				                    		    	window.location.replace("orderHistory.jsp");
-				                    		    }
+				                    		    url: "/vetement/ProductBack/Checkout.do",
+ 				                    		    success: function() {
+ 				                    		    	window.location ="/vetement/ProductBack/ProductCheck.jsp";
+ 				                    		    }
 						                    })
 						    			}}
 						    		
@@ -1110,20 +1044,6 @@ img.displayImg {
 				$('.validateTips').text('All form fields are required.');
 			});
 			<!-- login/logout-->
-			
-			
-			 $('ul.list-group:eq(1)').on('click','li',function(){	
-				   var id = $(this).data('id');
-                   window.location.replace(ctx+"/productDisplay.jsp"+"?"+id)
-				   $('ul.list-group:eq(1)>li').removeClass('active');
-				   $('ul.list-group:eq(1)>li[data-id="' + id + '"]').addClass('active');
-			   })
-			   $('ul.list-group:eq(0)').on('click','li',function(){	
-				   var id = $(this).data('id');
-                   window.location.replace(ctx+"/productDisplay.jsp"+"?"+id)
-				   $('ul.list-group:eq(0)>li').removeClass('active');
-				   $('ul.list-group:eq(0)>li[data-id="' + id + '"]').addClass('active');
-			   })
 			   
 			   $('.fancybox').fancybox({
     fitToView: false,

@@ -22,6 +22,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONValue;
 
+import com.category.model.CategoryService;
+import com.category.model.CategoryVO;
 import com.discount.model.DiscountService;
 import com.discount.model.DiscountVO;
 import com.production.model.ProductionService;
@@ -35,15 +37,22 @@ public class ProductDetailServlet extends HttpServlet{
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		Integer pno = Integer.parseInt(request.getParameter("pno"));
+		
 		Integer pno1 = pno;
 		Integer pno2 = pno-1;
 		List<Integer> l1= new LinkedList<Integer>();          //list of pnos/productId with the same name
 		List<Integer> l2= new LinkedList<Integer>();          //list of pnos/productId with color images
+		
+		
 		try{
 			ProductionService psrvc = new ProductionService();
 			int size = psrvc.getAll().size();
 			ProductionVO aProduct = psrvc.getOneProduct(pno);
 			String pName = aProduct.getProductName();
+			
+			CategoryService csrvc = new CategoryService();
+			CategoryVO category = csrvc.findByPrimaryKey(aProduct.getCategoryId());
+			String mainCat = category.getClass_top();
 			
 			for(;pno1<=size;pno1++){
 				if(pName.equals(psrvc.getOneProduct(pno1).getProductName())){
@@ -117,77 +126,21 @@ public class ProductDetailServlet extends HttpServlet{
 		    }
 		    System.out.println("array1:"+array1);
 		    
-//		    List<ArrayList<Integer>> array4 = new ArrayList();
-//		    int z;
-//		    ArrayList<Integer> array5 = null;
-//		    for (z=0;z<l2Size-1;z++){
-//		    	array5 =new ArrayList<Integer>();
-//		    	for(Integer x=l2.get(z);x<l2.get(z+1);x++){
-//		    		Integer s = psrvc.getOneProduct(x).getQuantity_in_stock();
-//		    		array5.add(s);
-//		    	}
-//		    	array4.add(array5);
-//		    }
-////		    System.out.println(l2.get(j));
-//		    ArrayList<Integer> array6  =new ArrayList<Integer>();
-//		    for (Integer x=l2.get(z);x<pno+i;x++){
-//		    	Integer s = psrvc.getOneProduct(x).getQuantity_in_stock();
-//		    	array6.add(s);
-//		    }
-//		    array4.add(array6);
-//		    
-//		    List<ArrayList<Integer>> array7 = new ArrayList();
-//		    int qa;
-//		    ArrayList<Integer> array8 = null;
-//		    for (qa=0;qa<l2Size-1;qa++){
-//		    	array8 =new ArrayList<Integer>();
-//		    	for(Integer x=l2.get(qa);x<l2.get(qa+1);x++){
-//		    		Integer s = psrvc.getOneProduct(x).getProductId();
-//		    		array8.add(s);
-//		    	}
-//		    	array7.add(array8);
-//		    }
-////		    System.out.println(l2.get(j));
-//		    ArrayList<Integer> array9  =new ArrayList<Integer>();
-//		    for (Integer x=l2.get(qa);x<pno+i;x++){
-//		    	Integer s = psrvc.getOneProduct(x).getProductId();
-//		    	array9.add(s);
-//		    }
-//		    array7.add(array9);
-//		    
-//		    List<ArrayList<Double>> array10 = new ArrayList();
-//		    int da;
-//		    ArrayList<Double> array11 = null;
-//		    for (da=0;da<l2Size-1;da++){
-//		    	array11 =new ArrayList<Double>();
-//		    	for(Integer x=l2.get(da);x<l2.get(da+1);x++){
-//		    		Double s = psrvc.getOneProduct(x).getPrice();
-//		    		array11.add(s);
-//		    	}
-//		    	array10.add(array11);
-//		    }
-////		    System.out.println(l2.get(j));
-//		    ArrayList<Double> array12  =new ArrayList<Double>();
-//		    for (Integer x=l2.get(da);x<pno+i;x++){
-//		    	Double s = psrvc.getOneProduct(x).getPrice();
-//		    	array12.add(s);
-//		    }
-//		    array10.add(array12);
-		    DiscountService dsrvc = new DiscountService();		    
+
+		    DiscountService dsrvc = new DiscountService();
+		    Integer packageNo = aProduct.getPackageNo();
 			DiscountVO myDiscount =  dsrvc.getOneDiscount(aProduct.getPackageNo());
 			String discountDescript = myDiscount.getDescript();
 			Integer discountNo = myDiscount.getQuantity_condition();
 		    Double unitPriceDiscounted = aProduct.getPrice();
-			if(aProduct.getPackageNo() == 2){
-				unitPriceDiscounted = unitPriceDiscounted*myDiscount.getDiscount1();
-			}
-			if(aProduct.getPackageNo() == 3){
-				unitPriceDiscounted = myDiscount.getDiscount2()/discountNo;
-			}
-            
-			
-			
-			
+		
+				if(myDiscount.getDiscount1()!=null)
+				    unitPriceDiscounted = unitPriceDiscounted*myDiscount.getDiscount1();
+				else{
+					
+					unitPriceDiscounted = myDiscount.getDiscount2();
+				}
+						
 			Map m1 = new HashMap();
             m1.put("pName", pName);
             m1.put("l1", l1);               //list of all pnos related to the main product
@@ -198,6 +151,7 @@ public class ProductDetailServlet extends HttpServlet{
             m1.put("array10", array10);
             m1.put("discountType", discountDescript);
             m1.put("unitPriceDiscounted", unitPriceDiscounted);
+            m1.put("mainCat", mainCat);
             String jsonString = JSONValue.toJSONString(m1); 
             out.println(jsonString);
 			 out.flush();

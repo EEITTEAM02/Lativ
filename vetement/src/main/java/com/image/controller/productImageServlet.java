@@ -41,7 +41,8 @@ public class productImageServlet extends HttpServlet {
             String servletPath = request.getServletPath().substring(1);
 //            System.out.println("servletPath:"+servletPath);
 			ProductionService psvc = new ProductionService();
-			if (servletPath.equals("productImages")||servletPath.equals("productPages/productImages")){
+			
+			if (servletPath.substring(Math.max(0, servletPath.length()-13)).equals("productImages")){
 				if(psvc.getOneProduct(pno).getPicture_main()!=null)
 			        content = psvc.getOneProduct(pno).getPicture_main();
 				else{

@@ -23,4 +23,8 @@ public class SearcherService {
 	public List<ProductionVO> getClassTopProduction(List<CategoryVO> listCategory){
 		return dao.getClassTopProduction(listCategory);
 	}
+	
+	public List<ProductionVO> getClassBottomProduction(List<CategoryVO> listCategory){
+		return dao.getClassBottomProduction(listCategory);
+	}
 }

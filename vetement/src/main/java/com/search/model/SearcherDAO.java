@@ -20,6 +20,9 @@ public class SearcherDAO {
 	private static final String getClassTop=
 			"from ProductionVO where categoryId=:categoryId and for_sale = true and picture_model1 is not null";
 	
+	private static final String getClassBottom=
+			"from ProductionVO where categoryId=:categoryId and for_sale = true and picture_color is not null";
+	
 	public List<ProductionVO> fuzzySearch(String keyWord){
 		List<ProductionVO> list = null;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -62,6 +65,26 @@ public class SearcherDAO {
 			for(CategoryVO VO:listCategory){
 				List<ProductionVO> list =null;
 				Query query = session.createQuery(getClassTop);
+				query.setParameter("categoryId", VO.getCategoryId());
+				list = query.list();
+				listAll.addAll(list);
+			}
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return listAll;
+	}
+	
+	public List<ProductionVO> getClassBottomProduction(List<CategoryVO> listCategory){
+		List<ProductionVO> listAll = new LinkedList<ProductionVO>();
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			for(CategoryVO VO:listCategory){
+				List<ProductionVO> list =null;
+				Query query = session.createQuery(getClassBottom);
 				query.setParameter("categoryId", VO.getCategoryId());
 				list = query.list();
 				listAll.addAll(list);
