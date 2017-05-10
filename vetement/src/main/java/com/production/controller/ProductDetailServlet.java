@@ -137,10 +137,8 @@ public class ProductDetailServlet extends HttpServlet{
 				if(myDiscount.getDiscount1()!=null)
 				    unitPriceDiscounted = unitPriceDiscounted*myDiscount.getDiscount1();
 				else{
-					Double dd = new Double(myDiscount.getDiscount2()/discountNo);
-					Long roundedDD = Math.round(dd);
-					String rDDs = roundedDD.toString();
-					unitPriceDiscounted = Double.parseDouble(rDDs);
+					
+					unitPriceDiscounted = myDiscount.getDiscount2();
 				}
 						
 			Map m1 = new HashMap();

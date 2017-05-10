@@ -101,6 +101,10 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>productImageServlet</servlet-name>
+		<url-pattern>/Search/productImages/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>productImageServlet</servlet-name>
 		<url-pattern>/colorImages/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
