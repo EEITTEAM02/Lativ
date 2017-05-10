@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONValue;
 
@@ -28,7 +29,15 @@ public class SearcherServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+		request.setCharacterEncoding("UTF-8");
+		String SearchKeyword = request.getParameter("SearchKeyword");
+		if(SearchKeyword!=null){
+			HttpSession session = request.getSession();
+			session.setAttribute("SearchKeyword", SearchKeyword);
+			response.sendRedirect(request.getContextPath()+"/Search/search.jsp");
+		}else{
+			doPost(request,response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
