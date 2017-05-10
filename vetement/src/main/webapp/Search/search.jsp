@@ -91,5 +91,6 @@
 
 		})
 	</script>
+	<%session.removeAttribute("SearchKeyword");%>
 </body>
 </html>
