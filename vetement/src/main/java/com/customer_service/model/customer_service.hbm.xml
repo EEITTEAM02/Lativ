@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>    
+    <class name="com.customer_service.model.Customer_ServiceVO" table="customer_service" >
+        
+        <id name="no_service" column="no_service"  >
+            <generator class="identity"/>
+
+        </id>
+
+        <property name="customerId" column="customerId"  />
+        <property name="title_service" column="title_service" />
+        <property name="content_service" column="content_service" />
+        <property name="reply_service" column="reply_service"  />
+        <property name="receive_date" column="receive_date" />
+
+
+    </class>
+</hibernate-mapping>
+

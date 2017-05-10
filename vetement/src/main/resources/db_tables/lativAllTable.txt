@@ -97,12 +97,19 @@ create table favorite(
 )
 
 create table customer_service(
+	no_service int identity(1,1),
+	customerId int,
 	title_service nvarchar(100),
 	content_service nvarchar(2000),
+	reply_service nvarchar(2000),
 	receive_date date,
-	customerId int,
-	constraint customer_service_FK1 foreign key(customerId) references customer(customerId),
+	constraint customer_service_FK foreign key(customerId) references customer(customerId),
 )
+
+insert into customer_service values (1,'衣服太小件','衣服太小件可以換一件嗎?','請直接寄送回來就可以了喔~','2017-03-22');
+insert into customer_service values (1,'褲子破了','褲子在洗過後就破了一個洞，我可以更換一件嗎?','人為破損無法更換喔','2017-03-28');
+insert into customer_service values (2,'衣服尺寸不對','我買的是XL，但是來的是L','請直接寄送回來就可以了喔~','2017-04-08');
+
 
 create table comment(
 	commentNo int identity(1,1),
@@ -124,6 +131,34 @@ create table news(
 	pubdate date,
 	constraint news_PK1 primary key(newsno)
 )
+
+insert into news values ('變更客服電話','親愛的會員您好
+
+自3/6(一)起，客服電話將調整為(02)6631-6666
+
+服務時間仍維持週一至週五09:00~18:00
+
+(例假日及中午12:20~13:30暫不提供電話服務
+
+造成您的不便，敬請見諒
+
+感謝您的支持與肯定！','2017-03-01');
+insert into news values ('超商取貨付款，上限調整至2000元','因應夏天商品比較輕薄
+
+即日起，「超商取貨付款」上限由1500元調高至2000元
+
+所以只要結帳金額2000元以內
+
+都可以選擇「超商取貨付款」囉！','2017-03-15');
+insert into news values ('訂單明細大改版！紙張減量做環保','為響應環保
+
+自4/1(六)起不再隨貨附A4紙張之訂單明細
+
+改採用熱感應紙式消費明細收據
+
+以達紙張減量，退換貨時請注意妥善收存
+
+菲特萌邀您共同愛地球！','2017-03-26');
 
 create table rating (
  productId int foreign key references production(productId) not null unique,

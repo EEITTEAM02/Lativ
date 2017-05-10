@@ -44,7 +44,8 @@
         <mapping resource="com/category/model/category.hbm.xml" />
         <mapping resource="com/comment/model/comment.hbm.xml" />
         <mapping resource="com/favorite/model/favorite.hbm.xml" />
-     
+		<mapping resource="com/news/model/news.hbm.xml" />
+		<mapping resource="com/customer_service/model/customer_service.hbm.xml" />     
 
 	</session-factory>
 	
