@@ -110,7 +110,7 @@ img.displayImg {
 						class="fa fa-bars"></i>
 				</button>
 				<a style="opacity: 1; color: black;" class="navbar-brand" href="/WebsiteV1.3/indexTemplate.jsp">首頁</a> 
-				<a class="navbar-brand" href="${context}/Search/index.jsp">產品</a>
+				<a class="navbar-brand" href="${context}/Search/search.jsp">產品</a>
                 <a class="navbar-brand" href="${context}/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
 			</div>
 
