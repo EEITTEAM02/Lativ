@@ -8,23 +8,24 @@
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
 #navbar{ 
- 	width:480px; 
+ 	width:780px; 
  	margin-top:50px;
  	margin-bottom:10px; 
-} 
+}
+
 #outter {
- 	width: 1000px; 
+/*  	width: 1000px;  */
 }
 
 #display {
- 	width: 1000px; 
+/*  	width: 1000px;  */
 	height: 800px;
 	margin: auto;
 	margin-top:50px;
 }
 
 #display li {
-	width: 210px;
+	width: 180px;
 	height: 300px;
 	float: none;
 	display: inline-block;
@@ -58,19 +59,23 @@
 <body>
 	<div id="navbar">
 		<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<ul class="nav navbar-nav">
-				<li class="classTop"><a href="women.jsp">WOMEN</a></li>
-				<li class="classTop"><a href="men.jsp">MEN</a></li>
-				<li class="classTop"><a href="kids.jsp">KIDS</a></li>
-			</ul>
-			<div class="navbar-form navbar-left">
-				<div class="form-group">
-					<input type="text" name="searcher" class="form-control"
-						placeholder="Search">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li class="classTop"><a href="${pageContext.request.contextPath}/Search/women.jsp">WOMEN</a></li>
+					<li class="classTop"><a href="${pageContext.request.contextPath}/Search/men.jsp">MEN</a></li>
+					<li class="classTop"><a href="${pageContext.request.contextPath}/Search/kids.jsp">KIDS</a></li>
+				</ul>
+				<div class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" name="searcher" class="form-control"
+							placeholder="Search">
+					</div>
 				</div>
+				<ul class="nav navbar-nav">
+						<li><a href="#">會員登入</a></li>
+						<li><a href="#">結帳</a></li>
+				</ul>
 			</div>
-		</div>
 		</nav>
 	</div>
 </body>
