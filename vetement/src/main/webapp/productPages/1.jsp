@@ -11,8 +11,6 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-
-
 <title>ProductDetail</title>
 <link href="../css/clean-blog.min.css" rel="stylesheet">
 <link href="../vendor/font-awesome/css/font-awesome.min.css"
