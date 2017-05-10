@@ -1,6 +1,7 @@
 package com.shoppingcartback.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -38,6 +39,7 @@ public class CheckoutServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		PrintWriter out = response.getWriter();
 		ShoppingCart cart = (ShoppingCart) session.getAttribute("shoppingCartBack");
 		if(cart==null){
 			cart = new ShoppingCart();
@@ -90,6 +92,7 @@ public class CheckoutServlet extends HttpServlet {
 		cart.reDatabase(target);
 		// 轉移至結帳畫面
 		response.sendRedirect(request.getContextPath() + "/ProductBack/ProductCheck.jsp");
+	
 	}
 
 }
