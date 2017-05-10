@@ -27,10 +27,16 @@
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
 	<script>
 		$(function() {
-			getData("");
+			if("${sessionScope.SearchKeyword}"!=null){
+				$('input[name="searcher"]').val("${sessionScope.SearchKeyword}");
+				getData("${SearchKeyword}");	
+			}else{
+				getData("");
+			}
+ 			
 
 			$('input[name="searcher"]').keydown(function() {
-				search(event)
+				search(event);
 			})
 
 			function search(event) {

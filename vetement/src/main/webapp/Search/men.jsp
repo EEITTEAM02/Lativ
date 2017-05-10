@@ -112,9 +112,9 @@ img{
 			function search(event) {
 				var keyWord = $('input[name="searcher"]').val();
 				if (event.which == 13) {
-					$("#display").empty();
-					//列出搜尋的相關商品
-					getData(keyWord);
+					//將關鍵字傳給Search.do，
+					SearchKeyword = $('input[name="searcher"]').val();
+ 					location.href="Search.do?SearchKeyword="+SearchKeyword;
 				}
 			}
 
