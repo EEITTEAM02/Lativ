@@ -71,10 +71,6 @@
 							placeholder="Search">
 					</div>
 				</div>
-				<ul class="nav navbar-nav">
-						<li><a href="#">會員登入</a></li>
-						<li><a href="#">結帳</a></li>
-				</ul>
 			</div>
 		</nav>
 	</div>

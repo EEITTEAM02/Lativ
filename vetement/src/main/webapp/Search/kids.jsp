@@ -112,19 +112,6 @@ img{
 				}
 			}
 
-			function getData(keyWord) {
-				$.getJSON("Search.do", {
-					"keyWord" : keyWord
-				}, function(data) {
-					var docFragment = $(document.createDocumentFragment());
-					$.each(data, function(i, product) {
-						content(product,docFragment);
-					})
-					$("#display").append(docFragment);
-
-				})
-			}
-
 			function getClassTopData(value) {
 				$.getJSON("CategorySearch.do", {
 					"classTop" : value,
