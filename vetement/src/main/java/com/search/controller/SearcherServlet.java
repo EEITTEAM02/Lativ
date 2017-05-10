@@ -35,6 +35,7 @@ public class SearcherServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("SearchKeyword", SearchKeyword);
 			response.sendRedirect(request.getContextPath()+"/Search/search.jsp");
+			return;
 		}else{
 			doPost(request,response);
 		}

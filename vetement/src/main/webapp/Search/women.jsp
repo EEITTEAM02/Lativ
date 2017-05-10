@@ -33,6 +33,11 @@
     color:white;
 }
 
+.vertical-menu a.discountHead {
+    background-color:#C10066;
+    color:white;
+}
+
 img{
 	width:100%;
 }
@@ -43,6 +48,12 @@ img{
 		<div class="row">
 			<div class="col-md-3">
 		<div class="vertical-menu">
+			<div name="discountDiv" class="side">
+				<a class="discountHead">折扣商品</a> 
+				<a name=discount1>折扣1</a> 
+				<a name=discount2>折扣2</a> 
+				<a name=discount3>媽媽節特價．兩件8折</a> 
+			</div>
 			<div class="side">
 				<a name="middle" class="active">上身類</a> 
 				<a name="bottom">短袖印花T恤</a> 
@@ -95,7 +106,7 @@ img{
 		$(function() {
 			var val_top = "女";
 			getClassTopData(val_top);
-
+			
 			$('input[name="searcher"]').keydown(function() {
 				search(event)
 			})
