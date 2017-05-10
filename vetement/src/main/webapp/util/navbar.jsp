@@ -65,7 +65,7 @@
 					<li class="classTop"><a href="${pageContext.request.contextPath}/Search/men.jsp">MEN</a></li>
 					<li class="classTop"><a href="${pageContext.request.contextPath}/Search/kids.jsp">KIDS</a></li>
 				</ul>
-				<div class="navbar-form navbar-left">
+				<div class="navbar-form navbar-right">
 					<div class="form-group">
 						<input type="text" name="searcher" class="form-control"
 							placeholder="Search">

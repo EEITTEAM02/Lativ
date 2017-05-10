@@ -6,12 +6,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+ <!-- Theme CSS -->
+    <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style>
 
 </style>
 </head>
 <body>
-
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -69,6 +79,17 @@
 		
 	
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
+	  <!-- jQuery -->
+    <script src="${context}/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="${context}/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!--     Theme JavaScript -->
+    <script src="${context}/js/clean-blog.min.js"></script>
+    
+    <script src="${context}/js/jquerysession.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
 		$(function() {
 			if("${sessionScope.SearchKeyword}"!=null){
