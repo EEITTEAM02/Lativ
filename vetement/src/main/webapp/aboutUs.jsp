@@ -40,7 +40,7 @@
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
+<c:set var="context" value="${pageContext.request.contextPath}" />
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
@@ -64,18 +64,17 @@
 					</button>
 					<a style="opacity: 1; color: black;" class="navbar-brand"
 						href="indexTemplate.jsp">首頁</a> <a class="navbar-brand"
-						href="productDisplay.jsp">產品</a> <a class="navbar-brand"
-						href="memberLounge.jsp"><c:if
-							test="${user == 'authenticated'}">會員專區</c:if></a> <a
-						class="navbar-brand" href="aboutUs.jsp">關於我們</a>
+						href="${context}/Search/search.jsp">產品</a> <a class="navbar-brand" href="memberLounge.jsp">
+						<c:if test="${user == 'authenticated'}">會員專區</c:if></a>
+						<a class="navbar-brand" href="aboutUs.jsp"><span class="text-danger">關於我們</span></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a class="glyphicon glyphicon-user">${sName}<c:if
-									test="${user != 'authenticated'}">訪客</c:if></a></li>
+						<li><a class="glyphicon glyphicon-user">${sName}
+						<c:if test="${user != 'authenticated'}">訪客</c:if></a></li>
 						<li id="login-user"><a href="#">登入</a></li>
 						<li id="register-user"><a href="#">註冊</a></li>
 						<li id="logout"><a href="#">登出</a></li>
@@ -204,7 +203,6 @@
 				</div>
 			</div>
 
-
 			<div class="form-group">
 				<div class="col-lg-10 col-lg-offset-2">
 					<button type="submit" id="buttonRegister" class="btn btn-primary">註冊</button>
@@ -284,11 +282,9 @@
 
 	<script>
 		$(function() {
-
-			$(function() {
+		
 				$('#bh-sl-map-container').storeLocator();
 
-			});
 			if (localStorage.chkbx && localStorage.chkbx != '') {
 				$('#rm').attr('checked', 'checked');
 				$('#email2').val(localStorage.email2);

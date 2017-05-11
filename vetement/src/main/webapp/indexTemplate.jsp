@@ -56,9 +56,9 @@
 </head>
 
 <body>
-
+<c:set var="context" value="${pageContext.request.contextPath}" />
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top" >
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top " >
         <div class="container-fluid" ">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -66,27 +66,27 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="indexTemplate.jsp">首頁</a>
-                <a class="navbar-brand" href="productDisplay.jsp">產品</a>
+                <a class="navbar-brand " href="indexTemplate.jsp"><span class="text-danger">首頁</span></a>
+                <a class="navbar-brand" href="${context}/Search/search.jsp">產品</a>
                 <a class="navbar-brand" href="memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
                                 <a class="navbar-brand" href="aboutUs.jsp">關於我們</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right ">
                     <li >
-                        <a class="glyphicon glyphicon-user">${sName}<c:if
-								test="${user != 'authenticated'}">訪客</c:if></a>
+                        <a class="glyphicon glyphicon-user"><span class="text-warning">${sName}</span><c:if
+								test="${user != 'authenticated'}"><span class="text-warning">訪客</span></c:if></a>
                     </li>
                     <li id="login-user" >
-                        <a href="#">登入</a>
+                        <a href="#"><span class="text-warning">登入</span></a>
                     </li>
                     <li id="register-user" >
-                       <a href="#">註冊</a>
+                       <a href="#"><span class="text-warning">註冊</span></a>
                     </li>
                     <li  id="logout" >
-                        <a href="#">登出</a>
+                        <a href="#"><span class="text-warning">登出</span></a>
                     </li>            
                 </ul>
             </div>

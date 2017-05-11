@@ -99,11 +99,11 @@ img.displayImg {
 						class="fa fa-bars"></i>
 				</button>
 				<a style="opacity: 1; color: black;" class="navbar-brand"
-					href="indexTemplate.jsp">首頁</a> <a class="navbar-brand"
-					href="${context}/Search/search.jsp">產品</a> 	
-					 <a class="navbar-brand" href="memberLounge.jsp"><c:if
-						test="${user == 'authenticated'}">會員專區</c:if></a> <a
-					class="navbar-brand" href="aboutUs.jsp">關於我們</a>
+					href="indexTemplate.jsp"><p>首頁</p></a>
+					 <a class="navbar-brand" href="${context}/Search/search.jsp"><p>產品</p></a> 	
+					 <a class="navbar-brand" href="memberLounge.jsp">
+					 <c:if test="${user == 'authenticated'}"><p class="text-danger">會員專區</p></c:if></a> 
+					 <a class="navbar-brand" href="aboutUs.jsp"><p>關於我們</p></a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
