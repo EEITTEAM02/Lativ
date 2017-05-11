@@ -14,7 +14,7 @@ drop table customer
 create table customer(
 	customerId int identity(1,1) not null,
 	name nvarchar(50),
-	gender nvarchar(10),
+	gender bit,
 	mail nvarchar(60),
 	pswd nvarchar(30),
 	addr_customer nvarchar(80),
@@ -167,7 +167,7 @@ create table rating (
  )
 
 insert into discount values (1,null,1,'無打折');
-insert into discount values (null,500,3,'買三件500');
+insert into discount values (null,133,3,'買3件399');
 insert into discount values (0.8,null,2,'媽媽節特價買兩件打8折');
 
 insert into category values('男','上身類','短袖背心');
@@ -9181,11 +9181,11 @@ SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/sock_w_01/picture_color_black.jpg',
    SINGLE_BLOB) AS img) 
 
-insert into customer values('陳小花','女','huahua@gmail.com','lativ123','106台北市大安區復興南路一段386號','0910123567');
-insert into customer values('黃琪琪','女','chichi123@gmail.com','lalala','231新北市新店區民權路108號','0912687987');
-insert into customer values('李阿男','男','south88@gmail.com','cloth12345','新北市板橋區府中路39號','0910888999');
-insert into customer values('許娜娜','女','na_na0505@gmail.com','lativ123','台北市大安區信義路3段100號','0918555666');
-insert into customer values('張格魯','男','kevin8081@gmail.com','sa123456','新北市蘆洲區三民路116號','0988588668');
+insert into customer values('陳小花',0,'huahua@gmail.com','lativ123','106台北市大安區復興南路一段386號','0910123567');
+insert into customer values('黃琪琪',1,'chichi123@gmail.com','lalala','231新北市新店區民權路108號','0912687987');
+insert into customer values('李阿男',1,'south88@gmail.com','cloth12345','新北市板橋區府中路39號','0910888999');
+insert into customer values('許娜娜',0,'na_na0505@gmail.com','lativ123','台北市大安區信義路3段100號','0918555666');
+insert into customer values('張格魯',1,'kevin8081@gmail.com','sa123456','新北市蘆洲區三民路116號','0988588668');
 
 insert into orders values ('2107-04-03',1,'somewhere','123456','someone',600.1,1)
 insert into orders values ('2107-04-03',2,'somewhere','139754','someoneElse',500.1,1)
