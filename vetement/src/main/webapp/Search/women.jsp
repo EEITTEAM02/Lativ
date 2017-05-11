@@ -168,9 +168,9 @@ img.displayImg {
 				<div class="vertical-menu">
 					<div name="discountDiv" class="side">
 						<a class="discountHead">折扣商品</a> 
-						<a name=discount1>折扣1</a> 
-						<a name=discount2>折扣2</a> 
-						<a name=discount3>媽媽節特價．兩件8折</a> 
+						<a name=discount1 href="Search.do?searchPackageNo=1">折扣1</a> 
+						<a name=discount2 href="Search.do?searchPackageNo=2">折扣2</a> 
+						<a name=discount3 href="Search.do?searchPackageNo=3">媽媽節特價．兩件8折</a> 
 					</div>
 					<div class="side">
 						<a name="middle" class="active">上身類</a> <a name="bottom">短袖印花T恤</a>

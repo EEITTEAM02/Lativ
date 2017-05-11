@@ -27,4 +27,8 @@ public class SearcherService {
 	public List<ProductionVO> getClassBottomProduction(List<CategoryVO> listCategory){
 		return dao.getClassBottomProduction(listCategory);
 	}
+	
+	public List<ProductionVO> getDiscountProduction(Integer packageNo){
+		return dao.getDiscountProduction(packageNo);
+	}
 }

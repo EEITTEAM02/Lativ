@@ -23,6 +23,9 @@ public class SearcherDAO {
 	private static final String getClassBottom=
 			"from ProductionVO where categoryId=:categoryId and for_sale = true and picture_color is not null";
 	
+	private static final String getDiscountProduct=
+			"from ProductionVO where packageNo=:packageNo and for_sale = true and picture_model1 is not null";
+	
 	public List<ProductionVO> fuzzySearch(String keyWord){
 		List<ProductionVO> list = null;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -97,6 +100,22 @@ public class SearcherDAO {
 		return listAll;
 	}
 	
+	public List<ProductionVO> getDiscountProduction(Integer packageNo){
+		List<ProductionVO> list = new LinkedList<ProductionVO>();
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			Query query = session.createQuery(getDiscountProduct);
+			query.setParameter("packageNo", packageNo);
+			list = query.list();
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return list;
+	}
+	
 	public static void main(String[] args) {
 		SearcherDAO dao = new SearcherDAO();
 		List<ProductionVO> list = null;
@@ -107,11 +126,16 @@ public class SearcherDAO {
 //			System.out.println(VO.getProductName());
 //		}
 		
-		CategoryDAO_interface dao2 = new CategoryDAO();
-		List<CategoryVO> listCategory = dao2.getClassTop("男");
+//		CategoryDAO_interface dao2 = new CategoryDAO();
+//		List<CategoryVO> listCategory = dao2.getClassTop("男");
+//		
+//		List<ProductionVO> listAll = dao.getClassTopProduction(listCategory);
+//		for(ProductionVO VO:listAll){
+//			System.out.println(VO.getProductName());
+//		}
 		
-		List<ProductionVO> listAll = dao.getClassTopProduction(listCategory);
-		for(ProductionVO VO:listAll){
+		list = dao.getDiscountProduction(2);
+		for(ProductionVO VO:list){
 			System.out.println(VO.getProductName());
 		}
 	}
