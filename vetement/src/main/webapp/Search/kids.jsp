@@ -60,10 +60,10 @@ img{
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="indexTemplate.jsp">首頁</a>
-                <a class="navbar-brand" href="productDisplay.jsp">產品</a>
-                <a class="navbar-brand" href="memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
-                                <a class="navbar-brand" href="aboutUs.jsp">關於我們</a>
+                 <a class="navbar-brand" href="${context}/indexTemplate.jsp">首頁</a>
+                <a class="navbar-brand" href="${context}/Search/search.jsp">產品</a>
+                <a class="navbar-brand" href="${context}/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
+                                <a class="navbar-brand" href="${context}/aboutUs.jsp">關於我們</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
