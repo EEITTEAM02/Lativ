@@ -25,33 +25,54 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <style>
+<style>
+* {margin:0;padding:0;border:0 none;}
+*,*:before,*:after {box-sizing:border-box;}
 
-/* .dialogRegister-form input { */
-/*     width: 35px; */
-/* } */
+.slider {
+	background: green;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;/**/
+	overflow: hidden;/**/
+	transition: 0.6s;/**/
+	width: 100%;/**/
+}
 
-/* .dialogLogin-form input { */
-/*     width: 35px; */
-/* } */
+.slider__element {
+	flex: 1;
+	padding: 1em;/**/
+	transition: 1.2s;/**/
+}
+.slider__element:hover {
+	flex: 10;
+}
+.slider__element:first-child {
+  background: #fff;
+}
+.slider__element:nth-child(2) {
+  background: #eee;
+}
+.slider__element:nth-child(3) {
+  background:  #fff;
+}
+.slider__element:nth-child(4) {
+  background:  #eee;
+}
+.slider__element:nth-child(5) {
+  background:  #fff;
+}
 
-/* label, input { */
-/* 	display: block; */
-/* } */
-
-/* input.text { */
-/* 	margin-bottom: 12px; */
-/* 	width: 95%; */
-/* 	padding: .4em; */
-/* } */
-
-/* fieldset { */
-/* 	padding: 0; */
-/* 	border: 0; */
-/* 	margin-top: 25px; */
-/* 	display: inline-block; */
-/* } */
-
+@media (min-width: 640px) {
+	.slider {
+		flex-direction: row;
+		height: 400px;/**/
+	}
+}
 </style>
 </head>
 
@@ -112,65 +133,119 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Man must explore, and this is exploration at its greatest
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                        </h2>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Science has not yet mastered prophecy
-                        </h2>
-                        <h3 class="post-subtitle">
-                            We predict too much for the next year and yet far too little for the next ten.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Failure is not an option
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <div class="container-fluid">
+    <section class="slider">
+	<article class="slider__element"><img src ="productImages/1" style="width:100px;"></img>A common English usage misconception is that a paragraph has three to five sentences; single-word paragraphs can be seen in some professional writing, and journalists often use single-sentence paragraphs.[9]
+
+The crafting of clear, coherent paragraphs is the subject of considerable stylistic debate. Forms generally vary among types of writing. For example, newspapers, scientific journals, and fictional essays have somewhat different conventions for the placement of paragraph breaks.
+
+English students are sometimes taught that a paragraph should have a topic sentence or "main idea", preferably first, and multiple "supporting" or "detail" sentences which explain or supply evidence. One technique of this type, intended for essay writing, is known as the Schaffer paragraph. For example, the following excerpt from Dr. Samuel Johnson's Lives of the English Poets, the first sentence is the main idea: that Joseph Addison is a skilled "describer of life and manners". The succeeding sentences are details that support and explain the main idea in a specific way.
+
+As a describer of life and manners, he must be allowed to stand perhaps the first of the first rank. His humour, which, as Steele observes, is peculiar to himself, is so happily diffused as to give the grace of novelty to domestic scenes and daily occurrences. He never "o'ersteps the modesty of nature," nor raises merriment or wonder by the violation of truth. His figures neither divert by distortion nor amaze by aggravation. He copies life with so much fidelity that he can be hardly said to invent; yet his exhibitions have an air so much original, that it is difficult to suppose them not merely the product of imagination.
+
+This advice differs from stock advice for the construction of paragraphs in Japanese (translated as danraku 段落).[10]</article>
+	<article class="slider__element"><img src ="productImages/564" style="width:100px;"></img>A common English usage misconception is that a paragraph has three to five sentences; single-word paragraphs can be seen in some professional writing, and journalists often use single-sentence paragraphs.[9]
+
+The crafting of clear, coherent paragraphs is the subject of considerable stylistic debate. Forms generally vary among types of writing. For example, newspapers, scientific journals, and fictional essays have somewhat different conventions for the placement of paragraph breaks.
+
+English students are sometimes taught that a paragraph should have a topic sentence or "main idea", preferably first, and multiple "supporting" or "detail" sentences which explain or supply evidence. One technique of this type, intended for essay writing, is known as the Schaffer paragraph. For example, the following excerpt from Dr. Samuel Johnson's Lives of the English Poets, the first sentence is the main idea: that Joseph Addison is a skilled "describer of life and manners". The succeeding sentences are details that support and explain the main idea in a specific way.
+
+As a describer of life and manners, he must be allowed to stand perhaps the first of the first rank. His humour, which, as Steele observes, is peculiar to himself, is so happily diffused as to give the grace of novelty to domestic scenes and daily occurrences. He never "o'ersteps the modesty of nature," nor raises merriment or wonder by the violation of truth. His figures neither divert by distortion nor amaze by aggravation. He copies life with so much fidelity that he can be hardly said to invent; yet his exhibitions have an air so much original, that it is difficult to suppose them not merely the product of imagination.
+
+This advice differs from stock advice for the construction of paragraphs in Japanese (translated as danraku 段落).[10]</article>
+	<article class="slider__element"><img src ="productImages/98" style="width:100px;"></img>A common English usage misconception is that a paragraph has three to five sentences; single-word paragraphs can be seen in some professional writing, and journalists often use single-sentence paragraphs.[9]
+
+The crafting of clear, coherent paragraphs is the subject of considerable stylistic debate. Forms generally vary among types of writing. For example, newspapers, scientific journals, and fictional essays have somewhat different conventions for the placement of paragraph breaks.
+
+English students are sometimes taught that a paragraph should have a topic sentence or "main idea", preferably first, and multiple "supporting" or "detail" sentences which explain or supply evidence. One technique of this type, intended for essay writing, is known as the Schaffer paragraph. For example, the following excerpt from Dr. Samuel Johnson's Lives of the English Poets, the first sentence is the main idea: that Joseph Addison is a skilled "describer of life and manners". The succeeding sentences are details that support and explain the main idea in a specific way.
+
+As a describer of life and manners, he must be allowed to stand perhaps the first of the first rank. His humour, which, as Steele observes, is peculiar to himself, is so happily diffused as to give the grace of novelty to domestic scenes and daily occurrences. He never "o'ersteps the modesty of nature," nor raises merriment or wonder by the violation of truth. His figures neither divert by distortion nor amaze by aggravation. He copies life with so much fidelity that he can be hardly said to invent; yet his exhibitions have an air so much original, that it is difficult to suppose them not merely the product of imagination.
+
+This advice differs from stock advice for the construction of paragraphs in Japanese (translated as danraku 段落).[10]</article>
+	<article class="slider__element"><img src ="productImages/25" style="width:100px;"></img>A common English usage misconception is that a paragraph has three to five sentences; single-word paragraphs can be seen in some professional writing, and journalists often use single-sentence paragraphs.[9]
+
+The crafting of clear, coherent paragraphs is the subject of considerable stylistic debate. Forms generally vary among types of writing. For example, newspapers, scientific journals, and fictional essays have somewhat different conventions for the placement of paragraph breaks.
+
+English students are sometimes taught that a paragraph should have a topic sentence or "main idea", preferably first, and multiple "supporting" or "detail" sentences which explain or supply evidence. One technique of this type, intended for essay writing, is known as the Schaffer paragraph. For example, the following excerpt from Dr. Samuel Johnson's Lives of the English Poets, the first sentence is the main idea: that Joseph Addison is a skilled "describer of life and manners". The succeeding sentences are details that support and explain the main idea in a specific way.
+
+As a describer of life and manners, he must be allowed to stand perhaps the first of the first rank. His humour, which, as Steele observes, is peculiar to himself, is so happily diffused as to give the grace of novelty to domestic scenes and daily occurrences. He never "o'ersteps the modesty of nature," nor raises merriment or wonder by the violation of truth. His figures neither divert by distortion nor amaze by aggravation. He copies life with so much fidelity that he can be hardly said to invent; yet his exhibitions have an air so much original, that it is difficult to suppose them not merely the product of imagination.
+
+This advice differs from stock advice for the construction of paragraphs in Japanese (translated as danraku 段落).[10]</article>
+	<article class="slider__element"><img src ="productImages/11" style="width:100px;"></img>A common English usage misconception is that a paragraph has three to five sentences; single-word paragraphs can be seen in some professional writing, and journalists often use single-sentence paragraphs.[9]
+
+The crafting of clear, coherent paragraphs is the subject of considerable stylistic debate. Forms generally vary among types of writing. For example, newspapers, scientific journals, and fictional essays have somewhat different conventions for the placement of paragraph breaks.
+
+English students are sometimes taught that a paragraph should have a topic sentence or "main idea", preferably first, and multiple "supporting" or "detail" sentences which explain or supply evidence. One technique of this type, intended for essay writing, is known as the Schaffer paragraph. For example, the following excerpt from Dr. Samuel Johnson's Lives of the English Poets, the first sentence is the main idea: that Joseph Addison is a skilled "describer of life and manners". The succeeding sentences are details that support and explain the main idea in a specific way.
+
+As a describer of life and manners, he must be allowed to stand perhaps the first of the first rank. His humour, which, as Steele observes, is peculiar to himself, is so happily diffused as to give the grace of novelty to domestic scenes and daily occurrences. He never "o'ersteps the modesty of nature," nor raises merriment or wonder by the violation of truth. His figures neither divert by distortion nor amaze by aggravation. He copies life with so much fidelity that he can be hardly said to invent; yet his exhibitions have an air so much original, that it is difficult to suppose them not merely the product of imagination.
+
+This advice differs from stock advice for the construction of paragraphs in Japanese (translated as danraku 段落).[10]</article>
+</section>
     </div>
     
-    <div id="dialogRegister-form" title="Register New User">
+    
+    
+    
+    
+<!--     <div class="container"> -->
+<!--         <div class="row"> -->
+<!--             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"> -->
+<!--                 <div class="post-preview"> -->
+<!--                     <a href="post.html"> -->
+<!--                         <h2 class="post-title"> -->
+<!--                             Man must explore, and this is exploration at its greatest -->
+<!--                         </h2> -->
+<!--                         <h3 class="post-subtitle"> -->
+<!--                             Problems look mighty small from 150 miles up -->
+<!--                         </h3> -->
+<!--                     </a> -->
+<!--                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p> -->
+<!--                 </div> -->
+<!--                 <hr> -->
+<!--                 <div class="post-preview"> -->
+<!--                     <a href="post.html"> -->
+<!--                         <h2 class="post-title"> -->
+<!--                             I believe every human has a finite number of heartbeats. I don't intend to waste any of mine. -->
+<!--                         </h2> -->
+<!--                     </a> -->
+<!--                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p> -->
+<!--                 </div> -->
+<!--                 <hr> -->
+<!--                 <div class="post-preview"> -->
+<!--                     <a href="post.html"> -->
+<!--                         <h2 class="post-title"> -->
+<!--                             Science has not yet mastered prophecy -->
+<!--                         </h2> -->
+<!--                         <h3 class="post-subtitle"> -->
+<!--                             We predict too much for the next year and yet far too little for the next ten. -->
+<!--                         </h3> -->
+<!--                     </a> -->
+<!--                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p> -->
+<!--                 </div> -->
+<!--                 <hr> -->
+<!--                 <div class="post-preview"> -->
+<!--                     <a href="post.html"> -->
+<!--                         <h2 class="post-title"> -->
+<!--                             Failure is not an option -->
+<!--                         </h2> -->
+<!--                         <h3 class="post-subtitle"> -->
+<!--                             Many say exploration is part of our destiny, but it’s actually our duty to future generations. -->
+<!--                         </h3> -->
+<!--                     </a> -->
+<!--                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p> -->
+<!--                 </div> -->
+<!--                 <hr> -->
+<!--                 Pager -->
+<!--                 <ul class="pager"> -->
+<!--                     <li class="next"> -->
+<!--                         <a href="#">Older Posts &rarr;</a> -->
+<!--                     </li> -->
+<!--                 </ul> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+    <!-- /Main Content -->
+    <div id="dialogRegister-form" title="Register New User" style="display:none">
 						<p class="validateTips">All form fields are required.</p>
 
 						<form id="registerForm" class="form-horizontal">
@@ -247,7 +322,7 @@
 							</div>
 						</form>
 					</div>
-    <div id="dialogLogin-form" title="user login">
+    <div id="dialogLogin-form" title="user login" style="display:none">
 						<p class="validateTips">All form fields are required.</p>
 
 						<form id="loginForm" class="form-horizontal">
