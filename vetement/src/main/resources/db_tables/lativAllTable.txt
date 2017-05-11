@@ -106,11 +106,6 @@ create table customer_service(
 	constraint customer_service_FK foreign key(customerId) references customer(customerId),
 )
 
-insert into customer_service values (1,'衣服太小件','衣服太小件可以換一件嗎?','請直接寄送回來就可以了喔~','2017-03-22');
-insert into customer_service values (1,'褲子破了','褲子在洗過後就破了一個洞，我可以更換一件嗎?','人為破損無法更換喔','2017-03-28');
-insert into customer_service values (2,'衣服尺寸不對','我買的是XL，但是來的是L','請直接寄送回來就可以了喔~','2017-04-08');
-
-
 create table comment(
 	commentNo int identity(1,1),
 	comment nvarchar(200),
@@ -9186,6 +9181,11 @@ insert into customer values('黃琪琪',1,'chichi123@gmail.com','lalala','231新
 insert into customer values('李阿男',1,'south88@gmail.com','cloth12345','新北市板橋區府中路39號','0910888999');
 insert into customer values('許娜娜',0,'na_na0505@gmail.com','lativ123','台北市大安區信義路3段100號','0918555666');
 insert into customer values('張格魯',1,'kevin8081@gmail.com','sa123456','新北市蘆洲區三民路116號','0988588668');
+
+insert into customer_service values (1,'衣服太小件','衣服太小件可以換一件嗎?','請直接寄送回來就可以了喔~','2017-03-22');
+insert into customer_service values (1,'褲子破了','褲子在洗過後就破了一個洞，我可以更換一件嗎?','人為破損無法更換喔','2017-03-28');
+insert into customer_service values (2,'衣服尺寸不對','我買的是XL，但是來的是L','請直接寄送回來就可以了喔~','2017-04-08');
+
 
 insert into orders values ('2107-04-03',1,'somewhere','123456','someone',600.1,1)
 insert into orders values ('2107-04-03',2,'somewhere','139754','someoneElse',500.1,1)
