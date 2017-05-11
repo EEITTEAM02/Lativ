@@ -47,6 +47,7 @@ public class SearcherServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");//增加此行，避免Json轉出亂碼
 		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("UTF-8");
+		
 		String keyWord = request.getParameter("keyWord");
 		String pageNumberStr = request.getParameter("pageNumber");
 		Integer pageNumber = null;
@@ -60,7 +61,7 @@ public class SearcherServlet extends HttpServlet {
 		
 		if(pageNumber != null){
 			list = dao.pageSearch(keyWord, pageNumber);
-		}else{
+		}else if(keyWord!=null){
 			list = dao.fuzzySearch(keyWord);
 		}
 		
