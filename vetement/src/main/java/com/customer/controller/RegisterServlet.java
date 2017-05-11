@@ -128,9 +128,10 @@ public class RegisterServlet extends HttpServlet {
 
 				/***************************��L�i�઺���~�B�z*************************************/
 			} catch (Exception e) {
-				out.write("dd" + e.getMessage());
-				out.flush();
-				out.close();
+//				out.write(  e.printStackTrace(););
+//				out.flush();
+//				out.close();
+				e.printStackTrace();
 			}
 		
 		

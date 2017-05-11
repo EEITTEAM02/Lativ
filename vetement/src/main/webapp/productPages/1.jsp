@@ -21,11 +21,11 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="../css/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.fancybox.min.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
-<script type="text/javascript" src="../js/jquery-3.2.0.min.js"
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.0.min.js"
 	charset="utf-8"></script>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -385,9 +385,9 @@ img.displayImg {
 		<br></br>
 
 		<script>
-	
+		var ctx = "<%=request.getContextPath()%>";
 		$(function() {
-			var ctx = "<%=request.getContextPath()%>";
+		
             var discountList = $('ul.list-group:eq(0)');
             
             
@@ -926,7 +926,7 @@ img.displayImg {
 			    event.preventDefault();
 			    if (valid) {
 				var data = $('#registerForm').serialize();
-				$.post("Register.do", data, function(data) {
+				$.post(ctx+"/Register.do", data, function(data) {
 					if (data.substring(0, 2) != "Su") {
 						$('#spanRegister').html(data);
 					} else {

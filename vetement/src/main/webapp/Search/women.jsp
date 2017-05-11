@@ -15,11 +15,11 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="../css/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.fancybox.min.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
-<script type="text/javascript" src="../js/jquery-3.2.0.min.js"
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.0.min.js"
 	charset="utf-8"></script>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -120,6 +120,8 @@ img.displayImg {
 </head>
 <body>
 	<c:set var="context" value="${pageContext.request.contextPath}" />
+	
+	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -329,7 +331,14 @@ img.displayImg {
 					</div>
 					
 	<script>
-		$(function() {
+	var ctx = "<%=request.getContextPath()%>";
+	$(function() {
+			$('#logout').click(function() {
+				$.get(ctx+"/Logout.do", function(data) {
+					location.reload();
+				});
+			})
+			
 			var val_top = "女";
 			getClassTopData(val_top);
 			
@@ -381,7 +390,7 @@ img.displayImg {
 				var productLi = $("<li></li>");
 
 				var elementA = $('<a></a>');
-				elementA.attr("href", '/vetement/productPages/'+product.productId + ".jsp");//連接柏瑜的網址
+				elementA.attr("href", '${context}/productPages/'+product.productId + ".jsp");//連接柏瑜的網址
 
 				var img = $("<img/>");
 				img.attr("alt", product.productName);
@@ -645,7 +654,7 @@ img.displayImg {
        			    event.preventDefault();
        			    if (valid) {
        				var data = $('#registerForm').serialize();
-       				$.post("Register.do", data, function(data) {
+       				$.post(ctx+"/Register.do", data, function(data) {
        					if (data.substring(0, 2) != "Su") {
        						$('#spanRegister').html(data);
        					} else {

@@ -27,7 +27,7 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="css/simple-sidebar.css" rel="stylesheet">
- <link rel="stylesheet" type="text/css" href="css/storelocator.min.css" />
+<link rel="stylesheet" type="text/css" href="css/storelocator.min.css" />
 <!-- Custom CSS -->
 <link href="css/scrolling-nav.css" rel="stylesheet">
 <style>
@@ -65,8 +65,7 @@
 					<a style="opacity: 1; color: black;" class="navbar-brand"
 						href="indexTemplate.jsp">首頁</a> <a class="navbar-brand"
 						href="productDisplay.jsp">產品</a> <a class="navbar-brand"
-						href="uploadProduct2.jsp">ModifyProducts</a> <a
-						class="navbar-brand" href="memberLounge.jsp"><c:if
+						href="memberLounge.jsp"><c:if
 							test="${user == 'authenticated'}">會員專區</c:if></a> <a
 						class="navbar-brand" href="aboutUs.jsp">關於我們</a>
 				</div>
@@ -240,30 +239,30 @@
 
 	<!-- Contact Section -->
 	<section id="contact" class="contact-section">
-		<div class="container" >
+		<div class="container">
 			<div class="row">
-				<div class="col-lg-12" >
+				<div class="col-lg-12">
 					<h1>Contact Section</h1>
-     <div class="bh-sl-container">
-      
-      <div class="bh-sl-form-container">
-        <form id="bh-sl-user-location" method="post" >
-            <div class="form-input">
-              <label for="bh-sl-address">請輸入地址:</label>
-              <input type="text" id="bh-sl-address" name="bh-sl-address" />
-            </div>
-            
-            <button id="bh-sl-submit" type="submit">送出</button>
-        </form>
-      </div>
+					<div class="bh-sl-container">
 
-      <div id="bh-sl-map-container" class="bh-sl-map-container">
-        <div id="bh-sl-map" class="bh-sl-map"></div>
-        <div class="bh-sl-loc-list">
-          <ul class="list"></ul>
-        </div>
-      </div>
-    </div>
+						<div class="bh-sl-form-container">
+							<form id="bh-sl-user-location" method="post">
+								<div class="form-input">
+									<label for="bh-sl-address">請輸入地址:</label> <input type="text"
+										id="bh-sl-address" name="bh-sl-address" />
+								</div>
+
+								<button id="bh-sl-submit" type="submit">送出</button>
+							</form>
+						</div>
+
+						<div id="bh-sl-map-container" class="bh-sl-map-container">
+							<div id="bh-sl-map" class="bh-sl-map"></div>
+							<div class="bh-sl-loc-list">
+								<ul class="list"></ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -278,267 +277,268 @@
 	<!-- Scrolling Nav JavaScript -->
 	<script src="js/jquery.easing.min.js"></script>
 	<script src="js/scrolling-nav.js"></script>
-	  <script src="https://maps.google.com/maps/api/js?key=AIzaSyBwqCl08DgbvCyYJHrcS_IT3W6HscUnDvM&region=TW"></script>
-    <script src="js/handlebars.min.js"></script>
-    <script src="js/jquery.storelocator.min.js"></script>
-	
+	<script
+		src="https://maps.google.com/maps/api/js?key=AIzaSyBwqCl08DgbvCyYJHrcS_IT3W6HscUnDvM&region=TW"></script>
+	<script src="js/handlebars.min.js"></script>
+	<script src="js/jquery.storelocator.min.js"></script>
+
 	<script>
-$(function() {	
-	
-	$(function() {
-		$('#bh-sl-map-container').storeLocator();
-		
-	});
-if (localStorage.chkbx && localStorage.chkbx != '') {
-    $('#rm').attr('checked', 'checked');
-    $('#email2').val(localStorage.email2);
-    $('#password2').val(localStorage.password2);
-} else {
-    $('#rm').removeAttr('checked');
-    $('#email2').val('');
-    $('#password2').val('');
-}
+		$(function() {
 
-$('#rm').on('click',function() {
+			$(function() {
+				$('#bh-sl-map-container').storeLocator();
 
-    if ($('#rm').is(':checked')) {
-        // save username and password
-       
-         $('#spanEmail').text($('#email2').val()).hide();
-         $('#spanPwd').text($('#password2').val()).hide();
-         console.log($('#spanPwd').text());
-        localStorage.email2 = $('#spanEmail').text();
-        localStorage.password2 =$('#spanPwd').text();
-        localStorage.chkbx = $('#rm').val();
-    } else {
-        localStorage.email2 = '';
-        localStorage.password2 = '';
-        localStorage.chkbx = '';
-    }
-});
+			});
+			if (localStorage.chkbx && localStorage.chkbx != '') {
+				$('#rm').attr('checked', 'checked');
+				$('#email2').val(localStorage.email2);
+				$('#password2').val(localStorage.password2);
+			} else {
+				$('#rm').removeAttr('checked');
+				$('#email2').val('');
+				$('#password2').val('');
+			}
 
-$('#buttonLogin').hide();
-$('#buttonRegister').hide();
-$('#logout').click(function() {
-$.get("Logout.do", function(data) {
-	location.reload();
-});
-})
+			$('#rm').on('click', function() {
 
-var dialog, formRegister, formLogin, email2 = $("#email2"), email1 = $("#email1"),password2 = $("#password2"), password1 = $("#password1"), name = $("#name")
-,addr = $("#address"),phoneno = $("#phoneno"),genderM = $('#genderM'), genderF = $('#genderF'),
-emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-allFieldsLogin = $([]).add(email2).add(password2),
-tips = $( ".validateTips" ),
-allFieldsRegister = $([]).add(name).add(email1).add(password1).add(addr).add(phoneno).add(genderM).add(genderF);
+				if ($('#rm').is(':checked')) {
+					// save username and password
 
-function updateTips( t ) {
-  tips
-    .text( t )
-    .addClass( "ui-state-highlight" );
-  setTimeout(function() {
-    tips.removeClass( "ui-state-highlight", 1500 );
-  }, 500 );
-}
+					$('#spanEmail').text($('#email2').val()).hide();
+					$('#spanPwd').text($('#password2').val()).hide();
+					console.log($('#spanPwd').text());
+					localStorage.email2 = $('#spanEmail').text();
+					localStorage.password2 = $('#spanPwd').text();
+					localStorage.chkbx = $('#rm').val();
+				} else {
+					localStorage.email2 = '';
+					localStorage.password2 = '';
+					localStorage.chkbx = '';
+				}
+			});
 
-function checkLength( o, n, min, max ) {
-  if ( o.val().length > max || o.val().length < min ) {
-    o.addClass( "ui-state-error" );
-    updateTips( "Length of " + n + " must be between " +
-      min + " and " + max + "." );
-    return false;
-  } else {
-    return true;
-  }
-}
+			$('#buttonLogin').hide();
+			$('#buttonRegister').hide();
+			$('#logout').click(function() {
+				$.get("Logout.do", function(data) {
+					location.reload();
+				});
+			})
 
-function checkRegexp( o, regexp, n ) {
-  if ( !( regexp.test( o.val() ) ) ) {
-    o.addClass( "ui-state-error" );
-    updateTips( n );
-    return false;
-  } else {
-    return true;
-  }
-}
+			var dialog, formRegister, formLogin, email2 = $("#email2"), email1 = $("#email1"), password2 = $("#password2"), password1 = $("#password1"), name = $("#name"), addr = $("#address"), phoneno = $("#phoneno"), genderM = $('#genderM'), genderF = $('#genderF'), emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, allFieldsLogin = $(
+					[]).add(email2).add(password2), tips = $(".validateTips"), allFieldsRegister = $(
+					[]).add(name).add(email1).add(password1).add(addr).add(
+					phoneno).add(genderM).add(genderF);
 
+			function updateTips(t) {
+				tips.text(t).addClass("ui-state-highlight");
+				setTimeout(function() {
+					tips.removeClass("ui-state-highlight", 1500);
+				}, 500);
+			}
 
+			function checkLength(o, n, min, max) {
+				if (o.val().length > max || o.val().length < min) {
+					o.addClass("ui-state-error");
+					updateTips("Length of " + n + " must be between " + min
+							+ " and " + max + ".");
+					return false;
+				} else {
+					return true;
+				}
+			}
 
-function loginUser() {
+			function checkRegexp(o, regexp, n) {
+				if (!(regexp.test(o.val()))) {
+					o.addClass("ui-state-error");
+					updateTips(n);
+					return false;
+				} else {
+					return true;
+				}
+			}
 
-var valid = true;
-  allFieldsLogin.removeClass( "ui-state-error" );
+			function loginUser() {
 
-  valid = valid && checkLength( email2, "email", 6, 80 );
-  valid = valid && checkLength( password2, "password", 3, 16 );
+				var valid = true;
+				allFieldsLogin.removeClass("ui-state-error");
 
-  valid = valid && checkRegexp( email2, emailRegex, "eg. ui@jquery.com" );
-  valid = valid && checkRegexp( password2, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+				valid = valid && checkLength(email2, "email", 6, 80);
+				valid = valid && checkLength(password2, "password", 3, 16);
 
-event.preventDefault();
-if (valid) {
-var data = $('#loginForm').serialize();
-$.post("LoginNew.do", data, function(data) {
+				valid = valid
+						&& checkRegexp(email2, emailRegex, "eg. ui@jquery.com");
+				valid = valid
+						&& checkRegexp(password2, /^([0-9a-zA-Z])+$/,
+								"Password field only allow : a-z 0-9");
 
-	if (data==''){
-		
-		location.reload();
-	}
-	else if (data.substring(0, 2) != "We") {
-		$('#spanPwd').html(data);
-	} 						
-	
-	else {
-		$('#spanPwd').empty();
+				event.preventDefault();
+				if (valid) {
+					var data = $('#loginForm').serialize();
+					$.post("LoginNew.do", data, function(data) {
 
-		dialogLogin.dialog("close");
-		location.reload();
-	}
-})
-}
+						if (data == '') {
 
+							location.reload();
+						} else if (data.substring(0, 2) != "We") {
+							$('#spanPwd').html(data);
+						}
 
-return valid;
-}
+						else {
+							$('#spanPwd').empty();
 
-function registerUser() {
-var valid = true;
- allFieldsRegister.removeClass( "ui-state-error" );
-  
-	  valid = valid && checkLength( name, "name", 3, 80 );
-  valid = valid && checkLength( email1, "email", 6, 80 );
-  valid = valid && checkLength( password1, "password", 3, 16 );
-  
-  valid = valid && checkLength( addr, "address", 3, 50 );
-  valid = valid && checkLength( phoneno, "phone #", 3, 16 );
+							dialogLogin.dialog("close");
+							location.reload();
+						}
+					})
+				}
 
-  valid = valid && checkRegexp( email1, emailRegex, "eg. ui@jquery.com" );
-  valid = valid && checkRegexp( password1, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-  valid = valid && checkRegexp(phoneno,/^([0-9])+$/,"phone no field only allow : 0-9");
-  
-event.preventDefault();
-if (valid) {
-var data = $('#registerForm').serialize();
-$.post("Register.do", data, function(data) {
-	if (data.substring(0, 2) != "Su") {
-		$('#spanRegister').html(data);
-	} else {
-		$('#spanRegister').empty();
+				return valid;
+			}
 
+			function registerUser() {
+				var valid = true;
+				allFieldsRegister.removeClass("ui-state-error");
 
-			alert(data);
-		dialogLogin.dialog("close");
-		location.reload();
-	}
-})
-}
-return valid;
-}
+				valid = valid && checkLength(name, "name", 3, 80);
+				valid = valid && checkLength(email1, "email", 6, 80);
+				valid = valid && checkLength(password1, "password", 3, 16);
 
-dialogLogin = $("#dialogLogin-form").dialog({
+				valid = valid && checkLength(addr, "address", 3, 50);
+				valid = valid && checkLength(phoneno, "phone #", 3, 16);
 
-closeOnEscape: true,
-open: function(event, ui) {
-    $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-},
+				valid = valid
+						&& checkRegexp(email1, emailRegex, "eg. ui@jquery.com");
+				valid = valid
+						&& checkRegexp(password1, /^([0-9a-zA-Z])+$/,
+								"Password field only allow : a-z 0-9");
+				valid = valid
+						&& checkRegexp(phoneno, /^([0-9])+$/,
+								"phone no field only allow : 0-9");
 
+				event.preventDefault();
+				if (valid) {
+					var data = $('#registerForm').serialize();
+					$.post("Register.do", data, function(data) {
+						if (data.substring(0, 2) != "Su") {
+							$('#spanRegister').html(data);
+						} else {
+							$('#spanRegister').empty();
 
-autoOpen : false,
-//	height: 400,
-	width :500,
-modal : true,
-resizable : false,
- buttons: {"Login": loginUser,
-        Cancel: function() {
-        	if ($('#rm').is(':checked')) {
-        	     $('#spanEmail').text($('#email2').val()).hide();
-                 $('#spanPwd').text($('#password2').val()).hide();
-                localStorage.email2 = $('#spanEmail').text();
-                localStorage.password2 =$('#spanPwd').text();
-                localStorage.chkbx = $('#rm').val();
-            } else {
-                localStorage.email2 = '';
-                localStorage.password2 = '';
-                localStorage.chkbx = '';
-            }
-          dialogLogin.dialog( "close" );
-        }
-      },
-close : function() {
-	
-	$('#spanPwd').empty();
-	formLogin[0].reset();
-	allFieldsLogin.removeClass("ui-state-error");
-}
-});
+							alert(data);
+							dialogLogin.dialog("close");
+							location.reload();
+						}
+					})
+				}
+				return valid;
+			}
 
-dialogRegister = $("#dialogRegister-form").dialog({
+			dialogLogin = $("#dialogLogin-form").dialog({
 
-closeOnEscape: true,
-open: function(event, ui) {
-    $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-},
+				closeOnEscape : true,
+				open : function(event, ui) {
+					$(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
+				},
 
+				autoOpen : false,
+				//	height: 400,
+				width : 500,
+				modal : true,
+				resizable : false,
+				buttons : {
+					"Login" : loginUser,
+					Cancel : function() {
+						if ($('#rm').is(':checked')) {
+							$('#spanEmail').text($('#email2').val()).hide();
+							$('#spanPwd').text($('#password2').val()).hide();
+							localStorage.email2 = $('#spanEmail').text();
+							localStorage.password2 = $('#spanPwd').text();
+							localStorage.chkbx = $('#rm').val();
+						} else {
+							localStorage.email2 = '';
+							localStorage.password2 = '';
+							localStorage.chkbx = '';
+						}
+						dialogLogin.dialog("close");
+					}
+				},
+				close : function() {
 
+					$('#spanPwd').empty();
+					formLogin[0].reset();
+					allFieldsLogin.removeClass("ui-state-error");
+				}
+			});
 
-autoOpen : false,
-//	height: 400,
-width : 500,
-modal : true,
-resizable : false,
-buttons : {
-	"Register": registerUser,
-    Cancel:function (){
-        dialogRegister.dialog( "close" );
-    }
-},
-close : function() {
-	$('#spanPwd').empty();
-	formRegister[0].reset();
-	allFieldsRegister.removeClass("ui-state-error");
-	
-}
-});
+			dialogRegister = $("#dialogRegister-form").dialog({
 
-formRegister = dialogRegister.find("#registerForm").on("submit", function(event) {
-event.preventDefault();
-registerUser();
-});
-formLogin = dialogLogin.find("#loginForm").on("submit", function(event) {
-event.preventDefault();
-if ($('#rm').is(':checked')) {
-     $('#spanEmail').text($('#email2').val()).hide();
-    $('#spanPwd').text($('#password2').val()).hide();
-   localStorage.email2 = $('#spanEmail').text();
-   localStorage.password2 =$('#spanPwd').text();
-   localStorage.chkbx = $('#rm').val();
-} else {
-   localStorage.email2 = '';
-   localStorage.password2 = '';
-   localStorage.chkbx = '';
-}
-loginUser();
-});
+				closeOnEscape : true,
+				open : function(event, ui) {
+					$(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
+				},
 
-$("#login-user").on("click", function() {
-if (localStorage.chkbx != '') {
-    $('#rm').attr('checked', 'checked');
-    $('#email2').val(localStorage.email2);
-    $('#password2').val(localStorage.password2);
-} else {
-    $('#rm').removeAttr('checked');
-    $('#email2').val('');
-    $('#password2').val('');
-}
-dialogLogin.dialog("open").css('overflow', 'hidden');   //hides scroll bar
-$('.validateTips').text('All form fields are required.');
-});
-$("#register-user").on("click", function() {
-dialogRegister.dialog("open").css('overflow', 'hidden');;
-$('.validateTips').text('All form fields are required.');
-});
-});
-</script>
+				autoOpen : false,
+				//	height: 400,
+				width : 500,
+				modal : true,
+				resizable : false,
+				buttons : {
+					"Register" : registerUser,
+					Cancel : function() {
+						dialogRegister.dialog("close");
+					}
+				},
+				close : function() {
+					$('#spanPwd').empty();
+					formRegister[0].reset();
+					allFieldsRegister.removeClass("ui-state-error");
+
+				}
+			});
+
+			formRegister = dialogRegister.find("#registerForm").on("submit",
+					function(event) {
+						event.preventDefault();
+						registerUser();
+					});
+			formLogin = dialogLogin.find("#loginForm").on("submit",
+					function(event) {
+						event.preventDefault();
+						if ($('#rm').is(':checked')) {
+							$('#spanEmail').text($('#email2').val()).hide();
+							$('#spanPwd').text($('#password2').val()).hide();
+							localStorage.email2 = $('#spanEmail').text();
+							localStorage.password2 = $('#spanPwd').text();
+							localStorage.chkbx = $('#rm').val();
+						} else {
+							localStorage.email2 = '';
+							localStorage.password2 = '';
+							localStorage.chkbx = '';
+						}
+						loginUser();
+					});
+
+			$("#login-user").on("click", function() {
+				if (localStorage.chkbx != '') {
+					$('#rm').attr('checked', 'checked');
+					$('#email2').val(localStorage.email2);
+					$('#password2').val(localStorage.password2);
+				} else {
+					$('#rm').removeAttr('checked');
+					$('#email2').val('');
+					$('#password2').val('');
+				}
+				dialogLogin.dialog("open").css('overflow', 'hidden'); //hides scroll bar
+				$('.validateTips').text('All form fields are required.');
+			});
+			$("#register-user").on("click", function() {
+				dialogRegister.dialog("open").css('overflow', 'hidden');
+				;
+				$('.validateTips').text('All form fields are required.');
+			});
+		});
+	</script>
 
 </body>
 

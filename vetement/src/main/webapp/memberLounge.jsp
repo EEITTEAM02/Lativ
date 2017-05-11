@@ -86,6 +86,8 @@ img.displayImg {
 </head>
 
 <body>
+<c:set var="context" value="${pageContext.request.contextPath}" />
+	
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 		<div class="container-fluid">
@@ -98,7 +100,7 @@ img.displayImg {
 				</button>
 				<a style="opacity: 1; color: black;" class="navbar-brand"
 					href="indexTemplate.jsp">首頁</a> <a class="navbar-brand"
-					href="productDisplay.jsp">產品</a> 	
+					href="${context}/Search/search.jsp">產品</a> 	
 					 <a class="navbar-brand" href="memberLounge.jsp"><c:if
 						test="${user == 'authenticated'}">會員專區</c:if></a> <a
 					class="navbar-brand" href="aboutUs.jsp">關於我們</a>
@@ -690,7 +692,7 @@ img.displayImg {
 												   var cell7 = $('<td></td>').text(orderItem.unitPriceD);
 												   var cell8 = $('<td></td>').text(orderItem.totalPrice);
 												   var cell9 = $('<img></img>').attr("src","productImages/"+orderItem.pno).addClass('displayImg');
-												   var link = $('<a></a>').attr('href','/WebsiteV1.3/productPages/'+orderItem.pnoWithPage+'.jsp').text(Math.round(orderItem.score));				
+												   var link = $('<a></a>').attr('href','${context}/productPages/'+orderItem.pnoWithPage+'.jsp').text(Math.round(orderItem.score));				
                                                    var cell10 =$('<td></td>').append(link);
 												   var row1 = $('<tr></tr>');
 												   row1.append([cell1,cell2,cell3,cell4,,cell5,cell6,cell7,cell8,cell9,cell10]);

@@ -10,15 +10,12 @@ import javax.servlet.http.HttpSession;
 
 public class LogoutServlet extends HttpServlet{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	HttpSession session = request.getSession(false);
 	if(session != null)
 	    session.invalidate();
-	request.getRequestDispatcher("/index.jsp").forward(request,response);
+//	request.getRequestDispatcher("/index.jsp").forward(request,response);
 }
 }
