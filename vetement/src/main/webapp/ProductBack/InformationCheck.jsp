@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
 <style>
 .outter {
 	width: 1000px;
@@ -248,7 +250,7 @@ tr {
 				location.href="CheckAll.jsp"
 			}else{
 				event.preventDefault();
-				alert("請填入收件人資訊");
+				swal({title:"請填入收件人資訊",type:"warning"});
 			}
 		})
 		
