@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.customer.model.CustomerVO;
+import com.cust.model.CustomerVO;
 import com.orderItem.model.OrderItemVO;
 
 public class OrderVO {
