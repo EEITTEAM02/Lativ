@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.customer.model.CustomerService;
+import com.cust.model.CustomerService;
 import com.order.model.OrderService;
 import com.order.model.OrderVO;
 import com.shoppingcartback.model.ShoppingCart;
