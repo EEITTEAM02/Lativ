@@ -24,7 +24,7 @@ public class CustomerDAO implements CustomerDAO_interface {
 		} catch (RuntimeException ex) {
 			session.getTransaction().rollback();
 			throw ex;
-		}
+		} 
 	}
 
 	@Override

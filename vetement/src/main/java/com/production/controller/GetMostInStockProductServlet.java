@@ -70,21 +70,48 @@ public class GetMostInStockProductServlet extends HttpServlet{
 			counter++;
 		}
 		
-		pstmt1 = conn.prepareStatement("select top 3 productId from production where categoryId in "+stringList +" order by quantity_in_stock desc");
-//		pstmt1.setString(1,stringList);
+		
+		
+		pstmt1 = conn.prepareStatement("SELECT * FROM ( SELECT  productName,ProductId,ROW_NUMBER() OVER(PARTITION BY productName ORDER BY quantity_in_stock DESC) rn FROM production where categoryId in "+stringList+" )a WHERE rn = 1");
 		ResultSet rs1 = pstmt1.executeQuery();
-		List<Integer> listOfProdId = new LinkedList<Integer>();
+		Integer[] listOfProdId = new Integer[3];
+		Integer top1 = 0;
+		Integer top2 = 0;
+		Integer top3 = 0;
+		Integer currentQ =0;
 		while(rs1.next()){
-			listOfProdId.add(rs1.getInt(1));
+			currentQ = psrvc.getOneProduct(rs1.getInt(2)).getQuantity_in_stock();
+			if (currentQ >top1){
+				top1 = currentQ;
+			    listOfProdId[0] = (rs1.getInt(2));		    
+			}
+			else if (currentQ>top2){
+				top2 = currentQ;
+				listOfProdId[1] = (rs1.getInt(2));
+			}
+			else if (currentQ>top3){
+				top3 = currentQ;
+				listOfProdId[2] = (rs1.getInt(2));
+			}
 		}
+		
+		
+//		pstmt1 = conn.prepareStatement("select top 3 productId from production where categoryId in "+stringList +" order by quantity_in_stock desc");
+////		pstmt1.setString(1,stringList);
+//		ResultSet rs1 = pstmt1.executeQuery();
+//		List<Integer> listOfProdId = new LinkedList<Integer>();
+//		while(rs1.next()){
+//			listOfProdId.add(rs1.getInt(1));
+//		}
+		
 		
 //		System.out.println(listOfProdId);
 		rs1.close();
 		pstmt1.close();
 		conn.close();
+//		
+//
 		
-
-		Iterator it = listOfProdId.iterator();
 		Map<Integer,Integer> pid_idWithPage = new HashMap<Integer,Integer>();
 		Integer key =null;
 		Integer value = null;
@@ -92,9 +119,9 @@ public class GetMostInStockProductServlet extends HttpServlet{
 		Integer keyChange2 = null;
 		String pName = null;
 		ProductionVO aProduct =null;
-		outerloop:
-		while(it.hasNext()){
-			key = (Integer) it.next();
+
+		for (int i =0;i<listOfProdId.length;i++){
+			key = listOfProdId[i];
 //			System.out.println("key:"+key);
 			aProduct = psrvc.getOneProduct(key);
 			keyChange1 = key;
@@ -111,61 +138,19 @@ public class GetMostInStockProductServlet extends HttpServlet{
 					if(psrvc.getOneProduct(keyChange1).getPicture_model1()!=null&&psrvc.getOneProduct(keyChange1).getProductName().equals(pName)){
 						value = keyChange1;
 						pid_idWithPage.put(key, value);	
-//						break outerloop;
+
 					}
 				}
 				for (;keyChange2<=noOfProducts;keyChange2++){
 					if(psrvc.getOneProduct(keyChange2).getPicture_model1()!=null&&psrvc.getOneProduct(keyChange2).getProductName().equals(pName)){
 						value = keyChange2;
 						pid_idWithPage.put(key, value);	
-//						break outerloop;
+
 					}
 				}
 			}
 		}
-//		System.out.println(pid_idWithPage.get(48));
-//		System.out.println(pid_idWithPage.get(56));
-//		System.out.println(pid_idWithPage.get(65));
-//		System.out.println(pid_idWithPage.size());
-//		List<ProductionVO> listOfProd = psrvc.getMostInStock();
-//		Iterator it = listOfProd.iterator();
-//		Map<Integer,Integer> pid_idWithPage = new HashMap<Integer,Integer>();
-//		Integer key =null;
-//		Integer value = null;
-//		Integer keyChange1 = null;
-//		Integer keyChange2 = null;
-//		String pName = null;
-//		
-//		outerloop:
-//		while(it.hasNext()){
-//			ProductionVO aProduct =(ProductionVO) it.next();
-//			key = aProduct.getProductId();
-//			keyChange1 = key;
-//			keyChange2 = key;
-//			pName = aProduct.getProductName();
-//			if (aProduct.getPicture_model1()!=null){
-//				value = key;
-//				pid_idWithPage.put(key, value);				
-//				
-//			}
-//			else{
-//				for (;keyChange1>0;keyChange1--){
-//		
-//					if(psrvc.getOneProduct(keyChange1).getPicture_model1()!=null&&psrvc.getOneProduct(keyChange1).getProductName().equals(pName)){
-//						value = keyChange1;
-//						pid_idWithPage.put(key, value);	
-//						break outerloop;
-//					}
-//				}
-//				for (;keyChange2<=noOfProducts;keyChange2++){
-//					if(psrvc.getOneProduct(keyChange2).getPicture_model1()!=null&&psrvc.getOneProduct(keyChange2).getProductName().equals(pName)){
-//						value = keyChange2;
-//						pid_idWithPage.put(key, value);	
-//						break outerloop;
-//					}
-//				}
-//			}
-//		}
+
 	     JSONObject jsonObj = new JSONObject(pid_idWithPage);
 	     String jsonString = jsonObj.toString();
 //	     System.out.println(jsonString);

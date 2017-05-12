@@ -46,21 +46,15 @@ public class LoginServletNew extends HttpServlet {
 					String msg = "email doesn't exist";
 					out.write(msg);
 					out.flush();
-					out.close();
-                	
-
-
+					out.close();                	
 				}
-
-				
+			
 				// Send the use back to the form, if there were errors
                 if (!cSrv.validate(email, pw)) {
 					String msg = "wrong pwd";
 					out.write(msg);
 					out.flush();
 					out.close();
-                	System.out.println("aaa");
-
 				}
              
   
@@ -72,14 +66,8 @@ public class LoginServletNew extends HttpServlet {
 					session.setAttribute("sName", msg);
 					session.setAttribute("mno", customerId);
 					session.setAttribute("user", "authenticated");
-//					out.write("Welcome back! "+msg);
 
-					out.flush();
-					out.close();
 				    }
-					
-					
-				
 
 				/***************************��L�i�઺���~�B�z*************************************/
 			} catch (Exception e) {

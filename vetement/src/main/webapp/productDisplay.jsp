@@ -315,7 +315,7 @@ img.displayImg {
 					<!-- 每頁不同的內容從這裡開始 -->
 					<div class="row carousel-holder">
 
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -324,13 +324,13 @@ img.displayImg {
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <a><img class="slide-image" src="http://placehold.it/800x300" style="width:800px;height:300px;" alt=""></a>
+                                    <a><img class="slide-image" src="http://placehold.it/400x300" style="width:400px;height:300px;" alt=""></a>
                                 </div>
                                 <div class="item">
-                                    <a><img class="slide-image" src="http://placehold.it/800x300" style="width:800px;height:300px; alt=""></a>
+                                    <a><img class="slide-image" src="http://placehold.it/400x300" style="width:400px;height:300px; alt=""></a>
                                 </div>
                                 <div class="item">
-                                    <a><img class="slide-image" src="http://placehold.it/800x300" style="width:800px;height:300px; alt=""></a>
+                                    <a><img class="slide-image" src="http://placehold.it/400x300" style="width:400px;height:300px; alt=""></a>
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">

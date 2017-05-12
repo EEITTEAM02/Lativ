@@ -21,11 +21,11 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="../css/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.fancybox.min.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
-<script type="text/javascript" src="../js/jquery-3.2.0.min.js"
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.0.min.js"
 	charset="utf-8"></script>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -92,6 +92,7 @@ img.displayImg {
 	height: 100%;
 	width: 100%;
 }
+
 </style>
 
 
@@ -109,7 +110,7 @@ img.displayImg {
 					<span class="sr-only">Toggle navigation</span> Menu <i
 						class="fa fa-bars"></i>
 				</button>
-				<a style="opacity: 1; color: black;" class="navbar-brand" href="/WebsiteV1.3/indexTemplate.jsp">首頁</a> 
+				<a style="opacity: 1; color: black;" class="navbar-brand" href="${context}/indexTemplate.jsp">首頁</a> 
 				<a class="navbar-brand" href="${context}/Search/search.jsp">產品</a>
                 <a class="navbar-brand" href="${context}/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
 			</div>
@@ -146,10 +147,10 @@ img.displayImg {
 			<div class="col-md-12">
 				<div class="jumbotron">
 
-					<div id="dialogLogin-form" title="user login">
+					<div id="dialogLogin-form" title="user login" style="display:none;">
 						<p class="validateTips">All form fields are required.</p>
 
-						<form id="loginForm" class="form-horizontal">
+						<form id="loginForm" class="form-horizontal" >
 							<div class="form-group">
 								<label for="email" class="col-lg-2 control-label">電子郵件</label>
 								<div class="col-lg-10">
@@ -186,7 +187,7 @@ img.displayImg {
 						</form>
 					</div>
 
-					<div id="dialogRegister-form" title="Register New User">
+					<div id="dialogRegister-form" title="Register New User" style="display:none;">
 						<p class="validateTips">All form fields are required.</p>
 
 						<form id="registerForm" class="form-horizontal">
@@ -250,8 +251,6 @@ img.displayImg {
 									<span id="spanRegister"></span>
 								</div>
 							</div>
-
-
 
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-2">
@@ -317,6 +316,37 @@ img.displayImg {
 							</div>
 						</div>
 					</div>
+					<!-- carousel -->
+						<div class="row carousel-holder">
+                   <div class="col-md-3">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a><img class="slide-image" src="http://placehold.it/200x100" style="width:200px;height:100px;" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a><img class="slide-image" src="http://placehold.it/200x100" style="width:200px;height:100px; alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a><img class="slide-image" src="http://placehold.it/200x100" style="width:200px;height:100px; alt=""></a>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+  <!-- /carousel -->
+                </div>
 					<script>
                     $(function() {
 
@@ -385,9 +415,27 @@ img.displayImg {
 		<br></br>
 
 		<script>
-	
+		var ctx = "<%=request.getContextPath()%>";
 		$(function() {
-			var ctx = "<%=request.getContextPath()%>";
+			getCarouselItems(1);
+			
+			function getCarouselItems(id){
+				$.ajax({
+					url:'${context}/GetMostInStockProduct.do',
+					data:{"id":id},
+					success:function(data){
+	 					console.log(data);
+					var counter =0;
+						$.each(data,function(idx,entity){
+							$('.carousel-inner img:eq('+counter+')').attr('src','productImages/'+idx);
+							$('.carousel-inner a:eq('+counter+')').attr('href',ctx+'/productPages/'+entity+'.jsp');								
+							counter++;
+						})
+					
+					}
+				})
+			}
+		
             var discountList = $('ul.list-group:eq(0)');
             
             
@@ -926,7 +974,7 @@ img.displayImg {
 			    event.preventDefault();
 			    if (valid) {
 				var data = $('#registerForm').serialize();
-				$.post("Register.do", data, function(data) {
+				$.post(ctx+"/Register.do", data, function(data) {
 					if (data.substring(0, 2) != "Su") {
 						$('#spanRegister').html(data);
 					} else {

@@ -93,14 +93,9 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
 		$(function() {
-			if("${sessionScope.SearchKeyword}"!=null){
-				$('input[name="searcher"]').val("${sessionScope.SearchKeyword}");
-				getData("${SearchKeyword}");	
-			}else{
-				getData("");
-			}
- 			
-
+			var packageNo = "${sessionScope.searchPackageNo}";
+			getDiscountProduct(packageNo);
+			
 			$('input[name="searcher"]').keydown(function() {
 				search(event);
 			})
@@ -108,15 +103,15 @@
 			function search(event) {
 				var keyWord = $('input[name="searcher"]').val();
 				if (event.which == 13) {
-					$("#display").empty();
-					//列出搜尋的相關商品
-					getData(keyWord);
+					//將關鍵字傳給Search.do，
+					SearchKeyword = $('input[name="searcher"]').val();
+ 					location.href="Search.do?SearchKeyword="+SearchKeyword;
 				}
 			}
-
-			function getData(keyWord) {
+			
+			function getDiscountProduct(packageNo) {
 				$.getJSON("Search.do", {
-					"keyWord" : keyWord
+					"packageNo" : packageNo
 				}, function(data) {
 					var docFragment = $(document.createDocumentFragment());
 					$.each(data, function(i, product) {
@@ -157,6 +152,6 @@
 
 		})
 	</script>
-	<%session.removeAttribute("SearchKeyword");%>
+	<%session.removeAttribute("searchPackageNo");%>
 </body>
 </html>

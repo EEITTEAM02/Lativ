@@ -71,6 +71,14 @@ public class ShoppingCart {
 				//ConcurrentModificationException
 				//set.remove(dis);
 			}
+			
+			Integer difference = condition-total;
+			for(Map.Entry<Integer, OrderItemVO> item:cart.entrySet()){
+				int disPackage = item.getValue().getProductionVO().getPackageNo();
+				if(disPackage == dis.getPackageNo()){
+					item.getValue().setDifference(difference);
+				}
+			}
 		}
 		set.removeAll(list);
 //		for(Discount dis:set){
