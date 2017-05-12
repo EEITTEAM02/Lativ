@@ -12,10 +12,16 @@
 <script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
 <style>
+.imgDiv{
+	width:400px;
+	margin:auto;
+	margin-top:100px;
+}
+
 .outter {
 	width: 1000px;
 	margin: auto;
-	margin-top: 100px;
+	margin-top: 50px;
 	border: 1px groove LightSteelBlue;
 	border-radius: 15px;
 }
@@ -64,6 +70,9 @@ tr {
 </style>
 </head>
 <body>
+	<div class="imgDiv">
+		<img width="350" src="${pageContext.request.contextPath}/img/time_line02.png"/>
+	</div>
 	<div class="outter">
 		<form action="CheckAll.do" id="check" method="POST">
 			<div class="box">

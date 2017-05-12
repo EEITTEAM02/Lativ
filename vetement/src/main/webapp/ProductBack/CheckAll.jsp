@@ -9,10 +9,16 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
+.imgDiv{
+	width:400px;
+	margin:auto;
+	margin-top:100px;
+}
+
 .outter {
 	width: 1000px;
 	margin: auto;
-	margin-top: 100px;
+	margin-top: 50px;
 	border: 1px groove LightSteelBlue;
 	border-radius: 15px;
 }
@@ -62,6 +68,9 @@ tr {
 </style>
 </head>
 <body>
+	<div class="imgDiv">
+		<img width="350" src="${pageContext.request.contextPath}/img/time_line03.png"/>
+	</div>
 	<div class="outter">
 		<form action="DealDone.do" method="POST">
 			<div class="box">
@@ -136,17 +145,17 @@ tr {
 									</c:choose>
 								</td>
 							</tr>
-							<tr>
+							<tr style="background-color:darkslateblue;">
 								<td colspan="2"></td>
-								<td style="text-align:right;padding-top:12px;">總計</td>
+								<td style="text-align:right;padding-top:12px;color:white">總計</td>
 								<td>
-									<span class="span_info">
+									<span class="span_info" style="color:white">
 										<c:choose>
 										<c:when test="${shoppingCartBack.priceTotal >= 1000}">
-											NT$ <span class="price_impressive">${price_total}</span>
+											NT$ <span class="price_impressive" style="color:white;">${price_total}</span>
 										</c:when>
 										<c:otherwise>
-											NT$ <span class="price_impressive">${price_total+50}</span>
+											NT$ <span class="price_impressive" style="color:white;">${price_total+50}</span>
 										</c:otherwise>
 									</c:choose>
 									</span>

@@ -11,10 +11,15 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
+.imgDiv{
+	width:400px;
+	margin:auto;
+	margin-top:100px;
+}
 .outter {
 	width: 1000px;
 	margin: auto;
-	margin-top: 100px;
+	margin-top: 50px;
 	border: 1px groove LightSteelBlue;
 	border-radius: 15px;
 }
@@ -61,6 +66,9 @@ tr {
 </style>
 </head>
 <body>
+	<div class="imgDiv">
+		<img width="350" src="${pageContext.request.contextPath}/img/time_line01.png"/>
+	</div>
 	<div class="outter">
 		<form action="" method="POST">
 			<div class="box">
@@ -122,12 +130,12 @@ tr {
 								<td style="vertical-align: middle;"><a href="Update.do?cmd=del&productId=${item.value.productionVO.productId}"><img src="../img/trash.ico"/></a></td>
 							</tr>
 						</c:forEach>
-						<tr>
+						<tr style="background-color:darkslateblue;">
 							<td></td><td></td>
-							<td style="padding-top:15px;">共${shoppingCartBack.size}項商品</td>
-							<td style="vertical-align: middle;">
+							<td style="padding-top:15px;color:white;">共${shoppingCartBack.size}項商品</td>
+							<td style="vertical-align: middle;color:white;">
 								<fmt:parseNumber var="price_total" type="number" value="${shoppingCartBack.priceTotal}"/>
-								商品金額:NT$ <span class="price_impressive">${price_total}</span>
+								商品金額:NT$ <span class="price_impressive" style="color:white;">${price_total}</span>
 							</td>
 							<td></td>
 						</tr>
