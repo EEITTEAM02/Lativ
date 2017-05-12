@@ -79,40 +79,40 @@
 <body>
 <c:set var="context" value="${pageContext.request.contextPath}" />
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top " >
-        <div class="container-fluid" ">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand " href="indexTemplate.jsp"><span class="text-danger">首頁</span></a>
-                <a class="navbar-brand" href="${context}/Search/search.jsp">產品</a>
-                <a class="navbar-brand" href="memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
-                                <a class="navbar-brand" href="aboutUs.jsp">關於我們</a>
-            </div>
+    <nav id="header" class="navbar navbar-default navbar-custom navbar-fixed-top " >
+<!--         <div class="container-fluid" "> -->
+<!--             Brand and toggle get grouped for better mobile display -->
+<!--             <div class="navbar-header page-scroll"> -->
+<!--                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> -->
+<!--                     <span class="sr-only">Toggle navigation</span> -->
+<!--                     Menu <i class="fa fa-bars"></i> -->
+<!--                 </button> -->
+<!--                 <a class="navbar-brand " href="indexTemplate.jsp"><span class="text-danger">首頁</span></a> -->
+<%--                 <a class="navbar-brand" href="${context}/Search/search.jsp">產品</a> --%>
+<%--                 <a class="navbar-brand" href="memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a> --%>
+<!--                                 <a class="navbar-brand" href="aboutUs.jsp">關於我們</a> -->
+<!--             </div> -->
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-                <ul class="nav navbar-nav navbar-right ">
-                    <li >
-                        <a class="glyphicon glyphicon-user"><span class="text-warning">${sName}</span><c:if
-								test="${user != 'authenticated'}"><span class="text-warning">訪客</span></c:if></a>
-                    </li>
-                    <li id="login-user" >
-                        <a href="#"><span class="text-warning">登入</span></a>
-                    </li>
-                    <li id="register-user" >
-                       <a href="#"><span class="text-warning">註冊</span></a>
-                    </li>
-                    <li  id="logout" >
-                        <a href="#"><span class="text-warning">登出</span></a>
-                    </li>            
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
+<!--             Collect the nav links, forms, and other content for toggling -->
+<!--             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" > -->
+<!--                 <ul class="nav navbar-nav navbar-right "> -->
+<!--                     <li > -->
+<%--                         <a class="glyphicon glyphicon-user"><span class="text-warning">${sName}</span><c:if --%>
+<%-- 								test="${user != 'authenticated'}"><span class="text-warning">訪客</span></c:if></a> --%>
+<!--                     </li> -->
+<!--                     <li id="login-user" > -->
+<!--                         <a href="#"><span class="text-warning">登入</span></a> -->
+<!--                     </li> -->
+<!--                     <li id="register-user" > -->
+<!--                        <a href="#"><span class="text-warning">註冊</span></a> -->
+<!--                     </li> -->
+<!--                     <li  id="logout" > -->
+<!--                         <a href="#"><span class="text-warning">登出</span></a> -->
+<!--                     </li>             -->
+<!--                 </ul> -->
+<!--             </div> -->
+<!--             /.navbar-collapse -->
+<!--         </div> -->
         <!-- /.container -->
     </nav>
 
@@ -412,261 +412,267 @@ This advice differs from stock advice for the construction of paragraphs in Japa
     <script src="js/jquerysession.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
-  
+	<script>
+		$(function(){
+			$('#header').load('header.jsp');
+			
+		});	
+	</script> 
+       
         <script>
-
-		$(function() {
-
-            	if (localStorage.chkbx && localStorage.chkbx != '') {
-                    $('#rm').attr('checked', 'checked');
-                    $('#email2').val(localStorage.email2);
-                    $('#password2').val(localStorage.password2);
-                } else {
-                    $('#rm').removeAttr('checked');
-                    $('#email2').val('');
-                    $('#password2').val('');
-                }
+	
+// 		$(function() {
+				
+//             	if (localStorage.chkbx && localStorage.chkbx != '') {
+//                     $('#rm').attr('checked', 'checked');
+//                     $('#email2').val(localStorage.email2);
+//                     $('#password2').val(localStorage.password2);
+//                 } else {
+//                     $('#rm').removeAttr('checked');
+//                     $('#email2').val('');
+//                     $('#password2').val('');
+//                 }
               
  
-                $('#rm').on('click',function() {
+//                 $('#rm').on('click',function() {
  
-                    if ($('#rm').is(':checked')) {
-                        // save username and password
+//                     if ($('#rm').is(':checked')) {
+//                         // save username and password
                        
-                         $('#spanEmail').text($('#email2').val()).hide();
-                         $('#spanPwd').text($('#password2').val()).hide();
-                         console.log($('#spanPwd').text());
-                        localStorage.email2 = $('#spanEmail').text();
-                        localStorage.password2 =$('#spanPwd').text();
-                        localStorage.chkbx = $('#rm').val();
-                    } else {
-                        localStorage.email2 = '';
-                        localStorage.password2 = '';
-                        localStorage.chkbx = '';
-                    }
-                });
+//                          $('#spanEmail').text($('#email2').val()).hide();
+//                          $('#spanPwd').text($('#password2').val()).hide();
+//                          console.log($('#spanPwd').text());
+//                         localStorage.email2 = $('#spanEmail').text();
+//                         localStorage.password2 =$('#spanPwd').text();
+//                         localStorage.chkbx = $('#rm').val();
+//                     } else {
+//                         localStorage.email2 = '';
+//                         localStorage.password2 = '';
+//                         localStorage.chkbx = '';
+//                     }
+//                 });
            
-             $('#buttonLogin').hide();
-             $('#buttonRegister').hide();
-			$('#logout').click(function() {
-				$.get("Logout.do", function(data) {
-					location.reload();
-				});
-			})
+//              $('#buttonLogin').hide();
+//              $('#buttonRegister').hide();
+// 			$('#logout').click(function() {
+// 				$.get("Logout.do", function(data) {
+// 					location.reload();
+// 				});
+// 			})
 			
-			var dialog, formRegister, formLogin, email2 = $("#email2"), email1 = $("#email1"),password2 = $("#password2"), password1 = $("#password1"), name = $("#name")
-			,addr = $("#address"),phoneno = $("#phoneno"),genderM = $('#genderM'), genderF = $('#genderF'),
-			emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-			allFieldsLogin = $([]).add(email2).add(password2),
-			tips = $( ".validateTips" ),
-			allFieldsRegister = $([]).add(name).add(email1).add(password1).add(addr).add(phoneno).add(genderM).add(genderF);
+// 			var dialog, formRegister, formLogin, email2 = $("#email2"), email1 = $("#email1"),password2 = $("#password2"), password1 = $("#password1"), name = $("#name")
+// 			,addr = $("#address"),phoneno = $("#phoneno"),genderM = $('#genderM'), genderF = $('#genderF'),
+// 			emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+// 			allFieldsLogin = $([]).add(email2).add(password2),
+// 			tips = $( ".validateTips" ),
+// 			allFieldsRegister = $([]).add(name).add(email1).add(password1).add(addr).add(phoneno).add(genderM).add(genderF);
 			
-			function updateTips( t ) {
-			      tips
-			        .text( t )
-			        .addClass( "ui-state-highlight" );
-			      setTimeout(function() {
-			        tips.removeClass( "ui-state-highlight", 1500 );
-			      }, 500 );
-			    }
+// 			function updateTips( t ) {
+// 			      tips
+// 			        .text( t )
+// 			        .addClass( "ui-state-highlight" );
+// 			      setTimeout(function() {
+// 			        tips.removeClass( "ui-state-highlight", 1500 );
+// 			      }, 500 );
+// 			    }
 			
-			function checkLength( o, n, min, max ) {
-			      if ( o.val().length > max || o.val().length < min ) {
-			        o.addClass( "ui-state-error" );
-			        updateTips( "Length of " + n + " must be between " +
-			          min + " and " + max + "." );
-			        return false;
-			      } else {
-			        return true;
-			      }
-			    }
+// 			function checkLength( o, n, min, max ) {
+// 			      if ( o.val().length > max || o.val().length < min ) {
+// 			        o.addClass( "ui-state-error" );
+// 			        updateTips( "Length of " + n + " must be between " +
+// 			          min + " and " + max + "." );
+// 			        return false;
+// 			      } else {
+// 			        return true;
+// 			      }
+// 			    }
 			
-			function checkRegexp( o, regexp, n ) {
-			      if ( !( regexp.test( o.val() ) ) ) {
-			        o.addClass( "ui-state-error" );
-			        updateTips( n );
-			        return false;
-			      } else {
-			        return true;
-			      }
-			    }
+// 			function checkRegexp( o, regexp, n ) {
+// 			      if ( !( regexp.test( o.val() ) ) ) {
+// 			        o.addClass( "ui-state-error" );
+// 			        updateTips( n );
+// 			        return false;
+// 			      } else {
+// 			        return true;
+// 			      }
+// 			    }
 
 			
 
-			function loginUser() {
+// 			function loginUser() {
 
-				var valid = true;
-			      allFieldsLogin.removeClass( "ui-state-error" );
+// 				var valid = true;
+// 			      allFieldsLogin.removeClass( "ui-state-error" );
 			 
-			      valid = valid && checkLength( email2, "email", 6, 80 );
-			      valid = valid && checkLength( password2, "password", 3, 16 );
+// 			      valid = valid && checkLength( email2, "email", 6, 80 );
+// 			      valid = valid && checkLength( password2, "password", 3, 16 );
 			
-			      valid = valid && checkRegexp( email2, emailRegex, "eg. ui@jquery.com" );
-			      valid = valid && checkRegexp( password2, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+// 			      valid = valid && checkRegexp( email2, emailRegex, "eg. ui@jquery.com" );
+// 			      valid = valid && checkRegexp( password2, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
 				
-				event.preventDefault();
-				if (valid) {
-				var data = $('#loginForm').serialize();
-				$.post("LoginNew.do", data, function(data) {
+// 				event.preventDefault();
+// 				if (valid) {
+// 				var data = $('#loginForm').serialize();
+// 				$.post("LoginNew.do", data, function(data) {
 				
-					if (data==''){
+// 					if (data==''){
 						
-						location.reload();
-					}
-					else if (data.substring(0, 2) != "We") {
-						$('#spanPwd').html(data);
-					} 						
+// 						location.reload();
+// 					}
+// 					else if (data.substring(0, 2) != "We") {
+// 						$('#spanPwd').html(data);
+// 					} 						
 					
-					else {
-						$('#spanPwd').empty();
+// 					else {
+// 						$('#spanPwd').empty();
 
-						dialogLogin.dialog("close");
-						location.reload();
-					}
-				})
-				}
+// 						dialogLogin.dialog("close");
+// 						location.reload();
+// 					}
+// 				})
+// 				}
 
 
-				return valid;
-			}
+// 				return valid;
+// 			}
 			
-			function registerUser() {
-				var valid = true;
-				 allFieldsRegister.removeClass( "ui-state-error" );
+// 			function registerUser() {
+// 				var valid = true;
+// 				 allFieldsRegister.removeClass( "ui-state-error" );
 				  
-			 	  valid = valid && checkLength( name, "name", 3, 80 );
-			      valid = valid && checkLength( email1, "email", 6, 80 );
-			      valid = valid && checkLength( password1, "password", 3, 16 );
+// 			 	  valid = valid && checkLength( name, "name", 3, 80 );
+// 			      valid = valid && checkLength( email1, "email", 6, 80 );
+// 			      valid = valid && checkLength( password1, "password", 3, 16 );
 			      
-			      valid = valid && checkLength( addr, "address", 3, 50 );
-			      valid = valid && checkLength( phoneno, "phone #", 3, 16 );
+// 			      valid = valid && checkLength( addr, "address", 3, 50 );
+// 			      valid = valid && checkLength( phoneno, "phone #", 3, 16 );
 			
-			      valid = valid && checkRegexp( email1, emailRegex, "eg. ui@jquery.com" );
-			      valid = valid && checkRegexp( password1, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-			      valid = valid && checkRegexp(phoneno,/^([0-9])+$/,"phone no field only allow : 0-9");
+// 			      valid = valid && checkRegexp( email1, emailRegex, "eg. ui@jquery.com" );
+// 			      valid = valid && checkRegexp( password1, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+// 			      valid = valid && checkRegexp(phoneno,/^([0-9])+$/,"phone no field only allow : 0-9");
 			      
-			    event.preventDefault();
-			    if (valid) {
-				var data = $('#registerForm').serialize();
-				$.post("Register.do", data, function(data) {
-					if (data.substring(0, 2) != "Su") {
-						$('#spanRegister').html(data);
-					} else {
-						$('#spanRegister').empty();
+// 			    event.preventDefault();
+// 			    if (valid) {
+// 				var data = $('#registerForm').serialize();
+// 				$.post("Register.do", data, function(data) {
+// 					if (data.substring(0, 2) != "Su") {
+// 						$('#spanRegister').html(data);
+// 					} else {
+// 						$('#spanRegister').empty();
 
 
- 						alert(data);
-						dialogLogin.dialog("close");
-						location.reload();
-					}
-				})
-			    }
-			    return valid;
-			}
+//  						alert(data);
+// 						dialogLogin.dialog("close");
+// 						location.reload();
+// 					}
+// 				})
+// 			    }
+// 			    return valid;
+// 			}
 
-			dialogLogin = $("#dialogLogin-form").dialog({
+// 			dialogLogin = $("#dialogLogin-form").dialog({
 				
-				closeOnEscape: true,
-			    open: function(event, ui) {
-			        $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-			    },
+// 				closeOnEscape: true,
+// 			    open: function(event, ui) {
+// 			        $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
+// 			    },
 				
 			   
-				autoOpen : false,
-//  				height: 400,
- 				width :500,
-				modal : true,
-				resizable : false,
-				 buttons: {"Login": loginUser,
-				        Cancel: function() {
-				        	if ($('#rm').is(':checked')) {
-				        	     $('#spanEmail').text($('#email2').val()).hide();
-		                         $('#spanPwd').text($('#password2').val()).hide();
-		                        localStorage.email2 = $('#spanEmail').text();
-		                        localStorage.password2 =$('#spanPwd').text();
-		                        localStorage.chkbx = $('#rm').val();
-		                    } else {
-		                        localStorage.email2 = '';
-		                        localStorage.password2 = '';
-		                        localStorage.chkbx = '';
-		                    }
-				          dialogLogin.dialog( "close" );
-				        }
-				      },
-				close : function() {
+// 				autoOpen : false,
+// //  				height: 400,
+//  				width :500,
+// 				modal : true,
+// 				resizable : false,
+// 				 buttons: {"Login": loginUser,
+// 				        Cancel: function() {
+// 				        	if ($('#rm').is(':checked')) {
+// 				        	     $('#spanEmail').text($('#email2').val()).hide();
+// 		                         $('#spanPwd').text($('#password2').val()).hide();
+// 		                        localStorage.email2 = $('#spanEmail').text();
+// 		                        localStorage.password2 =$('#spanPwd').text();
+// 		                        localStorage.chkbx = $('#rm').val();
+// 		                    } else {
+// 		                        localStorage.email2 = '';
+// 		                        localStorage.password2 = '';
+// 		                        localStorage.chkbx = '';
+// 		                    }
+// 				          dialogLogin.dialog( "close" );
+// 				        }
+// 				      },
+// 				close : function() {
 					
-					$('#spanPwd').empty();
-					formLogin[0].reset();
-					allFieldsLogin.removeClass("ui-state-error");
-				}
-			});
+// 					$('#spanPwd').empty();
+// 					formLogin[0].reset();
+// 					allFieldsLogin.removeClass("ui-state-error");
+// 				}
+// 			});
 			
-			dialogRegister = $("#dialogRegister-form").dialog({
+// 			dialogRegister = $("#dialogRegister-form").dialog({
 				
-				closeOnEscape: true,
-			    open: function(event, ui) {
-			        $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-			    },
+// 				closeOnEscape: true,
+// 			    open: function(event, ui) {
+// 			        $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
+// 			    },
 				
 				
 			
-				autoOpen : false,
-// 				height: 400,
-				width : 500,
-				modal : true,
-				resizable : false,
-				buttons : {
-					"Register": registerUser,
-			        Cancel:function (){
-			            dialogRegister.dialog( "close" );
-			        }
-				},
-				close : function() {
-					$('#spanPwd').empty();
-					formRegister[0].reset();
-					allFieldsRegister.removeClass("ui-state-error");
+// 				autoOpen : false,
+// // 				height: 400,
+// 				width : 500,
+// 				modal : true,
+// 				resizable : false,
+// 				buttons : {
+// 					"Register": registerUser,
+// 			        Cancel:function (){
+// 			            dialogRegister.dialog( "close" );
+// 			        }
+// 				},
+// 				close : function() {
+// 					$('#spanPwd').empty();
+// 					formRegister[0].reset();
+// 					allFieldsRegister.removeClass("ui-state-error");
 					
-				}
-			});
+// 				}
+// 			});
 
-			formRegister = dialogRegister.find("#registerForm").on("submit", function(event) {
-				event.preventDefault();
-				registerUser();
-			});
-			formLogin = dialogLogin.find("#loginForm").on("submit", function(event) {
-				event.preventDefault();
-				if ($('#rm').is(':checked')) {
-	        	     $('#spanEmail').text($('#email2').val()).hide();
-                    $('#spanPwd').text($('#password2').val()).hide();
-                   localStorage.email2 = $('#spanEmail').text();
-                   localStorage.password2 =$('#spanPwd').text();
-                   localStorage.chkbx = $('#rm').val();
-               } else {
-                   localStorage.email2 = '';
-                   localStorage.password2 = '';
-                   localStorage.chkbx = '';
-               }
-				loginUser();
-			});
+// 			formRegister = dialogRegister.find("#registerForm").on("submit", function(event) {
+// 				event.preventDefault();
+// 				registerUser();
+// 			});
+// 			formLogin = dialogLogin.find("#loginForm").on("submit", function(event) {
+// 				event.preventDefault();
+// 				if ($('#rm').is(':checked')) {
+// 	        	     $('#spanEmail').text($('#email2').val()).hide();
+//                     $('#spanPwd').text($('#password2').val()).hide();
+//                    localStorage.email2 = $('#spanEmail').text();
+//                    localStorage.password2 =$('#spanPwd').text();
+//                    localStorage.chkbx = $('#rm').val();
+//                } else {
+//                    localStorage.email2 = '';
+//                    localStorage.password2 = '';
+//                    localStorage.chkbx = '';
+//                }
+// 				loginUser();
+// 			});
 
-			$("#login-user").on("click", function() {
-				if (localStorage.chkbx != '') {
-                    $('#rm').attr('checked', 'checked');
-                    $('#email2').val(localStorage.email2);
-                    $('#password2').val(localStorage.password2);
-                } else {
-                    $('#rm').removeAttr('checked');
-                    $('#email2').val('');
-                    $('#password2').val('');
-                }
-				dialogLogin.dialog("open").css('overflow', 'hidden');   //hides scroll bar
-				$('.validateTips').text('All form fields are required.');
-			});
-			$("#register-user").on("click", function() {
-				dialogRegister.dialog("open").css('overflow', 'hidden');;
-				$('.validateTips').text('All form fields are required.');
-			});
-		});
+// 			$("#login-user").on("click", function() {
+// 				if (localStorage.chkbx != '') {
+//                     $('#rm').attr('checked', 'checked');
+//                     $('#email2').val(localStorage.email2);
+//                     $('#password2').val(localStorage.password2);
+//                 } else {
+//                     $('#rm').removeAttr('checked');
+//                     $('#email2').val('');
+//                     $('#password2').val('');
+//                 }
+// 				dialogLogin.dialog("open").css('overflow', 'hidden');   //hides scroll bar
+// 				$('.validateTips').text('All form fields are required.');
+// 			});
+// 			$("#register-user").on("click", function() {
+// 				dialogRegister.dialog("open").css('overflow', 'hidden');;
+// 				$('.validateTips').text('All form fields are required.');
+// 			});
+// 		});
 	</script>
 
 </body>
