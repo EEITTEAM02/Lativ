@@ -16,7 +16,7 @@
         <property name="tel_send" column="tel_send" />
         <property name="name_send" column="name_send" />
         
-        <many-to-one name="customerVO" class="com.customer.model.CustomerVO" lazy="false">
+        <many-to-one name="customerVO" class="com.cust.model.CustomerVO" lazy="false">
             <column name="customerId" />
         </many-to-one>
         
