@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
 .outter {
@@ -160,16 +162,16 @@ tr {
 			}
 		})
 		
+		$('input[name="productMain"]').click(function(){
+			location.href="${pageContext.request.contextPath}/Search/search.jsp";
+		})
+		
 		$('input[name="informationCheck"]').click(function(){
 			if($('input[name="count"]').val()==undefined){
-				alert("購物車內沒有商品");
+				swal({title: "購物車內沒有商品",type: "warning"});
 			}else{
 				location.href="InformationCheck.jsp";
 			}
-		})
-		
-		$('input[name="productMain"]').click(function(){
-			location.href="ProductMain.jsp";
 		})
 		
 		$('button[name="minus"]').click(function(){
