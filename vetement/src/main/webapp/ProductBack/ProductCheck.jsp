@@ -81,6 +81,9 @@ tr {
 								<td style="vertical-align: middle;">
 									<img id="image" src="Image.do?productName=${item.value.productionVO.productName}&size=${item.value.productionVO.size}&color=${item.value.productionVO.color}"/>
 									<span name="productName">${item.value.productionVO.productName}</span>-<span name="size">${item.value.productionVO.size}</span>-<span name="color">${item.value.productionVO.color}</span>
+									<c:if test="${item.value.difference>0}">
+										<div><a href="${pageContext.request.contextPath}/Search/Search.do?searchPackageNo=${item.value.productionVO.packageNo}">差${item.value.difference}件即可享用折扣，請按此加購商品</a></div>
+									</c:if>
 								</td>
 								<td style="vertical-align: middle;">
 									<c:if
@@ -107,7 +110,7 @@ tr {
 								</td>
 								<td style="vertical-align: middle;">
 									<c:if test="${item.value.price_origin != item.value.price_discount}">
-										<span>總價:</span>
+										<span>原價:</span>
 										<fmt:parseNumber var="price_item_origin" type="number" value="${item.value.price_origin*item.value.quantity_order}" />
 										<span class="discount">NT$ ${price_item_origin}<br/></span>
 									</c:if> 
@@ -139,9 +142,9 @@ tr {
 			</div>
 		</form>
 	</div>
-	<div class="outter">
-		<h4 style="font-family:Microsoft JhengHei;">買了此商品的人，也買了...</h4>
-	</div>
+<!-- 	<div class="outter"> -->
+<!-- 		<h4 style="font-family:Microsoft JhengHei;">買了此商品的人，也買了...</h4> -->
+<!-- 	</div> -->
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
 <script>
 	$(function(){

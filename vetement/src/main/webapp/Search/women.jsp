@@ -131,11 +131,10 @@ img.displayImg {
 				<span class="sr-only">Toggle navigation</span> Menu <i
 					class="fa fa-bars"></i>
 			</button>
-			<a style="opacity: 1; color: black;" class="navbar-brand"
-				href="/WebsiteV1.3/indexTemplate.jsp">首頁</a> <a class="navbar-brand"
-				href="${context}/Search/search.jsp">產品</a> <a class="navbar-brand"
-				href="${context}/memberLounge.jsp"><c:if
-					test="${user == 'authenticated'}">會員專區</c:if></a>
+			 <a class="navbar-brand" href="${context}/indexTemplate.jsp">首頁</a>
+                <a class="navbar-brand" href="${context}/Search/search.jsp">產品</a>
+                <a class="navbar-brand" href="${context}/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
+                                <a class="navbar-brand" href="${context}/aboutUs.jsp">關於我們</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -169,9 +168,9 @@ img.displayImg {
 				<div class="vertical-menu">
 					<div name="discountDiv" class="side">
 						<a class="discountHead">折扣商品</a> 
-						<a name=discount1>折扣1</a> 
-						<a name=discount2>折扣2</a> 
-						<a name=discount3>媽媽節特價．兩件8折</a> 
+						<a name=discount1 href="Search.do?searchPackageNo=1">折扣1</a> 
+						<a name=discount2 href="Search.do?searchPackageNo=2">折扣2</a> 
+						<a name=discount3 href="Search.do?searchPackageNo=3">媽媽節特價．兩件8折</a> 
 					</div>
 					<div class="side">
 						<a name="middle" class="active">上身類</a> <a name="bottom">短袖印花T恤</a>

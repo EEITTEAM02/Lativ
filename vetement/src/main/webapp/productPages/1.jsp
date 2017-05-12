@@ -92,6 +92,7 @@ img.displayImg {
 	height: 100%;
 	width: 100%;
 }
+
 </style>
 
 
@@ -146,10 +147,10 @@ img.displayImg {
 			<div class="col-md-12">
 				<div class="jumbotron">
 
-					<div id="dialogLogin-form" title="user login">
+					<div id="dialogLogin-form" title="user login" style="display:none;">
 						<p class="validateTips">All form fields are required.</p>
 
-						<form id="loginForm" class="form-horizontal">
+						<form id="loginForm" class="form-horizontal" >
 							<div class="form-group">
 								<label for="email" class="col-lg-2 control-label">電子郵件</label>
 								<div class="col-lg-10">
@@ -186,7 +187,7 @@ img.displayImg {
 						</form>
 					</div>
 
-					<div id="dialogRegister-form" title="Register New User">
+					<div id="dialogRegister-form" title="Register New User" style="display:none;">
 						<p class="validateTips">All form fields are required.</p>
 
 						<form id="registerForm" class="form-horizontal">
@@ -250,8 +251,6 @@ img.displayImg {
 									<span id="spanRegister"></span>
 								</div>
 							</div>
-
-
 
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-2">
@@ -317,6 +316,37 @@ img.displayImg {
 							</div>
 						</div>
 					</div>
+					<!-- carousel -->
+						<div class="row carousel-holder">
+                   <div class="col-md-3">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a><img class="slide-image" src="http://placehold.it/200x100" style="width:200px;height:100px;" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a><img class="slide-image" src="http://placehold.it/200x100" style="width:200px;height:100px; alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a><img class="slide-image" src="http://placehold.it/200x100" style="width:200px;height:100px; alt=""></a>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+  <!-- /carousel -->
+                </div>
 					<script>
                     $(function() {
 
@@ -387,6 +417,24 @@ img.displayImg {
 		<script>
 		var ctx = "<%=request.getContextPath()%>";
 		$(function() {
+			getCarouselItems(1);
+			
+			function getCarouselItems(id){
+				$.ajax({
+					url:'${context}/GetMostInStockProduct.do',
+					data:{"id":id},
+					success:function(data){
+	 					console.log(data);
+					var counter =0;
+						$.each(data,function(idx,entity){
+							$('.carousel-inner img:eq('+counter+')').attr('src','productImages/'+idx);
+							$('.carousel-inner a:eq('+counter+')').attr('href',ctx+'/productPages/'+entity+'.jsp');								
+							counter++;
+						})
+					
+					}
+				})
+			}
 		
             var discountList = $('ul.list-group:eq(0)');
             

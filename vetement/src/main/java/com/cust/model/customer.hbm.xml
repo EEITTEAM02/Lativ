@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.cust.model.CustomerVO" table="customer">
+
+		<id name="customerId" column="customerId">
+		
+			<generator class="identity" />
+		
+		</id>
+
+		<property name="name" column="name" />
+		<property name="gender" column="gender" />
+		<property name="mail" column="mail" />
+		<property name="pswd" column="pswd" />
+		<property name="addr_customer" column="addr_customer" />
+		<property name="tel" column="tel" />
+		
+		<set name="orderVOs" table="orders" lazy="false" cascade="all"  inverse="true"  order-by="orderNo asc">			
+			<key>
+				<column name="customerId" />
+			</key>
+			<one-to-many class="com.order.model.OrderVO" />
+		</set>
+	</class>
+</hibernate-mapping>
+
