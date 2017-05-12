@@ -24,16 +24,19 @@ public class LoginCheckServlet extends HttpServlet {
 			out.close();
 
 		} else {
-			if (session.getAttribute("user") == null) {
+			//if (session.getAttribute("user") == null) {
+			if (session.getAttribute("login_customer_info") == null) {		
 				out.write("oops");
 				out.flush();
 				out.close();
-			} else if (session.getAttribute("user").equals("authenticated"))
-				out.write("1");
+			} 
+//			else if (session.getAttribute("user").equals("authenticated"))
+//				out.write("1");
 			else {
-				out.write("oops");
-				out.flush();
-				out.close();
+				out.write("1");
+//				out.write("oops");
+//				out.flush();
+//				out.close();
 			}
 
 		}

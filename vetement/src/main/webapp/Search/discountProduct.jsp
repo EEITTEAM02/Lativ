@@ -22,34 +22,34 @@
 </head>
 <body>
 <c:set var="context" value="${pageContext.request.contextPath}" />
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header page-scroll">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> Menu <i
-						class="fa fa-bars"></i>
-				</button>
-				<a style="opacity: 1; color: black;" class="navbar-brand" href="${context}/indexTemplate.jsp">首頁</a> 
-				<a class="navbar-brand" href="${context}/Search/search.jsp"><span class="text-danger">產品</span></a>
-                <a class="navbar-brand" href="${context}/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a>
-                <a class="navbar-brand" href="aboutUs.jsp">關於我們</a>
-			</div>
+<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top">
+<!-- 		<div class="container-fluid"> -->
+<!-- 			<!-- Brand and toggle get grouped for better mobile display --> -->
+<!-- 			<div class="navbar-header page-scroll"> -->
+<!-- 				<button type="button" class="navbar-toggle" data-toggle="collapse" -->
+<!-- 					data-target="#bs-example-navbar-collapse-1"> -->
+<!-- 					<span class="sr-only">Toggle navigation</span> Menu <i -->
+<!-- 						class="fa fa-bars"></i> -->
+<!-- 				</button> -->
+<%-- 				<a style="opacity: 1; color: black;" class="navbar-brand" href="${context}/indexTemplate.jsp">首頁</a>  --%>
+<%-- 				<a class="navbar-brand" href="${context}/Search/search.jsp"><span class="text-danger">產品</span></a> --%>
+<%--                 <a class="navbar-brand" href="${context}/memberLounge.jsp"><c:if test="${user == 'authenticated'}">會員專區</c:if></a> --%>
+<!--                 <a class="navbar-brand" href="aboutUs.jsp">關於我們</a> -->
+<!-- 			</div> -->
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a class="glyphicon glyphicon-user">${sName}<c:if
-								test="${user != 'authenticated'}">訪客</c:if></a></li>
-					<li id="login-user"><a href="#">登入</a></li>
-					<li id="register-user"><a href="#">註冊</a></li>
-					<li id="logout"><a href="#">登出</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
+<!-- 			<!-- Collect the nav links, forms, and other content for toggling --> -->
+<!-- 			<div class="collapse navbar-collapse" -->
+<!-- 				id="bs-example-navbar-collapse-1"> -->
+<!-- 				<ul class="nav navbar-nav navbar-right"> -->
+<%-- 					<li><a class="glyphicon glyphicon-user">${sName}<c:if --%>
+<%-- 								test="${user != 'authenticated'}">訪客</c:if></a></li> --%>
+<!-- 					<li id="login-user"><a href="#">登入</a></li> -->
+<!-- 					<li id="register-user"><a href="#">註冊</a></li> -->
+<!-- 					<li id="logout"><a href="#">登出</a></li> -->
+<!-- 				</ul> -->
+<!-- 			</div> -->
+<!-- 			<!-- /.navbar-collapse --> -->
+<!-- 		</div> -->
 		
 		<!-- /.container -->
 	</nav>
@@ -91,6 +91,7 @@
     
     <script src="${context}/js/jquerysession.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="${context}/jsUtil/includeHeader.js"></script>
 	<script>
 		$(function() {
 			var packageNo = "${sessionScope.searchPackageNo}";
