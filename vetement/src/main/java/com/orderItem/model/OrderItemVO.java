@@ -11,6 +11,14 @@ public class OrderItemVO {
     private Double price_discount;
     private Double price_origin;
     private Double price_item;
+    private Integer difference;
+    
+	public Integer getDifference() {
+		return difference;
+	}
+	public void setDifference(Integer difference) {
+		this.difference = difference;
+	}
 	public Integer getSeqNo() {
 		return seqNo;
 	}
