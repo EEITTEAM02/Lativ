@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page import="java.util.*"%>    
+<%@ page import="com.news.model.*"%>    
+<%
+    NewsService newsSvc = new NewsService();
+    List<NewsVO> list = newsSvc.getAll();
+    pageContext.setAttribute("list",list);
+%>
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
@@ -34,6 +40,69 @@
 #map {
 	height: 100%;
 }
+
+.intro-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #fff;
+}
+
+.about-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #eee;
+}
+
+.news-section {
+  	height:auto;
+    padding-top: 150px;
+    text-align: center;
+    background: #fff;
+}
+
+.services-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #eee;
+}
+
+.contact-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #fff;
+}
+
+.tb111111{
+	font-family:標楷體;
+	padding:5px;
+}
+
+.td111111{
+	font-family:標楷體;
+    color: orange;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    padding:5px;
+}
+
+.td222222{
+	font-family:標楷體;
+	color: orange;
+    font-weight: bold; 
+	font-size: 20px;
+    padding:5px;
+}
+
+.td333333{
+	font-family:標楷體;
+	font-size: 16px;
+    padding:5px;
+}	
 </style>
 </head>
 
@@ -90,6 +159,7 @@
 					<li class="hidden"><a class="page-scroll" href="#page-top"></a>
 					</li>
 					<li><a class="page-scroll" href="#about">About</a></li>
+					<li><a class="page-scroll" href="#news">最新公告</a></li>
 					<li><a class="page-scroll" href="#services">Services</a></li>
 					<li><a class="page-scroll" href="#contact">Contact</a></li>
 				</ul>
@@ -224,7 +294,35 @@
 		</div>
 	</section>
 
-	<!-- Services Section -->
+	<!--News Section -->
+	<section id="news" class="news-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 style="font-family: 標楷體">最新公告</h1>
+					<form>
+						<c:forEach var="newsVO" items="${list}" >
+							<table  rules="none" class="tb111111" width='600' align="center">
+								<tr>
+									<td width='100' class="td111111">${newsVO.pubdate}</td><td width='400' class="td222222">【${newsVO.title}】</td>
+								</tr>
+								
+								<br>
+								<tr>
+									<td></td><td><pre width='400' class="td333333">${newsVO.content}</pre></td>
+								</tr>
+								
+								
+							</table>
+							<hr width="600" align="center">
+						</c:forEach>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+		<!-- Services Section -->
 	<section id="services" class="services-section">
 		<div class="container">
 			<div class="row">

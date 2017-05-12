@@ -35,6 +35,7 @@
             font-size: 24px;
             padding: 3px;
 	}
+	
 </style>
 <script src="../js/jquery-1.12.3.min.js"></script>
 <!--最新編譯和最佳化的 CSS -->
@@ -44,12 +45,13 @@
 <!-- 最新編譯和最佳化的 JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
+
 </head>
 <body>
 <div style="padding:0px 400px">
 	<h2 style="font-family:標楷體;text-align: center;">聯絡客服</h2>
 	
-	<div style="padding-left:100px;padding-bottom: 20px"><input type="button" id='c1' value='聯絡我們' class="btn btn-primary"></div>
+	<div style="padding-left:20px;padding-bottom: 20px" id='c3'><input type="button" id='c1' value='聯絡我們' class="btn btn-primary"></div>
 	<div id='c2' ></div>
 	<hr width="620" align="center">
 
@@ -122,7 +124,6 @@
 
 
 	<script>
-	
 		$('#c1').click(function(){
 			
 			now = new Date();
@@ -132,6 +133,10 @@
 			var inp = $('<input/>');
 			var ta = $('#c2');
 			ta.empty();
+			var tb = $('#c3');
+			tb.empty();
+			tb.html("<input type='button' value='聯絡我們' id= 'c1' class='btn btn-primary'>"+'&nbsp;&nbsp;&nbsp;&nbsp;'+"<input type='button' value='收起' id= 'c4' class='btn btn-danger'>");
+			
 			inp.attr({type:'text',name:'receive_date',size:'80',readonly:"readonly",value:year+'-'+mon+'-'+day});
 			
 			var td1 = $('<td></td>').attr({width:'80',style:'text-align:center'}).html('日'+'&nbsp;&nbsp;&nbsp;&nbsp;'+'期:');
@@ -156,8 +161,7 @@
 			
 			ta.append($('<form></form>').append($('<table></table>').append([tr1,tr2,tr3,tr4,tr5,tr6])));
 			
-// 			ta.toggle();
-			
+ 			ta.show();
 			$('#go1').click(function() {
 				var val1 = $('input[name="receive_date"]').val();
 				var val2 = $('input[name="title_service"]').val().trim();
@@ -199,15 +203,17 @@
 				ta3.empty();
 	
 				ta2.html("<input type='text'  name='title_service' size='80' placeholder='標題'>");
-				ta3.html("<textarea rows='10' cols='79'  name='content_service' placeholder='內文'></textarea>");
-				
+				ta3.html("<textarea rows='10' cols='79'  name='content_service' placeholder='內文'></textarea>");	
 			});
 
+
+			$('#c4').click(function() {
+				window.location.reload();
+			})
 		});
-		
-	
-	
+
 	</script>
+	
 </div>		
 </body>
 </html>
