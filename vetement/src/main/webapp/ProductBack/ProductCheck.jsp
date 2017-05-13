@@ -63,6 +63,49 @@ tr {
 	width:300px;
 	margin-left:700px;
 }
+
+.recommendDiv{
+	width: 1200px;
+	margin: auto;
+	margin-top: 100px;
+	text-align:center;
+}
+
+.recommendTitle{
+	height:75px;
+	width:800px;
+	margin:auto;
+	margin-bottom:50px;
+	background-color:#00BBFF; 
+	padding-top:5px;
+	border-radius:5px;
+}
+
+.recommendDiv li {
+	width: 180px;
+	height: 300px;
+	float: none;
+	display: inline-block;
+	margin-left: 28px;
+	margin-buttom: 30px;
+	vertical-align: top;
+	text-align: center; /*將li的內容置中*/
+}
+
+.productImage {
+	width: 200px;
+	margin: auto;
+}
+
+.productName {
+	width: 100%;
+	text-align: center;
+}
+
+.productPrice {
+	width: 100%;
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -152,9 +195,21 @@ tr {
 			</div>
 		</form>
 	</div>
-<!-- 	<div class="outter"> -->
-<!-- 		<h4 style="font-family:Microsoft JhengHei;">買了此商品的人，也買了...</h4> -->
-<!-- 	</div> -->
+	<div class="recommendDiv">
+		<div class="recommendTitle">
+			<h4 style="font-family:Microsoft JhengHei;">商品推薦</h4>
+			<p>買了此商品的人，也購買以下商品</p>
+		</div>
+		<c:forEach var="item" items="${recommend}">
+			<li>
+				<a href="${pageContext.request.contextPath}/productPages/${item[0]}.jsp">
+					<img class="productImage" alt="${item[1]}" title="${item[1]}" src="${pageContext.request.contextPath}/Search/Image.do?productId=${item[0]}"/>
+				</a>
+				<p class="productName">${item[1]}</p>
+				<p class="productPrice">${item[2]}</p>
+			</li>
+		</c:forEach>
+	</div>
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
 <script>
 	$(function(){

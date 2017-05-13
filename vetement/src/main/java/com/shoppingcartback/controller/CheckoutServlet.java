@@ -21,6 +21,7 @@ import com.discount.model.DiscountVO;
 import com.order.model.OrderService;
 import com.order.model.OrderVO;
 import com.orderItem.model.OrderItemVO;
+import com.search.model.SearcherService;
 import com.shoppingcartback.model.ShoppingCart;
 
 @WebServlet("/ProductBack/Checkout.do")
@@ -77,6 +78,7 @@ public class CheckoutServlet extends HttpServlet {
 		if(target==null){
 			//若是沒有未完成訂單，清空放在session內的購物車，以免重啟CheckoutServlet時，購物車頁面會有商品，並重導至某頁面
 			session.setAttribute("shoppingCartBack", null);
+			session.setAttribute("recommend", null);
 			response.sendRedirect(request.getContextPath()+"/ProductBack/ProductCheck.jsp");
 			return;
 		}
@@ -90,6 +92,10 @@ public class CheckoutServlet extends HttpServlet {
 		cart.discountDeploy(set);
 		
 		cart.reDatabase(target);
+		
+		SearcherService daoSearch = new SearcherService();
+		List<Object[]> listRecommend = daoSearch.getHotProduction(3);
+		session.setAttribute("recommend", listRecommend);
 		// 轉移至結帳畫面
 		response.sendRedirect(request.getContextPath() + "/ProductBack/ProductCheck.jsp");
 	

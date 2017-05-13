@@ -31,4 +31,8 @@ public class SearcherService {
 	public List<ProductionVO> getDiscountProduction(Integer packageNo){
 		return dao.getDiscountProduction(packageNo);
 	}
+	
+	public List<Object[]> getHotProduction(Integer orderNo){
+		return dao.getHotProduction(orderNo);
+	}
 }
