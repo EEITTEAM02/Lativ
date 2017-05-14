@@ -51,10 +51,10 @@ public class CustomerServlet extends HttpServlet {
 			
 			session.setAttribute("login_customer_info", find_one_customer);    // 資料庫取出的one_customer物件,存入session,key是list
 			// Send the Success view
-			String url = "/customer/editCustomerInfo.jsp";
-			RequestDispatcher updateView = req.getRequestDispatcher(url);
-			
-			updateView.forward(req, res);	
+//			String url = "/customer/editCustomerInfo.jsp";
+//			RequestDispatcher updateView = req.getRequestDispatcher(url);
+//			
+//			updateView.forward(req, res);	
 					//要RequestDispatcher才能forward //實際上導頁是forward
 			return;
 		}
@@ -67,10 +67,10 @@ public class CustomerServlet extends HttpServlet {
 			String update_name = req.getParameter("customerName");
 			Boolean update_sex;
 			
-			if (req.getParameter("gender").equals("1")) {
+			if (req.getParameter("sex").equals("1")) {
 				update_sex = true;
 			}
-			else if(req.getParameter("gender").equals("0")) {
+			else if(req.getParameter("sex").equals("0")) {
 				update_sex = false;
 			}
 			else {
@@ -78,7 +78,7 @@ public class CustomerServlet extends HttpServlet {
 			}
 			
 			String update_email = req.getParameter("mail");
-			String update_address = req.getParameter("add");
+			String update_address = req.getParameter("full_addr");
 			String update_mobile = req.getParameter("tel");
 			
 				
@@ -87,9 +87,9 @@ public class CustomerServlet extends HttpServlet {
 			update_customer = customerSvc.updateCustomer(customer_id, update_name, update_sex, 
 															update_email, update_address, update_mobile);
 			
-			session.setAttribute("list", update_customer);    // 資料庫取出的one_customer物件,存入session,key是list
+			session.setAttribute("login_customer_info", update_customer);    // 資料庫取出的one_customer物件,存入session,key是list
 			// Send the Success view
-			String url = "/customer/customer_management.jsp";
+			String url = "/indexTemplate.jsp";
 			RequestDispatcher updateView = req.getRequestDispatcher(url);
 			
 			updateView.forward(req, res);	

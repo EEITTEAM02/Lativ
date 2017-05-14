@@ -11,39 +11,182 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="jquery.twzipcode.min.js" type="text/javascript"></script>
 <title>Insert title here</title>
-<style>#update_submit{padding-left: 5px;}</style>
+<style>
+	#update_submit {
+		padding-left: 5px;
+	}
+	.edit_customer {			
+		font-family:Microsoft JhengHei;
+		font-weight:bold;
+		font-size:18px;
+		position:absolute;
+		top:10%;
+		left:40%
+	}
+	
+	.error_msg {
+		color:red;
+		font-size:16px;
+	}
+		
+	.zipcode {
+	    background-color: #c00;
+	    color: #fff;
+	    width: 30%;
+    	float: left;
+	}
+	.county {
+	    background-color: #4169E1;
+	    color: #fff;
+	    width: 30%;
+    	float: left;
+	}
+	.district {
+	    background-color: #008000;
+	    color: #fff;
+	    width: 30%;
+    	float: left;
+	}
+	#addr {
+		width:335px;
+	}	
+
+</style>
 </head>
 <body>
-	<div>
-<%-- 		<%=list.getName()%> --%>
-		<form method="Post" Action="${pageContext.request.contextPath}/CustomerServlet?action=updateOne">
-		<!--上面是更新資料後要submit到哪裡 -->
-			會員資料修改<br><br>
-<%-- 					<input type="hidden" name="customerId" value=<%=list.getCustomerId()%>>					 --%>
-			姓名:    <input type="text" name="customerName" value=<%=login_customer_info.getName()%>> <br><br>
-			性別:    <input type="radio" name="gender" value=1>男 
-				    <input type="radio" name="gender" value=0>女 <br><br>
-			電子郵件: <input type="text" name="mail" value=<%=login_customer_info.getMail()%>> <br><br>
-<!-- 			修改密碼:	<input type="text" name="pswd_orig" value=""> <br><br> -->
-<!-- 			密碼確認: <input type="text" name="pswd_new" value="" onblur=pswd_check()> -->
-<!-- 					<span id="pswd_err_msg"></span> -->
-<!-- 					<br><br> -->
-			地址:	<input type="text" name="add" value=<%=login_customer_info.getAddr_customer()%> size=40> <br><br>
-			電話:	<input type="text" name="tel" value=<%=login_customer_info.getTel()%>> <br><br>
-					<input id="update_submit" type="submit" name="submit_btn" value="確認修改">
-		</form>
+	<div class="container">
+		<div class="edit_customer">
+			<span>會員資料修改</span><br>
+			<form method="Post" Action="${pageContext.request.contextPath}/CustomerServlet?action=updateOne" onsubmit="return beforeSend()" >
+			<!--上面是更新資料後要submit到哪裡 -->
+				<div>
+					<label>姓名</label><br>
+					<input id="member_name" type="text" name="customerName" value='<%=login_customer_info.getName()%>' chi='姓名'><br>
+					<div id="member_name_error_msg" class="error_msg"></div><br>
+				</div>
+				<div>
+					<label>性別</label><br>
+					<input type="radio" name="sex" value=1>男 
+					<input type="radio" name="sex" value=0>女 <br>
+					<input type='hidden' id="sex" name='sex' value='' chi='性別'>
+					<div id="sex_error_msg" class="error_msg"></div><br>
+				</div>
+				<div>
+					<label>電子郵件</label><br>
+					<input id="email" type="text" name="mail" value='<%=login_customer_info.getMail()%>' chi='電子郵件'><br>
+					<div id="email_error_msg" class="error_msg"></div><br>
+				</div>
+				
+				<div>
+					<label>地址</label><br>
+					<div id="addr_container"></div>
+					<div>
+						<input type='text' id="addr" name='addr' value=''>
+					</div>
+					<input type='hidden' id='full_addr' name='full_addr' value='' chi='地址'>
+					<div id="full_addr_error_msg" class="error_msg"></div><br>
+				</div>
+				<div>
+					<label>電話</label><br>
+					<input id="phone_no" type="text" name="tel" value='<%=login_customer_info.getTel()%>' chi='電話'><br>
+					<div id="phone_no_error_msg" class="error_msg"></div><br>
+				</div>
+				<input id="update_submit" type="submit" name="submit_btn" value="確認修改">
+			</form>
+		</div>
 	</div>
-
 </body>
-
+<script src="${pageContext.request.contextPath}/jsUtil/validation.js"></script>
 <script>
+	$('input:radio[name="sex"]').change(function() {
+	    if (this.checked) {	//this.checked意謂這個radio button被點到
+			$('#sex').val(this.value);	//radio button的value就會寫到id=sex這個input的value裡面 
+	    }
+	});
+	
+	function beforeSend() {
+		var error_count = 0;
+		var validation_result = inputFieldEmptyValidation( ["member_name", "sex", "email", "phone_no"] ); 
+		
+		if(validation_result == false) {
+			error_count++;
+		}
+		
+		if( checkEmailPattern( $("#email").val() ) == false) {
+			error_count++;
+		}
+		
+		if( checkPhonePattern($("#phone_no").val() ) == false) {
+			error_count++;
+		}
+		
+		if( checkAddressPattern($("#full_addr").val() ) == false) {
+			error_count++;
+		}
+		
+		console.log(error_count);
+		
+		if(error_count > 0) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+
+	function writeFullAddr(){	//select跟radio button不同，選了就會是那個值，radio button是判別你點選哪一個，取你點選的那個值
+		var full_addr = $('[name="zipcode"]').val()+","+$('[name="county"]').val()+","+$('[name="district"]').val()+","+$('[name="addr"]').val();
+		$('#full_addr').val(full_addr);
+	}
+	
+	//因為選取縣市、區鄉鎮、zip code都是引用他人的js動態生成的，所以不能直接寫.change
+	$(document).on('change', '[name="county"]', function(){
+		writeFullAddr();
+	});	
+	
+	$(document).on('change', '[name="district"]', function(){
+		writeFullAddr();
+	});	
+	
+	$(document).on('blur', '[name="zipcode"]', function(){
+		writeFullAddr();
+	});
+	
+	$('[name="addr"]').blur(function(){
+		writeFullAddr();
+	});
+	
+	$(function(){
+		$('#addr_container').twzipcode({
+	        css:['county form-control','district form-control','zipcode form-control']
+		});
+		recieveOrigAddr();
+	})
+	function recieveOrigAddr(){
+		var full_addr = "<%=login_customer_info.getAddr_customer()%>"; 
+		var full_address_array = full_addr.split(",");
+		console.log(full_address_array);
+		$('#addr').val(full_address_array[3]);
+		$('[name="zipcode"]').val(full_address_array[0]);
+		$('[name="zipcode"]').trigger("click").trigger("blur");
+	}
+	
+	
 	//去掃gender(byName)，i=0,1，當i的值等於session中的getGender()的值[這邊有把boolean轉成string]，就點選它(checked)
-	var genders = document.getElementsByName("gender");
+	var genders = document.getElementsByName("sex");
 // 	console.log(genders);
 	for(var i=0;i<genders.length;i++){
 		if(genders[i].value == <%=String.valueOf(login_customer_info.getGender())%>){
 			genders[i].setAttribute("checked", true);
+			if(<%=login_customer_info.getGender()%> == true) {
+				$('#sex').val(1);
+			}
+			else {
+				$('#sex').val(0);
+			}
 		}
 	}
 	

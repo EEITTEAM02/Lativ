@@ -26,7 +26,7 @@ public class CustomerDAO implements ICustomerDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			//customerVO = (CustomerVO) session.get(CustomerVO.class, mail);
+			//customerVO = (CustomerVO) session.get(CustomerVO.class, mail); 此方法只適用於主鍵
 			Query query = session.createQuery(CHECK_SPEC_CUSTOMER_EXIST);
 			query.setParameter("mail", mail);
 
