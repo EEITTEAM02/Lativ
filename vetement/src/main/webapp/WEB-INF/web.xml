@@ -303,7 +303,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>NewsServlet</servlet-name>
-		<url-pattern>/news/news.do</url-pattern>
+		<url-pattern>/news.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
