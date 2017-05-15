@@ -199,7 +199,7 @@ img.displayImg {
 			<div class="col-md-9">
 				<div id="outter">
 					<jsp:include page="/util/navbar.jsp"></jsp:include>
-					<img src="${pageContext.request.contextPath}/img/women.jpg" />
+					<img src="${pageContext.request.contextPath}/img/women2.jpg" />
 					<div id="display"></div>
 					<div id="imgDiv" style="text-align: center;">
 						<img id="img1" src="../img/ajax-loader.gif" />

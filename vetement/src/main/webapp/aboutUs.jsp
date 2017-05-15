@@ -19,8 +19,8 @@
 <title>關於我們</title>
 
 <link href="css/clean-blog.min.css" rel="stylesheet">
-<link href="vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
+<!-- <link href="vendor/font-awesome/css/font-awesome.min.css" -->
+<!-- 	rel="stylesheet" type="text/css"> -->
 <link
 	href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
 	rel='stylesheet' type='text/css'>
@@ -113,182 +113,50 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
-			<div class="navbar-header page-scroll">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-ex1-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<!--                 <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a> -->
-			</div>
-
 			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span> Menu <i
-							class="fa fa-bars"></i>
-					</button>
-					<a style="opacity: 1; color: black;" class="navbar-brand"
-						href="indexTemplate.jsp">首頁</a> <a class="navbar-brand"
-						href="${context}/Search/search.jsp">產品</a> <a class="navbar-brand" href="memberLounge.jsp">
-						<c:if test="${user == 'authenticated'}">會員專區</c:if></a>
-						<a class="navbar-brand" href="aboutUs.jsp"><span class="text-danger">關於我們</span></a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a class="glyphicon glyphicon-user">${sName}
-						<c:if test="${user != 'authenticated'}">訪客</c:if></a></li>
-						<li id="login-user"><a href="#">登入</a></li>
-						<li id="register-user"><a href="#">註冊</a></li>
-						<li id="logout"><a href="#">登出</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
+				
+				<jsp:include page="header.jsp"></jsp:include>
+			
 			</div>
-
+			
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav">
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a class="page-scroll" href="#page-top"></a>
 					</li>
-					<li><a class="page-scroll" href="#about">About</a></li>
+					<li><a class="page-scroll" href="#about">緣起</a></li>
 					<li><a class="page-scroll" href="#news">最新公告</a></li>
-					<li><a class="page-scroll" href="#services">Services</a></li>
-					<li><a class="page-scroll" href="#contact">Contact</a></li>
+					<li><a class="page-scroll" href="#services">免責聲明</a></li>
+					<li><a class="page-scroll" href="#contact">門市資訊</a></li>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
-		<!-- /.container -->
 	</nav>
 
-	<div id="dialogLogin-form" title="user login">
-		<p class="validateTips">All form fields are required.</p>
-
-		<form id="loginForm" class="form-horizontal">
-			<div class="form-group">
-				<label for="email" class="col-lg-2 control-label">電子郵件</label>
-				<div class="col-lg-10">
-					<div class="input-group">
-						<input type="email" id="email2" name="email2" class="form-control"
-							placeholder="請輸入電子郵件"> <span id="spanEmail"></span>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="password" class="col-lg-2 control-label">密碼</label>
-				<div class="col-lg-10">
-					<div class="input-group">
-						<input type="password" id="password2" name="password2"
-							class="form-control" placeholder="請輸入密碼"> <span
-							id="spanPwd"></span>
-					</div>
-				</div>
-			</div>
-
-			<div class="checkbox">
-				<label for="checkbox"><input id="rm" name="rm"
-					type="checkbox" value="true">記得我</label>
-			</div>
-
-			<div class="form-group">
-				<div class="col-lg-10 col-lg-offset-2">
-					<button type="submit" id="buttonLogin" class="btn btn-primary">登入</button>
-					<div id="messageLogin"></div>
-				</div>
-
-			</div>
-		</form>
-	</div>
-
-	<div id="dialogRegister-form" title="Register New User">
-		<p class="validateTips">All form fields are required.</p>
-
-		<form id="registerForm" class="form-horizontal">
-			<div class="form-group">
-				<label for="name" class="col-lg-2 control-label">姓名</label>
-				<div class="col-lg-10">
-					<div class="input-group">
-						<input type="text" id="name" name="name" class="form-control"
-							placeholder="請輸入姓名">
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="email" class="col-lg-2 control-label">電子郵件</label>
-				<div class="col-lg-10">
-					<div class="input-group">
-						<input type="email" id="email1" name="email1" class="form-control"
-							placeholder="請輸入電子郵件">
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="password" class="col-lg-2 control-label">密碼</label>
-				<div class="col-lg-10">
-					<div class="input-group">
-						<input type="password" id="password1" name="password1"
-							class="form-control" placeholder="請輸入密碼">
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="address" class="col-lg-2 control-label">地址</label>
-				<div class="col-lg-10">
-					<div class="input-group">
-						<input type="text" id="address" name="address"
-							class="form-control" placeholder="請輸入地址">
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="phoneno" class="col-lg-2 control-label">電話</label>
-				<div class="col-lg-10">
-					<div class="input-group">
-						<input type="text" id="phoneno" name="phoneno"
-							class="form-control" placeholder="請輸入電話">
-					</div>
-					<span id="spanRegister2"></span>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="gender" class="col-lg-2 control-label">性別</label>
-				<div class="col-lg-10">
-					<div class="input-group">
-						<label> <input type="radio" name="gender" value="male"
-							id="genderM" />男
-						</label> <label> <input type="radio" name="gender" value="female"
-							id="genderF" />女
-						</label>
-					</div>
-					<span id="spanRegister"></span>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="col-lg-10 col-lg-offset-2">
-					<button type="submit" id="buttonRegister" class="btn btn-primary">註冊</button>
-					<div id="messageRegister"></div>
-				</div>
-
-			</div>
-		</form>
-	</div>
 
 	<!-- About Section -->
 	<section id="about" class="about-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-					<h1>About Section</h1>
+					<h1 style="font-family: 標楷體 ;color:#008800;font-weight: bold;">緣&nbsp;&nbsp;起</h1>
+				<div class="col-lg-4">
+					<img src="images/about_01.png" height="400" width="400">
+				</div>
+				<div class="col-lg-8">
+					  <h4 style="font-family: 標楷體; text-align: left;font-size:24px">「菲特萌」是一個可以提供您輕鬆且高品質的購衣平台</h4>      
+					  <h4 style="font-family: 標楷體; text-align: left;font-size:24px">在這裡您可以快速查詢心中所要的商品</h4>     
+					  <h4 style="font-family: 標楷體; text-align: left;font-size:24px">也可以使用收藏功能，在下次瀏覽網頁時方便找到追蹤的商品。</h4>     
+					  <br> 
+				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">我們提供最優惠的折扣</h4>
+				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">也可以參考評價來選擇最適合自己的商品。</h4>
+				      <br>
+				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">當商品售出後，我們有最完整的售後服務</h4>
+				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">可以透過訂單記錄查詢您的歷史清單與記錄</h4>
+				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">假如有任何問題也可以透過客服系統與我們連絡。</h4>
+				      <br> 
+				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">「菲特萌」期望成為您網路購衣的唯一選擇</h4>
+
 				</div>
 			</div>
 		</div>
@@ -299,7 +167,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 style="font-family: 標楷體">最新公告</h1>
+					<h1 style="font-family: 標楷體;color:#DAA520;font-weight: bold;">最新公告</h1>
 					<form>
 						<c:forEach var="newsVO" items="${list}" >
 							<table  rules="none" class="tb111111" width='600' align="center">
@@ -327,7 +195,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Services Section</h1>
+					<h1 style="font-family: 標楷體;color:#483D8B;font-weight: bold;">免責聲明</h1>
+					<h3 style="font-family: 標楷體; text-align: left;">當您在閱讀(本網站)時，代表你已詳細閱讀及明確了解本『免責聲明』:</h3>
+					<h3 style="font-family: 標楷體; text-align: left;">一、(本網站)所載之任何資料或數據僅供EEIT93專題使用，主要用於專題展示</h3>
+					<h3 style="font-family: 標楷體; text-align: left;"></h3>
+					<h3 style="font-family: 標楷體; text-align: left;"></h3>
+					<h3 style="font-family: 標楷體; text-align: left;"></h3>
+					<h3 style="font-family: 標楷體; text-align: left;"></h3>
+					<h3 style="font-family: 標楷體; text-align: left;"></h3>
 				</div>
 			</div>
 		</div>
@@ -338,12 +213,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Contact Section</h1>
+					<h1 style="font-family: 標楷體;color:#483D8B">門市資訊</h1>
 					<div class="bh-sl-container">
 
 						<div class="bh-sl-form-container">
-							<form id="bh-sl-user-location" method="post">
-								<div class="form-input">
+							<form id="bh-sl-user-location" method="post" >
+								<div class="form-input" style="font-family: 標楷體; text-align:senter">
 									<label for="bh-sl-address">請輸入地址:</label> <input type="text"
 										id="bh-sl-address" name="bh-sl-address" />
 								</div>
@@ -363,276 +238,6 @@
 			</div>
 		</div>
 	</section>
-
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="js/jquerysession.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.mycart.js"></script>
-	<script src="js/clean-blog.min.js"></script>
-	<!-- Scrolling Nav JavaScript -->
-	<script src="js/jquery.easing.min.js"></script>
-	<script src="js/scrolling-nav.js"></script>
-	<script
-		src="https://maps.google.com/maps/api/js?key=AIzaSyBwqCl08DgbvCyYJHrcS_IT3W6HscUnDvM&region=TW"></script>
-	<script src="js/handlebars.min.js"></script>
-	<script src="js/jquery.storelocator.min.js"></script>
-
-	<script>
-		$(function() {
-		
-				$('#bh-sl-map-container').storeLocator();
-
-			if (localStorage.chkbx && localStorage.chkbx != '') {
-				$('#rm').attr('checked', 'checked');
-				$('#email2').val(localStorage.email2);
-				$('#password2').val(localStorage.password2);
-			} else {
-				$('#rm').removeAttr('checked');
-				$('#email2').val('');
-				$('#password2').val('');
-			}
-
-			$('#rm').on('click', function() {
-
-				if ($('#rm').is(':checked')) {
-					// save username and password
-
-					$('#spanEmail').text($('#email2').val()).hide();
-					$('#spanPwd').text($('#password2').val()).hide();
-					console.log($('#spanPwd').text());
-					localStorage.email2 = $('#spanEmail').text();
-					localStorage.password2 = $('#spanPwd').text();
-					localStorage.chkbx = $('#rm').val();
-				} else {
-					localStorage.email2 = '';
-					localStorage.password2 = '';
-					localStorage.chkbx = '';
-				}
-			});
-
-			$('#buttonLogin').hide();
-			$('#buttonRegister').hide();
-			$('#logout').click(function() {
-				$.get("Logout.do", function(data) {
-					location.reload();
-				});
-			})
-
-			var dialog, formRegister, formLogin, email2 = $("#email2"), email1 = $("#email1"), password2 = $("#password2"), password1 = $("#password1"), name = $("#name"), addr = $("#address"), phoneno = $("#phoneno"), genderM = $('#genderM'), genderF = $('#genderF'), emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, allFieldsLogin = $(
-					[]).add(email2).add(password2), tips = $(".validateTips"), allFieldsRegister = $(
-					[]).add(name).add(email1).add(password1).add(addr).add(
-					phoneno).add(genderM).add(genderF);
-
-			function updateTips(t) {
-				tips.text(t).addClass("ui-state-highlight");
-				setTimeout(function() {
-					tips.removeClass("ui-state-highlight", 1500);
-				}, 500);
-			}
-
-			function checkLength(o, n, min, max) {
-				if (o.val().length > max || o.val().length < min) {
-					o.addClass("ui-state-error");
-					updateTips("Length of " + n + " must be between " + min
-							+ " and " + max + ".");
-					return false;
-				} else {
-					return true;
-				}
-			}
-
-			function checkRegexp(o, regexp, n) {
-				if (!(regexp.test(o.val()))) {
-					o.addClass("ui-state-error");
-					updateTips(n);
-					return false;
-				} else {
-					return true;
-				}
-			}
-
-			function loginUser() {
-
-				var valid = true;
-				allFieldsLogin.removeClass("ui-state-error");
-
-				valid = valid && checkLength(email2, "email", 6, 80);
-				valid = valid && checkLength(password2, "password", 3, 16);
-
-				valid = valid
-						&& checkRegexp(email2, emailRegex, "eg. ui@jquery.com");
-				valid = valid
-						&& checkRegexp(password2, /^([0-9a-zA-Z])+$/,
-								"Password field only allow : a-z 0-9");
-
-				event.preventDefault();
-				if (valid) {
-					var data = $('#loginForm').serialize();
-					$.post("LoginNew.do", data, function(data) {
-
-						if (data == '') {
-
-							location.reload();
-						} else if (data.substring(0, 2) != "We") {
-							$('#spanPwd').html(data);
-						}
-
-						else {
-							$('#spanPwd').empty();
-
-							dialogLogin.dialog("close");
-							location.reload();
-						}
-					})
-				}
-
-				return valid;
-			}
-
-			function registerUser() {
-				var valid = true;
-				allFieldsRegister.removeClass("ui-state-error");
-
-				valid = valid && checkLength(name, "name", 3, 80);
-				valid = valid && checkLength(email1, "email", 6, 80);
-				valid = valid && checkLength(password1, "password", 3, 16);
-
-				valid = valid && checkLength(addr, "address", 3, 50);
-				valid = valid && checkLength(phoneno, "phone #", 3, 16);
-
-				valid = valid
-						&& checkRegexp(email1, emailRegex, "eg. ui@jquery.com");
-				valid = valid
-						&& checkRegexp(password1, /^([0-9a-zA-Z])+$/,
-								"Password field only allow : a-z 0-9");
-				valid = valid
-						&& checkRegexp(phoneno, /^([0-9])+$/,
-								"phone no field only allow : 0-9");
-
-				event.preventDefault();
-				if (valid) {
-					var data = $('#registerForm').serialize();
-					$.post("Register.do", data, function(data) {
-						if (data.substring(0, 2) != "Su") {
-							$('#spanRegister').html(data);
-						} else {
-							$('#spanRegister').empty();
-
-							alert(data);
-							dialogLogin.dialog("close");
-							location.reload();
-						}
-					})
-				}
-				return valid;
-			}
-
-			dialogLogin = $("#dialogLogin-form").dialog({
-
-				closeOnEscape : true,
-				open : function(event, ui) {
-					$(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-				},
-
-				autoOpen : false,
-				//	height: 400,
-				width : 500,
-				modal : true,
-				resizable : false,
-				buttons : {
-					"Login" : loginUser,
-					Cancel : function() {
-						if ($('#rm').is(':checked')) {
-							$('#spanEmail').text($('#email2').val()).hide();
-							$('#spanPwd').text($('#password2').val()).hide();
-							localStorage.email2 = $('#spanEmail').text();
-							localStorage.password2 = $('#spanPwd').text();
-							localStorage.chkbx = $('#rm').val();
-						} else {
-							localStorage.email2 = '';
-							localStorage.password2 = '';
-							localStorage.chkbx = '';
-						}
-						dialogLogin.dialog("close");
-					}
-				},
-				close : function() {
-
-					$('#spanPwd').empty();
-					formLogin[0].reset();
-					allFieldsLogin.removeClass("ui-state-error");
-				}
-			});
-
-			dialogRegister = $("#dialogRegister-form").dialog({
-
-				closeOnEscape : true,
-				open : function(event, ui) {
-					$(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-				},
-
-				autoOpen : false,
-				//	height: 400,
-				width : 500,
-				modal : true,
-				resizable : false,
-				buttons : {
-					"Register" : registerUser,
-					Cancel : function() {
-						dialogRegister.dialog("close");
-					}
-				},
-				close : function() {
-					$('#spanPwd').empty();
-					formRegister[0].reset();
-					allFieldsRegister.removeClass("ui-state-error");
-
-				}
-			});
-
-			formRegister = dialogRegister.find("#registerForm").on("submit",
-					function(event) {
-						event.preventDefault();
-						registerUser();
-					});
-			formLogin = dialogLogin.find("#loginForm").on("submit",
-					function(event) {
-						event.preventDefault();
-						if ($('#rm').is(':checked')) {
-							$('#spanEmail').text($('#email2').val()).hide();
-							$('#spanPwd').text($('#password2').val()).hide();
-							localStorage.email2 = $('#spanEmail').text();
-							localStorage.password2 = $('#spanPwd').text();
-							localStorage.chkbx = $('#rm').val();
-						} else {
-							localStorage.email2 = '';
-							localStorage.password2 = '';
-							localStorage.chkbx = '';
-						}
-						loginUser();
-					});
-
-			$("#login-user").on("click", function() {
-				if (localStorage.chkbx != '') {
-					$('#rm').attr('checked', 'checked');
-					$('#email2').val(localStorage.email2);
-					$('#password2').val(localStorage.password2);
-				} else {
-					$('#rm').removeAttr('checked');
-					$('#email2').val('');
-					$('#password2').val('');
-				}
-				dialogLogin.dialog("open").css('overflow', 'hidden'); //hides scroll bar
-				$('.validateTips').text('All form fields are required.');
-			});
-			$("#register-user").on("click", function() {
-				dialogRegister.dialog("open").css('overflow', 'hidden');
-				;
-				$('.validateTips').text('All form fields are required.');
-			});
-		});
-	</script>
 
 </body>
 
