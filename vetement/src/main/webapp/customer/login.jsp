@@ -189,17 +189,17 @@
 			
 			success: function(response_login_customer_object) {	//去接ajax傳回來的結果
 				//console.log(response_login_customer_object);
+				//console.log(response_login_customer_object["customerId"]);
 				$('#error_msg').text("");	//如果先輸入錯的，再輸入對的，沒有換頁的情況下，沒有先清空錯誤訊息，即使正確登入了，錯誤訊息也會留在上面
 				if( jQuery.isEmptyObject(response_login_customer_object) == false ){	//傳回1筆以上(因為0筆代表沒有比對到)就導頁到xxx.jsp
-					
-					//管理人員頁面做出後再判斷id做導頁
-// 					if(response_login_customer_object == 1) {
-// 						location.href = '後台管理人員主頁.jsp';
-// 					}
-// 					else {
-// 						location.href = 'customer_management.jsp';
-// 					}
-					location.reload();
+				
+					//管理人員頁面做出後再判斷id做導頁;目前就是把customerId:5:張格魯設為管理員
+					if(response_login_customer_object["customerId"] == 5) {
+						location.href = 'mangerPage.jsp';
+					}
+					else {
+						location.reload();
+					}
 				}
 				else{
 					$('#error_msg').text("帳號或密碼不正確，請重新輸入");
