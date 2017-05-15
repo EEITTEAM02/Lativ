@@ -89,7 +89,7 @@ public class CustomerServlet extends HttpServlet {
 			
 			session.setAttribute("login_customer_info", update_customer);    // 資料庫取出的one_customer物件,存入session,key是list
 			// Send the Success view
-			String url = "/indexTemplate.jsp";
+			String url = "/memberPage.jsp";
 			RequestDispatcher updateView = req.getRequestDispatcher(url);
 			
 			updateView.forward(req, res);	

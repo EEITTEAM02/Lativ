@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script src="jquery.twzipcode.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/customer/jquery.twzipcode.min.js" type="text/javascript"></script>
 <title>Insert title here</title>
 <style>
 	#update_submit {
@@ -21,10 +21,7 @@
 	.edit_customer {			
 		font-family:Microsoft JhengHei;
 		font-weight:bold;
-		font-size:18px;
-		position:absolute;
-		top:10%;
-		left:40%
+		font-size:18px
 	}
 	
 	.error_msg {
@@ -35,19 +32,19 @@
 	.zipcode {
 	    background-color: #c00;
 	    color: #fff;
-	    width: 30%;
+	    width: 13%;
     	float: left;
 	}
 	.county {
 	    background-color: #4169E1;
 	    color: #fff;
-	    width: 30%;
+	    width: 17%;
     	float: left;
 	}
 	.district {
 	    background-color: #008000;
 	    color: #fff;
-	    width: 30%;
+	    width: 17%;
     	float: left;
 	}
 	#addr {
@@ -57,46 +54,43 @@
 </style>
 </head>
 <body>
-	<div class="container">
-		<div class="edit_customer">
-			<span>會員資料修改</span><br>
-			<form method="Post" Action="${pageContext.request.contextPath}/CustomerServlet?action=updateOne" onsubmit="return beforeSend()" >
-			<!--上面是更新資料後要submit到哪裡 -->
+	<div class="edit_customer">
+		<form method="Post" Action="${pageContext.request.contextPath}/CustomerServlet?action=updateOne" onsubmit="return beforeSend()" >
+		<!--上面是更新資料後要submit到哪裡 -->
+			<div>
+				<label>姓名</label><br>
+				<input id="member_name" type="text" name="customerName" value='<%=login_customer_info.getName()%>' chi='姓名'><br>
+				<div id="member_name_error_msg" class="error_msg"></div><br>
+			</div>
+			<div>
+				<label>性別</label><br>
+				<input type="radio" name="sex" value=1>男 
+				<input type="radio" name="sex" value=0>女 <br>
+				<input type='hidden' id="sex" name='sex' value='' chi='性別'>
+				<div id="sex_error_msg" class="error_msg"></div><br>
+			</div>
+			<div>
+				<label>電子郵件</label><br>
+				<input id="email" type="text" name="mail" value='<%=login_customer_info.getMail()%>' chi='電子郵件'><br>
+				<div id="email_error_msg" class="error_msg"></div><br>
+			</div>
+			
+			<div>
+				<label>地址</label><br>
+				<div id="addr_container"></div><br><br>
 				<div>
-					<label>姓名</label><br>
-					<input id="member_name" type="text" name="customerName" value='<%=login_customer_info.getName()%>' chi='姓名'><br>
-					<div id="member_name_error_msg" class="error_msg"></div><br>
+					<input type='text' id="addr" name='addr' value=''>
 				</div>
-				<div>
-					<label>性別</label><br>
-					<input type="radio" name="sex" value=1>男 
-					<input type="radio" name="sex" value=0>女 <br>
-					<input type='hidden' id="sex" name='sex' value='' chi='性別'>
-					<div id="sex_error_msg" class="error_msg"></div><br>
-				</div>
-				<div>
-					<label>電子郵件</label><br>
-					<input id="email" type="text" name="mail" value='<%=login_customer_info.getMail()%>' chi='電子郵件'><br>
-					<div id="email_error_msg" class="error_msg"></div><br>
-				</div>
-				
-				<div>
-					<label>地址</label><br>
-					<div id="addr_container"></div>
-					<div>
-						<input type='text' id="addr" name='addr' value=''>
-					</div>
-					<input type='hidden' id='full_addr' name='full_addr' value='' chi='地址'>
-					<div id="full_addr_error_msg" class="error_msg"></div><br>
-				</div>
-				<div>
-					<label>電話</label><br>
-					<input id="phone_no" type="text" name="tel" value='<%=login_customer_info.getTel()%>' chi='電話'><br>
-					<div id="phone_no_error_msg" class="error_msg"></div><br>
-				</div>
-				<input id="update_submit" type="submit" name="submit_btn" value="確認修改">
-			</form>
-		</div>
+				<input type='hidden' id='full_addr' name='full_addr' value='' chi='地址'>
+				<div id="full_addr_error_msg" class="error_msg"></div><br>
+			</div>
+			<div>
+				<label>電話</label><br>
+				<input id="phone_no" type="text" name="tel" value='<%=login_customer_info.getTel()%>' chi='電話'><br>
+				<div id="phone_no_error_msg" class="error_msg"></div><br>
+			</div>
+			<input id="update_submit" type="submit" name="submit_btn" value="確認修改">
+		</form>
 	</div>
 </body>
 <script src="${pageContext.request.contextPath}/jsUtil/validation.js"></script>
@@ -159,16 +153,16 @@
 		writeFullAddr();
 	});
 	
-	$(function(){
-		$('#addr_container').twzipcode({
-	        css:['county form-control','district form-control','zipcode form-control']
-		});
-		recieveOrigAddr();
-	})
+
+	$('#addr_container').twzipcode({
+        css:['county form-control','district form-control','zipcode form-control']
+	});
+	recieveOrigAddr();
+
 	function recieveOrigAddr(){
 		var full_addr = "<%=login_customer_info.getAddr_customer()%>"; 
 		var full_address_array = full_addr.split(",");
-		console.log(full_address_array);
+		//console.log(full_address_array);
 		$('#addr').val(full_address_array[3]);
 		$('[name="zipcode"]').val(full_address_array[0]);
 		$('[name="zipcode"]').trigger("click").trigger("blur");
@@ -189,16 +183,6 @@
 			}
 		}
 	}
-	
-	
-// 	function pswd_check(){
-// 		var pswd1 = document.getElementsByName("pswd_orig");
-// 		var pswd2 = document.getElementsByName("pswd_new");
-// 		if (pswd1[0].value!=pswd2[0].value){
-//  			document.getElementById("pswd_err_msg").innerHTML="密碼不一致";
-// 		}
-// 	}
-	
 	
 </script>
 

@@ -30,11 +30,11 @@
 	<div >
 		<nav id="selectpage">
 			<ul class="nav nav-pills">
-		  		<li role="presentation"><a href="#">page1</a></li>
-		  		<li role="presentation"><a href="#">page2</a></li>
-		 		<li role="presentation"><a href="#">page3</a></li>
-		 		<li role="presentation"><a href="#">page4</a></li>
-		 		<li role="presentation"><a href="#">Page5</a></li>
+		  		<li class="select_item_btn" id="select_item_1" role="presentation"><a href="#">page1</a></li>
+		  		<li class="select_item_btn" id="select_item_2" role="presentation"><a href="#">會員資料修改</a></li>
+		 		<li class="select_item_btn" id="select_item_3" role="presentation"><a href="#">密碼修改</a></li>
+		 		<li class="select_item_btn" id="select_item_4" role="presentation"><a href="#">page4</a></li>
+		 		<li class="select_item_btn" id="select_item_5" role="presentation"><a href="#">Page5</a></li>
 			</ul>
 		</nav>
 	</div>

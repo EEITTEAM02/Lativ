@@ -6,6 +6,11 @@
 <head>
 <script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
+<style>
+	.glyphicon:before {
+		font-family: Glyphicons Halflings
+	}
+</style>
 </head>
 <body>
 	<div class="container-fluid">
@@ -18,7 +23,7 @@
 		    <a class="navbar-brand" href="${pageContext.request.contextPath}/indexTemplate.jsp">首頁</a>
 		    <a class="navbar-brand" href="${pageContext.request.contextPath}/Search/search.jsp">產品</a>
 		    <c:if test="${sessionScope.login_customer_info != null}">
-		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/memberLounge.jsp">會員專區</a>
+		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/memberPage.jsp">會員專區</a>
 	        </c:if>
 	        <a class="navbar-brand" href="${pageContext.request.contextPath}/aboutUs.jsp">關於我們</a>
 		</div>
@@ -34,16 +39,16 @@
 	 						</a>	
 	 						</li>
 						<!--密碼與會員資料修改、要改成放在會員專區-->
-						<li>
-	               			<a href='${pageContext.request.contextPath}/customer/editCustomerInfo.jsp'>
-	 							會員資料修改
-	 						</a>	
-	 					</li>
-						<li>
-	               			<a href='${pageContext.request.contextPath}/customer/editPswd.jsp'>
-	   							修改密碼
-	   						</a>	
-	   					</li>
+<!-- 						<li> -->
+<%-- 	               			<a href='${pageContext.request.contextPath}/customer/editCustomerInfo.jsp'> --%>
+<!-- 	 							會員資料修改 -->
+<!-- 	 						</a>	 -->
+<!-- 	 					</li> -->
+<!-- 						<li> -->
+<%-- 	               			<a href='${pageContext.request.contextPath}/customer/editPswd.jsp'> --%>
+<!-- 	   							修改密碼 -->
+<!-- 	   						</a>	 -->
+<!-- 	   					</li> -->
 						
 						<li>
 							<a href="#" id='logout'>登出</a>	
@@ -58,7 +63,7 @@
 	   					</li> 
 	   					-->
 						<li id="login_user">
-						    <a  href="#">登入</a>
+						    <a href="#">登入</a>
 						</li>
 						<li id="register_user">
 						   <a href="#">註冊</a>
@@ -78,22 +83,33 @@
 			$('#login_dialog').show();
 		});
 		
-	 		$('#logout').click(function(){
-	 			$.ajax({
-	 				url: '${pageContext.request.contextPath}/CustomerLoginServlet?action=logout',
-	 				type: 'POST',
-	 				success: function() {
-	 					swal({title: "您已登出",type: "success"},function(){
-	 						location.reload();	
-	 					});
-	 				}
-	 			})
-	 		});			
-	});
-	$(function(){
+ 		$('#logout').click(function(){
+ 			$.ajax({
+ 				url: '${pageContext.request.contextPath}/CustomerLoginServlet?action=logout',
+ 				type: 'POST',
+ 				success: function() {
+ 					swal({title: "您已登出",type: "success"},function(){
+ 						location.href="${pageContext.request.contextPath}/indexTemplate.jsp";	
+ 					});
+ 				}
+ 			})
+ 		});			
+
 		$("#register_user").on("click", function() {
 			location.href="${pageContext.request.contextPath}/customer/Register.jsp";
-		});
-	})
+		}); 		
+ 		
+	});
+
+	$(document).click(function(event) {
+		if(
+			event.target.id != 'login_user' && 
+			event.target.id != 'login_dialog_content' && 			
+			$('#login_user').find(event.target).length == false &&
+			$('#login_dialog_content').find(event.target).length == false
+		) {
+		  	$("#login_dialog").hide();
+		}
+	});
 </script>
 </html>

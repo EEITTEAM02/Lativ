@@ -10,9 +10,6 @@
 		font-family:Microsoft JhengHei;
 		font-weight:bold;
 		font-size:18px;
-		position:absolute;
-		top:10%;
-		left:40%
 	}
 	.error_msg {
 		color:red;
@@ -25,35 +22,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
-		<div class="edit_pswd">
-			<form>
-				<div>
-					<label>密碼</label><br>
-					<input type='text' id="member_password" name='member_password' value='' chi='密碼'><br>
-					<div class='tip'>密碼長度:8-12字元、須包含數字與大小寫英文</div>
-					<div id="member_password_error_msg" class="error_msg"></div><br>
-				</div>
-				<div>
-					<label>密碼確認</label><br>
-					<input type='password' id="confirm_password" name='confirm_password' value='' chi='密碼確認'>
-					<div id="confirm_password_error_msg" class="error_msg"></div><br>
-				</div>
-				<input id="pswd_new_doublechk_submit" type="button" name="pswd_new_doublechk_submit" value="確認修改">
-			</form>
-		</div>
-	</div>
-<!-- 	 
-	<div>
-		新密碼:	<input id="pswd_new" type="text" name="pswd_new" value="" chi='密碼'> <br>
-				<div class='tip'>密碼長度:8-12字元、須包含數字與大小寫英文</div><br><br>
-				
-		密碼確認: <input id="pswd_new_doublechk" type="text" name="pswd_new_doublechk" value="" chi='密碼確認'>
-				<span id="pswd_err_msg"></span>
+	<div class="edit_pswd">
+		<form>
+			<div>
+				<label>密碼</label><br>
+				<input type='text' id="member_password" name='member_password' value='' chi='密碼'><br>
+				<div class='tip'>密碼長度:8-12字元、須包含數字與大小寫英文</div>
 				<div id="member_password_error_msg" class="error_msg"></div><br>
-				<input id="pswd_new_doublechk_submit" type="button" name="pswd_new_doublechk_submit" value="確認修改">
+			</div>
+			<div>
+				<label>密碼確認</label><br>
+				<input type='password' id="confirm_password" name='confirm_password' value='' chi='密碼確認'>
+				<div id="confirm_password_error_msg" class="error_msg"></div><br>
+			</div>
+			<input id="pswd_new_doublechk_submit" type="button" name="pswd_new_doublechk_submit" value="確認修改">
+		</form>
 	</div>
--->
 </body>
 <script src="${pageContext.request.contextPath}/jsUtil/validation.js"></script>
 <script>
@@ -85,7 +69,7 @@
 				},
 				success:function(){
 					alert("修改成功");
-					location.href = '${pageContext.request.contextPath}/indexTemplate.jsp';
+					location.href = '${pageContext.request.contextPath}/memberPage.jsp';
 				},
 				
 				error: function(xhr) {

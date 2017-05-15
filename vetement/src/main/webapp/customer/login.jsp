@@ -7,20 +7,104 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <style>
 	.login{
+ 		
+/* 	    width: 500px; */
+/* 	    height: 450px; */
+/*  	background-image:url('${pageContext.request.contextPath}/customer/images/wood.jpg');	  */
+/* 		font-weight:bold;  */
+
+/* 	    padding: 3%; */
+/* 	    border: 2px solid; */
+		font-size:18px;  
 		position: absolute;
-	    top: 25%;
-	    left: 40%;
-	    width: 500px;
-	    height: 450px;
- 		background-image:url('${pageContext.request.contextPath}/customer/images/wood.jpg');	 
- 		font-family:Microsoft JhengHei; 
-		font-weight:bold; 
-		font-size:18px; 
-	    padding: 3%;
-	    border: 2px solid;
+		top: 260px;
+		left: 39%;
+	    font-family:Microsoft JhengHei;
+		background: #F1F2F4;
+		border-bottom: 2px solid #C5C5C8;
+		border-radius: 5px;
+		text-align: center;
+		color: #36383C;
+		text-shadow: 0 1px 0 #FFF;
+		max-width: 500px;
+		margin: 0 auto;
+		padding: 15px 40px 20px 40px;
+		box-shadow: 0 0 3px #000;	    
 	}
-	.input{
-		border-radius: 3px;
+	
+	.login h1{
+		font-family:Microsoft JhengHei;
+		font-size: 1.6em;
+		margin-top: 30px;
+		margin-bottom: 10px;
+	}
+	
+	.login p{
+		margin-top: 0;
+		margin-bottom: 30px;
+	}	
+	
+	.login button{
+		margin-top: 20px;
+		margin-bottom: 20px;
+		display: block;
+		width: 80%;
+		line-height: 2em;
+		background: rgba(114,212,202,1);
+		border-radius: 5px;
+		border:0;
+		border-top: 1px solid #B2ECE6;
+		box-shadow: 0 0 0 1px #46A294, 0 2px 2px #808389;
+		color: #FFFFFF;
+		font-size: 20px;
+		text-shadow: 0 1px 2px #21756A;
+	}
+	
+	.login button:hover{
+		background: linear-gradient(to bottom, rgba(107,198,186,1) 0%,rgba(57,175,154,1) 100%);  
+	}
+	
+	.login button:active{
+		box-shadow: inset 0 0 5px #000;
+		background: linear-gradient(to bottom, rgba(57,175,154,1) 0%,rgba(107,198,186,1) 100%); 
+	}	
+	
+	.login .input{
+		background: #E5E7E9;
+		border-radius: 5px;
+		overflow: hidden;
+		box-shadow: inset 0 0 3px #65686E;
+		border-bottom: 1px solid #FFF;
+		padding-left:5px
+	}
+	
+	.login input{
+		width: 260px;
+		background: transparent;
+		border: 0;
+		line-height: 50px;
+		box-sizing: border-box;
+		color: #71747A;
+		text-shadow: 0 1px 0 #FFF;
+	}	
+	
+	.login .blockinput{
+		border-bottom: 1px solid #BDBFC2;
+		padding:10px;
+	}
+	
+	.login .blockinput:first-child{
+		border-top: 0;
+	}
+	
+	.login .blockinput:last-child{
+		border-bottom: 0;
+	}
+	
+	.login .blockinput i{
+		padding-right: 10px;
+		color: #B1B3B7;
+		text-shadow: 0 1px 0 #FFF;
 	}
 	
 	.login_btn{
@@ -51,19 +135,23 @@
 </head>
 <body>
 	<div id="login_dialog_content" class="login">
-		<span>會員登入</span><br><br>
-		<div id="error_msg" class="error_msg"></div>
+		<h1>會員登入</h1>
+		<p id="error_msg" class="error_msg"></p>
 		<form id="form" method="Post" Action="${pageContext.request.contextPath}/CustomerLoginServlet?action=login">
-			帳號<br>
-			<input id="email" class="input" type="text" name="email" value="huahua@gmail.com" onfocus="this.placeholder=''" onblur="this.placeholder='電子郵件'" autoComplete="off" chi="帳號">
-			<div id="email_error_msg" class="error_msg"></div>
-			<br><br>
-			密碼<br>
-			<input id="pswd" class="input" type="password" name="pswd" value="lativ123" onfocus="this.placeholder=''" onblur="this.placeholder='密碼'" autoComplete="off" chi="密碼">
-			<div id="pswd_error_msg" class="error_msg"></div>
-			<br><br>
-			<input class="login_btn" id="login_submit" type="button" name="login_btn" value="登入" >
-			<input class="login_btn" id="cancel_btn" type="button" name="cancel_btn" value="取消" >
+			<div class="input">
+				<div class="blockinput">
+					<label>帳號</label>
+					<input id="email" class="input" type="text" name="email" value="huahua@gmail.com" onfocus="this.placeholder=''" onblur="this.placeholder='電子郵件'" autoComplete="off" chi="帳號">
+					<div id="email_error_msg" class="error_msg"></div>
+				</div>
+				<div class="blockinput">
+					<label>密碼</label>
+					<input id="pswd" class="input" type="password" name="pswd" value="lativ123" onfocus="this.placeholder=''" onblur="this.placeholder='密碼'" autoComplete="off" chi="密碼">
+					<div id="pswd_error_msg" class="error_msg"></div>
+				</div>
+				<button class="login_btn" id="login_submit" type="button">登入</button>
+<!-- 				<button class="login_btn" id="cancel_btn" type="button">取消</button> -->
+			</div>
 		</form>
 	</div>
 	<div id="error_msg" class="error">
@@ -121,9 +209,11 @@
 		});		
 	});
 	
-	$('#cancel_btn').click(function() {
-		$('#login_dialog').hide();
-	});
+// 	$('#cancel_btn').click(function() {
+// 		$('#login_dialog').hide();
+// 	});
+	
+	
 
 </script>
 </body>
