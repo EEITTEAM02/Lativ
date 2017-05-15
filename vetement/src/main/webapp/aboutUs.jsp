@@ -198,7 +198,7 @@
 				<div class="col-lg-12">
 					<h1 style="font-family: 標楷體;color:#483D8B;font-weight: bold;">免責聲明</h1>
 					<h3 style="font-family: 標楷體; text-align: left;">當您在閱讀(本網站)時，代表你已詳細閱讀及明確了解本『免責聲明』:</h3>
-					<h3 style="font-family: 標楷體; text-align: left;">一、(本網站)所載之任何資料或數據僅供EEIT93專題使用，主要用於專題展示</h3>
+					<h3 style="font-family: 標楷體; text-align: left;">一、(本網站)所載之任何資料或數據僅用於EEIT93專題，主要用於專題展示</h3>
 					<h3 style="font-family: 標楷體; text-align: left;"></h3>
 					<h3 style="font-family: 標楷體; text-align: left;"></h3>
 					<h3 style="font-family: 標楷體; text-align: left;"></h3>

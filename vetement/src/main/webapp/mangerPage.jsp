@@ -6,15 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<!-- Theme CSS -->
+ <!-- Theme CSS -->
 <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <script src="js/jquery-3.2.0.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"> --%>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <!-- Custom Fonts -->
 <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> 
+<!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
+<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>  -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
 <style>
 #pan{
@@ -56,13 +59,13 @@
 			<div class="pan2_item" id="pan2_item_1">
 			</div>
 			<div class="pan2_item" id="pan2_item_2">
-				<jsp:include page="/customer/editCustomerInfo.jsp"></jsp:include>		
+				
 			</div>
 			<div class="pan2_item" id="pan2_item_3">
-				
+
 			</div>
 			<div class="pan2_item" id="pan2_item_4">
-				
+				<jsp:include page="/customer_service/back_letter.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item" id="pan2_item_5">
 				<jsp:include page="showFavorite.jsp"></jsp:include>

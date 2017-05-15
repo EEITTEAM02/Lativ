@@ -100,10 +100,10 @@ public class Customer_ServiceServlet extends HttpServlet {
 				
 				customer_serviceVO = customer_serviceSvc.updateCustomer_Service(no_service,1,title_service,content_service,reply_service,pubdate);
 	//			req.setAttribute("customer_serviceVO", customer_serviceVO);
-				res.sendRedirect("/vetement/customer_service/back_letter.jsp");
+				res.sendRedirect("/vetement/mangerPage.jsp");
 			}
 		}catch (Exception e) {
-			res.sendRedirect("/vetement/customer_service/back_letter.jsp");
+			res.sendRedirect("/vetement/mangerPage.jsp");
 		}
 		
 		if ("del".equals(action)){
@@ -112,7 +112,7 @@ public class Customer_ServiceServlet extends HttpServlet {
 			
 			customer_serviceSvc.deleteCustomer_Service(no_service);
 			
-			res.sendRedirect("/vetement/customer_service/back_letter.jsp");
+			res.sendRedirect("/vetement/mangerPage.jsp");
 
 		}
 		if ("del1".equals(action)){
@@ -121,7 +121,7 @@ public class Customer_ServiceServlet extends HttpServlet {
 			
 			customer_serviceSvc.deleteCustomer_Service(no_service);
 			
-			res.sendRedirect("/vetement/customer_service/view_letter.jsp");
+			res.sendRedirect("/vetement/memberPage.jsp");
 
 		}
 		

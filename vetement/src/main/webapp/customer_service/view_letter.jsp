@@ -45,9 +45,9 @@
 </style>
 <!-- <script src="../js/jquery-1.12.3.min.js"></script> -->
 <!--最新編譯和最佳化的 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
 <!-- 選擇性佈景主題 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
 <!-- 最新編譯和最佳化的 JavaScript -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
 
@@ -71,8 +71,8 @@
 					<th width='300' class="td22">回覆情況</th>
 					<th width='100' class="td22">刪除</th>
 				<tr>
-				<%@ include file="page1.file" %> 
-				<c:forEach var="customer_serviceVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>" >
+			
+				<c:forEach var="customer_serviceVO" items="${list}" >
 				<tr style="border-top:1px solid silver;">
 					<td width='200' class="td11">${customer_serviceVO.receive_date}</td>
 					<td width='300' class="td11">${customer_serviceVO.title_service}</td>
@@ -105,7 +105,7 @@
 						        	回覆 : ${customer_serviceVO.reply_service}
 						      </div>
 						      <div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
 						      </div>
 						    </div>
 						  </div>
@@ -125,7 +125,7 @@
 
 				</c:forEach>
 			</table>
-		<%@ include file="page2.file" %>
+
 	</form>
 
 

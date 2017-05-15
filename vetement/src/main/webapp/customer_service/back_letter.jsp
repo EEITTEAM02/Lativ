@@ -30,19 +30,20 @@
             text-align: center;
             font-size: 24px;
             padding: 3px;
+            border:none;
 	}
 </style>
-<script src="../js/jquery-1.12.3.min.js"></script>
+<!-- <script src="../js/jquery-1.12.3.min.js"></script> -->
 <!--最新編譯和最佳化的 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
 <!-- 選擇性佈景主題 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
 <!-- 最新編譯和最佳化的 JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
 </head>
 <body>
-<div style="padding:0px 400px">
-	<h2 style="font-family:標楷體;text-align: center;">客服管理</h2>
+<div>
+	<h2 style="font-family:標楷體;text-align: center;color:#99FF33">客服管理</h2>
 	
 			<table  rules="none" class="tb1" >
 				<tr>
@@ -51,8 +52,8 @@
 					<th width='300' class="td22">回覆情況</th>
 					<th width='100' class="td22">刪除</th>
 				<tr>
-				<%@ include file="page1.file" %> 
-				<c:forEach var="customer_serviceVO" items="${list1}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
+				 
+				<c:forEach var="customer_serviceVO" items="${list1}">
 				<tr style="border-top:1px solid silver;">
 					<td width='200' class="td11">${customer_serviceVO.receive_date}</td>
 					<td width='300' class="td11">${customer_serviceVO.title_service}</td>
@@ -113,12 +114,8 @@
 					</tr>
 				</c:forEach>
 			</table>
-<%@ include file="page2.file" %>
 
-	
-	
-<!-- 	<script src="../js/bootstrap.min.js"></script> -->
-	
+
 	<script>
 	
 	
