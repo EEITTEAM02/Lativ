@@ -20,8 +20,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONValue;
 
-import com.customer.model.CustomerService;
-import com.customer.model.CustomerVO;
+import com.cust.model.CustomerService;
+import com.cust.model.CustomerVO;
 import com.discount.model.DiscountService;
 import com.discount.model.DiscountVO;
 import com.order.model.OrderService;

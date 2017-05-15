@@ -38,30 +38,12 @@
 								${sessionScope.login_customer_info.getName()}
 	 						</a>	
 	 						</li>
-						<!--密碼與會員資料修改、要改成放在會員專區-->
-<!-- 						<li> -->
-<%-- 	               			<a href='${pageContext.request.contextPath}/customer/editCustomerInfo.jsp'> --%>
-<!-- 	 							會員資料修改 -->
-<!-- 	 						</a>	 -->
-<!-- 	 					</li> -->
-<!-- 						<li> -->
-<%-- 	               			<a href='${pageContext.request.contextPath}/customer/editPswd.jsp'> --%>
-<!-- 	   							修改密碼 -->
-<!-- 	   						</a>	 -->
-<!-- 	   					</li> -->
 						
 						<li>
 							<a href="#" id='logout'>登出</a>	
 	   					</li>						   								   								   	
 					</c:when>
 					<c:otherwise>
-						<!--
-						<li>
-	                 		<a class="glyphicon glyphicon-user">
-	   							訪客
-	   						</a>	
-	   					</li> 
-	   					-->
 						<li id="login_user">
 						    <a href="#">登入</a>
 						</li>

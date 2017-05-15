@@ -36,7 +36,7 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 
 		<!--Java物件與資料庫表格的映射檔 -->
-<!-- 		<mapping resource="com/customer/model/customer.hbm.xml" /> -->
+<!-- 		<mapping resource="com/customer/model/customer.hbm.xml" />  -->
         <mapping resource="com/production/model/production.hbm.xml" />
         <mapping resource="com/order/model/orders.hbm.xml" />
         <mapping resource="com/orderItem/model/orderItem.hbm.xml" />
