@@ -1,29 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+<!-- Theme CSS -->
+<link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script src="jquery.twzipcode.min.js" type="text/javascript"></script>
 <style>
-	body {
-	
-		background-image:url('images/wood.jpg');
-	}
-	.register {
-			
+	.register {			
 		font-family:Microsoft JhengHei;
 		font-weight:bold;
 		font-size:18px;
-	}	
-	
-	.register {
 		position:absolute;
-		top:25%;
+		top:10%;
 		left:40%
-	}
+	}	
 
 	.error_msg {
 		color:red;
@@ -51,45 +52,75 @@
 	    color: #fff;
 	    width: 30%;
     	float: left;
+	}
+	.register_form_title {
+		font-size: 25px
+	}
+	#addr {
+		width:335px;
 	}	
 	
 </style>
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="register">
-	<!-- 要把資料新增(insert)到customer table裡 -->
-		會員註冊:<br><br>
-			姓名:<input type='text' id="member_name" name='member_name' value='Q子王' chi='姓名'>
-			<div id="member_name_error_msg" class="error_msg"></div><br>
-			性別:<input type='radio' name="sex" value=1>男 
-				<input type='radio' name="sex" value=0>女
-				<input type='hidden' id="sex" name='sex' value='' chi='性別'>
-				<div id="sex_error_msg" class="error_msg"></div> <br>
-			
-			電子郵件:<input type='text' id="email" name='email' value='qking@gmail.com' chi='電子郵件'>
-				<div id="email_error_msg" class="error_msg"></div><br>
-			
-			密碼:<input type='text' id="member_password" name='member_password' value='qqqq1234' chi='密碼'><br>
-				<div class='tip'>密碼長度:8-12字元、須包含數字與大小寫英文</div>
-				
-				<div id="member_password_error_msg" class="error_msg"></div><br>
-			
-			密碼確認:<input type='password' id="confirm_password" name='confirm_password' value='qqqq1234' chi='密碼確認'>
-				<div id="confirm_password_error_msg" class="error_msg"></div><br>
-				
-			地址:<div id="container"></div>
-				<input type='text' id="addr" name='addr' value='kerker'>
-				<input type='text' id='full_addr' name='full_addr' value='' chi='地址'>
-				<div id="full_addr_error_msg" class="error_msg"></div><br>
-			
-			
-			電話:<input type='text' id="phone_no" name='phone_no' value='1234567' chi='電話'>
-				<div id="phone_no_error_msg" class="error_msg"></div><br>
-				<input id="register" type="button" name="register_btn" value="註冊">
-	</div>
+<c:set var="context" value="${pageContext.request.contextPath}" />
+	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top" ></nav>
 	
+	<div class="container">
+		<div class="register">
+		<!-- 要把資料新增(insert)到customer table裡 -->
+			<span class="register_form_title">會員資料</span><br><br>
+			<form>	
+				<div>
+					<label>姓名</label><br>
+					<input type='text' id="member_name" name='member_name' value='' chi='姓名'>
+					<div id="member_name_error_msg" class="error_msg"></div><br>
+				</div>
+				<div>
+					<label>性別</label><br>
+					<input type='radio' name="sex" value=1>男 
+					<input type='radio' name="sex" value=0>女
+					<input type='hidden' id="sex" name='sex' value='' chi='性別'>
+					<div id="sex_error_msg" class="error_msg"></div> <br>
+				</div>
+				<div>
+					<label>電子郵件</label><br>
+					<input type='text' id="email" name='email' value='' chi='電子郵件'>
+					<div id="email_error_msg" class="error_msg"></div><br>
+				</div>
+				<div>
+					<label>密碼</label><br>
+					<input type='text' id="member_password" name='member_password' value='' chi='密碼'><br>
+					<div class='tip'>密碼長度:8-12字元、須包含數字與大小寫英文</div>
+					<div id="member_password_error_msg" class="error_msg"></div><br>
+				</div>
+				<div>
+					<label>密碼確認</label><br>
+					<input type='password' id="confirm_password" name='confirm_password' value='' chi='密碼確認'>
+					<div id="confirm_password_error_msg" class="error_msg"></div><br>
+				</div>
+				<div>
+					<label>地址</label><br>
+					<div id="addr_container"></div>
+					<div>
+						<input type='text' id="addr" name='addr' value=''>
+					</div>
+					<input type='hidden' id='full_addr' name='full_addr' value='' chi='地址'>
+					<div id="full_addr_error_msg" class="error_msg"></div><br>
+				</div>
+				<div>
+					<label>電話</label><br>
+					<input type='text' id="phone_no" name='phone_no' value='' chi='電話'>
+					<div id="phone_no_error_msg" class="error_msg"></div><br>
+					<input id="register" type="button" name="register_btn" value="註冊">
+				</div>	
+			</form>		
+		</div>
+	</div>	
 </body>
+<script src="${context}/jsUtil/includeHeader.js"></script>
+<script src="${context}/jsUtil/validation.js"></script>
 <script type="text/javascript">
 	$('input:radio[name="sex"]').change(function() {
         if (this.checked) {	//this.checked意謂這個radio button被點到
@@ -119,11 +150,15 @@
 		writeFullAddr();
 	});
 	
-	//<input>=$('[name="zipcode"]').val()+","+$('[name="county"]').val()+","+$('[name="district"]').val()+","+$('[name="addr"]').val()
 	
+	$(document).ready(function(){
+		$('#addr_container').twzipcode({
+            css:['county form-control','district form-control','zipcode form-control']
+    	});
+	});
 
 	$('#register').click(function() {	//點了register button後要做的事如下	
-		$.ajax({	//因為不想要直接換頁，所以把輸入的資料傳到ajax，Servlet再去接ajax的資料
+		$.ajax({	//因為可能不會直接換頁，所以把輸入的資料傳到ajax，Servlet再去接ajax的資料
 			url: '${pageContext.request.contextPath}/CustomerServlet?action=insert',
 			type: 'POST',
 			dataType: "json",
@@ -174,7 +209,8 @@
 			
 			success: function(response_count) {	//去接ajax傳回來的結果
 				if(response_count != "99999") {
-					alert('成功新增' + response_count + "筆資料。");
+					//alert('成功新增' + response_count + "筆資料。");
+					alert("註冊成功!");
 					
 					$.post(
 						"${pageContext.request.contextPath}/CustomerLoginServlet?action=login", 
@@ -184,7 +220,7 @@
 							//console.log(response_customer_data);
 							//送過去的e-mail和pswd送過去沒有比對到資料(isEmptyObject)的這件事情是false means 有比對到資料，就導到另一頁
 							if( jQuery.isEmptyObject(response_customer_data) == false ) {
-								location.href = 'customer_management.jsp';
+								location.href = '${pageContext.request.contextPath}/indexTemplate.jsp';
 							}
 							else {
 								alert("註冊後登入失敗!");
@@ -197,87 +233,11 @@
 				}
 				else {
 					$('#email_error_msg').text("所輸入帳號已存在，請重新輸入。");
-					
 				}
 			}
 		});		
 	});
 	
-	function checkEmailPattern(email){
-		
-		var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-// 		//validate ok or not
-		if(email.length > 0 && email.search(emailRule) == -1){
-			
-			$("#email_error_msg").text("請輸入正確電子郵件格式，例:aaa@gmail.com");
-			return false;
-		}
-	}	
-
-	function checkPswdPatern(pswd){
-		
-		//var pswdRule = /^(?=.*[^a-zA-Z0-9])(?=.*[A-Z,a-z])(?=.*\d).{8,12}$/;
-		var pswdRule = /^[^\s](?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{6,30}[^\s]$/;
-		// (?=.*[a-z]) 的 .*[a-z] 就是說右邊的文字中一定要出現一個小寫字母
-		//(?=.*[A-Z]) 的 .*[A-Z] 就是說右邊的文字中一定要出現一個大小字母，
-		//.*\d 就是說右邊的文字中一定要出現一個數字符號
-		//最後才會比對 .{8,12} 也就是說比對字串的長度必須在 8 ~ 12 個字的任意字元。
-		if(pswd.search(pswdRule) == -1){
-			$("#member_password_error_msg").text("請輸入符合格式之密碼");
-			return false;
-		}
-	}
-	function checkPhonePattern(phone) {
-		var phone_rule = /^\d+$/;
-		if (phone_rule.test(phone) == false) {  
-	  		$("#real_phone_error_msg").text("您輸入的電話號碼不正確!");
-	  		return false;
-		}  
-	}  
-	
-	function checkAddressPattern(full_address) {
-		$("#full_addr_error_msg").text("");
-		var full_address_array = full_address.split(",");
-		for(var i = 0; i < full_address_array.length; i++) {
-			//console.log(full_address_array[i].length);
-			if(full_address_array[i].length == 0) {
-				$("#full_addr_error_msg").text("請輸入完整地址");
-				return false;
-			}
-		}
-	}
-	
-	function inputFieldEmptyValidation(field_array) {	//要驗證的欄位包成一個陣列，傳進此function
-		var error_count = 0;
-		
-		for(var i=0; i<field_array.length; i++) {
-			var field = field_array[i];
-			
-			//console.log("field_array["+ i +"]: "+ field);
-			var error_msg_id = "#" + field + "_error_msg";
-			//console.log(error_msg_id);
-			
-			$(error_msg_id).text("");
-			var field_length = $('#' + field).val().length;
-  			var chinese_field_name = $('#' + field).attr("chi");
-
-  			if(field_length == 0) {	//輸入字元長度為0的時候
-  				$("#" + field + "_error_msg").text(chinese_field_name + "必須輸入");
-  				error_count++; //當1個輸入欄位的輸入字元長度是0，error_count就加1(就是醜1)，換句話說1個醜1就是一個欄位沒有輸入，醜2就是2個欄位沒有輸入
-  			}
-  			//console.log("error_count 此時等於: " + error_count);
-		}
-		
-		if(error_count > 0) return false; //當有醜1以上(包含醜1)出現，就不要送出
-	}	
-	  
-	$(document).ready(function(){
-		$('#container').twzipcode({
-            css:['css county form-control','css district form-control','css zipcode form-control']
-    	});
-		
-	});
-
-	
 </script>
+
 </html>
