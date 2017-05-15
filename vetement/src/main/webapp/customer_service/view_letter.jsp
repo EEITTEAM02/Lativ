@@ -4,12 +4,6 @@
 <%@ page import="java.util.*"%>    
 <%@ page import="com.customer_service.model.*"%>       
 
-    
- <% 
- 	Customer_ServiceService customer_serviceSvc = new Customer_ServiceService();
-     List<Customer_ServiceVO> list = customer_serviceSvc.getOneCustomerId(1);
-     pageContext.setAttribute("list",list);
- %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,7 +60,7 @@
 					<th width='100' class="td22">刪除</th>
 				<tr>
 				<%@ include file="page1.file" %> 
-				<c:forEach var="customer_serviceVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>" >
+				<c:forEach var="customer_serviceVO" items="${customer_service_list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>" >
 				<tr style="border-top:1px solid silver;">
 					<td width='200' class="td11">${customer_serviceVO.receive_date}</td>
 					<td width='300' class="td11">${customer_serviceVO.title_service}</td>
@@ -124,6 +118,8 @@
 
 
 	<script>
+
+	
 		$('#c1').click(function(){
 			
 			now = new Date();
@@ -145,7 +141,8 @@
 			var td4 = $('<td></td>').attr({id:'ta2'}).html("<input type='text'  name='title_service' size='80' placeholder='標題'>");
 			var td5 = $('<td></td>').attr({width:'80',style:'text-align:center'}).text('問題內容:');
 			var td6 = $('<td></td>').attr({id:'ta3'}).html("<textarea rows='10' cols='79'  name='content_service' placeholder='內文'></textarea>");
-			var td7 = $('<td></td>').attr({colspan:'2',style:'text-align:center;padding:20px'}).html("<input type='button' value='送出內容' id= 'go1'>"+'&nbsp;&nbsp;&nbsp;'+
+			var td7 = $('<td></td>').attr({colspan:'2',style:'text-align:center;padding:20px'}).html("<input type='button' value='送出內容' id= 'go1'>"+
+																						"<input type='hidden' name='customerId' value='${sessionScope.login_customer_info.getCustomerId()}'>"+'&nbsp;&nbsp;&nbsp;'+
 																						"<input type='button' value='刪除內容' id= 'd1'>");
 			var td8 = $('<td></td>').attr({width:'80',style:'text-align:center'}).text('');
 			var td9 = $('<td></td>').attr({id:'ta4'});
@@ -166,10 +163,12 @@
 				var val1 = $('input[name="receive_date"]').val();
 				var val2 = $('input[name="title_service"]').val().trim();
 				var val3 = $('textarea[name="content_service"]').val().trim();
+				var val4 = ${sessionScope.login_customer_info.getCustomerId()};
 				console.log(val1)
 				console.log(val1.length);
 				console.log(val2.length);
 				console.log(val3.length);
+				console.log(val4);
 				var ta4 = $('#ta4');
 				var ta5 = $('#ta5');
 				
@@ -187,7 +186,7 @@
 						ta5.empty();
 						ta5.append($("<tr></tr>").attr({class:'co1'}).text('內容不可以空白'));
 					}else{
-						$.post('customer_service.do',{action:"ins",'receive_date':val1,'title_service':val2,'content_service':val3},function(data){
+						$.post('customer_service.do',{action:"ins",'receive_date':val1,'title_service':val2,'content_service':val3,'customerId':val4},function(data){
 							ta.empty();
 							ta.append($('<div></div>').attr({id:'c2',style:"color:red; padding:20px; font-weight: bold;text-align: center;font-size: 24px;"}).text(data));
 						});

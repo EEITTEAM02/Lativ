@@ -33,6 +33,10 @@ public class Customer_ServiceServlet extends HttpServlet {
 		
 		
 		if ("ins".equals(action)){
+			
+			Integer customerId = Integer.parseInt(req.getParameter("customerId"));
+			System.out.println(customerId);
+			
 			String title_service = req.getParameter("title_service");
 			System.out.println(title_service);
 	
@@ -53,12 +57,14 @@ public class Customer_ServiceServlet extends HttpServlet {
 			}
 			
 			Customer_ServiceVO customer_serviceVO = new Customer_ServiceVO();
+			
+			customer_serviceVO.setCustomerId(customerId);
 			customer_serviceVO.setTitle_service(title_service);
 			customer_serviceVO.setContent_service(content_service);
 			customer_serviceVO.setReceive_date(pubdate);
 			
 			
-			customer_serviceVO = customer_serviceSvc.addCustomer_Service(1,title_service,content_service,"",pubdate);
+			customer_serviceVO = customer_serviceSvc.addCustomer_Service(customerId,title_service,content_service,"",pubdate);
 			out.append("已收到您的問題，我們將盡快回覆您");
 		}
 		try{

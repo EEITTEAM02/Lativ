@@ -21,6 +21,7 @@ import org.json.simple.JSONValue;
 import com.cust.model.CustomerDAO;
 import com.cust.model.CustomerService;
 import com.cust.model.CustomerVO;
+import com.customer_service.model.Customer_ServiceService;
 import com.disc.model.DiscountService;
 
 @WebServlet("/CustomerLoginServlet")
@@ -68,6 +69,10 @@ public class CustomerLoginServlet extends HttpServlet {
 				HttpSession session = req.getSession();
 				//key:"login_customer_info" ; value:login_customer(這是VO)
 				session.setAttribute("login_customer_info", login_customer);    //資料庫取出的login_customer物件,存入session,key是login_customer_info				
+				
+				//依照顧客ID取出留言用於view_letter.jsp
+				Customer_ServiceService customer_serviceSvc = new Customer_ServiceService();
+				session.setAttribute("customer_service_list", customer_serviceSvc.getOneCustomerId(login_customer.getCustomerId()));
 			}
 			
 			//System.out.println(discount_map);
