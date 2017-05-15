@@ -32,7 +32,6 @@ public class Customer_ServiceServlet extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		Customer_ServiceService customer_serviceSvc = new Customer_ServiceService();
 		String action = req.getParameter("action");
-		String url = "/customer_service/view_letter.jsp";
 		
 		
 		if ("ins".equals(action)){
@@ -103,7 +102,7 @@ public class Customer_ServiceServlet extends HttpServlet {
 				res.sendRedirect("/vetement/mangerPage.jsp");
 			}
 		}catch (Exception e) {
-			res.sendRedirect("/vetement/mangerPage.jsp");
+			res.sendRedirect("/vetement/mangerPage.jsp#letter");
 		}
 		
 		if ("del".equals(action)){
@@ -112,7 +111,7 @@ public class Customer_ServiceServlet extends HttpServlet {
 			
 			customer_serviceSvc.deleteCustomer_Service(no_service);
 			
-			res.sendRedirect("/vetement/mangerPage.jsp");
+			res.sendRedirect("/vetement/mangerPage.jsp#letter");
 
 		}
 		if ("del1".equals(action)){
