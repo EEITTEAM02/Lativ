@@ -205,8 +205,9 @@ tr {
 				<a href="${pageContext.request.contextPath}/productPages/${item[0]}.jsp">
 					<img class="productImage" alt="${item[1]}" title="${item[1]}" src="${pageContext.request.contextPath}/Search/Image.do?productId=${item[0]}"/>
 				</a>
-				<p class="productName">${item[1]}</p>
-				<p class="productPrice">${item[2]}</p>
+				<p class="productName">${item[1]}-${item[3]}-${item[4]}</p>
+				<fmt:parseNumber var="price_recommend" type="number" value="${item[2]}"/>
+				<p class="productPrice">NT ${price_recommend}</p>
 			</li>
 		</c:forEach>
 	</div>
