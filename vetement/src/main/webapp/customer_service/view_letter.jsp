@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>    
 <%@ page import="com.customer_service.model.*"%>       
-
+<% 
+	List<Customer_ServiceVO> list = (List<Customer_ServiceVO>)session.getAttribute("customer_service_list");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
