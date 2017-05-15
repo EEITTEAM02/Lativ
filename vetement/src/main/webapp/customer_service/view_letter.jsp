@@ -2,10 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>    
-<%@ page import="com.customer_service.model.*"%>       
+<%@ page import="com.customer_service.model.*"%> 
+<%@ page import="com.cust.model.*"%>       
 <% 
-	List<Customer_ServiceVO> list = (List<Customer_ServiceVO>)session.getAttribute("customer_service_list");
+// 	List<Customer_ServiceVO> list = (List<Customer_ServiceVO>)session.getAttribute("customer_service_list");
+// 	System.out.println(list.size());
 %>
+ <% 
+ 	Customer_ServiceService customer_serviceSvc = new Customer_ServiceService();
+	 HttpSession ses = request.getSession();
+	 CustomerVO coVO = (CustomerVO)ses.getAttribute("login_customer_info");
+// 	 System.out.println("ID=" + coVO.getCustomerId());
+     List<Customer_ServiceVO> list = customer_serviceSvc.getOneCustomerId(coVO.getCustomerId());
+     pageContext.setAttribute("list",list);
+ %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,19 +43,19 @@
 	}
 	
 </style>
-<script src="../js/jquery-1.12.3.min.js"></script>
+<!-- <script src="../js/jquery-1.12.3.min.js"></script> -->
 <!--最新編譯和最佳化的 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <!-- 選擇性佈景主題 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <!-- 最新編譯和最佳化的 JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
 
 
 </head>
 <body>
-<div style="padding:0px 400px">
-	<h2 style="font-family:標楷體;text-align: center;">聯絡客服</h2>
+<div>
+<!-- 	<h2 style="font-family:標楷體;text-align: center;">聯絡客服</h2> -->
 	
 	<div style="padding-left:20px;padding-bottom: 20px" id='c3'><input type="button" id='c1' value='聯絡我們' class="btn btn-primary"></div>
 	<div id='c2' ></div>
@@ -62,7 +72,7 @@
 					<th width='100' class="td22">刪除</th>
 				<tr>
 				<%@ include file="page1.file" %> 
-				<c:forEach var="customer_serviceVO" items="${customer_service_list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>" >
+				<c:forEach var="customer_serviceVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>" >
 				<tr style="border-top:1px solid silver;">
 					<td width='200' class="td11">${customer_serviceVO.receive_date}</td>
 					<td width='300' class="td11">${customer_serviceVO.title_service}</td>
@@ -133,7 +143,7 @@
 			ta.empty();
 			var tb = $('#c3');
 			tb.empty();
-			tb.html("<input type='button' value='聯絡我們' id= 'c1' class='btn btn-primary'>"+'&nbsp;&nbsp;&nbsp;&nbsp;'+"<input type='button' value='收起' id= 'c4' class='btn btn-danger'>");
+			tb.html("<input type='button' value='聯絡我們' id= 'c1' class='btn btn-primary'>"+'&nbsp;&nbsp;&nbsp;&nbsp;'+"<input type='button' value='關閉' id= 'c4' class='btn btn-danger'>");
 			
 			inp.attr({type:'text',name:'receive_date',size:'80',readonly:"readonly",value:year+'-'+mon+'-'+day});
 			
