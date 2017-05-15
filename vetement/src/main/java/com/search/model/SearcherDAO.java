@@ -27,11 +27,11 @@ public class SearcherDAO {
 			"from ProductionVO where packageNo=:packageNo and for_sale = true and picture_model1 is not null";
 	
 	private static final String getHotProduct=
-			"select Top(5) p.productId, p.productName, p.price, os.orderNo, sum(quantity_order) as sum_quantity "+ 
+			"select Top(5) p.productId, p.productName, p.price, p.size, p.color, sum(quantity_order) as sum_quantity "+ 
 			"from orderItem as o join production as p on o.productId=p.productId join orders as os on o.orderNo = os.orderNo  where o.orderNo in"+
 			"(select orderNo from orderItem where productId in(select productId from orderItem where orderNo = :orderNo))"+
 			"and os.dealDate BETWEEN (convert(datetime,convert(varchar,GetDate(),111))-30) AND convert(datetime,convert(varchar,GetDate(),111))"+ 
-			"group by p.productId, p.productName, p.price, os.orderNo order by sum_quantity desc";
+			"group by p.productId, p.productName, p.price, p.size, p.color order by sum_quantity desc";
 	
 	public List<ProductionVO> fuzzySearch(String keyWord){
 		List<ProductionVO> list = null;
@@ -165,10 +165,10 @@ public class SearcherDAO {
 		List<Object[]> list02 = null;
 		list02 = dao.getHotProduction(3);
 		for(Object[] A:list02){
-//			for(Object name:A){
-//				System.out.print(name);
-//			}
-			System.out.println(A[0]);
+			for(Object column:A){
+				System.out.print(column+", ");
+			}
+			System.out.println();
 		}
 	}
 

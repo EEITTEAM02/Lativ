@@ -3,6 +3,10 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head>
+<script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
+</head>
 <body>
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -79,8 +83,9 @@
 	 				url: '${pageContext.request.contextPath}/CustomerLoginServlet?action=logout',
 	 				type: 'POST',
 	 				success: function() {
-	 					alert("您已登出");
-	 					location.reload();	
+	 					swal({title: "您已登出",type: "success"},function(){
+	 						location.reload();	
+	 					});
 	 				}
 	 			})
 	 		});			
