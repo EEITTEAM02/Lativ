@@ -60,26 +60,33 @@ public class CustomerServlet extends HttpServlet {
 		}
 		
 		//Update customer's data
+//		if("editPswd".equals(act)){
+//			Integer customer_id =  session_customer.getCustomerId();
+//			String update_password = req.getParameter("new_pswd");
+//			CustomerService customerSvc =  new CustomerService();
+//			customerSvc.updatePswd(customer_id, update_password);
+//		}
+		
 		if("updateOne".equals(act)){
-			//Servlet接Form Post過來的資料
+			//Servlet要接Register.jsp Form Post過來的資料
 			//Integer customer_id = Integer.parseInt(req.getParameter("customerId"));
 			Integer customer_id =  session_customer.getCustomerId();
-			String update_name = req.getParameter("customerName");
+			String update_name = req.getParameter("new_name");
 			Boolean update_sex;
-			
-			if (req.getParameter("sex").equals("1")) {
+			System.out.println(req.getParameter("new_sex"));
+			if (req.getParameter("new_sex").equals("1")) {
 				update_sex = true;
 			}
-			else if(req.getParameter("sex").equals("0")) {
+			else if(req.getParameter("new_sex").equals("0")) {
 				update_sex = false;
 			}
 			else {
 				 throw new IllegalArgumentException("gender is not a boolean. Only 1 and 0 are.");
 			}
 			
-			String update_email = req.getParameter("mail");
-			String update_address = req.getParameter("full_addr");
-			String update_mobile = req.getParameter("tel");
+			String update_email = req.getParameter("new_email");
+			String update_address = req.getParameter("new_addr");
+			String update_mobile = req.getParameter("new_phone_no");
 			
 				
 			CustomerVO update_customer = new CustomerVO();
@@ -88,14 +95,14 @@ public class CustomerServlet extends HttpServlet {
 															update_email, update_address, update_mobile);
 			
 			session.setAttribute("login_customer_info", update_customer);    // 資料庫取出的one_customer物件,存入session,key是list
-			// Send the Success view
-			String url = "/memberPage.jsp";
-			RequestDispatcher updateView = req.getRequestDispatcher(url);
-			
-			updateView.forward(req, res);	
-					//要RequestDispatcher才能forward //實際上導頁是forward
-			return;
-		
+			//改完存回session，session不是空的回傳1(代表更新成功)
+			if(update_customer!=null){
+				ajax_out.println("1");	
+			}
+			else{
+				ajax_out.println("0");	
+			}
+			ajax_out.close();
 		}
 		
 		//New customer register

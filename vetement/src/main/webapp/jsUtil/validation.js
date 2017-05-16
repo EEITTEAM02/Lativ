@@ -12,7 +12,7 @@ function inputFieldEmptyValidation(field_array) {	//要驗證的欄位包成一�
 		$(error_msg_id).text("");
 		var field_length = $('#' + field).val().length;
 		var chinese_field_name = $('#' + field).attr("chi");
-
+		//console.log(chinese_field_name + "長度: " + field_length);
 		if(field_length == 0) {	//輸入字元長度為0的時候
 			$("#" + field + "_error_msg").text(chinese_field_name + "必須輸入");
 			error_count++; //當1個輸入欄位的輸入字元長度是0，error_count就加1(就是醜1)，換句話說1個醜1就是一個欄位沒有輸入，醜2就是2個欄位沒有輸入

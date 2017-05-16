@@ -13,6 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/customer/jquery.twzipcode.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 <title>Insert title here</title>
 <style>
 	#update_submit {
@@ -71,8 +72,8 @@
 			</div>
 			<div>
 				<label>電子郵件</label><br>
-				<input id="email" type="text" name="mail" value='<%=login_customer_info.getMail()%>' chi='電子郵件'><br>
-				<div id="email_error_msg" class="error_msg"></div><br>
+				<input id="update_email" type="text" name="update_email" value='<%=login_customer_info.getMail()%>' chi='電子郵件'><br>
+				<div id="update_email_error_msg" class="error_msg"></div><br>
 			</div>
 			
 			<div>
@@ -89,47 +90,100 @@
 				<input id="phone_no" type="text" name="tel" value='<%=login_customer_info.getTel()%>' chi='電話'><br>
 				<div id="phone_no_error_msg" class="error_msg"></div><br>
 			</div>
-			<input id="update_submit" type="submit" name="submit_btn" value="確認修改">
+			<input id="update_submit" type="button" name="submit_btn" value="確認修改">
 		</form>
 	</div>
 </body>
 <script src="${pageContext.request.contextPath}/jsUtil/validation.js"></script>
 <script>
+	$('#update_submit').click(function(){
+		$.ajax({
+			url:'${pageContext.request.contextPath}/CustomerServlet?action=updateOne',
+			type:'POST',
+			dataType:'json',
+			data:{
+				new_name: $("#member_name").val(),
+				new_sex: $("[name='sex']:checked").val(),	//取有選取的radio btn的值
+				new_email: $("#update_email").val(),
+				new_addr: $("#full_addr").val(),
+				new_phone_no: $("#phone_no").val()
+			},
+			beforeSend: function(xhr){
+				var error_count = 0;
+				var validation_result = inputFieldEmptyValidation( ["member_name", "sex", "update_email", "phone_no"] ); 
+				
+				if(validation_result == false) {
+					error_count++;
+				}
+				
+				if( checkEmailPattern( $("#update_email").val() ) == false) {
+					error_count++;
+				}
+				
+				if( checkPhonePattern($("#phone_no").val() ) == false) {
+					error_count++;
+				}
+				
+				if( checkAddressPattern($("#full_addr").val() ) == false) {
+					error_count++;
+				}
+				
+				if(error_count > 0) {
+					return false;
+				}
+				else {
+					return true;
+				}
+			},
+			error: function(xhr) {
+				alert('Ajax request 發生錯誤');
+			},
+			success:function(response_msg){
+				if( response_msg == "1" ){
+					swal({title: "更新成功", type: "success"})
+				}
+				else{
+					swal({title: "更新失敗", type: "error"})
+				}
+			}
+		})
+	})
+
 	$('input:radio[name="sex"]').change(function() {
 	    if (this.checked) {	//this.checked意謂這個radio button被點到
 			$('#sex').val(this.value);	//radio button的value就會寫到id=sex這個input的value裡面 
 	    }
 	});
 	
-	function beforeSend() {
-		var error_count = 0;
-		var validation_result = inputFieldEmptyValidation( ["member_name", "sex", "email", "phone_no"] ); 
+// 	function beforeSend() {
+// 		var error_count = 0;
+// 		var validation_result = inputFieldEmptyValidation( ["member_name", "sex", "email", "phone_no"] ); 
 		
-		if(validation_result == false) {
-			error_count++;
-		}
+// 		if(validation_result == false) {
+// 			error_count++;
+// 		}
 		
-		if( checkEmailPattern( $("#email").val() ) == false) {
-			error_count++;
-		}
+// 		if( checkEmailPattern( $("#email").val() ) == false) {
+// 			error_count++;
+// 		}
 		
-		if( checkPhonePattern($("#phone_no").val() ) == false) {
-			error_count++;
-		}
+// 		if( checkPhonePattern($("#phone_no").val() ) == false) {
+// 			error_count++;
+// 		}
 		
-		if( checkAddressPattern($("#full_addr").val() ) == false) {
-			error_count++;
-		}
+// 		if( checkAddressPattern($("#full_addr").val() ) == false) {
+// 			error_count++;
+// 		}
 		
-		console.log(error_count);
+// 		console.log(error_count);
 		
-		if(error_count > 0) {
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
+// 		if(error_count > 0) {
+// 			return false;
+// 		}
+// 		else {
+// 			return true;
+// 		}
+// 	}
 
 	function writeFullAddr(){	//select跟radio button不同，選了就會是那個值，radio button是判別你點選哪一個，取你點選的那個值
 		var full_addr = $('[name="zipcode"]').val()+","+$('[name="county"]').val()+","+$('[name="district"]').val()+","+$('[name="addr"]').val();
