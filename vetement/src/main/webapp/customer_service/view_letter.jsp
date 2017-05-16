@@ -23,9 +23,6 @@
 <title>站內信</title>
 
 <style>
-	*{
-		font-family:標楷體;
-	}
 	.co1{
 		color:red;
 		
