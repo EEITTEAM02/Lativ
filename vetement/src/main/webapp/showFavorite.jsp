@@ -25,7 +25,7 @@
 	font-size:20px;
 	text-align: center;
 }
-#all,th {
+#all,#favoriteTable th {
 	border: 5px solid #220088;
 	padding: .5em 10px;
 	text-align: center;
@@ -74,12 +74,12 @@
 			<table id="favoriteTable" class="table1">
 				<thead>
 					<tr>
-						<th>productName</th>
-						<th>size</th>
-						<th>color</th>
-						<th>price</th>
-						<th>picture</th>
-						<th>delete</th>
+						<th id="display_th">productName</th>
+						<th id="display_th">size</th>
+						<th id="display_th">color</th>
+						<th id="display_th">price</th>
+						<th id="display_th">picture</th>
+						<th id="display_th">delete</th>
 					</tr>
 				</thead>
 				<tbody>
