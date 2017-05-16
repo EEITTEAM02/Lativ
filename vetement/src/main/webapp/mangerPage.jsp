@@ -62,7 +62,7 @@
 				
 			</div>
 			<div class="pan2_item" id="pan2_item_3">
-
+				<jsp:include page="/news/back_page.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item" id="pan2_item_4">
 				<jsp:include page="/customer_service/back_letter.jsp"></jsp:include>
