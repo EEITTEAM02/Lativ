@@ -6,9 +6,11 @@ import java.util.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.customer_service.model.*;
 
@@ -25,6 +27,7 @@ public class Customer_ServiceServlet extends HttpServlet {
 		res.setHeader("content-type", "text/html;charset=UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("utf-8");
+		
 		
 		PrintWriter out = res.getWriter();
 		Customer_ServiceService customer_serviceSvc = new Customer_ServiceService();

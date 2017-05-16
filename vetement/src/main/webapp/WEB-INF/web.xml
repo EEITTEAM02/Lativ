@@ -312,7 +312,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Customer_ServiceServlet</servlet-name>
-		<url-pattern>/customer_service/customer_service.do</url-pattern>
+		<url-pattern>/customer_service.do</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>

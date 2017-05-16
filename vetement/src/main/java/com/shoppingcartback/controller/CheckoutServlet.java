@@ -52,6 +52,7 @@ public class CheckoutServlet extends HttpServlet {
 		Set<DiscountVO> set = new LinkedHashSet<DiscountVO>(dao.getAll());
 		
 		//寫死會員編號
+//		Integer no = ((CustomerVO)session.getAttribute("login_customer_info")).getCustomerId();
 		Integer no = 1;
 		session.setAttribute("mno",no);
 		
