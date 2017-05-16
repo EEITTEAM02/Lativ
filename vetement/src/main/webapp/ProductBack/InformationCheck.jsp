@@ -252,7 +252,7 @@ tr {
 		$('select option[value="'+help_institute+'"]').prop("selected",true);
 		
 		$('input[name="buttonSubmit"]').click(function(event){
-			if(name_send.val()||phone_send.val()||addr_send.val()||mail_send.val()){
+			if(name_send.val()&&phone_send.val()&&addr_send.val()&&mail_send.val()){
 				event.preventDefault();
 				var data = $('#check').serialize(); //將表格序列化後，送至CheckAll.do
 				$.get("CheckAll.do",data,function(data){});
