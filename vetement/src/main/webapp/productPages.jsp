@@ -12,39 +12,39 @@
 <meta name="author" content="">
 
 <title>ProductDetail</title>
-<%-- <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" --%>
-<!-- 	rel="stylesheet"> -->
-<!-- <link -->
-<%-- 	href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" --%>
-<!-- 	rel="stylesheet" type="text/css"> -->
-<!-- <link -->
-<!-- 	href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' -->
-<!-- 	rel='stylesheet' type='text/css'> -->
-<!-- <link -->
-<!-- 	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' -->
-<!-- 	rel='stylesheet' type='text/css'> -->
-<!-- <link rel="stylesheet" -->
-<%-- 	href="${pageContext.request.contextPath}/css/jquery.fancybox.min.css" /> --%>
-<!-- <link rel="stylesheet" -->
-<%-- 	href="${pageContext.request.contextPath}/css/bootstrap.min.css"> --%>
-<!-- <link rel="stylesheet" type="text/css" -->
-<%-- 	href="${pageContext.request.contextPath}/css/sweetalert.css"> --%>
-<!-- <link rel="stylesheet" -->
-<!-- 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-<link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+<link href="${pageContext.request.contextPath}/css/clean-blog.min.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-<script type="text/javascript" src="js/jquery-3.2.0.min.js" charset="utf-8"></script>
+	href="${pageContext.request.contextPath}/css/jquery.fancybox.min.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/sweetalert.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="js/jquerysession.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.mycart.js"></script>
-<script src="js/jquery.fancybox.min.js"></script>
-<script src="js/sweetalert.min.js"></script>	
+<link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/sweetalert.css"> -->
+<!-- <script type="text/javascript" src="js/jquery-3.2.0.min.js" charset="utf-8"></script> -->
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<!-- <script src="js/jquerysession.js"></script> -->
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+<!-- <script src="js/bootstrap.min.js"></script> -->
+<!-- <script src="js/jquery.mycart.js"></script> -->
+<!-- <script src="js/jquery.fancybox.min.js"></script> -->
+<!-- <script src="js/sweetalert.min.js"></script>	 -->
+
 
 <style>
 .glyphicon:before {
@@ -115,49 +115,7 @@ img.displayImg {
 
 	<!-- Navigation -->
 	<nav id="header" class="navbar navbar-default navbar-custom navbar-fixed-top">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header page-scroll">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-			<span class="sr-only">Toggle navigation</span>
-				Menu <i class="fa fa-bars"></i>
-		    </button>
-		    <a class="navbar-brand" href="${pageContext.request.contextPath}/indexTemplate.jsp">首頁</a>
-		    <a class="navbar-brand" href="${pageContext.request.contextPath}/Search/search.jsp">產品</a>
-		    <c:if test="${sessionScope.login_customer_info != null}">
-		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/memberPage.jsp">會員專區</a>
-	        </c:if>
-	        <a class="navbar-brand" href="${pageContext.request.contextPath}/aboutUs.jsp">關於我們</a>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-			<ul class="nav navbar-nav navbar-right">						
-				<!--登入成功，顯示人員icon與會員的名字-->
-				<c:choose>
-					<c:when test="${sessionScope.login_customer_info != null}">
-						<li>
-	            			<a class="glyphicon glyphicon-user">
-								${sessionScope.login_customer_info.getName()}
-	 						</a>	
-	 						</li>
-						
-						<li>
-							<a href="#" id='logout'>登出</a>	
-	   					</li>						   								   								   	
-					</c:when>
-					<c:otherwise>
-						<li id="login_user">
-						    <a href="#">登入</a>
-						</li>
-						<li id="register_user">
-						   <a href="#">註冊</a>
-						</li>							   	
-					</c:otherwise>
-				</c:choose>  			          
-			</ul>
-		</div>       
-	</div>
-	<div id="login_dialog" style="display:none"></div>
+
 	</nav>
 
 	<header class="intro-header">
@@ -304,14 +262,15 @@ img.displayImg {
 		</div>
 		<br></br>
 		
-<!-- 	    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script> -->
-<%-- 		<script src="${context}/js/bootstrap.min.js"></script> --%>
-<%-- 		<script src="${context}/js/jquerysession.js"></script> --%>
-<!-- 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-<%-- 		<script src="${context}/js/jquery.fancybox.min.js"></script> --%>
-<%-- 		<script src="${context}/js/sweetalert.min.js"></script> --%>
-<%-- 		<script src="${context}/js/clean-blog.min.js"></script> --%>
-<%--         <script type='text/javascript' src="${context}/js/jquery.mycart.js"></script> --%>
+	    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+		<script src="${context}/js/bootstrap.min.js"></script>
+		<script src="${context}/js/jquerysession.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="${context}/js/jquery.fancybox.min.js"></script>
+		<script src="${context}/js/sweetalert.min.js"></script>
+		<script src="${context}/js/clean-blog.min.js"></script>
+       <script type='text/javascript' src="${context}/js/jquery.mycart.js"></script>
+		 <script src="${context}/jsUtil/includeHeader.js"></script>
 		
 		<script>
 		var ctx = "<%=request.getContextPath()%>";

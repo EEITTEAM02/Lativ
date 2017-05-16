@@ -47,6 +47,7 @@
   <script src="https://maps.google.com/maps/api/js?key=AIzaSyBwqCl08DgbvCyYJHrcS_IT3W6HscUnDvM&region=TW"></script>
    <script src="js/handlebars.min.js"></script>
     <script src="js/jquery.storelocator.min.js"></script>
+     
 <style>
 #map {
 	height: 100%;
@@ -126,7 +127,7 @@
 		<div class="container">
 			<div class="container-fluid">
 				
-<%-- 				<jsp:include page="header.jsp"></jsp:include> --%>
+				<jsp:include page="header.jsp"></jsp:include>
 			
 			</div>
 			
@@ -249,8 +250,9 @@
 			</div>
 		</div>
 	</section>
-	
+
 </body>
+
 <script>
 
 $(function() {
