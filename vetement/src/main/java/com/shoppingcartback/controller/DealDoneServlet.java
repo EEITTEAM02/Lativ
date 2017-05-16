@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cust.model.CustomerService;
+import com.cust.model.CustomerVO;
 import com.order.model.OrderService;
 import com.order.model.OrderVO;
 import com.shoppingcartback.model.ShoppingCart;
@@ -36,6 +37,7 @@ public class DealDoneServlet extends HttpServlet {
 		
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("shoppingCartBack");
 		// 取出某會員的未完成訂單
+//		Integer no = ((CustomerVO)session.getAttribute("login_customer_info")).getCustomerId();
 		Integer no = 1;
 		session.setAttribute("mno",no);
 		
