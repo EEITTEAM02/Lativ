@@ -76,6 +76,12 @@
 
 </body>
 <script>
+	$(function(){
+		$('selectpage li').removeClass('active');
+		$('#select_item_1').addClass('active');
+	})
+
+	
 	$('.select_item_btn').click(function(){
 		$('.pan2_item').hide();
 		var select_item_id = this.id;
@@ -83,6 +89,10 @@
 		var select_item_number = select_item_id.split("_")[2];
 		var mapping_pan2_id = "#pan2_item_" + select_item_number;
 		$(mapping_pan2_id).show();
+		
+		$('.select_item_btn').removeClass('active');
+		$(this).addClass('active');
+		
 	});
 	
 </script>
