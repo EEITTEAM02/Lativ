@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.customer.model.CustomerService;
-import com.customer.model.CustomerVO;
+import com.cust.model.CustomerService;
+import com.cust.model.CustomerVO;
 import com.discount.model.DiscountService;
 import com.discount.model.DiscountVO;
 import com.google.gson.Gson;

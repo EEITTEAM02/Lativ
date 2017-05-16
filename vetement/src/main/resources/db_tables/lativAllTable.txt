@@ -90,8 +90,10 @@ create table orderItem(
 
 
 create table favorite(
+	favoriteNo int identity(1,1),
 	customerId int not null, 
 	productId int not null,
+	constraint favorite_PK primary key(favoriteNo),
 	constraint favorite_FK1 foreign key(customerId) references customer(customerId),
 	constraint favorite_FK2 foreign key(productId) references production(productId)
 )
