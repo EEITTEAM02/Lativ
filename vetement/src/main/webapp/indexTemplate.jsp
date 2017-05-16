@@ -251,14 +251,18 @@
 <!--         </div> -->
 <!--     </div> -->
     <!-- /Main Content -->
-    <div style="text-align:center;"> 
-    	<a href="Search/Search.do?searchPackageNo=1"><img class="discountImg" src="img/discount1.jpg"/></a>
-    	<a href="Search/Search.do?searchPackageNo=2"><img class="discountImg" src="img/discount2_2.jpg"/></a>
-    	<a href="Search/Search.do?searchPackageNo=3"><img class="discountImg" src="img/discount3_2.jpg"/></a>
+    
+    <div class="row">
+    	<div class="col-md-4"><a href="Search/Search.do?searchPackageNo=1"><img class="discountImg  img-responsive" src="img/discount1.jpg"/></a></div>
+    	<div class="col-md-4"><a href="Search/Search.do?searchPackageNo=2"><img class="discountImg  img-responsive" src="img/discount2_2.jpg"/></a></div>
+    	<div class="col-md-4"><a href="Search/Search.do?searchPackageNo=3"><img class="discountImg  img-responsive" src="img/discount3_2.jpg"/></a></div>
+    </div>
+    
+    	
 <!-- 		http://photofunia.com/results/59194a12089f7a5c038b45a5 -->
 <!--     	http://upuptoyou.com -->
 <!-- 		http://goo.gl/Wv5BqJ -->
-    </div>
+    
     <div id="dialogRegister-form" title="Register New User" style="display:none">
 						<p class="validateTips">All form fields are required.</p>
 
