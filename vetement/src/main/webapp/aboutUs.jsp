@@ -20,23 +20,34 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
 <link href="css/clean-blog.min.css" rel="stylesheet">
-<!-- <link href="vendor/font-awesome/css/font-awesome.min.css" -->
-<!-- 	rel="stylesheet" type="text/css"> -->
+<link href="vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
 <link
 	href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
 	rel='stylesheet' type='text/css'>
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-<script src="js/jquery-3.2.0.min.js"></script>
+
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="css/simple-sidebar.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/storelocator.min.css" />
 <!-- Custom CSS -->
 <link href="css/scrolling-nav.css" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ 	<script src="js/bootstrap.min.js"></script>
+ 	<script src="js/jquery.mycart.js"></script>
+ 	<script src="js/clean-blog.min.js"></script>
+ 	<!-- Scrolling Nav JavaScript -->
+ 	<script src="js/jquery.easing.min.js"></script>
+ 	<script src="js/scrolling-nav.js"></script>
+  <script src="https://maps.google.com/maps/api/js?key=AIzaSyBwqCl08DgbvCyYJHrcS_IT3W6HscUnDvM&region=TW"></script>
+   <script src="js/handlebars.min.js"></script>
+    <script src="js/jquery.storelocator.min.js"></script>
+     
 <style>
 #map {
 	height: 100%;
@@ -198,7 +209,7 @@
 				<div class="col-lg-12">
 					<h1 style="font-family: 標楷體;color:#483D8B;font-weight: bold;">免責聲明</h1>
 					<h3 style="font-family: 標楷體; text-align: left;">當您在閱讀(本網站)時，代表你已詳細閱讀及明確了解本『免責聲明』:</h3>
-					<h3 style="font-family: 標楷體; text-align: left;">一、(本網站)所載之任何資料或數據僅供EEIT93專題使用，主要用於專題展示</h3>
+					<h3 style="font-family: 標楷體; text-align: left;">一、(本網站)所載之任何資料或數據僅用於EEIT93專題，主要用於專題展示</h3>
 					<h3 style="font-family: 標楷體; text-align: left;"></h3>
 					<h3 style="font-family: 標楷體; text-align: left;"></h3>
 					<h3 style="font-family: 標楷體; text-align: left;"></h3>
@@ -242,4 +253,12 @@
 
 </body>
 
+<script>
+
+$(function() {
+ 		$('#bh-sl-map-container').storeLocator();
+ 		
+ 	})
+
+</script>
 </html>

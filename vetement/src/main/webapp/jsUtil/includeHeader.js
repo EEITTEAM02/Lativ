@@ -1,4 +1,4 @@
 
 $(function(){
-	$('#header').load("../header.jsp");	
+	$('#header').load("/vetement/header.jsp");	
 });	
