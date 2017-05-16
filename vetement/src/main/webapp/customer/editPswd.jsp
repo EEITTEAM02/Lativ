@@ -72,7 +72,9 @@
 					//alert("修改成功");
 					//location.href = '${pageContext.request.contextPath}/memberPage.jsp';
 					swal({title: "修改成功",type: "success"},function(){
- 						location.href="${pageContext.request.contextPath}/memberPage.jsp";	
+ 						location.href="${pageContext.request.contextPath}/memberPage.jsp";
+// 						$('input[name="member_password"]').val("");
+// 						$('input[name="confirm_password"]').val("");
  					});
 				},
 				
