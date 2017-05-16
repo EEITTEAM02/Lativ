@@ -50,8 +50,34 @@
 		</div>
 		
 		<div id="pan2">
-	
+			<div class="pan2_item" id="pan2_item_1">
+				
+			</div>
+			<div class="pan2_item" id="pan2_item_2">
+				
+			</div>
+			<div class="pan2_item" id="pan2_item_3">
+				
+			</div>
+			<div class="pan2_item" id="pan2_item_4">
+				
+			</div>
+			<div class="pan2_item" id="pan2_item_5">
+				<jsp:include page="showFavorite.jsp"></jsp:include>
+			</div>
 		</div>
 	</div>
+	
+	<script>
+		$('.select_item_btn').click(function(){
+			$('.pan2_item').hide();
+			var select_item_id = this.id;
+			//console.log(select_item_id);
+			var select_item_number = select_item_id.split("_")[2];
+			var mapping_pan2_id = "#pan2_item_" + select_item_number;
+			$(mapping_pan2_id).show();
+		});
+	
+	</script>
 </body>
 </html>
