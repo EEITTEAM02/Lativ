@@ -73,10 +73,12 @@ public class Customer_ServiceServlet extends HttpServlet {
 			if ("upd".equals(action)){
 				Integer no_service = new Integer(req.getParameter("no_service").trim());
 				String title_service = req.getParameter("title_service");
+				Integer customerId = Integer.parseInt(req.getParameter("customerId"));
 				String content_service = req.getParameter("content_service");
 				String reply_service = req.getParameter("reply_service");
 				String receive_date = req.getParameter("receive_date");
 				System.out.println(no_service);
+				System.out.println(customerId);
 				System.out.println(title_service);
 				System.out.println(content_service);
 				System.out.println(reply_service);
@@ -91,13 +93,14 @@ public class Customer_ServiceServlet extends HttpServlet {
 				
 				Customer_ServiceVO customer_serviceVO = new Customer_ServiceVO();
 				customer_serviceVO.setNo_service(no_service);
+				customer_serviceVO.setCustomerId(customerId);
 				customer_serviceVO.setTitle_service(title_service);
 				customer_serviceVO.setContent_service(content_service);
 				customer_serviceVO.setReply_service(reply_service);
 				customer_serviceVO.setReceive_date(pubdate);
 				
 				
-				customer_serviceVO = customer_serviceSvc.updateCustomer_Service(no_service,1,title_service,content_service,reply_service,pubdate);
+				customer_serviceVO = customer_serviceSvc.updateCustomer_Service(no_service,customerId,title_service,content_service,reply_service,pubdate);
 	//			req.setAttribute("customer_serviceVO", customer_serviceVO);
 				res.sendRedirect("/vetement/mangerPage.jsp");
 			}

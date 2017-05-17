@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cust.model.CustomerService;
-import com.discount.model.DiscountService;
-import com.discount.model.DiscountVO;
+import com.disc.model.DiscountService;
+import com.disc.model.DiscountVO;
 import com.order.model.OrderService;
 import com.order.model.OrderVO;
 import com.orderItem.model.OrderItemVO;
@@ -49,7 +49,7 @@ public class CheckoutServlet extends HttpServlet {
 		
 		// 取出所有的折扣方式，並置入set物件
 		DiscountService dao = new DiscountService();
-		Set<DiscountVO> set = new LinkedHashSet<DiscountVO>(dao.getAll());
+		Set<DiscountVO> set = new LinkedHashSet<DiscountVO>(dao.getAllDiscount());
 		
 		//寫死會員編號
 //		Integer no = ((CustomerVO)session.getAttribute("login_customer_info")).getCustomerId();

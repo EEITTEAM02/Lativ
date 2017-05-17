@@ -50,10 +50,10 @@ public class DiscountServlet extends HttpServlet {
 			HttpSession session = req.getSession();
 			session.setAttribute("list", all_discount);    // 資料庫取出的all_discount物件,存入session,key是list
 			// Send the Success view
-			String url = "/admin/DiscountRule.jsp";
-			RequestDispatcher updateView = req.getRequestDispatcher(url);
-			
-			updateView.forward(req, res);	
+//			String url = "/admin/DiscountRule.jsp";
+//			RequestDispatcher updateView = req.getRequestDispatcher(url);
+//			
+//			updateView.forward(req, res);	
 					//要RequestDispatcher才能forward //實際上導頁是forward
 			return;
 		}

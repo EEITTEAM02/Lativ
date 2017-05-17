@@ -8,15 +8,15 @@
      List<Customer_ServiceVO> list = customer_serviceSvc.getAll();
      pageContext.setAttribute("list1",list);
  %> 
+ 
+ <jsp:useBean id="custSvc" scope="page" class="com.cust.model.CustomerService" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>站內信管理</title>
 <style>
-	*{
-		font-family:標楷體;
-	}
+	
 	.co1{
 		color:red;
 	}
@@ -43,11 +43,12 @@
 </head>
 <body>
 <div>
-	<h2 style="font-family:標楷體;text-align: center;color:#99FF33">客服管理</h2>
+	<h2 style="font-family:Microsoft Jhenghei;text-align: center;color:#99FF33;font-size: 40px; font-weight: bold">客服管理</h2>
 	
-			<table  rules="none" class="tb1" >
+			<table  rules="none" class="tb1" style="font-family:Microsoft Jhenghei;">
 				<tr>
 					<th width='200' class="td22">時間</th>
+					<th width='200' class="td22">人名</th>
 					<th width='300' class="td22">標題</th>
 					<th width='300' class="td22">回覆情況</th>
 					<th width='100' class="td22">刪除</th>
@@ -56,6 +57,15 @@
 				<c:forEach var="customer_serviceVO" items="${list1}">
 				<tr style="border-top:1px solid silver;">
 					<td width='200' class="td11">${customer_serviceVO.receive_date}</td>
+					<td width='200' class="td11">
+						<c:forEach var="custVO" items="${custSvc.all}">
+                             <c:if test="${customer_serviceVO.customerId==custVO.customerId}">
+	                                     ${custVO.name}
+                             </c:if>
+                   	   </c:forEach>
+					
+					
+					</td>
 					<td width='300' class="td11">${customer_serviceVO.title_service}</td>
 				<form method="post" action="customer_service.do">
 						<td width='300' class="td11">
@@ -77,15 +87,15 @@
 							        <div class="modal-title" style='text-align:center; font-weight: bold;font-size: 30px; '>
 							      		${customer_serviceVO.title_service}</div>
 							     	</div>
-								    <div  style='text-align:left; padding:15px;font-family:標楷體;'>
+								    <div  style='text-align:left; padding:15px;'>
 								       	問  題 : ${customer_serviceVO.content_service}
 								    </div>
 								    <hr>
-								    <div  style='text-align:left; padding:15px;font-family:標楷體;'>
+								    <div  style='text-align:left; padding:15px;'>
 								       	回  覆 : <input type='text' id='reply_service' name='reply_service' size='50' placeholder='回覆內容' value='${customer_serviceVO.reply_service}'>
 								    </div>
 								    <hr>
-								    <div  style='text-align:left; padding:15px;font-family:標楷體;'>
+								    <div  style='text-align:left; padding:15px;'>
 								        	日  期 : ${customer_serviceVO.receive_date}
 								    </div>
 								    <div class="modal-footer">
@@ -95,6 +105,7 @@
 									    <input type="hidden" name="title_service" value="${customer_serviceVO.title_service}">
 								        <input type="hidden" name="content_service" value="${customer_serviceVO.content_service}">
 								        <input type="hidden" name="receive_date" value="${customer_serviceVO.receive_date}">
+								        <input type="hidden" name="customerId" value="${customer_serviceVO.customerId}">
 									    <input type="hidden" name="action"	value="upd">
 							      	</div>
 							    </div>

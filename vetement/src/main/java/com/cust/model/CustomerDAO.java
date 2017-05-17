@@ -19,6 +19,7 @@ public class CustomerDAO implements ICustomerDAO {
 			//"SELECT customerId,name,gender,mail,pswd,addr_customer,tel FROM customer where mail = ?";
 			"FROM CustomerVO where mail=:mail";
 	
+	private static final String GET_ALL_STMT = "from CustomerVO order by customerId";
 	//搜尋符合該帳號的會員資料(有資料代表帳號有存在)
 	@Override
 	public CustomerVO findbyAccount(String mail) {
@@ -111,6 +112,22 @@ public class CustomerDAO implements ICustomerDAO {
 		return set;
 	}
 	
+	//costmer_service用
+	@Override
+	public List<CustomerVO> getAll() {
+		List<CustomerVO> list = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery(GET_ALL_STMT);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (RuntimeException ex) {
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return list;
+	}
 //	public static void main(String[] args) {
 //		CustomerDAO custmoerDao = new CustomerDAO();
 //		CustomerVO customerVo = new CustomerVO();

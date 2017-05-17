@@ -1,13 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.disc.model.*"%>  
+<%@ page import="java.util.*"%> 
+<% 
+	DiscountService discountSvc = new DiscountService();
+	List<DiscountVO> all_discount = discountSvc.getAllDiscount();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <style>
 	.outer_container {
 		width: 1000px;
-		margin: 0 auto;
+	    margin: 0 auto;
+	    border: 1px solid black;
+	    border-radius: 20px;
+	    padding-top: 1%;
+	    padding-bottom: 5%;
+	    font-family: Microsoft Jhenghei;
+    	font-size: 16px;
+    	text-align:center
 	}
 	
 	.dialog {
@@ -19,11 +32,13 @@
 	}
 	
 	.addNewRule{
-		margin-left:700px;
+		text-align:center;
+		margin-bottom:5px
 	}
 	.discountTitle{
 		text-align:center;
 		font-weight:bold;
+		display:none
 	}
 	
 	.half_toggle{

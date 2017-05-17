@@ -35,4 +35,8 @@ public class SearcherService {
 	public List<Object[]> getHotProduction(Integer orderNo){
 		return dao.getHotProduction(orderNo);
 	}
+	
+	public List<Object> getAutocompleteSearch(String autoKeyword){
+		return dao.getAutocompleteSearch(autoKeyword);
+	}
 }

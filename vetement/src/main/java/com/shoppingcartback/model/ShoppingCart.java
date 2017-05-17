@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.discount.model.DiscountVO;
+import com.disc.model.DiscountVO;
 import com.order.model.OrderVO;
 import com.orderItem.model.OrderItemVO;
 import com.shoppingcartback.util.CartService;

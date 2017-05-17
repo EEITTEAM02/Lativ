@@ -33,6 +33,9 @@ public class SearcherDAO {
 			"and os.dealDate BETWEEN (convert(datetime,convert(varchar,GetDate(),111))-30) AND convert(datetime,convert(varchar,GetDate(),111))"+ 
 			"group by p.productId, p.productName, p.price, p.size, p.color order by sum_quantity desc";
 	
+	private static final String autocomplete = "Select distinct productName from ProductionVO "
+			+ "where productName like :productName and for_sale = true and picture_model1 is not null";
+	
 	public List<ProductionVO> fuzzySearch(String keyWord){
 		List<ProductionVO> list = null;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -139,6 +142,22 @@ public class SearcherDAO {
 		return list;
 	}
 	
+	public List<Object> getAutocompleteSearch(String autoKeyword){
+		List<Object> list = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			Query query = session.createQuery(autocomplete);
+			query.setParameter("productName", "%"+autoKeyword+"%" );
+			list = query.list();
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return list;
+	}
+	
 	public static void main(String[] args) {
 		SearcherDAO dao = new SearcherDAO();
 		List<ProductionVO> list = null;
@@ -162,13 +181,18 @@ public class SearcherDAO {
 //			System.out.println(VO.getProductName());
 //		}
 		
-		List<Object[]> list02 = null;
-		list02 = dao.getHotProduction(3);
-		for(Object[] A:list02){
-			for(Object column:A){
-				System.out.print(column+", ");
-			}
-			System.out.println();
+//		List<Object[]> list02 = null;
+//		list02 = dao.getHotProduction(3);
+//		for(Object[] A:list02){
+//			for(Object column:A){
+//				System.out.print(column+", ");
+//			}
+//			System.out.println();
+//		}
+		
+		List<Object> list03 = dao.getAutocompleteSearch("童");
+		for(Object ob:list03){
+			System.out.println(ob);
 		}
 	}
 
