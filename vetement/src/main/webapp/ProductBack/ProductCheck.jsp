@@ -22,6 +22,7 @@
 	margin-top: 50px;
 	border: 1px groove LightSteelBlue;
 	border-radius: 15px;
+	padding-right:100px;
 }
 
 .box {
@@ -115,7 +116,7 @@ tr {
 	<div class="outter">
 		<form action="" method="POST">
 			<div class="box">
-				<table class="table table-striped">
+				<table class="table table-striped" style="width:800px;">
 					<thead>
 						<tr>
 							<th colspan="5"><span class="span_info">訂單明細</span></th>

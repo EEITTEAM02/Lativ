@@ -37,7 +37,7 @@ public class NewsServlet extends HttpServlet{
 		PrintWriter out = res.getWriter();
 		NewsService newsSvc = new NewsService();
 		String action = req.getParameter("action");
-		String url = "/news/back_page.jsp";
+		String url = "/mangerPage.jsp";
 		
 		//selete
 		if("sel".equals(action)){
@@ -113,7 +113,7 @@ public class NewsServlet extends HttpServlet{
 					if (!errorMsgs.isEmpty()) {
 						req.setAttribute("newsVO", newsVO1); // 含有輸入格式錯誤的empVO物件,也存入req
 						RequestDispatcher failureView = req
-								.getRequestDispatcher("/news/back_page.jsp");
+								.getRequestDispatcher("/mangerPage.jsp");
 						failureView.forward(req, res);
 						return;
 					}
@@ -121,7 +121,7 @@ public class NewsServlet extends HttpServlet{
 					newsVO1 = newsSvc.addNews(title1,content1,pubdate11);
 					
 					
-					res.sendRedirect("/vetement/news/back_page.jsp");
+					res.sendRedirect("/vetement/mangerPage.jsp");
 //					RequestDispatcher successView = req.getRequestDispatcher(url); // 新增成功後轉交listAllEmp.jsp
 //					successView.forward(req, res);
 //					return;
@@ -157,7 +157,7 @@ public class NewsServlet extends HttpServlet{
 				if (!errorMsgs.isEmpty()) {
 					req.setAttribute("newsVO", newsVO); // 含有輸入格式錯誤的empVO物件,也存入req
 					RequestDispatcher failureView = req
-							.getRequestDispatcher("/news/back_page.jsp");
+							.getRequestDispatcher("/mangerPage.jsp");
 					failureView.forward(req, res);
 					return;
 				}
@@ -165,7 +165,7 @@ public class NewsServlet extends HttpServlet{
 				newsVO = newsSvc.updateNews(newsno1,title,content,pubdate);
 				
 				req.setAttribute("newsVO", newsVO); // 資料庫update成功後,正確的的empVO物件,存入req
-				res.sendRedirect("/vetement/news/back_page.jsp");
+				res.sendRedirect("/vetement/mangerPage.jsp");
 //				RequestDispatcher successView = req.getRequestDispatcher(url); // 修改成功後,轉交listOneEmp.jsp
 //				successView.forward(req, res);
 //				return;
@@ -173,7 +173,7 @@ public class NewsServlet extends HttpServlet{
 			} catch (Exception e) {
 				errorMsgs.add(e.getMessage());
 				RequestDispatcher failureView = req
-						.getRequestDispatcher("/news/back_page.jsp");
+						.getRequestDispatcher("/mangerPage.jsp");
 				failureView.forward(req, res);
 				
 			};

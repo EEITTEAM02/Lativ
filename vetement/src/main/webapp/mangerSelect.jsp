@@ -32,7 +32,7 @@
 			<ul class="nav nav-pills">
 		  		<li class="select_item_btn" id="select_item_1" role="presentation"><a href="#">page1</a></li>
 		  		<li class="select_item_btn" id="select_item_2" role="presentation"><a href="#">page2</a></li>
-		 		<li class="select_item_btn" id="select_item_3" role="presentation"><a href="#">page3</a></li>
+		 		<li class="select_item_btn" id="select_item_3" role="presentation"><a href="#news">公告管理</a></li>
 		 		<li class="select_item_btn" id="select_item_4" role="presentation"><a href="#letter">站內信</a></li>
 		 		<li class="select_item_btn" id="select_item_5" role="presentation"><a href="#">我的收藏</a></li>
 			</ul>

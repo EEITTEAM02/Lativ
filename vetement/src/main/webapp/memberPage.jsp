@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <script src="js/jquery-3.2.0.min.js"></script>
 <!-- Latest compiled and minified CSS -->
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"> --%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <!-- Custom Fonts -->
 <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -30,14 +30,23 @@
 #pan1{
 	text-align: center;	
 }
-#pan2{
-	margin: auto;
-    border: 2px solid black;
-    border-radius: 30px;
-    height: 800px;
-    width: 55%;
-    padding-top: 70px;
-    padding-left: 50px;
+.customer_service{ 
+	margin: auto; 
+	border: 2px solid #337ab7; 
+	border-radius: 30px; 
+	height: 800px; 
+	width: 55%; 
+	padding-top: 70px; 
+	padding-left: 50px; 
+ } 
+.customer_info_edit{
+	margin: auto; 
+	border: 2px solid #337ab7; 
+	border-radius: 30px; 
+	height: 800px; 
+	width: 55%; 
+	padding-top: 70px; 
+	padding-left: 50px; 
 }
 </style>
 </head>
@@ -62,13 +71,17 @@
 			<div class="pan2_item" id="pan2_item_1">
 				
 			</div>
-			<div class="pan2_item" id="pan2_item_2">
+			
+			
+			<div class="pan2_item customer_info_edit" id="pan2_item_2" style="display:block">
 				<jsp:include page="/customer/editCustomerInfo.jsp"></jsp:include>
 			</div>
-			<div class="pan2_item" id="pan2_item_3">
+			<div class="pan2_item customer_info_edit" id="pan2_item_3">
 				<jsp:include page="/customer/editPswd.jsp"></jsp:include>
 			</div>
-			<div class="pan2_item" id="pan2_item_4">
+			
+			
+			<div class="pan2_item customer_service" id="pan2_item_4">
 				<jsp:include page="/customer_service/view_letter.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item" id="pan2_item_5">
