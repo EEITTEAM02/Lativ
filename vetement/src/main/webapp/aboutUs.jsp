@@ -54,7 +54,8 @@
 }
 
 .intro-section {
-    height: 100%;
+	min-height: 100%;
+    max-height: auto;
     padding-top: 150px;
     text-align: center;
     background: #fff;

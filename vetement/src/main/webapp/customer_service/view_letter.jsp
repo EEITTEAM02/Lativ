@@ -38,6 +38,9 @@
             font-size: 24px;
             padding: 3px;
 	}
+	.tb1{
+	padding-bottom: 10px
+	}
 	
 </style>
 <!-- <script src="../js/jquery-1.12.3.min.js"></script> -->
@@ -51,12 +54,12 @@
 
 </head>
 <body>
-<div>
-<!-- 	<h2 style="font-family:標楷體;text-align: center;">聯絡客服</h2> -->
+<div style="font-family:Microsoft Jhenghei">
+	<h2 style="font-family:Microsoft Jhenghei;text-align: center;color:#9F4D95;font-size: 40px; font-weight: bold">聯絡客服</h2>
 	
 	<div style="padding-left:20px;padding-bottom: 20px" id='c321'><input type="button" id='c121' value='聯絡我們' class="btn btn-primary"></div>
 	<div id='c221' ></div>
-	<hr width="620" align="center">
+<!-- 	<hr width="620" align="center"> -->
 
 
 	<form class="form-horizontal"  method="post" action="customer_service.do">
@@ -92,15 +95,13 @@
 						        <button type="button" class="close" data-dismiss="modal">
 						        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						        </button>
-						        <h4 class="modal-title" id="myModalLabel" style='text-align:center; font-weight: bold;font-size: 30px; '>${customer_serviceVO.title_service}</h4>
+						        <h4 class="modal-title" id="myModalLabel" style='font-family:Microsoft Jhenghei;text-align:center; font-weight: bold;font-size: 30px; '>${customer_serviceVO.title_service}</h4>
 						      </div>
-						      <div style='text-align:left; padding:15px;font-family:標楷體;'>
-						        	問題 : ${customer_serviceVO.content_service}
-						      </div>
+						      <div style='font-family:Microsoft Jhenghei;text-align:left; padding:15px;'>問題 :</div>
+						      <pre style='font-family:Microsoft Jhenghei;text-align:left; padding:15px;'>${customer_serviceVO.content_service}</pre>
 						      <hr>
-						      <div style='text-align:left; padding:15px;font-family:標楷體;'>
-						        	回覆 : ${customer_serviceVO.reply_service}
-						      </div>
+						      <div style='text-align:left; padding:15px;'>回覆 :</div>
+						      <div style='text-align:left; padding:15px;'>${customer_serviceVO.reply_service}</div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
 						      </div>
@@ -149,7 +150,7 @@
 			var td3 = $('<td></td>').attr({width:'80',style:'text-align:center'}).html('標'+'&nbsp;&nbsp;&nbsp;&nbsp;'+'題:');
 			var td4 = $('<td></td>').attr({id:'ta2'}).html("<input type='text'  name='title_service' size='80' placeholder='標題'>");
 			var td5 = $('<td></td>').attr({width:'80',style:'text-align:center'}).text('問題內容:');
-			var td6 = $('<td></td>').attr({id:'ta3'}).html("<textarea rows='10' cols='82'  name='content_service' placeholder='內文'></textarea>");
+			var td6 = $('<td></td>').attr({id:'ta3'}).html("<textarea rows='10' cols='80'  name='content_service' placeholder='內文'></textarea>");
 			var td7 = $('<td></td>').attr({colspan:'2',style:'text-align:center;padding:20px'}).html("<input type='button' value='送出內容' id= 'go1'>"+
 																						"<input type='hidden' name='customerId' value='${sessionScope.login_customer_info.getCustomerId()}'>"+'&nbsp;&nbsp;&nbsp;'+
 																						"<input type='button' value='刪除內容' id= 'd1'>");
@@ -211,7 +212,7 @@
 				ta3.empty();
 	
 				ta2.html("<input type='text'  name='title_service' size='80' placeholder='標題'>");
-				ta3.html("<textarea rows='10' cols='82'  name='content_service' placeholder='內文'></textarea>");	
+				ta3.html("<textarea rows='10' cols='80'  name='content_service' placeholder='內文'></textarea>");	
 			});
 
 

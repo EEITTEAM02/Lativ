@@ -37,7 +37,8 @@
 	height: 800px; 
 	width: 55%; 
 	padding-top: 70px; 
-	padding-left: 50px; 
+	padding-left: 5px; 
+	padding-right: 5px; 
  } 
 .customer_info_edit{
 	margin: auto; 
@@ -48,15 +49,22 @@
 	padding-top: 70px; 
 	padding-left: 50px; 
 }
+body{
+	background-image:url('images/background_closet35.jpg');
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
 </style>
 </head>
 <body>
 
-	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top" >
+	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top">
 		<jsp:include page="header.jsp"></jsp:include> 	
 	 </nav>
 	 
-	 <header class="intro-header">
+	 <header class="intro-header" >
 		<div class="container" style="margin-bottom: 100px"></div>
 	</header>
 	
@@ -81,7 +89,7 @@
 			</div>
 			
 			
-			<div class="pan2_item customer_service" id="pan2_item_4">
+			<div class="pan2_item customer_service" id="pan2_item_4" style="background-color: rgba(217, 255, 255, .5);">
 				<jsp:include page="/customer_service/view_letter.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item" id="pan2_item_5">
