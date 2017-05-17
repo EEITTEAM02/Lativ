@@ -25,7 +25,7 @@
 		    <c:if test="${sessionScope.login_customer_info != null}">
 		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/mangerPage.jsp">管理員專區</a>
 	        </c:if>
-	        <a class="navbar-brand" href="${pageContext.request.contextPath}/aboutUs.jsp">關於我們</a>
+<%-- 	        <a class="navbar-brand" href="${pageContext.request.contextPath}/aboutUs.jsp">關於我們</a> --%>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >

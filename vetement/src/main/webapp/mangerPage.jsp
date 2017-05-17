@@ -58,8 +58,9 @@
 		<div id="pan2">
 			<div class="pan2_item" id="pan2_item_1">
 			</div>
+			
 			<div class="pan2_item" id="pan2_item_2">
-				
+				<jsp:include page="/admin/DiscountRule.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item" id="pan2_item_3">
 				<jsp:include page="/news/back_page.jsp"></jsp:include>

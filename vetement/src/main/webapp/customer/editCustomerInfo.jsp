@@ -56,7 +56,7 @@
 </head>
 <body>
 	<div class="edit_customer">
-		<form method="Post" Action="${pageContext.request.contextPath}/CustomerServlet?action=updateOne" onsubmit="return beforeSend()" >
+		<form>
 		<!--上面是更新資料後要submit到哪裡 -->
 			<div>
 				<label>姓名</label><br>

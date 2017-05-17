@@ -40,13 +40,14 @@
         <mapping resource="com/production/model/production.hbm.xml" />
         <mapping resource="com/order/model/orders.hbm.xml" />
         <mapping resource="com/orderItem/model/orderItem.hbm.xml" />
-        <mapping resource="com/discount/model/discount.hbm.xml" />
+<!--         <mapping resource="com/discount/model/discount.hbm.xml" /> -->
         <mapping resource="com/category/model/category.hbm.xml" />
         <mapping resource="com/comment/model/comment.hbm.xml" />
         <mapping resource="com/favorite/model/favorite.hbm.xml" />
 		<mapping resource="com/news/model/news.hbm.xml" />
 		<mapping resource="com/customer_service/model/customer_service.hbm.xml" />     
 		<mapping resource="com/cust/model/customer.hbm.xml" />
+		<mapping resource="com/disc/model/discount.hbm.xml" />
 		
 	</session-factory>
 	
