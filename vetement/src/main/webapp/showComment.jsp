@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
+
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
@@ -49,15 +54,26 @@
 		</div>
 	</div>	
 <script type="text/javascript">
-
+	
 	$(function() {
- 	   $.getJSON('CommentCheck',{action:"GET_ALL",'productId':1},function(datas){
- 		   console.log(datas);
+		var url = window.location.href;
+		 var temp = url.split("?");
+		 var vars = temp[1].split("=");
+		 var value = vars[1];
+	//	 console.log(value);
+ 	   $.getJSON('CommentCheck',{action:"GET_ALL",'productId':value},function(datas){
+
 		   var tb = $('#panes').empty();
 		   var docFrag = $(document.createDocumentFragment());
 	
+			if(datas[0] == null){
+				swal({title:"無任何評價!"},function(){
+					window.close();
+				})
+			}else{
+				
 		   $.each(datas,function(idx,comment){
-		//	   console.log(comment.productId);
+
 			   var cell1 = $('<p></p>').attr({"id":"orderNo"}).text("訂單編號:"+comment.orderNo);
 			   var cell2 = $('<p></p>').attr({"id":"comment"}).text(comment.comment);
 			   var cell3 = $('<p></p>').css("margin-left","300px").attr({"id":"pubtime"}).text(comment.pubtime);		   
@@ -67,6 +83,7 @@
 			   docFrag.append(row);
 		   })
 		   tb.append(docFrag);
+			}
  		})   
 	});
 </script>	

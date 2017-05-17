@@ -37,7 +37,7 @@
 		  		<li class="select_item_btn" id="select_item_2" role="presentation"><a href="#">折扣規則管理</a></li>
 		 		<li class="select_item_btn" id="select_item_3" role="presentation"><a href="#news">公告管理</a></li>
 		 		<li class="select_item_btn" id="select_item_4" role="presentation"><a href="#letter">站內信</a></li>
-		 		<li class="select_item_btn" id="select_item_5" role="presentation"><a href="#">我的收藏</a></li>
+		 		<li class="select_item_btn" id="select_item_5" role="presentation"><a href="#">page5</a></li>
 			</ul>
 		</nav>
 	</div>

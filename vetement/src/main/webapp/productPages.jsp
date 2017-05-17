@@ -12,6 +12,7 @@
 <meta name="author" content="">
 
 <title>ProductDetail</title>
+
 <link href="${pageContext.request.contextPath}/css/clean-blog.min.css"
 	rel="stylesheet">
 <link
@@ -44,7 +45,7 @@
 <!-- <script src="js/jquery.mycart.js"></script> -->
 <!-- <script src="js/jquery.fancybox.min.js"></script> -->
 <!-- <script src="js/sweetalert.min.js"></script>	 -->
-
+<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
 
 <style>
 .glyphicon:before {
@@ -105,6 +106,12 @@ img.displayImg {
 	height: 100%;
 	width: 100%;
 }
+#div26 a{
+	 font-weight:bold;
+	 text-decoration:none;
+	 color: #337ab7;
+}
+
 </style>
 
 
@@ -185,6 +192,17 @@ img.displayImg {
 							<div class="row">
 								<div class="col-sm-6 well" id="div25"></div>
 							</div>
+							<div class="row">
+								<div class="col-sm-6 well" id="div26">
+									<div id="comm" style="display:inline-block">
+										<a href='#' onClick=openwindow('showComment.jsp?pid=${param.Pid}','test',700,500)>查看評價</a>
+									</div>
+									<div id="like" style="display:inline-block; margin-left:60px;">
+	     									<img id="likeimg" data-toggle="tooltip" data-placement="top" title="加入我的收藏">
+									 </div>
+								</div>
+							</div>
+	
 						</div>
 					</div>
 					<!-- carousel -->
@@ -214,7 +232,7 @@ img.displayImg {
 											src="http://placehold.it/200x100"
 											style="width: 200px; height: 100px;""></a>
 									</div>
-								</div>
+							</div>
 								<a class="left carousel-control"
 									href="#carousel-example-generic" data-slide="prev"> <span
 									class="glyphicon glyphicon-chevron-left"></span>
@@ -275,7 +293,56 @@ img.displayImg {
 		<script>
 		var ctx = "<%=request.getContextPath()%>";
 		
+		
+		// 查詢評價彈出視窗
+		function openwindow(url,name,iWidth,iHeight){
+			  var url;     //網頁位置;
+			  var name;    //網頁名稱;
+			  var iWidth;  //視窗的寬度;
+			  var iHeight; //視窗的高度;
+			  var iTop = (window.screen.availHeight-30-iHeight)/2;  //視窗的垂直位置;
+			  var iLeft = (window.screen.availWidth-10-iWidth)/2;   //視窗的水平位置;
+			  window.open(url,name,'height='+iHeight+',,innerHeight='+iHeight+',width='+iWidth+',innerWidth='+iWidth+',top='+iTop+',left='+iLeft+',status=no,location=no,status=no,menubar=no,toolbar=no,resizable=no,scrollbars=no');
+			}
+		
 		$(function() {
+			
+			var cid = null;
+			var pid = ${param.Pid};
+			
+			 $('[data-toggle="tooltip"]').tooltip()
+			
+			//載入頁面同時確認是否已收藏
+			if("${sessionScope.login_customer_info.customerId}"==""){
+				$('#like>img').attr("src","images/Like2.png");
+			}else{
+					cid=${sessionScope.login_customer_info.customerId}
+				   $.get('FavoriteCheck',{action:"getOne_For_Display",'customerId':cid,'productId':pid},function(data){
+					   if(data.trim() == "not add"){
+						   $('#like>img').attr({"src":"images/Like2.png","title":"加入我的收藏"});
+					   }else{
+						   $('#like>img').attr({"src":"images/heart2.png","title":"取消我的收藏"});
+					   }
+				   })					
+			}
+
+			    
+			//	點擊切換收藏狀態    
+				 $("#likeimg").bind("click",function(){	
+					 if( "${sessionScope.login_customer_info.customerId}"==""){
+						 swal("請先登入會員");	
+					 }else{
+						 cid=${sessionScope.login_customer_info.customerId}
+						 $.get('FavoriteCheck',{action:"getChange_For_Display",'customerId':cid,'productId':pid},function(data){
+							 if(data.trim() == "insert"){
+								 $("#likeimg").attr({"src":"images/heart2.png","title":"取消我的收藏"});
+			        		 }else{
+			        			 $("#likeimg").attr({"src":"images/Like2.png","title":"加入我的收藏"});
+			        		 }
+						 })				 
+					 }
+				 })
+			
 			
 	
 			getCarouselItems(1);
@@ -338,6 +405,10 @@ img.displayImg {
 	                }
 		    }
 			
+		    
+		 
+            
+		    
 		    function getRating(pno) {
 		    	 var rating = (function() {
 				        var rating1 = null;
@@ -677,6 +748,10 @@ img.displayImg {
                 
                 loadPage();
                
+                
+                
+             
+                
                 
                 function checkPurchase() {
     			    var purchase = (function() {

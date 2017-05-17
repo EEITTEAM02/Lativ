@@ -27,14 +27,16 @@ public class SearcherDAO {
 			"from ProductionVO where packageNo=:packageNo and for_sale = true and picture_model1 is not null";
 	
 	private static final String getHotProduct=
-			"select Top(5) p.productId, p.productName, p.price, p.size, p.color, sum(quantity_order) as sum_quantity "+ 
-			"from orderItem as o join production as p on o.productId=p.productId join orders as os on o.orderNo = os.orderNo  where o.orderNo in"+
-			"(select orderNo from orderItem where productId in(select productId from orderItem where orderNo = :orderNo))"+
-			"and os.dealDate BETWEEN (convert(datetime,convert(varchar,GetDate(),111))-30) AND convert(datetime,convert(varchar,GetDate(),111))"+ 
-			"group by p.productId, p.productName, p.price, p.size, p.color order by sum_quantity desc";
+			"select productId, productName, price from production where productName in"+
+			" (select Top(10) p.productName from orderItem o join production p on o.productId=p.productId join orders os on o.orderNo = os.orderNo  where o.orderNo in"+
+			" (select orderNo from orderItem where productId in (select productId from orderItem where orderNo = :orderNo))"+
+			" and os.dealDate BETWEEN (convert(datetime,convert(varchar,GetDate(),111))-30) AND convert(datetime,convert(varchar,GetDate(),111))"+ 
+			" group by p.productName order by sum(quantity_order) desc) and picture_model1 is not null";
 	
 	private static final String autocomplete = "Select distinct productName from ProductionVO "
 			+ "where productName like :productName and for_sale = true and picture_model1 is not null";
+	
+	private static final String getProductByName = "select productId from ProductionVO where productName = :productName and for_sale = true and picture_model1 is not null";
 	
 	public List<ProductionVO> fuzzySearch(String keyWord){
 		List<ProductionVO> list = null;
@@ -158,6 +160,22 @@ public class SearcherDAO {
 		return list;
 	}
 	
+	public List<Object> getProductByName(String productName){
+		List<Object> list = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			Query query = session.createQuery(getProductByName);
+			query.setParameter("productName", productName );
+			list = query.list();
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return list;
+	}
+	
 	public static void main(String[] args) {
 		SearcherDAO dao = new SearcherDAO();
 		List<ProductionVO> list = null;
@@ -181,19 +199,24 @@ public class SearcherDAO {
 //			System.out.println(VO.getProductName());
 //		}
 		
-//		List<Object[]> list02 = null;
-//		list02 = dao.getHotProduction(3);
-//		for(Object[] A:list02){
-//			for(Object column:A){
-//				System.out.print(column+", ");
-//			}
-//			System.out.println();
+		List<Object[]> list02 = null;
+		list02 = dao.getHotProduction(3);
+		for(Object[] A:list02){
+			for(Object column:A){
+				System.out.print(column+", ");
+			}
+			System.out.println();
+		}
+		
+//		List<Object> list03 = dao.getAutocompleteSearch("童");
+//		for(Object ob:list03){
+//			System.out.println(ob);
 //		}
 		
-		List<Object> list03 = dao.getAutocompleteSearch("童");
-		for(Object ob:list03){
-			System.out.println(ob);
-		}
+//		List<Object> list04 = dao.getProductByName("PIMA 棉抗UV連帽外套");
+//		for(Object ob:list04){
+//			System.out.println(ob);
+//		}
 	}
 
 }

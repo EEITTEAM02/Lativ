@@ -38,7 +38,7 @@
 		  		<li class="select_item_btn" id="select_item_2" role="presentation"><a href="#">會員資料修改</a></li>
 		 		<li class="select_item_btn" id="select_item_3" role="presentation"><a href="#">密碼修改</a></li>
 		 		<li class="select_item_btn" id="select_item_4" role="presentation"><a href="#">聯絡客服</a></li>
-		 		<li class="select_item_btn" id="select_item_5" role="presentation"><a href="#">Page5</a></li>
+		 		<li class="select_item_btn" id="select_item_5" role="presentation"><a href="#">我的收藏</a></li>
 			</ul>
 		</nav>
 	</div>

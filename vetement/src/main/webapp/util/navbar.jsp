@@ -54,6 +54,30 @@
 	width: 100%;
 	text-align: center;
 }
+
+.autocomplete-suggestions { 
+	border: 1px solid #999; background: #FFF; overflow: auto; 
+}
+
+.autocomplete-suggestion { 
+	padding: 2px 5px; white-space: nowrap; overflow: hidden; 
+}
+
+.autocomplete-selected { 
+	background: #F0F0F0; 
+}
+
+.autocomplete-suggestions strong { 
+	font-weight: normal; color: #3399FF; 
+}
+
+.autocomplete-group { 
+	padding: 2px 5px; 
+}
+
+.autocomplete-group strong { 
+	display: block; border-bottom: 1px solid #000; 
+}
 </style>
 </head>
 <body>
@@ -67,12 +91,30 @@
 				</ul>
 				<div class="navbar-form navbar-right">
 					<div class="form-group">
-						<input type="text" name="searcher" class="form-control"
+						<input type="text" name="searcher" id="searcher" class="form-control"
 							placeholder="Search">
 					</div>
 				</div>
 			</div>
 		</nav>
 	</div>
+	<script>
+	var searcher = $('#searcher');
+	var productions = new Array();
+
+	$.getJSON("AutocompleteSearch.do",{"autoKeyword":""},function(data){
+			$.each(data,function(i,productName){
+				var ob = new Object();
+				ob.value = productName;
+				productions.push(ob);
+			})	
+		})
+
+	
+	searcher.autocomplete({
+	    lookup: productions
+	});
+	
+	</script>
 </body>
 </html>

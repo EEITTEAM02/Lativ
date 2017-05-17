@@ -10,12 +10,14 @@
  <!-- Theme CSS -->
 <%--     <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet"> --%>
 
-    <!-- Custom Fonts -->
-    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!-- Custom Fonts -->
+<link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
 <style>
 
 </style>
@@ -100,6 +102,11 @@
 			$('input[name="searcher"]').keydown(function() {
 				search(event);
 			})
+			
+			$('.autocomplete-suggestions').click(function(){
+				SearchKeyword = $('.autocomplete-selected').text()
+ 				location.href="Search.do?SearchKeyword="+SearchKeyword;
+			});
 
 			function search(event) {
 				var keyWord = $('input[name="searcher"]').val();
@@ -127,7 +134,7 @@
 				var productLi = $("<li></li>");
 
 				var elementA = $('<a></a>');
-				elementA.attr("href", '${context}/productPages/'+product.productId + ".jsp");//連接柏瑜的網址
+				elementA.attr("href", '${context}/productPages.jsp?Pid='+product.productId);//連接柏瑜的網址
 
 				var img = $("<img/>");
 				img.attr("alt", product.productName);

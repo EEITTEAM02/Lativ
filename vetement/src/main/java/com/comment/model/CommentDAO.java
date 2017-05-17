@@ -75,7 +75,7 @@ public class CommentDAO implements Comment_interface{
 		try{
 			session.beginTransaction();
 			Query query = session.createSQLQuery("{call compro(?)}");
-			query.setParameter(0,1);
+			query.setParameter(0,productId);
 			List<Object[]> objects =  query.list();
 			
 			for(Object[] object:objects){

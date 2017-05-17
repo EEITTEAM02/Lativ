@@ -30,6 +30,8 @@
 <script src="${pageContext.request.contextPath}/js/jquery.fancybox.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/clean-blog.min.js"></script>
+<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
 <style>
 .vertical-menu {
 	width: 250px;
@@ -191,6 +193,11 @@ img.displayImg {
 				search(event)
 			})
 			
+			$('.autocomplete-suggestions').click(function(){
+				SearchKeyword = $('.autocomplete-selected').text()
+ 				location.href="Search.do?SearchKeyword="+SearchKeyword;
+			});
+			
 			$('a[name="bottom"]').click(function(){
 				var val_bottom = $(this).text();
  				var val_middle = $(this).parent().children('a[name="middle"]').text();
@@ -259,7 +266,6 @@ img.displayImg {
 
 				docFragment.append(productLi);
 			}
-			
 
 			$('#img1').hide();
 			// 			$(document).ajaxStart(function(){

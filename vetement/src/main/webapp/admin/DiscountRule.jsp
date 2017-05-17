@@ -3,10 +3,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.disc.model.*"%>  
 <%@ page import="java.util.*"%> 
-<% 
-	DiscountService discountSvc = new DiscountService();
-	List<DiscountVO> all_discount = discountSvc.getAllDiscount();
-%>
+<%-- 
+ 	DiscountService discountSvc = new DiscountService();
+ 	List<DiscountVO> all_discount = discountSvc.getAllDiscount();
+	
+ --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,8 +24,12 @@
     	text-align:center
 	}
 	
+	#toggle_type1{
+	
+	}
+	
 	.dialog {
-		border-style: solid;	
+/* 		border-style: solid;	 */
 	}
 	
 	.edit_id{
@@ -35,17 +40,53 @@
 		text-align:center;
 		margin-bottom:5px
 	}
+	#add_new_rule{
+		font-family:Microsoft Jhenghei;
+	}
 	.discountTitle{
 		text-align:center;
 		font-weight:bold;
 		display:none
 	}
 	
-	.half_toggle{
+	.half_toggle {
 		padding: 15px;
-		border: 1px solid red;
+		border-radius: 15px;
+		cursor: pointer;
+	}
+	.add_discount_title{
+		font-weight:bold;
+	}
+	.add_discount_th{
+		padding-bottom: 25px;
+	    padding-left: 14px;
+	    text-align: center;
+	    background-color: lightblue;
+	    padding-top: 25px;
+	    padding-right: 13px;
+	}
+	.add_discount_td{
+		padding-left: 10px;
+	    padding-top: 10px;
+	    text-align: left;
+	    padding-bottom: 10px;
+	    padding-right: 10px;
+	}
+	.add_disc_th_left{
+		border-bottom-left-radius: 7px;
+	    border-top-left-radius: 7px;
+	}
+	.add_disc_th_right{
+		border-bottom-right-radius: 7px;
+	    border-top-right-radius: 7px;
+	    padding-right: 50px;
+	}
+	.add_discount_td_right{
+		padding-left: 25px;
 	}
 	
+	
+
 	
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -59,9 +100,13 @@
 			<form>
 				<div class='discountTitle'>折扣規則</div>
 				<div class='addNewRule'>
-					<input id="add_new_rule" type="button" name="add_new_rule" value="新增規則">
+<!-- 				<input id="add_new_rule" type="button" name="add_new_rule" value="新增規則"> -->
+					<!-- Button trigger modal -->
+					<button id="add_new_rule" type="button" name="add_new_rule" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+			 		 	新增折扣
+					</button>
 				</div>
-				<table style="margin: 0 auto;">
+				<table id="all_discount_table" style="margin: 0 auto;">
 					<tr>
 						<th>編號</th>
 						<th>折扣名稱</th>
@@ -70,23 +115,23 @@
 						<th>Update</th>
 						<th>Delete</th>
 					</tr>
-						<c:forEach var="each_discountVO" items="${list}">
-						<tr>
-							<td>${each_discountVO.packageNo}</td>
-							<td>${each_discountVO.descript}</td>
-							<td>${each_discountVO.quantity_condition}</td>
-							<td><c:choose>
-							<c:when test="${each_discountVO.discount1 > 0}">
-								${each_discountVO.discount1}
-							</c:when>
-							<c:otherwise>
-								${each_discountVO.discount2}
-							</c:otherwise>
-							</c:choose></td>
-							<td><input type='button' name='discount_update' value='修改' class='update' id="edit_${each_discountVO.packageNo}"></td>
-		 					<td><input type='button' name='discount_delete' value='刪除' class='delete' id="delete_${each_discountVO.packageNo}"></td>
-						</tr>
-						</c:forEach>	
+<%-- 						<c:forEach var="each_discountVO" items="${list}"> --%>
+<!-- 						<tr> -->
+<%-- 							<td>${each_discountVO.packageNo}</td> --%>
+<%-- 							<td>${each_discountVO.descript}</td> --%>
+<%-- 							<td>${each_discountVO.quantity_condition}</td> --%>
+<%-- 							<td><c:choose> --%>
+<%-- 							<c:when test="${each_discountVO.discount1 > 0}"> --%>
+<%-- 								${each_discountVO.discount1} --%>
+<%-- 							</c:when> --%>
+<%-- 							<c:otherwise> --%>
+<%-- 								${each_discountVO.discount2} --%>
+<%-- 							</c:otherwise> --%>
+<%-- 							</c:choose></td> --%>
+<%-- 							<td><input type='button' name='discount_update' value='修改' class='update' id="edit_${each_discountVO.packageNo}"></td> --%>
+<%-- 		 					<td><input type='button' name='discount_delete' value='刪除' class='delete' id="delete_${each_discountVO.packageNo}"></td> --%>
+<!-- 						</tr> -->
+<%-- 						</c:forEach>	 --%>
 				</table>
 				
 			</form>
@@ -116,46 +161,122 @@
 				<input id="update_discount_btn" type="button" name="update_discount_btn" value="確認修改">
 			</form>
 		</div>
-		
 		<!--這邊是新增折扣規則的對話框 -->
-		<div id="add_dialog" class='dialog' style="display:none">
-			<form>
-				<table>
-					<tr>
-						<th>折扣敘述</th>
-						<th>件數</th>
-						<th>
-							<span id='toggle_type1' class='half_toggle'>折扣類型-%</span>
-							<span id='toggle_type2' class='half_toggle'>折扣類型-$(單件)</span>
-						</th>
-						
-						
-					</tr>
-					<tr>
-						<td><input id='add_discount_description' type='text' name=''></td>
-						<td>
-							<select id='add_cloth_amount'></select>
-						</td>
-						<td>
-							<input id='add_discount_type1' class='add_discount' type='text' value='1'>
-							<input id='add_discount_type2' class='add_discount' type='text' value='2' style="display:none">
-						</td>
-					</tr>
-				</table>
-				<input id="new_discount_btn" type="button" name="new_discount_btn" value="確認新增">
-			</form>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+		    	<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title add_discount_title" id="myModalLabel">新增折扣規則</h4>
+					</div>
+		      		<div class="modal-body">
+		        		<div id="add_dialog" class='dialog' style="display:none">
+							<form>
+								<table>
+									<tr>
+										<th class='add_discount_th add_disc_th_left'>折扣敘述</th>
+										<th class='add_discount_th'>件數</th>
+										<th class='add_discount_th add_disc_th_right'>
+											<span id='toggle_type1' class='half_toggle'>折扣類型-%</span>
+											<span id='toggle_type2' class='half_toggle'>折扣類型-$</span>
+										</th>
+									</tr>
+									<tr>
+										<td class='add_discount_td'><input id='add_discount_description' type='text' name=''></td>
+										<td class='add_discount_td'>
+											<select id='add_cloth_amount'></select>
+										</td>
+										<td class='add_discount_td add_discount_td_right'>
+											<input id='add_discount_type1' class='add_discount' type='text' value='' placeholder='折數'>
+											<input id='add_discount_type2' class='add_discount' type='text' value='' placeholder='單件金額' style="display:none">
+										</td>
+									</tr>
+								</table>
+<!-- 								<input id="new_discount_btn" type="button" name="new_discount_btn" value="確認新增"> -->
+							</form>
+						</div>
+		      		</div>
+		      		<div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        <button id="new_discount_btn" type="button" name="new_discount_btn" class="btn btn-primary">Save changes</button>
+		      		</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
 <script>
-	$('.half_toggle').click(function(){
-		var half_toggle_id =this.id;
-		var on_click_id = half_toggle_id.split("_")[1];
-		$('.add_discount').hide();
-		$("#add_discount_"+ on_click_id).show();
-		
+	$(function(){
+		$.ajax({
+			url:'${pageContext.request.contextPath}/DiscountServlet?action=getAll',
+			type:'POST',
+			dataType:'json',
+			error: function(xhr) {
+				alert('Ajax request 發生錯誤');
+			},
+			success: function(response_all_discount_list) {
+				console.log(response_all_discount_list);
+			
+				for(var i=0; i<response_all_discount_list.length; i++) {
+					$('#all_discount_table').append('<tr id="discount_tr_' + i + '"></tr>');
+					$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].packageNo + '</td>');
+					$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].descript + '</td>');
+					$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].quantity_condition + '</td>');
+					
+					if(response_all_discount_list[i].discount1 > 0) {
+						$('#discount_tr_' + i).append('<td>' + parseFloat(response_all_discount_list[i].discount1).toFixed(2) * 10 + '折</td>');
+					}
+					else {
+						$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].discount2 + '/1件</td>');
+					}
+					
+					$('#discount_tr_' + i).append('<td><input type="button" name= "discount_update" value="修改" class="update" id="edit_' + response_all_discount_list[i].packageNo + '"></td>');
+					$('#discount_tr_' + i).append('<td><input type="button" name= "discount_delete" value="刪除" class="delete" id="delete_' + response_all_discount_list[i].packageNo + '"></td>');
+				}
+			}
+		})
 		
 	});
+	
+	$('.half_toggle').click(function(){
+		$('.half_toggle').css({'background-color':'rgb(173,216,230)','color':'black'});//兩顆都先變背景藍
+		var half_toggle_id = this.id;
+		var on_click_id = half_toggle_id.split("_")[1];
+		
+		$('#' + half_toggle_id).css({	
+			'background-color':'rgb(56, 153, 236)',
+			'color':'white'	
+		});
+		
+		//輸入折扣或單件金額有兩個input，都先隱藏，點到的再show出來，看起來的效果會像點到哪個就出現哪個
+		$('.add_discount').hide();
+		$("#add_discount_"+ on_click_id).show();	
+	});
+	
+	$('.half_toggle').mouseenter(function(){
+		var half_toggle_id = this.id;
+		var color = $('#' + half_toggle_id).css('background-color');//偵測mouseenter那顆的背景色
+
+		if(color != "rgb(56, 153, 236)") {	//顏色不等於較深藍
+			$('#' + half_toggle_id).css({
+				'background-color': 'rgb(78, 183, 245)',	//就設為淺藍、白字
+				'color':'white'
+			});
+		}
+	});
+	
+	$('.half_toggle').mouseout(function(){
+		var half_toggle_id = this.id;
+		var color = $('#' + half_toggle_id).css('background-color');//偵測mouseout那顆的背景藍
+
+		if(color == "rgb(78, 183, 245)") {	//顏色等於淺藍
+			$('#' + half_toggle_id).css({
+				'background-color':'rgb(173,216,230)',	//就設為底色藍、黑字
+				'color':'black'
+			});
+		}
+	});	
 
 	//修改與新增折扣規則對話框中-自動生成件數
 	for(var i=1; i<11; i++){
@@ -164,7 +285,7 @@
 	}
 	
 	//修改(編輯)折扣規則
-	$('.update').click(function(){
+	$(document).on('click', '.update', function(){	
 		$('#edit_dialog').show();
 		
 		//修改button的id:edit_${each_discountVO.packageNo} ex:edit_10
@@ -216,7 +337,7 @@
 			},
 			success: function(response_count){
 				//alert("已更新" + response_count + "筆資料");
-				location.href = "${pageContext.request.contextPath}/DiscountServlet?action=getAll";
+				location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
 			}
 		})
 	})
@@ -266,12 +387,12 @@
 			//成功時的處理 ; 會有一個alert的message
 			success: function(response_count) {	//去接ajax傳回來的結果				
 				alert("成功新增" + response_count + "筆資料。");
-				location.href = "${pageContext.request.contextPath}/DiscountServlet?action=getAll";
+				location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
 			}
 		})
 	});
 		//刪除規則
-	$('.delete').click(function(){
+	$(document).on('click', '.delete', function(){	
 		var button_on_click_id = this.id
 		var on_click_id = button_on_click_id.split("_")[1];
  		//console.log(delete_id);
@@ -287,7 +408,7 @@
 			},
 			success: function(response_delete_count){
 				alert("成功刪除" + response_delete_count + "筆資料。" );
-				location.href = "${pageContext.request.contextPath}/DiscountServlet?action=getAll";
+				location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
 			}
 		})
 	});	

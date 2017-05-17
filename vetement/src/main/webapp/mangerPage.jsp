@@ -69,7 +69,7 @@
 				<jsp:include page="/customer_service/back_letter.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item" id="pan2_item_5">
-				<jsp:include page="showFavorite.jsp"></jsp:include>
+				
 			</div>
 		</div>
 	</div>
