@@ -22,8 +22,8 @@ import org.json.simple.JSONValue;
 
 import com.cust.model.CustomerService;
 import com.cust.model.CustomerVO;
-import com.discount.model.DiscountService;
-import com.discount.model.DiscountVO;
+import com.disc.model.DiscountService;
+import com.disc.model.DiscountVO;
 import com.order.model.OrderService;
 import com.order.model.OrderVO;
 import com.orderItem.model.OrderItemVO;
@@ -39,7 +39,7 @@ public class CartContentServlet1 extends HttpServlet{
 	    OrderService osrvc = new OrderService();
 	    Integer mno =(Integer) session.getAttribute("mno");
 	    CustomerService msrvc = new CustomerService();
-	    CustomerVO aCustomer = msrvc.getOneCustomer(mno);
+//	    CustomerVO aCustomer = msrvc.getOneCustomer(mno);
 	    Set<OrderVO> orderList = msrvc.getOrderVOsByCustomerId(mno);
 	    Iterator<OrderVO> it = orderList.iterator();
 	    OrderVO target=null;

@@ -69,7 +69,7 @@ public class CustomerLoginServlet extends HttpServlet {
 				HttpSession session = req.getSession();
 				//key:"login_customer_info" ; value:login_customer(這是VO)
 				session.setAttribute("login_customer_info", login_customer);    //資料庫取出的login_customer物件,存入session,key是login_customer_info				
-				
+				session.setAttribute("mno", login_customer.getCustomerId());
 			}
 			
 			//System.out.println(discount_map);

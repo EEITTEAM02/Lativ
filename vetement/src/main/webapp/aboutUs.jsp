@@ -258,9 +258,13 @@
 <script>
 
 $(function() {
- 		$('#bh-sl-map-container').storeLocator();
- 		
- 	})
+	$('#bh-sl-map-container').storeLocator({
+		'slideMap' : false,
+		'defaultLoc': true,
+		'defaultLat': '25.032781',
+		'defaultLng' : '121.567708'
+	});
+});
 
 </script>
 </html>

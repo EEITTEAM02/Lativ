@@ -41,6 +41,13 @@
  		width:600px;
  		margin:auto;
  	}
+ 	#panes pre {
+    white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+    white-space: -pre-wrap; /* Opera */
+    white-space: -o-pre-wrap; /* Opera */
+    white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+    word-wrap: break-word; /* IE 5.5+ */
+}
 </style>
 </head>
 
@@ -75,7 +82,7 @@
 		   $.each(datas,function(idx,comment){
 
 			   var cell1 = $('<p></p>').attr({"id":"orderNo"}).text("訂單編號:"+comment.orderNo);
-			   var cell2 = $('<p></p>').attr({"id":"comment"}).text(comment.comment);
+			   var cell2 = $('<pre></pre>').attr({"id":"comment"}).text(comment.comment);
 			   var cell3 = $('<p></p>').css("margin-left","300px").attr({"id":"pubtime"}).text(comment.pubtime);		   
 			   var cell4 = $('<p></p>').attr({"id":"productName"}).text(comment.productName+" - "+comment.size+" - "+comment.color);
 			   var cell5 = $('<hr></hr>');

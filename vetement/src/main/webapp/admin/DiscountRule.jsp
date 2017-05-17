@@ -11,6 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 <style>
 	.outer_container {
 		width: 1000px;
@@ -25,6 +26,8 @@
 	}
 	
 	#toggle_type1{
+	background-color:rgb(56, 153, 236);
+	color:white	
 	
 	}
 	
@@ -84,7 +87,11 @@
 	.add_discount_td_right{
 		padding-left: 25px;
 	}
-	
+	.display_all_th{
+		border: 1px solid;
+		padding: 22px;
+    	text-align: center;
+	}
 	
 
 	
@@ -101,19 +108,19 @@
 				<div class='discountTitle'>折扣規則</div>
 				<div class='addNewRule'>
 <!-- 				<input id="add_new_rule" type="button" name="add_new_rule" value="新增規則"> -->
-					<!-- Button trigger modal -->
+					<!-- "新增折扣"按鈕 -->
 					<button id="add_new_rule" type="button" name="add_new_rule" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 			 		 	新增折扣
 					</button>
 				</div>
 				<table id="all_discount_table" style="margin: 0 auto;">
 					<tr>
-						<th>編號</th>
-						<th>折扣名稱</th>
-						<th>件數</th>
-						<th>折扣類型</th>
-						<th>Update</th>
-						<th>Delete</th>
+						<th class='display_all_th'>編號</th>
+						<th class='display_all_th'>折扣名稱</th>
+						<th class='display_all_th'>件數</th>
+						<th class='display_all_th'>折扣類型</th>
+						<th class='display_all_th'>Update</th>
+						<th class='display_all_th'>Delete</th>
 					</tr>
 <%-- 						<c:forEach var="each_discountVO" items="${list}"> --%>
 <!-- 						<tr> -->
@@ -138,31 +145,56 @@
 		</div>
 		
 		<!--這邊是修改折扣規則的對話框 -->
-		<div id="edit_dialog" class='dialog edit_update' style="display:none">
-			<form>
-				<table>
-					<tr>
-						<th>折扣編號</th>
-						<th>折扣敘述</th>
-						<th>件數</th>
-						<th>折扣類型-折數</th>
-						<th>折扣類型-單件金額</th>
-					</tr>
-					<tr>
-						<td class='edit_id' ><span id='discount_id' ></span></td>
-						<td><input id='edit_discount_description' type='text' name=''></td>
-						<td>
-							<select id='edit_cloth_amount'></select>
-						</td>
-						<td><input id='edit_discount_type1' type='text' name=''></td>
-						<td><input id='edit_discount_type2' type='text' name=''></td>
-					</tr>
-				</table>
-				<input id="update_discount_btn" type="button" name="update_discount_btn" value="確認修改">
-			</form>
-		</div>
-		<!--這邊是新增折扣規則的對話框 -->
+		
+		
 		<!-- Modal -->
+<!-- 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> -->
+<!-- 			<div class="modal-dialog" role="document"> -->
+<!-- 				<div class="modal-content"> -->
+<!-- 					<div class="modal-header"> -->
+<!-- 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+<!-- 					<h4 class="modal-title" id="myModalLabel">Modal title</h4> -->
+<!-- 					</div> -->
+<!-- 					<div class="modal-body"> -->
+<!-- 					       aaaa -->
+						<div id="edit_dialog" class='dialog edit_update' style="display:none">
+							<form>
+								<table>
+									<tr>
+										<th>折扣編號</th>
+										<th>折扣敘述</th>
+										<th>件數</th>
+										<th>折扣類型-折數</th>
+										<th>折扣類型-單件金額</th>
+									</tr>
+									<tr>
+										<td class='edit_id' ><span id='discount_id' ></span></td>
+										<td><input id='edit_discount_description' type='text' name=''></td>
+										<td>
+											<select id='edit_cloth_amount'></select>
+										</td>
+										<td><input id='edit_discount_type1' type='text' name=''></td>
+										<td><input id='edit_discount_type2' type='text' name=''></td>
+									</tr>
+								</table>
+								<input id="update_discount_btn" type="button" name="update_discount_btn" value="確認修改">
+							</form>
+						</div>
+<!-- 					       aaaa -->
+<!-- 					</div> -->
+<!-- 					<div class="modal-footer"> -->
+<!-- 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+<!-- 						<button type="button" class="btn btn-primary">Save changes</button> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+		
+		
+		
+		<!--這邊是新增折扣規則的對話框 -->
+		<!-- Modal  -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 		    	<div class="modal-content">
@@ -219,7 +251,7 @@
 				console.log(response_all_discount_list);
 			
 				for(var i=0; i<response_all_discount_list.length; i++) {
-					$('#all_discount_table').append('<tr id="discount_tr_' + i + '"></tr>');
+					$('#all_discount_table').append('<tr id="discount_tr_' + i + '"></tr>').css({'border-bottom':'1px solid gray','padding':'10px'});
 					$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].packageNo + '</td>');
 					$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].descript + '</td>');
 					$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].quantity_condition + '</td>');
@@ -233,6 +265,16 @@
 					
 					$('#discount_tr_' + i).append('<td><input type="button" name= "discount_update" value="修改" class="update" id="edit_' + response_all_discount_list[i].packageNo + '"></td>');
 					$('#discount_tr_' + i).append('<td><input type="button" name= "discount_delete" value="刪除" class="delete" id="delete_' + response_all_discount_list[i].packageNo + '"></td>');
+// 					<!-- Button trigger modal -->
+//					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+// 					  Launch demo modal
+//					</button>
+// 					<!-- "新增折扣"按鈕 -->
+// 					<button id="add_new_rule" type="button" name="add_new_rule" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+// 			 		 	新增折扣
+// 					</button>
+
+				
 				}
 			}
 		})
@@ -314,7 +356,7 @@
 				$('#discount_id').text( response_discount_data.packageNo );
 				$('#edit_discount_description').val(response_discount_data.descript);
 				$('#edit_cloth_amount option[value="' + response_discount_data.quantity_condition + '"]').prop('selected', true);
-				$('#edit_discount_type1').val( response_discount_data.discount1 * 10 );
+				$('#edit_discount_type1').val( response_discount_data.discount1.toFixed(2) * 10 );
 				$('#edit_discount_type2').val(response_discount_data.discount2)
 			}			
 		})
@@ -386,7 +428,7 @@
 			},
 			//成功時的處理 ; 會有一個alert的message
 			success: function(response_count) {	//去接ajax傳回來的結果				
-				alert("成功新增" + response_count + "筆資料。");
+				//alert("成功新增" + response_count + "筆資料。");
 				location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
 			}
 		})
@@ -407,8 +449,10 @@
 				alert('Ajax request 發生錯誤');
 			},
 			success: function(response_delete_count){
-				alert("成功刪除" + response_delete_count + "筆資料。" );
-				location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
+				//alert("成功刪除" + response_delete_count + "筆資料。" );
+				
+				swal("刪除成功", "", "success")
+				//location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
 			}
 		})
 	});	
