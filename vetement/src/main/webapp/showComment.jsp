@@ -49,10 +49,16 @@
 		</div>
 	</div>	
 <script type="text/javascript">
-
+	
 	$(function() {
- 	   $.getJSON('CommentCheck',{action:"GET_ALL",'productId':1},function(datas){
- 		   console.log(datas);
+		var url = window.location.href;
+		 var temp = url.split("?");
+		 var vars = temp[1].split("=");
+		 var value = vars[1];
+		 console.log(value);
+ 	   $.getJSON('CommentCheck',{action:"GET_ALL",'productId':value},function(datas){
+ 	//	   console.log(pid);
+ 	//	   console.log(datas);
 		   var tb = $('#panes').empty();
 		   var docFrag = $(document.createDocumentFragment());
 	
