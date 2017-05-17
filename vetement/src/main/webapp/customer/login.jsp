@@ -147,7 +147,7 @@
 				</div>
 				<div class="blockinput">
 					<label>密碼</label>
-					<input id="pswd" class="input" type="password" name="pswd" value="lativ123" onfocus="this.placeholder=''" onblur="this.placeholder='密碼'" autoComplete="off" chi="密碼">
+					<input id="pswd" class="input" type="password" name="pswd" value="Lativ123" onfocus="this.placeholder=''" onblur="this.placeholder='密碼'" autoComplete="off" chi="密碼">
 					<div id="pswd_error_msg" class="error_msg"></div>
 				</div>
 				<button class="login_btn" id="login_submit" type="button">登入</button>

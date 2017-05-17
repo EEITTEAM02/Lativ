@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,19 +44,40 @@ public class DiscountServlet extends HttpServlet {
 			DiscountDAO dao = new DiscountDAO();
 			
 			DiscountService discountSvc = new DiscountService();
-			List<DiscountVO> all_discount = discountSvc.getAllDiscount();		//find_a_discount是一個DiscountVO物件			
+			List<DiscountVO> all_discount = discountSvc.getAllDiscount();		//find_a_discount是一個DiscountVO物件
+			List all_discount_list = new ArrayList();
+			
+			for (final DiscountVO each_discountVO : all_discount) {
+				Map each_discount_map = new HashMap(); 
+				
+				each_discount_map.put("packageNo", each_discountVO.getPackageNo());
+				each_discount_map.put("quantity_condition", each_discountVO.getQuantity_condition());
+				each_discount_map.put("discount1", each_discountVO.getDiscount1());
+				each_discount_map.put("discount2", each_discountVO.getDiscount2());
+				each_discount_map.put("descript", each_discountVO.getDescript());
+				
+				all_discount_list.add(each_discount_map);
+			}
+			
+			//System.out.println(all_discount_list);
+			String all_discount_list_json = JSONValue.toJSONString(all_discount_list);
+			
+			ajax_out.println(all_discount_list_json);
+			ajax_out.close();
 			
 			//System.out.println(list);
 			/***************************查詢完成,準備轉交(Send the Success view)*************/
-			HttpSession session = req.getSession();
-			session.setAttribute("list", all_discount);    // 資料庫取出的all_discount物件,存入session,key是list
-			// Send the Success view
+//			HttpSession session = req.getSession();
+//			session.setAttribute("list", all_discount);    // 資料庫取出的all_discount物件,存入session,key是list
+//			// Send the Success view
 //			String url = "/admin/DiscountRule.jsp";
 //			RequestDispatcher updateView = req.getRequestDispatcher(url);
 //			
 //			updateView.forward(req, res);	
-					//要RequestDispatcher才能forward //實際上導頁是forward
-			return;
+//					//要RequestDispatcher才能forward //實際上導頁是forward
+//			return;
+			
+			
 		}
 		
 		//Edit-get specific discount condition
