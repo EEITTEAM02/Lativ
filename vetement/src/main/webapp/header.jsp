@@ -6,6 +6,7 @@
 <head>
 <script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sweetalert.css">
+<%-- <script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script> --%>
 <style>
 	.glyphicon:before {
 		font-family: Glyphicons Halflings
