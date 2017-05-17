@@ -102,6 +102,11 @@
 			$('input[name="searcher"]').keydown(function() {
 				search(event);
 			})
+			
+			$('.autocomplete-suggestions').click(function(){
+				SearchKeyword = $('.autocomplete-selected').text()
+ 				location.href="Search.do?SearchKeyword="+SearchKeyword;
+			});
 
 			function search(event) {
 				var keyWord = $('input[name="searcher"]').val();

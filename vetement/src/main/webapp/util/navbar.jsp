@@ -115,9 +115,6 @@
 	    lookup: productions
 	});
 	
-	$('.autocomplete-suggestion autocomplete-selected').click(function(){
-		alert("AA");
-	});
 	</script>
 </body>
 </html>

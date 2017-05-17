@@ -51,8 +51,8 @@
 		    lookup: productions
 		});
 		
-		$('.autocomplete-selected').click(function(){
-			alert("AA");
+		$('.autocomplete-suggestions').click(function(){
+			alert($('.autocomplete-selected').text());
 		});
 	})
 	</script>

@@ -107,6 +107,13 @@
 			$('input[name="searcher"]').keydown(function() {
 				search(event);
 			})
+			
+			$('.autocomplete-suggestions').click(function(){
+				var keyWord = $('.autocomplete-selected').text()
+				$("#display").empty();
+				//列出搜尋的相關商品
+				getData(keyWord);
+			});
 
 			function search(event) {
 				var keyWord = $('input[name="searcher"]').val();

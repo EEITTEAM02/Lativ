@@ -193,6 +193,11 @@ img.displayImg {
 				search(event)
 			})
 			
+			$('.autocomplete-suggestions').click(function(){
+				SearchKeyword = $('.autocomplete-selected').text()
+ 				location.href="Search.do?SearchKeyword="+SearchKeyword;
+			});
+			
 			$('a[name="bottom"]').click(function(){
 				var val_bottom = $(this).text();
  				var val_middle = $(this).parent().children('a[name="middle"]').text();
