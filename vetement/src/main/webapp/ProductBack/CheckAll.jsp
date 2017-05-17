@@ -207,7 +207,7 @@ tr {
 					<input type="button" name="informationCheck" class="btn btn-default btn-block" value="上一步" />
 				</div>
 				<div class="div_button">
-					<input type="submit" class="btn btn-default btn-block" value="送出訂單" />
+					<input type="button" name="creditcard" class="btn btn-default btn-block" value="送出訂單" />
 				</div>
 			</div>
 		</form>
@@ -217,6 +217,10 @@ tr {
 		$(function(){
 			$('input[name="informationCheck"]').click(function(){
 				location.href="InformationCheck.jsp";
+			})
+			
+			$('input[name="creditcard"]').click(function(){
+				location.href="CreditCard.jsp";
 			})
 		})
 	</script>

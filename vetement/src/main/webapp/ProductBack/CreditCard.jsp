@@ -46,15 +46,28 @@
 	width: 100px;
 	margin: auto;
 	margin-top: 15px;
+	display: inline-block;
+}
+
+#bottom{
+	width:300px;
+	margin-left:145px;
 }
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	$(function() {
+		$('div[class="progress-label"]').hide();
+		
+		$('input[name="checkAll"]').click(function(){
+			location.href="CheckAll.jsp";
+		})
+		
 		var input1=$('#input1'),input2=$('#input2'),input3=$('#input3'),input4=$('#input4'),input5=$('#input5');
-		$('input[name="submit"]').click(function(){
+		$('input[name="done"]').click(function(){
 			if(input1.val()&&input2.val()&&input3.val()&&input4.val()&&input5.val()){
+				$('div[class="progress-label"]').show();
 				var progressbar = $("#progressbar"), progressLabel = $(".progress-label");
 				progressbar.progressbar({
 					value : false,
@@ -63,7 +76,7 @@
 					},
 					complete : function() {
 						progressLabel.text("Complete!");
-						location.href="${pageContext.request.contextPath}/Search/search.jsp";
+						location.href="${pageContext.request.contextPath}//ProductBack/DealDone.do";
 					}
 				});
 
@@ -128,8 +141,13 @@
 					size="10" /> <img width="50"
 					src="${pageContext.request.contextPath}/img/3numbers.jpg" />
 			</div>
-			<div class="div_button" style="text-align: center;">
-				<input type="submit" name="submit" class="btn btn-default btn-block" />
+			<div id="bottom">
+				<div class="div_button" style="text-align: center;">
+					<input type="button" name="checkAll" value="取消" class="btn btn-default btn-block"/>
+				</div>
+				<div class="div_button" style="text-align: center;">
+					<input type="button" name="done" value="提交" class="btn btn-default btn-block" />
+				</div>
 			</div>
 		</div>
 	</form>

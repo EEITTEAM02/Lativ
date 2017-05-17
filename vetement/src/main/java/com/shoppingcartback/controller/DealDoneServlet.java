@@ -90,7 +90,7 @@ public class DealDoneServlet extends HttpServlet {
 		OrderService dao = new OrderService();
 		dao.updateOrder(orderNo, dealDate, customerId, addr_send, price_total, status1, name_send, tel_send);
 		
-		response.sendRedirect(request.getContextPath()+"/ProductBack/ProductMain.jsp");
+		response.sendRedirect(request.getContextPath()+"/Search/search.jsp");
 	}
 
 }
