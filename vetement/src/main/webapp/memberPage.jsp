@@ -34,7 +34,8 @@
 	margin: auto; 
 	border: 2px solid #337ab7; 
 	border-radius: 30px; 
-	height: 800px; 
+	min-height: 800px; 
+	max-height: auto; 
 	width: 55%; 
 	padding-top: 70px; 
 	padding-left: 5px; 
@@ -89,7 +90,7 @@ body{
 			</div>
 			
 			
-			<div class="pan2_item customer_service" id="pan2_item_4" style="background-color: rgba(217, 255, 255, .5);">
+			<div class="pan2_item customer_service" id="pan2_item_4" style="background-color: rgba(217, 255, 255, .5);border-radius: 20px;">
 				<jsp:include page="/customer_service/view_letter.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item" id="pan2_item_5">
