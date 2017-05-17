@@ -30,6 +30,8 @@
 <script src="${pageContext.request.contextPath}/js/jquery.fancybox.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/clean-blog.min.js"></script>
+<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
 <style>
 .vertical-menu {
 	width: 250px;
@@ -259,7 +261,6 @@ img.displayImg {
 
 				docFragment.append(productLi);
 			}
-			
 
 			$('#img1').hide();
 			// 			$(document).ajaxStart(function(){

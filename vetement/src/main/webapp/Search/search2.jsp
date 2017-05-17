@@ -50,6 +50,10 @@
 		search.autocomplete({
 		    lookup: productions
 		});
+		
+		$('.autocomplete-selected').click(function(){
+			alert("AA");
+		});
 	})
 	</script>
 </body>
