@@ -71,9 +71,7 @@
 				success:function(){
 					//alert("修改成功");
 					//location.href = '${pageContext.request.contextPath}/memberPage.jsp';
-					swal({title: "修改成功",type: "success"},function(){
- 						location.href="${pageContext.request.contextPath}/memberPage.jsp";	
- 					});
+					swal({title: "修改成功",type: "success"});
 				},
 				
 				error: function(xhr) {

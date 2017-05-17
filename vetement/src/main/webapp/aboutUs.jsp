@@ -163,7 +163,7 @@
 				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">我們提供最優惠的折扣</h4>
 				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">也可以參考評價來選擇最適合自己的商品。</h4>
 				      <br>
-				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">當商品售出後，我們有最完整的售後服務</h4>
+				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">當商品售出後，我們有完整的售後服務</h4>
 				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">可以透過訂單記錄查詢您的歷史清單與記錄</h4>
 				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">假如有任何問題也可以透過客服系統與我們連絡。</h4>
 				      <br> 
@@ -206,15 +206,16 @@
 	<section id="services" class="services-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
+			<div class="col-lg-2"></div>
+				<div class="col-lg-8">
 					<h1 style="font-family: 標楷體;color:#483D8B;font-weight: bold;">免責聲明</h1>
 					<h3 style="font-family: 標楷體; text-align: left;">當您在閱讀(本網站)時，代表你已詳細閱讀及明確了解本『免責聲明』:</h3>
-					<h3 style="font-family: 標楷體; text-align: left;">一、(本網站)所載之任何資料或數據僅用於EEIT93專題，主要用於專題展示</h3>
-					<h3 style="font-family: 標楷體; text-align: left;"></h3>
-					<h3 style="font-family: 標楷體; text-align: left;"></h3>
-					<h3 style="font-family: 標楷體; text-align: left;"></h3>
-					<h3 style="font-family: 標楷體; text-align: left;"></h3>
-					<h3 style="font-family: 標楷體; text-align: left;"></h3>
+					<h3 style="font-family: 標楷體; text-align: left;">一、(本網站)所載之任何資料(包含文字，圖片)或數據僅用於</h3>
+					<h3 style="font-family: 標楷體; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;EEIT93專題，對於本部落格內容所載資訊內容之正確性、</h3>
+					<h3 style="font-family: 標楷體; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;即時性、可靠性、完整性不含以任何商業性、營利性使用或</h3>
+					<h3 style="font-family: 標楷體; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;特定目的之保證。</h3>
+					<h3 style="font-family: 標楷體; text-align: left;">二、免責聲明更新在給予或不給予事先通知下，本網站保留隨時</h3>
+					<h3 style="font-family: 標楷體; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;更新本免責聲明的權利，任何更改於本網站發佈時，立即生效。</h3>
 				</div>
 			</div>
 		</div>
