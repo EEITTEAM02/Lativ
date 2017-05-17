@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cust.model.CustomerService;
-import com.discount.model.DiscountService;
-import com.discount.model.DiscountVO;
+import com.disc.model.DiscountService;
+import com.disc.model.DiscountVO;
 import com.order.model.OrderService;
 import com.order.model.OrderVO;
 import com.orderItem.model.OrderItemVO;
@@ -75,7 +75,7 @@ public class UpdateProductServlet extends HttpServlet {
 			//更新購物車物件，清除資料庫某項明細
 			cart.delete(productId);
 			DiscountService dao = new DiscountService();
-			Set<DiscountVO> set = new LinkedHashSet<DiscountVO>(dao.getAll());
+			Set<DiscountVO> set = new LinkedHashSet<DiscountVO>(dao.getAllDiscount());
 
 			set = cart.discountSelect(set);
 			cart.cartRe();
@@ -91,7 +91,7 @@ public class UpdateProductServlet extends HttpServlet {
 			cart.modifyQty(productId, count);
 
 			DiscountService dao = new DiscountService();
-			Set<DiscountVO> set = new LinkedHashSet<DiscountVO>(dao.getAll());
+			Set<DiscountVO> set = new LinkedHashSet<DiscountVO>(dao.getAllDiscount());
 
 			set = cart.discountSelect(set);
 			cart.cartRe();
