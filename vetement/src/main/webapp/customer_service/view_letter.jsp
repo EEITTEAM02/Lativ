@@ -37,9 +37,10 @@
             text-align: center;
             font-size: 24px;
             padding: 3px;
+            border:none;
 	}
 	.tb1{
-	padding-bottom: 10px
+	padding-bottom: 10px;
 	}
 	
 </style>
