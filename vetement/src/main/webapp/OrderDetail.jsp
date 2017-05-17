@@ -41,6 +41,12 @@
 	padding: .5em 10px;
 	text-align: center;
 }
+#orderDetailTable td{
+	padding:10px;
+}
+#orderDetailTable{
+	text-align: center;
+}
 #h{
 	color:#009FCC;
 	text-align:center;
@@ -214,10 +220,11 @@ img.displayImg {
 
                                             var img = $('<img></img>').attr("src", "productImages/" + orderItem.pno).addClass('displayImg');
                                             cell9.append(img);
+                                            var cell21 = $('<td></td>').css('text-align','center').append(cell9);
                                             var cell10 = $('<td></td>').text(orderItem.score);
                                             var cell11 = $('<td></td>').text(orderItem.score);
                                             var row1 = $('<tr></tr>');
-                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell9, cell10, cell11]);
+                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell21, cell10, cell11]);
                                             docFrag1.append(row1);
                                         })
 
