@@ -14,9 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>站內信管理</title>
 <style>
-	*{
-		font-family:標楷體;
-	}
+	
 	.co1{
 		color:red;
 	}
