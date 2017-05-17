@@ -10,13 +10,15 @@
 	</head>
 	<body>
 	<jsp:useBean id="newsSvc" scope="page" class="com.news.model.NewsService" />
+		<div style="margin-left: 20%;font-family: Microsoft Jhenghei">
 		<ul>
 			<li>
 			    <FORM METHOD="post">
 			        <b>新增 :</b>
-			        <input type="button" value="新增" name="new1" id='n1'>
+			        <input type="button" value="新增公告" name="new1" id='n1' class="btn btn-info btn-sm">
 			    </FORM>
 			 </li>
+			 <br>
  			<li>
  				<FORM >
 			       <b>更改公告 :</b>
@@ -25,9 +27,10 @@
 				       		<option value="${newsVO.newsno}">${newsVO.newsno} : ${newsVO.title}
 				       </c:forEach>   
 			       </select>
-			       <input type="button" value="送出" id='s1'>
+			       <input type="button" value="送出" id='s1' class="btn btn-info btn-sm"">
 			    </FORM>
 			</li>
+			<br>
 			<li>
  				<FORM >
 			       <b>刪除公告 :</b>
@@ -36,12 +39,13 @@
 				       		<option value="${newsVO.newsno}">${newsVO.newsno} : ${newsVO.title}
 				       </c:forEach>   
 			       </select>
-			       <input type="button" value="送出" id='d1'>
+			       <input type="button" value="刪除" id='d1' class="btn btn-info btn-sm" >
 			    </FORM>
 			</li>
 		</ul>
-		<div>
-			<h1>修改公告</h1>
+		</div>
+		<div style="margin-left: 15% ; font-family: Microsoft Jhenghei">
+			<h1 style="margin-left: 30%;">修改公告</h1>
 			<c:if test="${not empty errorMsgs}">
 				<font color='red'>請修正以下錯誤:
 				<ul>
@@ -78,8 +82,8 @@
    					</tr>
 
    					<tr><td colspan='2'style='text-align:center'>
-   					<input type='submit' value='送出內容' id= 'go1'>&nbsp;&nbsp;&nbsp;
-   					<input type='button' value='刪除內容' id= 's2'></td></tr>
+   					<input type='submit' value='送出內容' id= 'go1' class="btn btn-info btn-sm" >&nbsp;&nbsp;&nbsp;
+   					<input type='button' value='刪除內容' id= 's2' class="btn btn-info btn-sm" ></td></tr>
 			 		<input type="hidden" name="action" value="ins">
 				</table>
 			</form>
@@ -129,7 +133,7 @@
 				ta4.empty();
 				ta1.append($('<div></div>').append(inp));
 				ta2.append($("<div></div>").html("<input type='text'  name='title' size='80' placeholder='標題'>"));
-				ta3.append($("<div></div>").html("<textarea rows='10' cols='73'  name='content' placeholder='內文'></textarea>"));
+				ta3.append($("<div></div>").html("<textarea rows='10' cols='80'  name='content' placeholder='內文'></textarea>"));
 				ta4.append($('<div></div>').append(inp2));
 			});
 			
@@ -141,7 +145,7 @@
 				ta3.empty();
 
 				ta2.append($("<div></div>").html("<input type='text'  name='title' size='80' placeholder='標題'>"));
-				ta3.append($("<div></div>").html("<textarea rows='10' cols='73'  name='content' placeholder='內文'></textarea>"));
+				ta3.append($("<div></div>").html("<textarea rows='10' cols='80'  name='content' placeholder='內文'></textarea>"));
 
 			});
 			
@@ -174,7 +178,7 @@
 						   
 						   inp.attr({type:'text',name:'newsno',size:'80',value:news.Newsno,readonly:"readonly"});
 						   inp2.attr({type:'text',name:'title',size:'80',value:news.Title});
-						   inp33.attr({name:'content',size:'80',rows:'10',cols:'73',value:news.Content});
+						   inp33.attr({name:'content',size:'80',rows:'10',cols:'80',value:news.Content});
 						   var inp3 = inp33.val(news.Content);
 						   inp4.attr({type:'text',name:'pubdate',size:'80',value:news.Pubdate});
 						   

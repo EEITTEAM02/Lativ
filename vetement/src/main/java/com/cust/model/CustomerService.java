@@ -76,5 +76,7 @@ public class CustomerService {
 			return dao.getOrderVOsByCustomerId(customerId);
 		}
 
-
+		public List<CustomerVO> getAll() {
+			return dao.getAll();
+		}
 }
