@@ -28,7 +28,7 @@ public class Customer_ServiceServlet extends HttpServlet {
 		res.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("utf-8");
 		
-		
+		HttpSession session = req.getSession();
 		PrintWriter out = res.getWriter();
 		Customer_ServiceService customer_serviceSvc = new Customer_ServiceService();
 		String action = req.getParameter("action");
@@ -102,11 +102,11 @@ public class Customer_ServiceServlet extends HttpServlet {
 				
 				customer_serviceVO = customer_serviceSvc.updateCustomer_Service(no_service,customerId,title_service,content_service,reply_service,pubdate);
 	//			req.setAttribute("customer_serviceVO", customer_serviceVO);
-				req.setAttribute("bbb", "del4");
-				RequestDispatcher successView = req.getRequestDispatcher("/mangerPage.jsp");// 刪除成功後,轉交回送出刪除的來源網頁
-				successView.forward(req, res);
+				session.setAttribute("bbb", "del4");
+//				RequestDispatcher successView = req.getRequestDispatcher("/mangerPage.jsp");// 刪除成功後,轉交回送出刪除的來源網頁
+//				successView.forward(req, res);
 
-//				res.sendRedirect("/vetement/mangerPage.jsp");
+				res.sendRedirect("/vetement/mangerPage.jsp");
 			}
 		}catch (Exception e) {
 			res.sendRedirect("/vetement/mangerPage.jsp#letter");
@@ -118,10 +118,10 @@ public class Customer_ServiceServlet extends HttpServlet {
 			
 			customer_serviceSvc.deleteCustomer_Service(no_service);
 			
-			req.setAttribute("bbb", "del4");
-			RequestDispatcher successView = req.getRequestDispatcher("/mangerPage.jsp");// 刪除成功後,轉交回送出刪除的來源網頁
-			successView.forward(req, res);
-//			res.sendRedirect("/vetement/mangerPage.jsp#letter");
+			session.setAttribute("bbb", "del4");
+//			RequestDispatcher successView = req.getRequestDispatcher("/mangerPage.jsp");// 刪除成功後,轉交回送出刪除的來源網頁
+//			successView.forward(req, res);
+			res.sendRedirect("/vetement/mangerPage.jsp#letter");
 
 		}
 		if ("del1".equals(action)){
@@ -131,10 +131,10 @@ public class Customer_ServiceServlet extends HttpServlet {
 			customer_serviceSvc.deleteCustomer_Service(no_service);
 			
 			
-			req.setAttribute("aaa", "del3");
-			RequestDispatcher successView = req.getRequestDispatcher("/memberPage.jsp");// 刪除成功後,轉交回送出刪除的來源網頁
-			successView.forward(req, res);
-//			res.sendRedirect("/vetement/memberPage.jsp");
+			session.setAttribute("aaa", "del3");
+//			RequestDispatcher successView = req.getRequestDispatcher("/memberPage.jsp");// 刪除成功後,轉交回送出刪除的來源網頁
+//			successView.forward(req, res);
+			res.sendRedirect("/vetement/memberPage.jsp");
 
 		}
 		

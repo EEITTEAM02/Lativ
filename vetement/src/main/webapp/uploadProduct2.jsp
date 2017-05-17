@@ -7,20 +7,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>ProductUpload/Modify</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="js/jquery-3.2.0.min.js"></script>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="js/jquerysession.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<!--  與mangerPage產生衝突，先註解下列引用  -->
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!-- <script src="js/jquery-3.2.0.min.js"></script> -->
+<!-- <link rel="stylesheet" -->
+<!-- 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<!-- <script src="js/jquerysession.js"></script> -->
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+<!-- <script src="js/bootstrap.min.js"></script> -->
 <style>
-div span {
-    display: inline-block;
-    width: 35px;
-    text-align: center;
-}
+
+/* 與mangerPage產生衝突，先註解下列CSS */
+
+/* div span { 
+     display: inline-block; 
+     width: 35px; 
+     text-align: center; 
+ } */
 
 .dialogRegister-form input {
     width: 35px;
@@ -29,22 +34,25 @@ div span {
 .dialogLogin-form input {
     width: 35px;
 }
-/* .ui-dialog-titlebar-close { */
-/*     visibility: hidden; */
-/* } */
-@media ( min-width : 768px) {
-	.navbar-nav {
-		width: 100%;
-		text-align: center;
-	}
-	.navbar-nav>li {
-		float: none;
-		display: inline-block;
-	}
-	.navbar-nav>li.navbar-right {
-		float: right !important;
-	}
-}
+
+/* 與mangerPage產生衝突，先註解下列CSS */
+
+/* .ui-dialog-titlebar-close { 
+     visibility: hidden; 
+	} 
+ @media ( min-width : 768px) { 
+ 	.navbar-nav { 
+ 		width: 100%; 
+ 		text-align: center; 
+ 	} 
+ 	.navbar-nav>li { 
+ 		float: none; 
+ 		display: inline-block; 
+ 	} 
+ 	.navbar-nav>li.navbar-right {
+ 		float: right !important; 
+ 	} 
+ } */
 
 h1#a {
 	text-indent: 100%;
