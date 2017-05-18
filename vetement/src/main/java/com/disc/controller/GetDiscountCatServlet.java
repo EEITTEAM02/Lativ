@@ -1,4 +1,4 @@
-package com.discount.controller;
+package com.disc.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import com.disc.model.DiscountService;
-import com.disc.model.DiscountVO;
+import com.discount.model.DiscountService;
+import com.discount.model.DiscountVO;
 
 public class GetDiscountCatServlet extends HttpServlet{
 
