@@ -103,7 +103,7 @@
 	var searcher = $('#searcher');
 	var productions = new Array();
 
-	$.getJSON("AutocompleteSearch.do",{"autoKeyword":""},function(data){
+	$.getJSON("${pageContext.request.contextPath}/Search/AutocompleteSearch.do",{"autoKeyword":""},function(data){
 			$.each(data,function(i,productName){
 				var ob = new Object();
 				ob.value = productName;
