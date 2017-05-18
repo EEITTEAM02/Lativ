@@ -8,6 +8,7 @@ drop table orders
 drop table production
 drop table category
 drop table discount 
+drop table discount1
 drop table customer
 
 

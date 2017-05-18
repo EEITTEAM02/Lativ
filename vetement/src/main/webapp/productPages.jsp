@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,25 +33,22 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-<!-- <link rel="stylesheet" type="text/css" href="css/sweetalert.css"> -->
-<!-- <script type="text/javascript" src="js/jquery-3.2.0.min.js" charset="utf-8"></script> -->
-<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-<!-- <script src="js/jquerysession.js"></script> -->
-<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-<!-- <script src="js/bootstrap.min.js"></script> -->
-<!-- <script src="js/jquery.mycart.js"></script> -->
-<!-- <script src="js/jquery.fancybox.min.js"></script> -->
-<!-- <script src="js/sweetalert.min.js"></script>	 -->
-
+<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script src="${context}/js/bootstrap.min.js"></script>
+<script src="${context}/js/jquerysession.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="${context}/js/jquery.fancybox.min.js"></script>
+<script src="${context}/js/sweetalert.min.js"></script>
+<script src="${context}/js/clean-blog.min.js"></script>
+<script type='text/javascript' src="${context}/js/jquery.mycart.js"></script>
+<script src="${context}/jsUtil/includeHeader.js"></script>
+<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
 
 <style>
 .glyphicon:before {
-		font-family: Glyphicons Halflings
-	}
-	
+	font-family: Glyphicons Halflings
+}
+
 .colorImg {
 	margin: 5px;
 }
@@ -106,24 +103,23 @@ img.displayImg {
 	height: 100%;
 	width: 100%;
 }
-#div26 a{
-	 font-weight:bold;
-	 text-decoration:none;
-	 color: #337ab7;
-}
 
+#div26 a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #337ab7;
+}
 </style>
 
 
 </head>
 
 <body>
-	<c:set var="context" value="${pageContext.request.contextPath}" />
+
 
 	<!-- Navigation -->
-	<nav id="header" class="navbar navbar-default navbar-custom navbar-fixed-top">
-
-	</nav>
+	<nav id="header"
+		class="navbar navbar-default navbar-custom navbar-fixed-top"></nav>
 
 	<header class="intro-header">
 		<div class="container" style="margin-bottom: 100px"></div>
@@ -194,15 +190,17 @@ img.displayImg {
 							</div>
 							<div class="row">
 								<div class="col-sm-6 well" id="div26">
-									<div id="comm" style="display:inline-block">
+									<div id="comm" style="display: inline-block">
 										<a href='#' onClick=openwindow('showComment.jsp?pid=${param.Pid}','test',700,500)>查看評價</a>
 									</div>
-									<div id="like" style="display:inline-block; margin-left:60px;">
-	     									<img id="likeimg" data-toggle="tooltip" data-placement="top" title="加入我的收藏">
-									 </div>
+									<div id="like"
+										style="display: inline-block; margin-left: 60px;">
+										<img id="likeimg" data-toggle="tooltip" data-placement="top"
+											title="加入我的收藏">
+									</div>
 								</div>
 							</div>
-	
+
 						</div>
 					</div>
 					<!-- carousel -->
@@ -232,7 +230,7 @@ img.displayImg {
 											src="http://placehold.it/200x100"
 											style="width: 200px; height: 100px;""></a>
 									</div>
-							</div>
+								</div>
 								<a class="left carousel-control"
 									href="#carousel-example-generic" data-slide="prev"> <span
 									class="glyphicon glyphicon-chevron-left"></span>
@@ -279,17 +277,17 @@ img.displayImg {
 			</div>
 		</div>
 		<br></br>
-		
-	    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
-		<script src="${context}/js/bootstrap.min.js"></script>
-		<script src="${context}/js/jquerysession.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script src="${context}/js/jquery.fancybox.min.js"></script>
-		<script src="${context}/js/sweetalert.min.js"></script>
-		<script src="${context}/js/clean-blog.min.js"></script>
-       <script type='text/javascript' src="${context}/js/jquery.mycart.js"></script>
-		 <script src="${context}/jsUtil/includeHeader.js"></script>
-		
+
+		<!-- 	    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script> -->
+		<%-- 		<script src="${context}/js/bootstrap.min.js"></script> --%>
+		<%-- 		<script src="${context}/js/jquerysession.js"></script> --%>
+		<!-- 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+		<%-- 		<script src="${context}/js/jquery.fancybox.min.js"></script> --%>
+		<%-- 		<script src="${context}/js/sweetalert.min.js"></script> --%>
+		<%-- 		<script src="${context}/js/clean-blog.min.js"></script> --%>
+		<%--        <script type='text/javascript' src="${context}/js/jquery.mycart.js"></script> --%>
+		<%-- 		 <script src="${context}/jsUtil/includeHeader.js"></script> --%>
+
 		<script>
 		var ctx = "<%=request.getContextPath()%>";
 		
@@ -313,15 +311,15 @@ img.displayImg {
 			 $('[data-toggle="tooltip"]').tooltip()
 			
 			//載入頁面同時確認是否已收藏
-			if( "${sessionScope.login_customer_info.customerId}"==""){
+			if("${sessionScope.login_customer_info.customerId}"==""){
 				$('#like>img').attr("src","images/Like2.png");
 			}else{
 					cid=${sessionScope.login_customer_info.customerId}
 				   $.get('FavoriteCheck',{action:"getOne_For_Display",'customerId':cid,'productId':pid},function(data){
 					   if(data.trim() == "not add"){
-						   $('#like>img').attr("src","images/Like2.png");
+						   $('#like>img').attr({"src":"images/Like2.png","title":"加入我的收藏"});
 					   }else{
-						   $('#like>img').attr("src","images/heart2.png");
+						   $('#like>img').attr({"src":"images/heart2.png","title":"取消我的收藏"});
 					   }
 				   })					
 			}
@@ -330,14 +328,14 @@ img.displayImg {
 			//	點擊切換收藏狀態    
 				 $("#likeimg").bind("click",function(){	
 					 if( "${sessionScope.login_customer_info.customerId}"==""){
-						 alert("請先登入會員");	
+						 swal("請先登入會員");	
 					 }else{
 						 cid=${sessionScope.login_customer_info.customerId}
 						 $.get('FavoriteCheck',{action:"getChange_For_Display",'customerId':cid,'productId':pid},function(data){
 							 if(data.trim() == "insert"){
-								 $("#likeimg").attr("src","images/heart2.png");
+								 $("#likeimg").attr({"src":"images/heart2.png","title":"取消我的收藏"});
 			        		 }else{
-			        			 $("#likeimg").attr("src","images/Like2.png");
+			        			 $("#likeimg").attr({"src":"images/Like2.png","title":"加入我的收藏"});
 			        		 }
 						 })				 
 					 }
@@ -454,7 +452,7 @@ img.displayImg {
 
             function mousedown(e) {
                 var x = e.target.id.substr(5);
-                var cid = <%= session.getAttribute("mno")%>
+                var cid = <%=session.getAttribute("mno")%>
                 var idScore = {'id':universalPno,'score':x};
                 var idScore2 = JSON.stringify(idScore);
 //                 console.log(idScore2);
@@ -572,19 +570,20 @@ img.displayImg {
        	         $('li:contains("'+datas.mainCat+'")').addClass('active');      
        	                
        	                for (var i=0;i<datas.l2.length;i++){
-          		            img = $('<img></img>').attr({"src":"colorImages/"+datas.l2[i],"id":i}).addClass("colorImg").click(function(event){
+          		            img = $('<img></img>').attr({"src":"colorImages/"+datas.l2[i],"id":i}).addClass("colorImg").click(function loadSth(event){
           		            	span2.empty();
           		            	span1.empty();
           		            	$('#smallImg').attr("src","productImages/"+datas.l2[event.target.id]);
           		            	$('#bigImg').attr("href","productImages/"+datas.l2[event.target.id]);
            		            	 var length = ($(datas.array1)[event.target.id].length);
                                  
-                                 
+                                
                                  for (var i =0;i<length;i++){
                                  var outerI = event.target.id;
                                  var innerI = i;
+                               
+                                 clickableSize = $(datas.array1)[outerI][innerI];
                                 
-                                 var clickableSize = $(datas.array1)[outerI][innerI];
                                  var cs = $('<a></a>').append(clickableSize).css({'margin-right':'10px'});
                                  if(checkAuth()){ 
                                  var aa = $('<a></a>').attr({"outerI":outerI,"innerI":innerI}).append(cs).click(function(){
@@ -619,16 +618,19 @@ img.displayImg {
           		            	span1.append(aa);
           		            	
                                  }
-                                 }
+                                 }                         
+                                 
           		            	});
           		           div22.append(img);
-          		         
-          		         
+          		                    		         
           		        }
+         	            
           		        var span1 = $('<span></span>').css('display','inline-block');
           		        var span2 = $('<span></span>').css('display','inline-block');
           		        div23.append(span1);
           		        div24.append(span2);
+          		      document.getElementById('0').click();
+                      span2.append($('<select><option>先選商品</option></select>')).append($("<button class='btn btn-danger'>add to cart</button>"));
           		        }
 
              		}

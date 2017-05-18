@@ -61,8 +61,8 @@ public class SearcherDAO {
 			session.beginTransaction();
 			Query query = session.createQuery(fuzzySearch);
 			query.setParameter("productName", "%"+keyWord+"%" );
-			query.setFirstResult(3*(pageNumber-1));
-			query.setMaxResults(3);
+			query.setFirstResult(20*(pageNumber-1));
+			query.setMaxResults(20);
 			list = query.list();
 			session.getTransaction().commit();
 		}catch(RuntimeException ex){

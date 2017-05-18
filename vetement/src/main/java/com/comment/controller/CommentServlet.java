@@ -57,11 +57,11 @@ public class CommentServlet extends HttpServlet{
 				Integer customerId = new Integer(req.getParameter("customerId").trim());
 				Integer productId = new Integer(req.getParameter("productId").trim());
 				Integer orderNo = new Integer(req.getParameter("orderNo").trim());
-				
+				System.out.println(comment);
 				if (comment == null || comment.trim().length() == 0) {
 					errorMsgs.add("評價請勿空白");
 				}
-				String commentReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9_)]{2,100}$";
+				String commentReg = "^[\\s\\S]{2,100}$";
 				if(!comment.trim().matches(commentReg) ) { 
 					errorMsgs.add("評價只能是中、英文字母、數字和_ , 且長度必需在2到100之間");
 	            }
@@ -77,7 +77,6 @@ public class CommentServlet extends HttpServlet{
 				commentVO.setOrderNo(orderNo);
 				
 				CommentService svc = new CommentService();
-//				CommentVO selectOne = svc.getOne(customerId, productId);
 				svc.addComment(commentVO);
 				msg = "add ok";
 

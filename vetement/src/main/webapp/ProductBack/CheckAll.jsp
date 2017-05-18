@@ -68,6 +68,7 @@ tr {
 </style>
 </head>
 <body>
+	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top"></nav>
 	<div class="imgDiv">
 		<img width="350" src="${pageContext.request.contextPath}/img/time_line03.png"/>
 	</div>
@@ -213,6 +214,8 @@ tr {
 		</form>
 	</div>
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
+	<c:set var="context" value="${pageContext.request.contextPath}" />
+	<script src="${context}/jsUtil/includeHeader.js"></script>
 	<script>
 		$(function(){
 			$('input[name="informationCheck"]').click(function(){

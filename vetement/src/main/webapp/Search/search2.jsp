@@ -20,6 +20,7 @@
 <body>
 	<input type="text" name="country" id="search"/>
 	<p>AAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+	<div style="cursor:pointer;">BBBBBBBBBBBB</div>
 	<script>
 	$(function(){
 // 		var productions = [ { value: 'Andorra', data: 'AD' }, { value: 'Zimbabwe', data: 'ZZ' }];

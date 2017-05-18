@@ -123,7 +123,11 @@ public class Customer_ServiceServlet extends HttpServlet {
 			
 			customer_serviceSvc.deleteCustomer_Service(no_service);
 			
-			res.sendRedirect("/vetement/memberPage.jsp");
+			
+			req.setAttribute("aaa", "del3");
+			RequestDispatcher successView = req.getRequestDispatcher("/memberPage.jsp");// 刪除成功後,轉交回送出刪除的來源網頁
+			successView.forward(req, res);
+//			res.sendRedirect("/vetement/memberPage.jsp");
 
 		}
 		

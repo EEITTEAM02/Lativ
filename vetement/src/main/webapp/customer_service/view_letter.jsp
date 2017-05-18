@@ -41,7 +41,7 @@
 	
 </style>
 <!-- <script src="../js/jquery-1.12.3.min.js"></script> -->
-<!--最新編譯和最佳化的 CSS -->
+<!-- 最新編譯和最佳化的 CSS -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
 <!-- 選擇性佈景主題 -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
@@ -54,8 +54,8 @@
 <div>
 <!-- 	<h2 style="font-family:標楷體;text-align: center;">聯絡客服</h2> -->
 	
-	<div style="padding-left:20px;padding-bottom: 20px" id='c3'><input type="button" id='c1' value='聯絡我們' class="btn btn-primary"></div>
-	<div id='c2' ></div>
+	<div style="padding-left:20px;padding-bottom: 20px" id='c321'><input type="button" id='c121' value='聯絡我們' class="btn btn-primary"></div>
+	<div id='c221' ></div>
 	<hr width="620" align="center">
 
 
@@ -129,18 +129,18 @@
 	<script>
 
 	
-		$('#c1').click(function(){
+		$('#c121').click(function(){
 			
 			now = new Date();
 			var year = now.getFullYear();
 			var mon = (now.getMonth()+1< 10 ? '0' : '')+(now.getMonth()+1);
 			var day = (now.getDate()< 10 ? '0' : '')+now.getDate();
 			var inp = $('<input/>');
-			var ta = $('#c2');
+			var ta = $('#c221');
 			ta.empty();
-			var tb = $('#c3');
+			var tb = $('#c321');
 			tb.empty();
-			tb.html("<input type='button' value='聯絡我們' id= 'c1' class='btn btn-primary'>"+'&nbsp;&nbsp;&nbsp;&nbsp;'+"<input type='button' value='關閉' id= 'c4' class='btn btn-danger'>");
+			tb.html("<input type='button' value='聯絡我們' id= 'c121' class='btn btn-primary'>"+'&nbsp;&nbsp;&nbsp;&nbsp;'+"<input type='button' value='關閉' id= 'c421' class='btn btn-danger'>");
 			
 			inp.attr({type:'text',name:'receive_date',size:'80',readonly:"readonly",value:year+'-'+mon+'-'+day});
 			
@@ -149,7 +149,7 @@
 			var td3 = $('<td></td>').attr({width:'80',style:'text-align:center'}).html('標'+'&nbsp;&nbsp;&nbsp;&nbsp;'+'題:');
 			var td4 = $('<td></td>').attr({id:'ta2'}).html("<input type='text'  name='title_service' size='80' placeholder='標題'>");
 			var td5 = $('<td></td>').attr({width:'80',style:'text-align:center'}).text('問題內容:');
-			var td6 = $('<td></td>').attr({id:'ta3'}).html("<textarea rows='10' cols='79'  name='content_service' placeholder='內文'></textarea>");
+			var td6 = $('<td></td>').attr({id:'ta3'}).html("<textarea rows='10' cols='82'  name='content_service' placeholder='內文'></textarea>");
 			var td7 = $('<td></td>').attr({colspan:'2',style:'text-align:center;padding:20px'}).html("<input type='button' value='送出內容' id= 'go1'>"+
 																						"<input type='hidden' name='customerId' value='${sessionScope.login_customer_info.getCustomerId()}'>"+'&nbsp;&nbsp;&nbsp;'+
 																						"<input type='button' value='刪除內容' id= 'd1'>");
@@ -167,7 +167,7 @@
 			
 			ta.append($('<form></form>').append($('<table></table>').append([tr1,tr2,tr3,tr4,tr5,tr6])));
 			
- 			ta.show();
+//  			ta.show();
 			$('#go1').click(function() {
 				var val1 = $('input[name="receive_date"]').val();
 				var val2 = $('input[name="title_service"]').val().trim();
@@ -197,7 +197,7 @@
 					}else{
 						$.post('customer_service.do',{action:"ins",'receive_date':val1,'title_service':val2,'content_service':val3,'customerId':val4},function(data){
 							ta.empty();
-							ta.append($('<div></div>').attr({id:'c2',style:"color:red; padding:20px; font-weight: bold;text-align: center;font-size: 24px;"}).text(data));
+							ta.append($('<div></div>').attr({id:'c221',style:"color:red; padding:20px; font-weight: bold;text-align: center;font-size: 24px;"}).text(data));
 						});
 					};
 				})
@@ -211,12 +211,16 @@
 				ta3.empty();
 	
 				ta2.html("<input type='text'  name='title_service' size='80' placeholder='標題'>");
-				ta3.html("<textarea rows='10' cols='79'  name='content_service' placeholder='內文'></textarea>");	
+				ta3.html("<textarea rows='10' cols='82'  name='content_service' placeholder='內文'></textarea>");	
 			});
 
 
-			$('#c4').click(function() {
-				window.location.reload();
+			$('#c421').click(function() {
+				var tb1 = $('#c321');
+				var ta111 = $('#c221');
+				ta111.empty();	
+				tb1.empty();
+				tb1.html("<input type='button' value='聯絡我們' id= 'c121' class='btn btn-primary'>");
 			})
 		});
 
