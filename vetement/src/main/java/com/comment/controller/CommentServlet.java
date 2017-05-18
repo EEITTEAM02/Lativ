@@ -61,7 +61,7 @@ public class CommentServlet extends HttpServlet{
 				if (comment == null || comment.trim().length() == 0) {
 					errorMsgs.add("評價請勿空白");
 				}
-				String commentReg = "^.{2,100}$";
+				String commentReg = "^[\\s\\S]{2,100}$";
 				if(!comment.trim().matches(commentReg) ) { 
 					errorMsgs.add("評價只能是中、英文字母、數字和_ , 且長度必需在2到100之間");
 	            }
