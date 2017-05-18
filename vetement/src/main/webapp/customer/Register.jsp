@@ -62,10 +62,11 @@
 	
 </style>
 <title>Insert title here</title>
+<script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 </head>
 <body>
 <c:set var="context" value="${pageContext.request.contextPath}" />
-<!-- 	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top" ></nav> -->
+	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top" ></nav>
 	
 	<div class="container">
 		<div class="register">
@@ -86,12 +87,12 @@
 				</div>
 				<div>
 					<label>電子郵件</label><br>
-					<input type='text' id="email" name='email' value='' chi='電子郵件'>
-					<div id="email_error_msg" class="error_msg"></div><br>
+					<input type='text' id="register_email" name='register_email' value='' chi='電子郵件'>
+					<div id="register_email_error_msg" class="error_msg"></div><br>
 				</div>
 				<div>
 					<label>密碼</label><br>
-					<input type='text' id="member_password" name='member_password' value='' chi='密碼'><br>
+					<input type='password' id="member_password" name='member_password' value='' chi='密碼'><br>
 					<div class='tip'>密碼長度:8-12字元、須包含數字與大小寫英文</div>
 					<div id="member_password_error_msg" class="error_msg"></div><br>
 				</div>
@@ -119,7 +120,7 @@
 		</div>
 	</div>	
 </body>
-<%-- <script src="${context}/jsUtil/includeHeader.js"></script> --%>
+<script src="${context}/jsUtil/includeHeader.js"></script>
 <script src="${context}/jsUtil/validation.js"></script>
 <script type="text/javascript">
 	$('input:radio[name="sex"]').change(function() {
@@ -165,7 +166,7 @@
 			data: {
 				qq_name: $("#member_name").val(),
 				qq_sex: $("[name='sex']:checked").val(),	//取有選取的radio btn的值
-				qq_email: $("#email").val(),
+				qq_email: $("#register_email").val(),
 				qq_member_password: $("#member_password").val(),
 				qq_confirm_password: $("#confirm_password").val(),
 				qq_addr: $("#full_addr").val(),
@@ -175,7 +176,7 @@
 			beforeSend : function(xhr){
 				//就是false以後要幹嘛，false以後要繼續，所以要return ; field_array =  ["member_name", "sex", "email", "member_password", "addr", "phone_no"]	
 				//validation_result 只可能是true或false
-				var validation_result = inputFieldEmptyValidation( ["member_name", "sex", "email", "member_password","confirm_password", "phone_no"] ); 
+				var validation_result = inputFieldEmptyValidation( ["member_name", "sex", "register_email", "member_password","confirm_password", "phone_no"] ); 
 				
 				if(validation_result == false) {
 					xhr.abort();
@@ -186,7 +187,10 @@
 					xhr.abort();	
 				}
 				
-				if( checkEmailPattern( $("#email").val() ) == false) {
+				console.log(checkEmailPattern( $("#register_email").val()));
+				
+				if( checkEmailPattern( $("#register_email").val() ) == false) {
+					$("#register_email_error_msg").text("請輸入正確電子郵件格式，例:aaa@gmail.com");
 					xhr.abort();
 				}
 				
@@ -211,10 +215,10 @@
 				if(response_count != "99999") {
 					//alert('成功新增' + response_count + "筆資料。");
 					alert("註冊成功!");
-					
+					//swal("註冊成功!", "", "success")
 					$.post(
 						"${pageContext.request.contextPath}/CustomerLoginServlet?action=login", 
-						{ account: $("#email").val(), password: $("#confirm_password").val() },
+						{ account: $("#register_email").val(), password: $("#confirm_password").val() },
 						
 						function(response_customer_data) {
 							//console.log(response_customer_data);
@@ -232,7 +236,7 @@
 					
 				}
 				else {
-					$('#email_error_msg').text("所輸入帳號已存在，請重新輸入。");
+					$('#register_email_error_msg').text("所輸入帳號已存在，請重新輸入。");
 				}
 			}
 		});		

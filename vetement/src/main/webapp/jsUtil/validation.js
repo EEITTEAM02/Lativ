@@ -27,7 +27,6 @@ function checkEmailPattern(email){
 	var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
  	//validate ok or not
 	if(email.length > 0 && email.search(emailRule) == -1){
-		$("#email_error_msg").text("請輸入正確電子郵件格式，例:aaa@gmail.com");
 		return false;
 	}
 }	

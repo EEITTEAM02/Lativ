@@ -22,7 +22,7 @@
 				Menu <i class="fa fa-bars"></i>
 		    </button>
 		    <a class="navbar-brand" href="${pageContext.request.contextPath}/indexTemplate.jsp">首頁</a>
-		    <a class="navbar-brand" href="${pageContext.request.contextPath}/Search/search.jsp">產品</a>
+		    <a class="navbar-brand" href="${pageContext.request.contextPath}/Search/search.jsp">購物</a>
 		    <c:if test="${sessionScope.login_customer_info != null}">
 		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/memberPage.jsp">會員專區</a>
 	        </c:if>

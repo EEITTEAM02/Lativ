@@ -85,10 +85,10 @@
 						<td width='150' class="td11">
 							<c:choose>
 								<c:when test="${customer_serviceVO.reply_service.length() == '0'}">
-									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal${customer_serviceVO.no_service}">需回覆</button>
+									<button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal${customer_serviceVO.no_service}">需回覆</button>
 								</c:when>
 								<c:otherwise>
-									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal${customer_serviceVO.no_service}">已回覆</button>
+									<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${customer_serviceVO.no_service}">已回覆</button>
 								</c:otherwise>
 							</c:choose>	
 							<div class="modal fade" id="myModal${customer_serviceVO.no_service}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -129,7 +129,7 @@
 					</form>
 					<form method="post" action="customer_service.do">
 						<td width='50' class="td11">
-							<button class="btn btn-danger btn-sm" value="刪除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></input>
+							<button class="btn btn-danger btn-lg" value="刪除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></input>
 				  			<input type="hidden" name="no_service" value="${customer_serviceVO.no_service}">
 				    		<input type="hidden" name="action"value="del">
 				    		</button>

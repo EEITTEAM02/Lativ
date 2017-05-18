@@ -180,6 +180,7 @@
 	            	xhr.abort();
 				}
 				if( checkEmailPattern( $("#email").val() ) == false) {
+					$("#email_error_msg").text("請輸入正確電子郵件格式，例:aaa@gmail.com");
 					xhr.abort();
 				}
     		},

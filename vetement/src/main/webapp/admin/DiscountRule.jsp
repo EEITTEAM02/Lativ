@@ -25,7 +25,7 @@
     	text-align:center
 	}
 	
-	#toggle_type1{
+	#add_toggle_type1{
 	background-color:rgb(56, 153, 236);
 	color:white	
 	
@@ -41,22 +41,39 @@
 	
 	.addNewRule{
 		text-align:center;
-		margin-bottom:5px
+		margin-bottom:5px;
+/* 		font-family: Microsoft Jhenghei; */
+    	
 	}
+	
 	#add_new_rule{
-		font-family:Microsoft Jhenghei;
+ 		font-family:Microsoft Jhenghei; 
+		background-color: rgba(0, 0, 0, 0.83);
+    	color: white;
 	}
+	#add_new_rule:hover{
+		background-color: black;
+	}
+	
+	
 	.discountTitle{
 		text-align:center;
 		font-weight:bold;
 		display:none
 	}
 	
-	.half_toggle {
+	.half_toggle_add {
 		padding: 15px;
 		border-radius: 15px;
 		cursor: pointer;
 	}
+	
+	.half_toggle_edit {
+		padding: 15px;
+		border-radius: 15px;
+		cursor: pointer;
+	}	
+	
 	.add_discount_title{
 		font-weight:bold;
 	}
@@ -67,6 +84,7 @@
 	    background-color: lightblue;
 	    padding-top: 25px;
 	    padding-right: 13px;
+	    
 	}
 	.add_discount_td{
 		padding-left: 10px;
@@ -74,6 +92,7 @@
 	    text-align: left;
 	    padding-bottom: 10px;
 	    padding-right: 10px;
+	    
 	}
 	.add_disc_th_left{
 		border-bottom-left-radius: 7px;
@@ -88,12 +107,30 @@
 		padding-left: 25px;
 	}
 	.display_all_th{
-		border: 1px solid;
+		border-bottom: 1px solid gray;
 		padding: 22px;
     	text-align: center;
+    	font-weight: bold;
 	}
 	
+	.discount_tr {
+		border-bottom: 1px solid gray;
+	}
 
+	.update {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-size: 16px;
+		font-family: Microsoft Jhenghei;
+	}
+	
+	.modal-self {
+		width: 680px;
+	}
+	
+	.add_btn_bottom{
+		font-family: Microsoft Jhenghei;
+	}
 	
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -109,7 +146,7 @@
 				<div class='addNewRule'>
 <!-- 				<input id="add_new_rule" type="button" name="add_new_rule" value="新增規則"> -->
 					<!-- "新增折扣"按鈕 -->
-					<button id="add_new_rule" type="button" name="add_new_rule" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+					<button id="add_new_rule" type="button" name="add_new_rule" class="btn btn-lg btn_add" data-toggle="modal" data-target="#myModal_add">
 			 		 	新增折扣
 					</button>
 				</div>
@@ -140,62 +177,63 @@
 <!-- 						</tr> -->
 <%-- 						</c:forEach>	 --%>
 				</table>
-				
 			</form>
 		</div>
 		
 		<!--這邊是修改折扣規則的對話框 -->
-		
-		
 		<!-- Modal -->
-<!-- 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> -->
-<!-- 			<div class="modal-dialog" role="document"> -->
-<!-- 				<div class="modal-content"> -->
-<!-- 					<div class="modal-header"> -->
-<!-- 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-<!-- 					<h4 class="modal-title" id="myModalLabel">Modal title</h4> -->
-<!-- 					</div> -->
-<!-- 					<div class="modal-body"> -->
-<!-- 					       aaaa -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-self" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">編輯折扣規則</h4>
+					</div>
+					<div class="modal-body">
+					      
 						<div id="edit_dialog" class='dialog edit_update' style="display:none">
 							<form>
 								<table>
-									<tr>
-										<th>折扣編號</th>
-										<th>折扣敘述</th>
-										<th>件數</th>
-										<th>折扣類型-折數</th>
-										<th>折扣類型-單件金額</th>
+									<tr>										
+										<th class='add_discount_th add_disc_th_left'>折扣編號</th>
+										<th class='add_discount_th'>折扣敘述</th>
+										<th class='add_discount_th'>件數</th>
+										<th class='add_discount_th add_disc_th_right'>
+											<span id='edit_toggle_type1' class='half_toggle_edit'>折扣類型-%</span>
+											<span id='edit_toggle_type2' class='half_toggle_edit'>折扣類型-$</span>
+										</th>										
 									</tr>
 									<tr>
-										<td class='edit_id' ><span id='discount_id' ></span></td>
-										<td><input id='edit_discount_description' type='text' name=''></td>
-										<td>
+										<td class='add_discount_td'><span id='discount_id' ></span></td>
+										<td class='add_discount_td'><input id='edit_discount_description' type='text' name=''></td>
+										<td class='add_discount_td'>
 											<select id='edit_cloth_amount'></select>
-										</td>
-										<td><input id='edit_discount_type1' type='text' name=''></td>
-										<td><input id='edit_discount_type2' type='text' name=''></td>
+										</td>										
+										<td class='add_discount_td add_discount_td_right'>
+											<input id='edit_discount_type1' class='edit_discount' type='text' value='' placeholder='折數'>
+											<input id='edit_discount_type2' class='edit_discount' type='text' value='' placeholder='單件金額' style="display:none">
+										</td>								
 									</tr>
 								</table>
-								<input id="update_discount_btn" type="button" name="update_discount_btn" value="確認修改">
+<!-- 								<input id="update_discount_btn" type="button" name="update_discount_btn" value="確認修改"> -->
 							</form>
 						</div>
-<!-- 					       aaaa -->
-<!-- 					</div> -->
-<!-- 					<div class="modal-footer"> -->
-<!-- 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-<!-- 						<button type="button" class="btn btn-primary">Save changes</button> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
+					       
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+						<button id="update_discount_btn" type="button" name="update_discount_btn" class="btn btn-primary">確認修改</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		
 		
 		
 		<!--這邊是新增折扣規則的對話框 -->
 		<!-- Modal  -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="myModal_add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 		    	<div class="modal-content">
 					<div class="modal-header">
@@ -210,12 +248,12 @@
 										<th class='add_discount_th add_disc_th_left'>折扣敘述</th>
 										<th class='add_discount_th'>件數</th>
 										<th class='add_discount_th add_disc_th_right'>
-											<span id='toggle_type1' class='half_toggle'>折扣類型-%</span>
-											<span id='toggle_type2' class='half_toggle'>折扣類型-$</span>
+											<span id='add_toggle_type1' class='half_toggle_add'>折扣類型-%</span>
+											<span id='add_toggle_type2' class='half_toggle_add'>折扣類型-$</span>
 										</th>
 									</tr>
 									<tr>
-										<td class='add_discount_td'><input id='add_discount_description' type='text' name=''></td>
+										<td class='add_discount_td'><input id='add_discount_description' type='text' placeholder='請輸入折扣說明'></td>
 										<td class='add_discount_td'>
 											<select id='add_cloth_amount'></select>
 										</td>
@@ -230,8 +268,8 @@
 						</div>
 		      		</div>
 		      		<div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				        <button id="new_discount_btn" type="button" name="new_discount_btn" class="btn btn-primary">Save changes</button>
+				        <button type="button" class="btn btn-default add_btn_bottom" data-dismiss="modal">關閉</button>
+				        <button id="new_discount_btn" type="button" name="new_discount_btn" class="btn btn-primary add_btn_bottom">確認新增</button>
 		      		</div>
 				</div>
 			</div>
@@ -251,7 +289,7 @@
 				console.log(response_all_discount_list);
 			
 				for(var i=0; i<response_all_discount_list.length; i++) {
-					$('#all_discount_table').append('<tr id="discount_tr_' + i + '"></tr>').css({'border-bottom':'1px solid gray','padding':'10px'});
+					$('#all_discount_table').append('<tr id="discount_tr_' + i + '" class="discount_tr"></tr>');
 					$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].packageNo + '</td>');
 					$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].descript + '</td>');
 					$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].quantity_condition + '</td>');
@@ -260,11 +298,15 @@
 						$('#discount_tr_' + i).append('<td>' + parseFloat(response_all_discount_list[i].discount1).toFixed(2) * 10 + '折</td>');
 					}
 					else {
-						$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].discount2 + '/1件</td>');
+						$('#discount_tr_' + i).append('<td>' + response_all_discount_list[i].discount2 + '元/1件</td>');
 					}
 					
-					$('#discount_tr_' + i).append('<td><input type="button" name= "discount_update" value="修改" class="update" id="edit_' + response_all_discount_list[i].packageNo + '"></td>');
-					$('#discount_tr_' + i).append('<td><input type="button" name= "discount_delete" value="刪除" class="delete" id="delete_' + response_all_discount_list[i].packageNo + '"></td>');
+					$('#discount_tr_' + i).append(
+						'<td><button type="button" class="btn btn-primary btn-lg update" data-toggle="modal" data-target="#myModal" name= "discount_update" value="修改" id="edit_' + response_all_discount_list[i].packageNo + '">修改</button></td>'
+					);
+					$('#discount_tr_' + i).append(
+						'<td><button type="button" name= "discount_delete" class="btn btn-danger btn-lg delete" id="delete_' + response_all_discount_list[i].packageNo + '"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>'
+					);
 // 					<!-- Button trigger modal -->
 //					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 // 					  Launch demo modal
@@ -281,10 +323,10 @@
 		
 	});
 	
-	$('.half_toggle').click(function(){
-		$('.half_toggle').css({'background-color':'rgb(173,216,230)','color':'black'});//兩顆都先變背景藍
+	$('.half_toggle_add, .half_toggle_edit').click(function(){
+		$('.half_toggle_add, .half_toggle_edit').css({'background-color':'rgb(173,216,230)','color':'black'});//兩顆都先變背景藍
 		var half_toggle_id = this.id;
-		var on_click_id = half_toggle_id.split("_")[1];
+		var on_click_id = half_toggle_id.split("_")[2];
 		
 		$('#' + half_toggle_id).css({	
 			'background-color':'rgb(56, 153, 236)',
@@ -292,11 +334,19 @@
 		});
 		
 		//輸入折扣或單件金額有兩個input，都先隱藏，點到的再show出來，看起來的效果會像點到哪個就出現哪個
-		$('.add_discount').hide();
-		$("#add_discount_"+ on_click_id).show();	
+		if(this.className == 'half_toggle_add') {
+			$('.add_discount').val("");
+			$('.add_discount').hide();
+			$("#add_discount_"+ on_click_id).show();			
+		}
+		else {
+			$('.edit_discount').val("");
+			$('.edit_discount').hide();
+			$("#edit_discount_"+ on_click_id).show();
+		}
 	});
 	
-	$('.half_toggle').mouseenter(function(){
+	$('.half_toggle_add, .half_toggle_edit').mouseenter(function(){
 		var half_toggle_id = this.id;
 		var color = $('#' + half_toggle_id).css('background-color');//偵測mouseenter那顆的背景色
 
@@ -308,7 +358,7 @@
 		}
 	});
 	
-	$('.half_toggle').mouseout(function(){
+	$('.half_toggle_add, .half_toggle_edit').mouseout(function(){
 		var half_toggle_id = this.id;
 		var color = $('#' + half_toggle_id).css('background-color');//偵測mouseout那顆的背景藍
 
@@ -437,24 +487,45 @@
 	$(document).on('click', '.delete', function(){	
 		var button_on_click_id = this.id
 		var on_click_id = button_on_click_id.split("_")[1];
- 		//console.log(delete_id);
-		$.ajax({
-			url: '${pageContext.request.contextPath}/DiscountServlet?action=delete',
-			type: 'POST',
-			dataType: 'json',
-			data:{
-				delete_id: on_click_id
+		swal({
+			  title: "確定要刪除嗎?",
+			  text: "按下確定就無法回復了喔",
+			  type: "warning",
+			  showCancelButton: true,
+			  confirmButtonClass: "btn-danger",
+			  confirmButtonText: "確定",
+			  cancelButtonText: "取消",
+			  closeOnConfirm: false,
+			  closeOnCancel: false
 			},
-			error: function(xhr) {
-				alert('Ajax request 發生錯誤');
-			},
-			success: function(response_delete_count){
-				//alert("成功刪除" + response_delete_count + "筆資料。" );
-				
-				swal("刪除成功", "", "success")
-				//location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
-			}
-		})
+		function(isConfirm) {
+		console.log(isConfirm);	
+		  if (isConfirm == true) {
+			$.ajax({
+						url: '${pageContext.request.contextPath}/DiscountServlet?action=delete',
+						type: 'POST',
+						dataType: 'json',
+						data:{
+							delete_id: on_click_id
+						},
+						error: function(xhr) {
+							//alert('Ajax request 發生錯誤');
+							swal("", "某些商品正套用於此折扣規則，無法刪除", "warning")
+						},
+						success: function(response_delete_count){
+							//alert("成功刪除" + response_delete_count + "筆資料。" );
+							
+							swal("刪除成功", "", "success")
+							//location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
+						}
+
+					})
+			    swal("刪除", "刪除成功", "success");
+			  } else {
+			    swal("取消", "已取消此次動作", "error");
+			  }
+			});
+		
 	});	
 	
 	

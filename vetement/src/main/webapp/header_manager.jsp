@@ -10,6 +10,13 @@
 	.glyphicon:before {
 		font-family: Glyphicons Halflings
 	}
+	#header_title{
+		margin-left: 835px;
+	    font-family: Microsoft Jhenghei;
+	    font-weight: bold;
+	    font-size: 26px;
+	}
+	
 </style>
 </head>
 <body>
@@ -23,7 +30,7 @@
 <%-- 		    <a class="navbar-brand" href="${pageContext.request.contextPath}/indexTemplate.jsp">首頁</a> --%>
 <%-- 		    <a class="navbar-brand" href="${pageContext.request.contextPath}/Search/search.jsp">產品</a> --%>
 		    <c:if test="${sessionScope.login_customer_info != null}">
-		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/mangerPage.jsp">管理員專區</a>
+		    	<a class="navbar-brand" id='header_title' href="${pageContext.request.contextPath}/mangerPage.jsp">管理員專區</a>
 	        </c:if>
 <%-- 	        <a class="navbar-brand" href="${pageContext.request.contextPath}/aboutUs.jsp">關於我們</a> --%>
 		</div>

@@ -109,30 +109,23 @@
 				new_phone_no: $("#phone_no").val()
 			},
 			beforeSend: function(xhr){
-				var error_count = 0;
 				var validation_result = inputFieldEmptyValidation( ["member_name", "sex", "update_email", "phone_no"] ); 
 				
 				if(validation_result == false) {
-					error_count++;
+					xhr.abort();
 				}
 				
 				if( checkEmailPattern( $("#update_email").val() ) == false) {
-					error_count++;
+					$("#update_email_error_msg").text("請輸入正確電子郵件格式，例:aaa@gmail.com");
+					xhr.abort();
 				}
 				
 				if( checkPhonePattern($("#phone_no").val() ) == false) {
-					error_count++;
+					xhr.abort();
 				}
 				
 				if( checkAddressPattern($("#full_addr").val() ) == false) {
-					error_count++;
-				}
-				
-				if(error_count > 0) {
-					return false;
-				}
-				else {
-					return true;
+					xhr.abort();
 				}
 			},
 			error: function(xhr) {
@@ -160,30 +153,21 @@
 // 		var validation_result = inputFieldEmptyValidation( ["member_name", "sex", "email", "phone_no"] ); 
 		
 // 		if(validation_result == false) {
-// 			error_count++;
+// 			xhr.abort();
 // 		}
 		
 // 		if( checkEmailPattern( $("#email").val() ) == false) {
-// 			error_count++;
+// 			xhr.abort();
 // 		}
 		
 // 		if( checkPhonePattern($("#phone_no").val() ) == false) {
-// 			error_count++;
+// 			xhr.abort();
 // 		}
 		
 // 		if( checkAddressPattern($("#full_addr").val() ) == false) {
-// 			error_count++;
+// 			xhr.abort();
 // 		}
 		
-// 		console.log(error_count);
-		
-// 		if(error_count > 0) {
-// 			return false;
-// 		}
-// 		else {
-// 			return true;
-// 		}
-// 	}
 
 	function writeFullAddr(){	//select跟radio button不同，選了就會是那個值，radio button是判別你點選哪一個，取你點選的那個值
 		var full_addr = $('[name="zipcode"]').val()+","+$('[name="county"]').val()+","+$('[name="district"]').val()+","+$('[name="addr"]').val();
