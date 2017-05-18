@@ -313,15 +313,15 @@ img.displayImg {
 			 $('[data-toggle="tooltip"]').tooltip()
 			
 			//載入頁面同時確認是否已收藏
-			if( "${sessionScope.login_customer_info.customerId}"==""){
+			if("${sessionScope.login_customer_info.customerId}"==""){
 				$('#like>img').attr("src","images/Like2.png");
 			}else{
 					cid=${sessionScope.login_customer_info.customerId}
 				   $.get('FavoriteCheck',{action:"getOne_For_Display",'customerId':cid,'productId':pid},function(data){
 					   if(data.trim() == "not add"){
-						   $('#like>img').attr("src","images/Like2.png");
+						   $('#like>img').attr({"src":"images/Like2.png","title":"加入我的收藏"});
 					   }else{
-						   $('#like>img').attr("src","images/heart2.png");
+						   $('#like>img').attr({"src":"images/heart2.png","title":"取消我的收藏"});
 					   }
 				   })					
 			}
@@ -330,14 +330,14 @@ img.displayImg {
 			//	點擊切換收藏狀態    
 				 $("#likeimg").bind("click",function(){	
 					 if( "${sessionScope.login_customer_info.customerId}"==""){
-						 alert("請先登入會員");	
+						 swal("請先登入會員");	
 					 }else{
 						 cid=${sessionScope.login_customer_info.customerId}
 						 $.get('FavoriteCheck',{action:"getChange_For_Display",'customerId':cid,'productId':pid},function(data){
 							 if(data.trim() == "insert"){
-								 $("#likeimg").attr("src","images/heart2.png");
+								 $("#likeimg").attr({"src":"images/heart2.png","title":"取消我的收藏"});
 			        		 }else{
-			        			 $("#likeimg").attr("src","images/Like2.png");
+			        			 $("#likeimg").attr({"src":"images/Like2.png","title":"加入我的收藏"});
 			        		 }
 						 })				 
 					 }

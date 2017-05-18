@@ -67,6 +67,7 @@
 
 </head>
 <body>	
+<c:set var="context" value="${pageContext.request.contextPath}" />
 	<div id="favorite">
 		<h1 id="h">我的收藏商品</h1>
 		<br>
@@ -74,12 +75,12 @@
 			<table id="favoriteTable" class="table1">
 				<thead>
 					<tr>
-						<th id="display_th">productName</th>
-						<th id="display_th">size</th>
-						<th id="display_th">color</th>
-						<th id="display_th">price</th>
-						<th id="display_th">picture</th>
-						<th id="display_th">delete</th>
+						<th id="display_th">商品圖片</th>
+						<th id="display_th">商品名稱</th>
+						<th id="display_th">尺寸</th>
+						<th id="display_th">顏色</th>
+						<th id="display_th">價格</th>
+						<th id="display_th">刪除</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -106,10 +107,15 @@
 			   var cell3 = $('<td></td>').attr({"id":"all"}).text(product.color);
 			   var cell4 = $('<td></td>').attr({"id":"all"}).text(product.price);
 			   var cell5 = $('<td></td>').attr({"id":"all"});
-			   cell5.append(img);
+			   
+			   var elementA = $('<a></a>');
+			   elementA.attr("href", '${context}/productPages.jsp?Pid='+product.productId);//連接柏瑜的網址
+			   elementA.append(img);
+			   cell5.append(elementA);
+			   
 	   		   cell6 = $('<td></td>').attr({"id":"all"});
 	   		   cell6.append("<button type='button' data-id="+ product.productId + " class='danger'>Delete</button>");
-			   var row = $('<tr></tr>').append([cell1,cell2,cell3,cell4,cell5,cell6]);
+			   var row = $('<tr></tr>').append([cell5,cell1,cell2,cell3,cell4,cell6]);
 			   docFrag.append(row);
 		   })
 		   tb.append(docFrag);
