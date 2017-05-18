@@ -57,6 +57,7 @@
 
 .autocomplete-suggestions { 
 	border: 1px solid #999; background: #FFF; overflow: auto; 
+	cursor:pointer;
 }
 
 .autocomplete-suggestion { 
