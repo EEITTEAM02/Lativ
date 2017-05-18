@@ -95,7 +95,7 @@ public class CheckoutServlet extends HttpServlet {
 		cart.reDatabase(target);
 		
 		SearcherService daoSearch = new SearcherService();
-		List<Object[]> listRecommend = daoSearch.getHotProduction(3);
+		List<Object[]> listRecommend = daoSearch.getHotProduction(target.getOrderNo());
 		session.setAttribute("recommend", listRecommend);
 		// 轉移至結帳畫面
 		response.sendRedirect(request.getContextPath() + "/ProductBack/ProductCheck.jsp");

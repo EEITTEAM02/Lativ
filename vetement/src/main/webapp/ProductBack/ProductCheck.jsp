@@ -110,6 +110,7 @@ tr {
 </style>
 </head>
 <body>
+	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top"></nav>
 	<div class="imgDiv">
 		<img width="350" src="${pageContext.request.contextPath}/img/time_line01.png"/>
 	</div>
@@ -206,13 +207,15 @@ tr {
 				<a href="${pageContext.request.contextPath}/productPages.jsp?Pid=${item[0]}">
 					<img class="productImage" alt="${item[1]}" title="${item[1]}" src="${pageContext.request.contextPath}/Search/Image.do?productId=${item[0]}"/>
 				</a>
-				<p class="productName">${item[1]}-${item[3]}-${item[4]}</p>
+				<p class="productName">${item[1]}</p>
 				<fmt:parseNumber var="price_recommend" type="number" value="${item[2]}"/>
 				<p class="productPrice">NT ${price_recommend}</p>
 			</li>
 		</c:forEach>
 	</div>
 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
+	<c:set var="context" value="${pageContext.request.contextPath}" />
+	<script src="${context}/jsUtil/includeHeader.js"></script>
 <script>
 	$(function(){
 		$('input[name="count"]').keydown(function(event){

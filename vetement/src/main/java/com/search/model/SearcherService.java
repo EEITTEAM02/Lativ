@@ -39,4 +39,8 @@ public class SearcherService {
 	public List<Object> getAutocompleteSearch(String autoKeyword){
 		return dao.getAutocompleteSearch(autoKeyword);
 	}
+	
+	public List<Object> getProductByName(String productName){
+		return dao.getProductByName(productName);
+	}
 }
