@@ -37,8 +37,8 @@ public class DealDoneServlet extends HttpServlet {
 		
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("shoppingCartBack");
 		// 取出某會員的未完成訂單
-//		Integer no = ((CustomerVO)session.getAttribute("login_customer_info")).getCustomerId();
-		Integer no = 1;
+		Integer no = ((CustomerVO)session.getAttribute("login_customer_info")).getCustomerId();
+//		Integer no = 1;
 		session.setAttribute("mno",no);
 		
 		OrderService osrvc = new OrderService();
