@@ -73,16 +73,17 @@ public class CheckoutServlet extends HttpServlet {
 			}
 		}
 		
-		//若所有訂單都完成，會取出最後一份訂單，此時將target設成null，target就不會保存任何訂單資料
-		if(target.isStatus1()){
-			target = null;
-		}
 		if(target==null){
 			//若是沒有未完成訂單，清空放在session內的購物車，以免重啟CheckoutServlet時，購物車頁面會有商品，並重導至某頁面
 			session.setAttribute("shoppingCartBack", null);
 			session.setAttribute("recommend", null);
 			response.sendRedirect(request.getContextPath()+"/ProductBack/ProductCheck.jsp");
 			return;
+		}
+		
+		//若所有訂單都完成，會取出最後一份訂單，此時將target設成null，target就不會保存任何訂單資料
+		if(target.isStatus1()){
+			target = null;	
 		}
 		
 		//將資料庫內的明細放入購物車
