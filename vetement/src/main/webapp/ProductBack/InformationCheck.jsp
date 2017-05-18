@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -70,6 +71,7 @@ tr {
 </style>
 </head>
 <body>
+	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top"></nav>
 	<div class="imgDiv">
 		<img width="350" src="${pageContext.request.contextPath}/img/time_line02.png"/>
 	</div>
@@ -207,6 +209,8 @@ tr {
 		</form>
 	</div>
 <!-- 	<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script> -->
+	<c:set var="context" value="${pageContext.request.contextPath}" />
+	<script src="${context}/jsUtil/includeHeader.js"></script>
 	<script>
 	$(function() {
 		$("#accordion").accordion();
