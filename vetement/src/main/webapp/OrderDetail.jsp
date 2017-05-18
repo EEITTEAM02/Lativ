@@ -253,8 +253,7 @@
 									})
 								});
 							   
-							   
-							   
+							   							   
 								 docFrag.append(row);  
 							   
 							   
