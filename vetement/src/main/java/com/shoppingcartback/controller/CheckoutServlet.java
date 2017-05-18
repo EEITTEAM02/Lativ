@@ -86,6 +86,14 @@ public class CheckoutServlet extends HttpServlet {
 			target = null;	
 		}
 		
+		if(target==null){
+			//若是沒有未完成訂單，清空放在session內的購物車，以免重啟CheckoutServlet時，購物車頁面會有商品，並重導至某頁面
+			session.setAttribute("shoppingCartBack", null);
+			session.setAttribute("recommend", null);
+			response.sendRedirect(request.getContextPath()+"/ProductBack/ProductCheck.jsp");
+			return;
+		}
+		
 		//將資料庫內的明細放入購物車
 		List<OrderItemVO> list = osrvc.getShoppingCartOrderItemsByOno(target.getOrderNo());
 		cart.createCart(list);
