@@ -45,7 +45,7 @@
 <!-- <script src="js/jquery.mycart.js"></script> -->
 <!-- <script src="js/jquery.fancybox.min.js"></script> -->
 <!-- <script src="js/sweetalert.min.js"></script>	 -->
-<script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
 
 <style>
 .glyphicon:before {
