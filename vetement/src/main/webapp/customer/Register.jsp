@@ -65,7 +65,7 @@
 </head>
 <body>
 <c:set var="context" value="${pageContext.request.contextPath}" />
-	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top" ></nav>
+<!-- 	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top" ></nav> -->
 	
 	<div class="container">
 		<div class="register">
@@ -119,7 +119,7 @@
 		</div>
 	</div>	
 </body>
-<script src="${context}/jsUtil/includeHeader.js"></script>
+<%-- <script src="${context}/jsUtil/includeHeader.js"></script> --%>
 <script src="${context}/jsUtil/validation.js"></script>
 <script type="text/javascript">
 	$('input:radio[name="sex"]').change(function() {

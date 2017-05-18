@@ -26,7 +26,11 @@
 		    <c:if test="${sessionScope.login_customer_info != null}">
 		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/memberPage.jsp">會員專區</a>
 	        </c:if>
+<%-- 	         <c:if test="${sessionScope.login_customer_info != null}"> --%>
+<%-- 		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/ProductBack/Checkout.do">結帳</a> --%>
+<%-- 	        </c:if> --%>
 	        <a class="navbar-brand" href="${pageContext.request.contextPath}/aboutUs.jsp">關於我們</a>
+	        
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
@@ -35,10 +39,13 @@
 				<c:choose>
 					<c:when test="${sessionScope.login_customer_info != null}">
 						<li>
+							<a class="navbar-brand" href="${pageContext.request.contextPath}/ProductBack/Checkout.do">結帳</a>
+						</li>
+						<li>
 	            			<a class="glyphicon glyphicon-user">
 								${sessionScope.login_customer_info.getName()}
 	 						</a>	
-	 						</li>
+	 					</li>
 						
 						<li>
 							<a href="#" id='logout'>登出</a>	
