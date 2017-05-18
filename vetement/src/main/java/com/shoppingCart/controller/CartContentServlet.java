@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
 
 import com.cust.model.CustomerService;
 import com.cust.model.CustomerVO;
-import com.discount.model.DiscountService;
-import com.discount.model.DiscountVO;
+import com.disc.model.DiscountService;
+import com.disc.model.DiscountVO;
 import com.google.gson.Gson;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonArray;

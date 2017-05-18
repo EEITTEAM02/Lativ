@@ -57,6 +57,10 @@ public class DiscountService {
 		return dao.getAll();
 	}
 	
+	public List<DiscountVO> getAll() {
+		return dao.getAll();
+	}
+	
 	public Set<ProductionVO> getProductsByDiscountCat(Integer packageNo) {
 		return dao.getProductsByPackageNo(packageNo);
 	}

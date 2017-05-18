@@ -93,10 +93,19 @@
 </body>
 <script>
 	$(function(){
-		$('selectpage li').removeClass('active');
+		$('.select_item_btn').removeClass('active');
 		$('#select_item_1').addClass('active');
-	})
-
+		console.log("1");
+	
+	if (${ aaa == "del3" }){
+			console.log("2");
+			$('.pan2_item').hide();
+			$("#pan2_item_4").show();
+			$('.select_item_btn').removeClass('active');
+			$('#select_item_4').addClass('active');
+			console.log("3");
+		};
+	});
 	
 	$('.select_item_btn').click(function(){
 		$('.pan2_item').hide();
@@ -110,6 +119,7 @@
 		$(this).addClass('active');
 		
 	});
+	
 	
 </script>
 </html>

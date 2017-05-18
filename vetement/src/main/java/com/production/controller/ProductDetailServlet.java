@@ -24,8 +24,8 @@ import org.json.simple.JSONValue;
 
 import com.category.model.CategoryService;
 import com.category.model.CategoryVO;
-import com.discount.model.DiscountService;
-import com.discount.model.DiscountVO;
+import com.disc.model.DiscountService;
+import com.disc.model.DiscountVO;
 import com.production.model.ProductionService;
 import com.production.model.ProductionVO;
 
