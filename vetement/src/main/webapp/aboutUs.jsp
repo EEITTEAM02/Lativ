@@ -54,47 +54,52 @@
 }
 
 .intro-section {
-    height: 100%;
+	min-height: 100%;
+    max-height: auto;
     padding-top: 150px;
     text-align: center;
     background: #fff;
 }
 
 .about-section {
-    height: 100%;
+	min-height: 100%;
+    max-height: auto;
     padding-top: 150px;
     text-align: center;
     background: #eee;
 }
 
 .news-section {
-  	height:auto;
+	min-height: 100%;
+    max-height: auto;
     padding-top: 150px;
     text-align: center;
     background: #fff;
 }
 
 .services-section {
-    height: 100%;
+	min-height: 100%;
+    max-height: auto;
     padding-top: 150px;
     text-align: center;
     background: #eee;
 }
 
 .contact-section {
-    height: 100%;
+	min-height: 100%;
+    max-height: auto;
     padding-top: 150px;
     text-align: center;
     background: #fff;
 }
 
 .tb111111{
-	font-family:標楷體;
+	font-family:Microsoft Jhenghei;
 	padding:5px;
 }
 
 .td111111{
-	font-family:標楷體;
+	font-family:Microsoft Jhenghei;
     color: orange;
     font-weight: bold;
     font-size: 20px;
@@ -103,7 +108,7 @@
 }
 
 .td222222{
-	font-family:標楷體;
+	font-family:Microsoft Jhenghei;
 	color: orange;
     font-weight: bold; 
 	font-size: 20px;
@@ -111,7 +116,7 @@
 }
 
 .td333333{
-	font-family:標楷體;
+	font-family:Microsoft Jhenghei;
 	font-size: 16px;
     padding:5px;
 }	
@@ -151,23 +156,23 @@
 	<section id="about" class="about-section">
 		<div class="container">
 			<div class="row">
-					<h1 style="font-family: 標楷體 ;color:#008800;font-weight: bold;">緣&nbsp;&nbsp;起</h1>
+					<h1 style="font-family: Microsoft Jhenghei ;color:#008800;font-weight: bold;">緣&nbsp;&nbsp;起</h1>
 				<div class="col-lg-4">
 					<img src="images/about_01.png" height="400" width="400">
 				</div>
 				<div class="col-lg-8">
-					  <h4 style="font-family: 標楷體; text-align: left;font-size:24px">「菲特萌」是一個可以提供您輕鬆且高品質的購衣平台</h4>      
-					  <h4 style="font-family: 標楷體; text-align: left;font-size:24px">在這裡您可以快速查詢心中所要的商品</h4>     
-					  <h4 style="font-family: 標楷體; text-align: left;font-size:24px">也可以使用收藏功能，在下次瀏覽網頁時方便找到追蹤的商品。</h4>     
+					  <h4 style="font-family: Microsoft Jhenghei; text-align: left;font-size:24px">「菲特萌」是一個可以提供您輕鬆且高品質的購衣平台</h4>      
+					  <h4 style="font-family: Microsoft Jhenghei; text-align: left;font-size:24px">在這裡您可以快速查詢心中所要的商品</h4>     
+					  <h4 style="font-family: Microsoft Jhenghei; text-align: left;font-size:24px">也可以使用收藏功能，在下次瀏覽網頁時方便找到追蹤的商品。</h4>     
 					  <br> 
-				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">我們提供最優惠的折扣</h4>
-				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">也可以參考評價來選擇最適合自己的商品。</h4>
+				      <h4 style="font-family: Microsoft Jhenghei; text-align: left;font-size:24px">我們提供最優惠的折扣</h4>
+				      <h4 style="font-family: Microsoft Jhenghei; text-align: left;font-size:24px">也可以參考評價來選擇最適合自己的商品。</h4>
 				      <br>
-				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">當商品售出後，我們有完整的售後服務</h4>
-				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">可以透過訂單記錄查詢您的歷史清單與記錄</h4>
-				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">假如有任何問題也可以透過客服系統與我們連絡。</h4>
+				      <h4 style="font-family: Microsoft Jhenghei; text-align: left;font-size:24px">當商品售出後，我們有完整的售後服務</h4>
+				      <h4 style="font-family: Microsoft Jhenghei; text-align: left;font-size:24px">可以透過訂單記錄查詢您的歷史清單與記錄</h4>
+				      <h4 style="font-family: Microsoft Jhenghei; text-align: left;font-size:24px">假如有任何問題也可以透過客服系統與我們連絡。</h4>
 				      <br> 
-				      <h4 style="font-family: 標楷體; text-align: left;font-size:24px">「菲特萌」期望成為您網路購衣的唯一選擇</h4>
+				      <h4 style="font-family: Microsoft Jhenghei; text-align: left;font-size:24px">「菲特萌」期望成為您網路購衣的唯一選擇</h4>
 
 				</div>
 			</div>
@@ -179,17 +184,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 style="font-family: 標楷體;color:#DAA520;font-weight: bold;">最新公告</h1>
+					<h1 style="font-family: Microsoft Jhenghei;color:#DAA520;font-weight: bold;">最新公告</h1>
 					<form>
 						<c:forEach var="newsVO" items="${list}" >
-							<table  rules="none" class="tb111111" width='600' align="center">
+							<table  rules="none" class="tb111111" width='800' align="center">
 								<tr>
-									<td width='100' class="td111111">${newsVO.pubdate}</td><td width='400' class="td222222">【${newsVO.title}】</td>
+									<td width='200' class="td111111">${newsVO.pubdate}</td><td width='500' class="td222222">【${newsVO.title}】</td>
 								</tr>
 								
 								<br>
 								<tr>
-									<td></td><td><pre width='400' class="td333333">${newsVO.content}</pre></td>
+									<td></td><td><pre width='500' class="td333333">${newsVO.content}</pre></td>
 								</tr>
 								
 								
@@ -208,14 +213,14 @@
 			<div class="row">
 			<div class="col-lg-2"></div>
 				<div class="col-lg-8">
-					<h1 style="font-family: 標楷體;color:#483D8B;font-weight: bold;">免責聲明</h1>
-					<h3 style="font-family: 標楷體; text-align: left;">當您在閱讀(本網站)時，代表你已詳細閱讀及明確了解本『免責聲明』:</h3>
-					<h3 style="font-family: 標楷體; text-align: left;">一、(本網站)所載之任何資料(包含文字，圖片)或數據僅用於</h3>
-					<h3 style="font-family: 標楷體; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;EEIT93專題，對於本部落格內容所載資訊內容之正確性、</h3>
-					<h3 style="font-family: 標楷體; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;即時性、可靠性、完整性不含以任何商業性、營利性使用或</h3>
-					<h3 style="font-family: 標楷體; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;特定目的之保證。</h3>
-					<h3 style="font-family: 標楷體; text-align: left;">二、免責聲明更新在給予或不給予事先通知下，本網站保留隨時</h3>
-					<h3 style="font-family: 標楷體; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;更新本免責聲明的權利，任何更改於本網站發佈時，立即生效。</h3>
+					<h1 style="font-family: Microsoft Jhenghei;color:#483D8B;font-weight: bold;">免責聲明</h1>
+					<h3 style="font-family: Microsoft Jhenghei; text-align: left;">當您在閱讀(本網站)時，代表你已詳細閱讀及明確了解本『免責聲明』:</h3>
+					<h3 style="font-family: Microsoft Jhenghei; text-align: left;">一、(本網站)所載之任何資料(包含文字，圖片)或數據僅用於</h3>
+					<h3 style="font-family: Microsoft Jhenghei; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;EEIT93專題，對於本部落格內容所載資訊內容之正確性、</h3>
+					<h3 style="font-family: Microsoft Jhenghei; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;即時性、可靠性、完整性不含以任何商業性、營利性使用或</h3>
+					<h3 style="font-family: Microsoft Jhenghei; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;特定目的之保證。</h3>
+					<h3 style="font-family: Microsoft Jhenghei; text-align: left;">二、免責聲明更新在給予或不給予事先通知下，本網站保留隨時</h3>
+					<h3 style="font-family: Microsoft Jhenghei; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;更新本免責聲明的權利，任何更改於本網站發佈時，立即生效。</h3>
 				</div>
 			</div>
 		</div>
@@ -226,12 +231,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 style="font-family: 標楷體;color:#483D8B">門市資訊</h1>
+					<h1 style="font-family: Microsoft Jhenghei;color:#483D8B">門市資訊</h1>
 					<div class="bh-sl-container">
 
 						<div class="bh-sl-form-container">
 							<form id="bh-sl-user-location" method="post" >
-								<div class="form-input" style="font-family: 標楷體; text-align:senter">
+								<div class="form-input" style="font-family: Microsoft Jhenghei; text-align:senter">
 									<label for="bh-sl-address">請輸入地址:</label> <input type="text"
 										id="bh-sl-address" name="bh-sl-address" />
 								</div>

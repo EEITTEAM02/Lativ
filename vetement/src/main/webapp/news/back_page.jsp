@@ -7,8 +7,27 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>公告</title>
+		<style>
+		
+ 		.outer_container1111 { 
+ 			width: 1000px;
+ 		    margin: 0 auto;
+ 		    border: 1px solid black;
+ 		    border-radius: 20px; 
+ 		    padding-top: 1%; 
+ 		    padding-bottom: 5%; 
+ 		    font-family: Microsoft Jhenghei;
+ 	    	font-size: 16px; 
+/* 	    	text-align:center  */
+ 		} 
+		
+		</style>
+
+
 	</head>
 	<body>
+	<div class="outer_container1111">
+	<h2 style="font-family:Microsoft Jhenghei;text-align: center;color:#9F4D95;font-size: 40px; font-weight: bold">修改公告</h2>
 	<jsp:useBean id="newsSvc" scope="page" class="com.news.model.NewsService" />
 		<div style="margin-left: 20%;font-family: Microsoft Jhenghei">
 		<ul>
@@ -39,13 +58,12 @@
 				       		<option value="${newsVO.newsno}">${newsVO.newsno} : ${newsVO.title}
 				       </c:forEach>   
 			       </select>
-			       <input type="button" value="刪除" id='d1' class="btn btn-info btn-sm" >
+			       <input type="button" value="刪除" id='d1' class="btn btn-danger btn-sm" >
 			    </FORM>
 			</li>
 		</ul>
 		</div>
 		<div style="margin-left: 15% ; font-family: Microsoft Jhenghei">
-			<h1 style="margin-left: 30%;">修改公告</h1>
 			<c:if test="${not empty errorMsgs}">
 				<font color='red'>請修正以下錯誤:
 				<ul>
@@ -83,7 +101,7 @@
 
    					<tr><td colspan='2'style='text-align:center'>
    					<input type='submit' value='送出內容' id= 'go1' class="btn btn-info btn-sm" >&nbsp;&nbsp;&nbsp;
-   					<input type='button' value='刪除內容' id= 's2' class="btn btn-info btn-sm" ></td></tr>
+   					<input type='button' value='刪除內容' id= 's2' class="btn btn-warning btn-sm" ></td></tr>
 			 		<input type="hidden" name="action" value="ins">
 				</table>
 			</form>
@@ -202,5 +220,6 @@
 				
 			})
 		</script>
+	</div>	
 	</body>
 </html>

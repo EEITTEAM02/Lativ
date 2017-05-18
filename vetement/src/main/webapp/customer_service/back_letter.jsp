@@ -32,6 +32,20 @@
             padding: 3px;
             border:none;
 	}
+	
+	.outer_container123 {
+		width: 1000px;
+	    margin: 0 auto;
+	    border: 1px solid black;
+	    border-radius: 20px;
+	    padding-top: 1%;
+	    padding-bottom: 5%;
+/* 	    padding-left:5%; */
+	    font-family: Microsoft Jhenghei;
+    	font-size: 16px;
+    	text-align:center
+	}
+	
 </style>
 <!-- <script src="../js/jquery-1.12.3.min.js"></script> -->
 <!--最新編譯和最佳化的 CSS -->
@@ -42,22 +56,22 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
 </head>
 <body>
-<div>
-	<h2 style="font-family:Microsoft Jhenghei;text-align: center;color:#99FF33;font-size: 40px; font-weight: bold">客服管理</h2>
-	
+<div  class="outer_container123">
+	<h2 style="font-family:Microsoft Jhenghei;text-align: center;color:#9F4D95;font-size: 40px; font-weight: bold">客服管理</h2>
+	<div style="padding-left:5%;">
 			<table  rules="none" class="tb1" style="font-family:Microsoft Jhenghei;">
 				<tr>
-					<th width='200' class="td22">時間</th>
-					<th width='200' class="td22">人名</th>
-					<th width='300' class="td22">標題</th>
-					<th width='300' class="td22">回覆情況</th>
-					<th width='100' class="td22">刪除</th>
+					<th width='150' class="td22">時間</th>
+					<th width='150' class="td22">人名</th>
+					<th width='400' class="td22">標題</th>
+					<th width='150' class="td22">回覆情況</th>
+					<th width='50' class="td22">刪除</th>
 				<tr>
 				 
 				<c:forEach var="customer_serviceVO" items="${list1}">
 				<tr style="border-top:1px solid silver;">
-					<td width='200' class="td11">${customer_serviceVO.receive_date}</td>
-					<td width='200' class="td11">
+					<td width='150' class="td11">${customer_serviceVO.receive_date}</td>
+					<td width='150' class="td11">
 						<c:forEach var="custVO" items="${custSvc.all}">
                              <c:if test="${customer_serviceVO.customerId==custVO.customerId}">
 	                                     ${custVO.name}
@@ -66,9 +80,9 @@
 					
 					
 					</td>
-					<td width='300' class="td11">${customer_serviceVO.title_service}</td>
+					<td width='400' class="td11">${customer_serviceVO.title_service}</td>
 				<form method="post" action="customer_service.do">
-						<td width='300' class="td11">
+						<td width='150' class="td11">
 							<c:choose>
 								<c:when test="${customer_serviceVO.reply_service.length() == '0'}">
 									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal${customer_serviceVO.no_service}">需回覆</button>
@@ -114,7 +128,7 @@
 						</td>
 					</form>
 					<form method="post" action="customer_service.do">
-						<td width='100' class="td11">
+						<td width='50' class="td11">
 							<button class="btn btn-danger btn-sm" value="刪除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></input>
 				  			<input type="hidden" name="no_service" value="${customer_serviceVO.no_service}">
 				    		<input type="hidden" name="action"value="del">
@@ -125,13 +139,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-
-
-	<script>
-	
-	
-	
-	</script>
+		</div>
 </div>
 </body>
 </html>
