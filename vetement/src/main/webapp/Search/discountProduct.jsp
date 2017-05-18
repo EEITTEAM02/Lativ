@@ -134,7 +134,7 @@
 				var productLi = $("<li></li>");
 
 				var elementA = $('<a></a>');
-				elementA.attr("href", '${context}/productPages/'+product.productId + ".jsp");//連接柏瑜的網址
+				elementA.attr("href", '${context}/productPages.jsp?Pid='+product.productId);//連接柏瑜的網址
 
 				var img = $("<img/>");
 				img.attr("alt", product.productName);

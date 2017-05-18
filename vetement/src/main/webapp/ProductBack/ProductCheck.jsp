@@ -203,7 +203,7 @@ tr {
 		</div>
 		<c:forEach var="item" items="${recommend}">
 			<li>
-				<a href="${pageContext.request.contextPath}/productPages/${item[0]}.jsp">
+				<a href="${pageContext.request.contextPath}/productPages.jsp?Pid=${item[0]}">
 					<img class="productImage" alt="${item[1]}" title="${item[1]}" src="${pageContext.request.contextPath}/Search/Image.do?productId=${item[0]}"/>
 				</a>
 				<p class="productName">${item[1]}-${item[3]}-${item[4]}</p>
