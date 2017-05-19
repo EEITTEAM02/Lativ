@@ -79,6 +79,11 @@
 	width:1000px;
 	margin:auto;
 }
+
+img.displayImg {
+	height: 40px;
+	width: 40px;
+}
 </style>
 
 
@@ -97,13 +102,59 @@
             <div class='col-md-12'></div>
         </div>
     </div>
+    
+    <div id="dialogOrderDetail-form" title="order detail">
+
+		<table id="orderDetailTable" class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<td>明細編號</td>
+					<td>產品名</td>
+					<td>尺寸</td>
+					<td>顏色</td>
+					<td>數量</td>
+					<td>原價</td>
+					<td>折價</td>
+					<td>總價</td>
+					<td>產品圖</td>
+					<td>評分</td>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+
+
+		</table>
+
+
+
+	</div>
 
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $(function() {
+        	
+        	//order detail dialog
+			
+            var dialog;
+     								
+     								dialogOrderDetail = $("#dialogOrderDetail-form").dialog({
+     									autoOpen : false,
+     									//height: 450,
+     									width : 600,
+     									modal : true,
+     									resizable : false,
+     									close : function() {
+     									}
+     								});
+     		//order detail dialog
+        	
+        	
             var listItem1 = $('ul li:eq(0)');
             listItem1.click(function() {
                 $('.col-md-12').empty();
@@ -123,10 +174,10 @@
 
                 $.ajax({
                     type: "get",
-                    url: "#",
+                    url: "OrderHistoryServlet.do",
                     datatype: "json",
                     success: function(datas) {
-
+                        console.log(datas);
                         var tb = $('#orderHistoryTable>tbody');
                         var docFrag = $(document.createDocumentFragment());
                         tb.empty();
@@ -144,7 +195,7 @@
                                 dialogOrderDetail.dialog("open");
                                 $.ajax({
                                     type: "get",
-                                    url: "#",
+                                    url: "OrderItemHistoryServlet.do",
                                     datatype: "json",
                                     data: {
                                         'ono': order.ono
