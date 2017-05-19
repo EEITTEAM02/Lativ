@@ -146,7 +146,7 @@ img.displayImg {
      								dialogOrderDetail = $("#dialogOrderDetail-form").dialog({
      									autoOpen : false,
      									//height: 450,
-     									width : 600,
+     									width :1100,
      									modal : true,
      									resizable : false,
      									close : function() {
