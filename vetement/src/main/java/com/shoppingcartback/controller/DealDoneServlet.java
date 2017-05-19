@@ -35,6 +35,8 @@ public class DealDoneServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		
+		String direction = request.getParameter("direction");
+		
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("shoppingCartBack");
 		// 取出某會員的未完成訂單
 		Integer no = ((CustomerVO)session.getAttribute("login_customer_info")).getCustomerId();
@@ -90,10 +92,10 @@ public class DealDoneServlet extends HttpServlet {
 		OrderService dao = new OrderService();
 		dao.updateOrder(orderNo, dealDate, customerId, addr_send, price_total, status1, name_send, tel_send);
 		
-//		session.setAttribute("shoppingCartBack", null);
-//		session.setAttribute("recommend", null);
+		session.setAttribute("shoppingCartBack", null);
+		session.setAttribute("recommend", null);
 		session.setAttribute("dealInformation", null);
-		response.sendRedirect(request.getContextPath()+"/Search/search.jsp");
+		response.sendRedirect(request.getContextPath()+direction);
 	}
 
 }
