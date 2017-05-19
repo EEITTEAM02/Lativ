@@ -91,31 +91,28 @@ img.displayImg {
 <body>
 
 	<body>
-    <ul class="breadcrumb">
-        <li><a href="#">訂單及明細</a></li>
-      
-    </ul>
+  
     <div class='container'>
         <div class='row'>
             <div class='col-md-12'></div>
         </div>
     </div>
     
-    <div id="dialogOrderDetail-form" title="order detail">
+    <div id="dialogOrderDetail-form" title="訂單明細">
 
 		<table id="orderDetailTable" class="table table-bordered table-hover">
 			<thead>
 				<tr>
 					<td>明細編號</td>
-					<td>產品名</td>
-					<td>尺寸</td>
-					<td>顏色</td>
-					<td>數量</td>
-					<td>原價</td>
-					<td>折價</td>
-					<td>總價</td>
-					<td>產品圖</td>
-					<td>評價</td>
+					<td>產品名稱</td>
+					<td>尺       寸</td>
+					<td>顏       色</td>
+					<td>數       量</td>
+					<td>原       價</td>
+					<td>折       價</td>
+					<td>總       價</td>
+					<td>產品圖片</td>
+					<td>評       價</td>
 					<td>刪除評價</td>
 				</tr>
 			</thead>
@@ -142,20 +139,19 @@ img.displayImg {
 			
             var dialog;
      								
-     								dialogOrderDetail = $("#dialogOrderDetail-form").dialog({
-     									autoOpen : false,
-     									//height: 450,
-     									width :1100,
-     									modal : true,
-     									resizable : false,
-     									close : function() {
-     									}
-     								});
+     		dialogOrderDetail = $("#dialogOrderDetail-form").dialog({
+     								autoOpen : false,
+     								//height: 450,
+     								width :1100,
+     								modal : true,
+     								resizable : false,
+     								close : function() {
+     								}
+     							});
      		//order detail dialog
         	
         	
-            var listItem1 = $('ul li:eq(0)');
-            listItem1.click(function() {
+            
                 $('.col-md-12').empty();
                 var table = $('<table></table>').attr('id', 'orderHistoryTable').addClass('table table-bordered table-hover');
                 var thead = $('<thead></thead>');
@@ -246,7 +242,7 @@ img.displayImg {
                         alert(request.responseText);
                     }
                 });
-            })
+            
         })
 
     </script>

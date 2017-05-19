@@ -78,8 +78,9 @@ body{
 		</div>
 		
 		<div id="pan2" >
+		
 			<div class="pan2_item" id="pan2_item_1">
-				
+				<jsp:include page="OrderDetail.jsp"></jsp:include>
 			</div>
 			
 			
@@ -101,6 +102,7 @@ body{
 	</div>
 
 </body>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	$(function(){
 		$('.select_item_btn').removeClass('active');
