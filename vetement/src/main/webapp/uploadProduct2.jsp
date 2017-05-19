@@ -62,6 +62,10 @@ h1 {
 	font-size: 1.2em;
 	margin: .6em 0;
 }
+
+.container ={
+margin:0 auto;
+}
 </style>
 </head>
 <body>
@@ -69,7 +73,7 @@ h1 {
 
 					
 					<!-- 每頁不同的內容從這裡開始 -->
-<div class="container">
+<div class="container" style="border:1px solid #cecece;">
   <div class="row">
     <div class="col-md-6">
 
@@ -78,11 +82,11 @@ h1 {
             <table border="0">
                 <tr>
                     <td>Product Name: </td>
-                    <td><input type="text" name="name" size="50"/></td>
+                    <td><input type="text" name="name" size="20"/></td>
                 </tr>
                 <tr>
                     <td>Size: </td>
-                    <td><select name="size" />
+                    <td><select name="size" style="width:174px;">
                     <option value="XL">XL</option>
                     <option value="L">L</option>
                     <option value="M">M</option>
@@ -92,23 +96,23 @@ h1 {
                 </tr>
                 <tr>
                     <td>color: </td>
-                    <td><input type="text" name="color" size="50"/></td>
+                    <td><input type="text" name="color" size="20"/></td>
                 </tr>
                 <tr>
                     <td>price: </td>
                     <td><input type="number" name="price" size="50"/></td>
                 </tr>
                 <tr>
-                    <td>discountCat: </td>
-                    <td ><select id="discountSelect1" name="discountCat"></select></td>
+                    <td>discountCat: </td> 
+                    <td ><select id="discountSelect1" name="discountCat" style="width:174px;"></select></td>
                 </tr>
                 <tr>
                     <td>description: </td>
-                    <td><input type="textarea" name="descript" size="50"/></td>
+                    <td><input type="textarea" name="descript" size="20"/></td>
                 </tr>
                 <tr>
                     <td>categoryId: </td>
-                    <td><select id="categoryId1" name="categoryId"></select></td>
+                    <td><select id="categoryId1" name="categoryId" style="width:174px;"></select></td>
                 </tr>
                 
                 <tr>
@@ -167,19 +171,19 @@ h1 {
                
                 <tr>
                     <td>請先選 categoryId: </td>
-                    <td><select id="categoryId2" ><option disabled selected value>-- select an option --</option></select></td>
+                    <td><select id="categoryId2" style="width:174px;"><option disabled selected value>-- select an option --</option></select></td>
                 </tr>
                 <tr>
                     <td>Product Number: </td>
-                    <td><select name="pno" id="pno"><option value="0">0</option></select></td><td><select name="pnoA" id="pnoA"></select></td>
+                    <td><select name="pno" id="pno" style="width:174px;"><option value="0">0</option></select></td><td><select name="pnoA" id="pnoA" style="width:174px;"></select></td>
                 </tr>
                 <tr>
                     <td>Product Name: </td>
-                    <td><input type="text" name="name" size="50"/></td>
+                    <td><input type="text" name="name" size="20"/></td>
                 </tr>
                 <tr>
                     <td>Size: </td>
-                    <td><select name="size" />
+                    <td><select name="size" style="width:174px;">
                     <option value="XL">XL</option>
                     <option value="L">L</option>
                     <option value="M">M</option>
@@ -189,32 +193,32 @@ h1 {
                 </tr>
                 <tr>
                     <td>color: </td>
-                    <td><input type="text" name="color" size="50"/></td>
+                    <td><input type="text" name="color" size="20"/></td>
                 </tr>
                 <tr>
                     <td>price: </td>
-                    <td><input type="text" name="price" size="50"/></td>
+                    <td><input type="number" name="price" size="50"/></td>
                 </tr>
                 <tr>
                     <td>discountCat: </td>
-                    <td><select id="discountSelect2" name="discountCat"></select></td>
+                    <td><select id="discountSelect2" name="discountCat" style="width:174px;"></select></td>
                 </tr>
                 <tr>
                     <td>description: </td>
-                    <td><input type="textarea" name="descript" size="50"/></td>
+                    <td><input type="textarea" name="descript" size="20"/></td>
                 </tr>
                 <tr>
                     <td>categoryId: </td>
-                    <td><select id="categoryId3" name="categoryId"></select></td>
+                    <td><select id="categoryId3" name="categoryId" style="width:174px;"></select></td>
                 </tr>
                 
                 <tr>
                     <td>noInStock: </td>
-                    <td><input type="text" name="noInStock" size="50"/></td>
+                    <td><input type="text" name="noInStock" size="20"/></td>
                 </tr>
                 <tr>
                     <td>for_sale: </td>
-                    <td><select name="for_sale"><option value="1">上架</option><option value="0">下架</option></select></td>
+                    <td><select name="for_sale" ><option value="1">上架</option><option value="0">下架</option></select></td>
                 </tr>
                 
                 <tr>
@@ -324,48 +328,16 @@ h1 {
     	   }
        })         	      
     	 	
- 
-
     	         $('#pnoA').change(function(){
     	    	    	var pnoA =$('#pnoA').val();
                         console.log("pnoA:"+pnoA);
     	    	    	$('#myForm img').remove();
-    	    	    	var image1 = $('<img></img>').attr('src','productImages/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
-    	    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
-    	    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
-    	    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
-    	    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	}); 
-    	    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
+    	    	    	var image1 = $('<img></img>').attr('src','productImages/'+pnoA).css({'width':'50px','height':'50px'});
+    	    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pnoA).css({'width':'50px','height':'50px'});
+    	    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pnoA).css({'width':'50px','height':'50px'});
+    	    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pnoA).css({'width':'50px','height':'50px'});
+    	    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pnoA).css({'width':'50px','height':'50px'}); 
+    	    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pnoA).css({'width':'50px','height':'50px'});
     	    	    	
     	    	    	$('#productImg').append(image1);   	    	
     	    	    	$('#colorImg').append(image2);
@@ -396,42 +368,12 @@ h1 {
                 var pno = $('#pno').val();
                 console.log("pno:"+pno);
     	    	$('#myForm img').remove();
-    	    	var image1 = $('<img></img>').attr('src','productImages/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
-    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
-    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
-    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
-    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	}); 
-    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
+    	    	var image1 = $('<img></img>').attr('src','productImages/'+pno).css({'width':'50px','height':'50px'});
+    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pno).css({'width':'50px','height':'50px'});
+    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pno).css({'width':'50px','height':'50px'});
+    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pno).css({'width':'50px','height':'50px'});
+    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pno).css({'width':'50px','height':'50px'}); 
+    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pno).css({'width':'50px','height':'50px'});
     	    	
     	    	$('#productImg').append(image1);   	    	
     	    	$('#colorImg').append(image2);
@@ -458,8 +400,6 @@ h1 {
     	    	})
     	    	
     	    })
-    	    
-    	
     	
     })
     </script>

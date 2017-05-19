@@ -65,7 +65,7 @@ body{
 		
 		<div id="pan2">
 			<div class="pan2_item" id="pan2_item_1">
-<%--  				<jsp:include page="OrderDetail.jsp"></jsp:include>  --%>
+  				<jsp:include page="uploadProduct2.jsp"></jsp:include>  
 			</div>
 			
 			<div class="pan2_item" id="pan2_item_2">
