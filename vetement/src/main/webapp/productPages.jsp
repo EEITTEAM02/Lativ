@@ -629,8 +629,8 @@ img.displayImg {
           		        var span2 = $('<span></span>').css('display','inline-block');
           		        div23.append(span1);
           		        div24.append(span2);
-          		      document.getElementById('0').click();
-                      span2.append($('<select><option>先選商品</option></select>')).append($("<button class='btn btn-danger'>add to cart</button>"));
+//           		      document.getElementById('0').click();
+//                       span2.append($('<select><option>先選商品</option></select>')).append($("<button class='btn btn-danger'>add to cart</button>"));
           		        }
 
              		}
