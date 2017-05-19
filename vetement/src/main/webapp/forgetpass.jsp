@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="util/navbar.jsp"></jsp:include>
+
 
 	<form  align="center" action="MailServlet" method="post" >
 		
