@@ -40,6 +40,7 @@
 	padding-top: 70px; 
 	padding-left: 5px; 
 	padding-right: 5px; 
+	background-color: rgba(217, 255, 255, .5);
  } 
 .customer_info_edit{
 	margin: auto; 
@@ -90,7 +91,7 @@ body{
 			</div>
 			
 			
-			<div class="pan2_item customer_service" id="pan2_item_4" style="background-color: rgba(217, 255, 255, .5);border-radius: 20px;">
+			<div class="pan2_item customer_service" id="pan2_item_4">
 				<jsp:include page="/customer_service/view_letter.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item" id="pan2_item_5">
