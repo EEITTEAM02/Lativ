@@ -160,6 +160,6 @@
 
 		})
 	</script>
-	<%session.removeAttribute("searchPackageNo");%>
+<%-- 	<%session.removeAttribute("searchPackageNo");%> --%>
 </body>
 </html>
