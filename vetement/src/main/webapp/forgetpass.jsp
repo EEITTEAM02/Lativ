@@ -12,6 +12,7 @@
 
 	<form  align="center" action="MailServlet" method="post" >
 		
+		
 		請輸入您的帳號:<br>
 		<input type="text" name="Account"><font style="color:red">${errorMsg.errormail}</font><br>
         <input type="submit" name="submit" id="submit" value="送出">
