@@ -118,6 +118,7 @@ img.displayImg {
 					<td>總價</td>
 					<td>產品圖</td>
 					<td>評分</td>
+					<td>刪除</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -220,8 +221,9 @@ img.displayImg {
                                             var img = $('<img></img>').attr("src", "productImages/" + orderItem.pno).addClass('displayImg');
                                             cell9.append(img);
                                             var cell10 = $('<td></td>').text(orderItem.score);
+                                            var cell11 = $('<td></td>').text(orderItem.score);
                                             var row1 = $('<tr></tr>');
-                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell9, cell10]);
+                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell9, cell10, cell11]);
                                             docFrag1.append(row1);
                                         })
 
