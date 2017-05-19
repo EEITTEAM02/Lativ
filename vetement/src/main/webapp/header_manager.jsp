@@ -11,7 +11,7 @@
 		font-family: Glyphicons Halflings
 	}
 	#header_title{
-		margin-left: 835px;
+/* 		margin-left: 835px; */
 	    font-family: Microsoft Jhenghei;
 	    font-weight: bold;
 	    font-size: 26px;
