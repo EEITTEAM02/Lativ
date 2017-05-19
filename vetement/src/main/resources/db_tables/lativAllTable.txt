@@ -1,4 +1,4 @@
-﻿drop table rating
+﻿﻿drop table rating
 drop table news
 drop table comment
 drop table customer_service
