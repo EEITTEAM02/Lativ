@@ -9,7 +9,7 @@ drop table production
 drop table category
 drop table discount 
 drop table customer
-
+DROP PROCEDURE compro
 
 create table customer(
 	customerId int identity(1,1) not null,
@@ -128,6 +128,15 @@ create table news(
 	pubdate date,
 	constraint news_PK1 primary key(newsno)
 )
+
+CREATE PROCEDURE compro @proId int
+as
+begin
+SELECT p.productId,comment,pubtime,orderNo,productName,size,color 
+FROM comment c join production p 
+ON c.productId = p.productId 
+WHERE productName = (select productName from production where productId = @proId) order by pubtime desc
+end
 
 insert into news values ('變更客服電話','親愛的會員您好
 

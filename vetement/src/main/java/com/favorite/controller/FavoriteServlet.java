@@ -38,7 +38,7 @@ public class FavoriteServlet extends HttpServlet{
 		String action = req.getParameter("action");
 		
 		if("getOne_For_Display".equals(action)){
-			System.out.println("載入頁面查詢");
+//			System.out.println("載入頁面查詢");
 			
 			Integer customerId = new Integer(req.getParameter("customerId").trim());
 			Integer productId = new Integer(req.getParameter("productId").trim());
@@ -49,14 +49,14 @@ public class FavoriteServlet extends HttpServlet{
 			try{
 				FavoriteService mSrv = new FavoriteService();
 				List<FavoriteVO> selectfavorite = mSrv.getOneEmp(customerId, productId);
-				System.out.println(selectfavorite);
+//				System.out.println(selectfavorite);
 				
 				if (selectfavorite.isEmpty()) {
 					msg = "not add";
 				}else{
 					msg = "as add";
 				}
-				System.out.println(msg);
+//				System.out.println(msg);
 				res.getWriter().println(msg);
 			}catch (Exception e) {
 				errorMsgs.add("???");
@@ -67,7 +67,7 @@ public class FavoriteServlet extends HttpServlet{
 		
 		if ("getChange_For_Display".equals(action)){
 
-			System.out.println("開始切換收藏狀態");
+//			System.out.println("開始切換收藏狀態");
 			
 			Integer customerId = new Integer(req.getParameter("customerId").trim());
 			Integer productId = new Integer(req.getParameter("productId").trim());
@@ -78,7 +78,7 @@ public class FavoriteServlet extends HttpServlet{
 			try{
 				FavoriteService mSrv = new FavoriteService();
 				List<FavoriteVO> selectfavorite = mSrv.getOneEmp(customerId, productId);
-				System.out.println(selectfavorite);
+//				System.out.println(selectfavorite);
 				
 				FavoriteVO favoriteVO = new FavoriteVO();
 				favoriteVO.setCustomerId(customerId);
@@ -91,7 +91,7 @@ public class FavoriteServlet extends HttpServlet{
 					mSrv.deleteFavorite(customerId, productId);
 					msg = "delete";
 				}
-				System.out.println(msg);
+//				System.out.println(msg);
 				res.getWriter().println(msg);
 
 				
@@ -103,7 +103,7 @@ public class FavoriteServlet extends HttpServlet{
 		
 		if ("getAll".equals(action)){
 			
-			System.out.println("開始查詢");
+//			System.out.println("開始查詢");
 			
 			String msg = null;
 			List<String> errorMsgs = new LinkedList<String>();
@@ -115,7 +115,7 @@ public class FavoriteServlet extends HttpServlet{
 			
 				FavoriteService mSrv = new FavoriteService();
 				List<ProductionVO> selectfavorite = mSrv.getAll(customerId);
-				System.out.println(selectfavorite);
+//				System.out.println(selectfavorite);
 				
 				for (ProductionVO aProduct : selectfavorite) {
 					Map m1 = new HashMap();
@@ -127,7 +127,7 @@ public class FavoriteServlet extends HttpServlet{
 					l1.add(m1);	
 				}
 				String jsonString = JSONValue.toJSONString(l1);
-				System.out.println(jsonString);
+//				System.out.println(jsonString);
 
 //				 out.println(jsonString);
 //				 out.flush();
@@ -143,7 +143,7 @@ public class FavoriteServlet extends HttpServlet{
 		
 		if ("delete".equals(action)){
 			
-			System.out.println("開始刪除");
+//			System.out.println("開始刪除");
 			String msg = null;
 			List<String> errorMsgs = new LinkedList<String>();
 			req.setAttribute("errorMsgs", errorMsgs);
@@ -152,11 +152,11 @@ public class FavoriteServlet extends HttpServlet{
 				
 				Integer customerId = new Integer(req.getParameter("customerId").trim());
 				Integer productId = new Integer(req.getParameter("productId").trim());
-				System.out.println(productId);
+//				System.out.println(productId);
 				FavoriteService mSrv = new FavoriteService();
 				mSrv.deleteFavorite(customerId, productId);
 				msg = "delete";
-				System.out.println("刪除成功");
+//				System.out.println("刪除成功");
 				res.getWriter().println(msg);
 				
 			}catch (Exception e) {

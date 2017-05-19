@@ -45,19 +45,16 @@ public class CommentServlet extends HttpServlet{
 		
 		if ("insert".equals(action)){
 			
-			System.out.println("進入新增");
-			
 			String msg = null;
 			List<String> errorMsgs = new LinkedList<String>();
 			req.setAttribute("errorMsgs", errorMsgs);
-			System.out.println();
 			try{
 				
 				String comment = req.getParameter("comment");
 				Integer customerId = new Integer(req.getParameter("customerId").trim());
 				Integer productId = new Integer(req.getParameter("productId").trim());
 				Integer orderNo = new Integer(req.getParameter("orderNo").trim());
-				System.out.println(comment);
+//				System.out.println(comment);
 				if (comment == null || comment.trim().length() == 0) {
 					errorMsgs.add("評價請勿空白");
 				}
@@ -91,7 +88,6 @@ public class CommentServlet extends HttpServlet{
 		
 		if ("delete".equals(action)){
 			
-			System.out.println("111111");
 			String msg = null;
 			List<String> errorMsgs = new LinkedList<String>();
 			req.setAttribute("errorMsgs", errorMsgs);
@@ -135,7 +131,7 @@ public class CommentServlet extends HttpServlet{
 					l1.add(m1);	
 				}
 				String jsonString = JSONValue.toJSONString(l1);
-				System.out.println(jsonString);
+//				System.out.println(jsonString);
 				res.getWriter().println(jsonString);
 				
 			}catch (Exception e) {
@@ -155,7 +151,7 @@ public class CommentServlet extends HttpServlet{
 				Integer productId = new Integer(req.getParameter("productId").trim());
 				CommentService svc = new CommentService();
 				Set<CommentVO> commentSvc = svc.getOne(customerId, productId);
-				System.out.println(commentSvc);
+//				System.out.println(commentSvc);
 				if (commentSvc.isEmpty()) {
 					msg = "null";
 				}else{

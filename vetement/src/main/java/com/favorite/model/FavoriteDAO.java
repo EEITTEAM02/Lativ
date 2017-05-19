@@ -39,7 +39,7 @@ public class FavoriteDAO implements Favorite_interface{
 			favorVO.setProductId(favoriteVO.getProductId());
 			session.save(favorVO);
 			session.getTransaction().commit();
-			System.out.println("新增成功");
+//			System.out.println("新增成功");
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
 			throw e;
@@ -58,7 +58,7 @@ public class FavoriteDAO implements Favorite_interface{
 			query.setParameter(1, productId);
 			query.executeUpdate();
 			session.getTransaction().commit();
-			System.out.println("刪除成功");
+//			System.out.println("刪除成功");
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
 			throw e;
