@@ -204,8 +204,19 @@ img.displayImg {
 						</div>
 					</div>
 					<!-- carousel -->
-					<div class="row carousel-holder">
-						<div class="col-md-3">
+
+					<!-- 每頁不同的內容到這裡結束 -->
+
+
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<div class="container">
+		<div class="row">
+			<div class="row carousel-holder">
+						<div class="col-md-12">
 							<div id="carousel-example-generic" class="carousel slide"
 								data-ride="carousel">
 								<ol class="carousel-indicators">
@@ -217,18 +228,18 @@ img.displayImg {
 								<div class="carousel-inner">
 									<div class="item active">
 										<a><img class="slide-image"
-											src="http://placehold.it/200x100"
-											style="width: 200px; height: 100px;" alt=""></a>
+											src="modelImages1/${param.Pid}"
+											style="width: 100%;" alt=""></a>
 									</div>
 									<div class="item">
 										<a><img class="slide-image"
-											src="http://placehold.it/200x100"
-											style="width: 200px; height: 100px;""></a>
+											src="modelImages2/${param.Pid}"
+											style="width: 100%;" alt=""></a>
 									</div>
 									<div class="item">
 										<a><img class="slide-image"
-											src="http://placehold.it/200x100"
-											style="width: 200px; height: 100px;""></a>
+											src="modelImages3/${param.Pid}"
+											style="width: 100%;" alt=""></a>
 									</div>
 								</div>
 								<a class="left carousel-control"
@@ -243,50 +254,33 @@ img.displayImg {
 
 						<!-- /carousel -->
 					</div>
-
-
-
-					<!-- 每頁不同的內容到這裡結束 -->
-
-
-				</div>
-			</div>
+		</div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-12">
-				<img src="modelImages1/${param.Pid}" style="width: 100%">
-			</div>
-		</div>
-		<br></br>
-		<div class="row">
-			<div class="col-md-12">
-				<img src="modelImages2/${param.Pid}" style="width: 100%">
-			</div>
-		</div>
-		<br></br>
-		<div class="row">
-			<div class="col-md-12">
-				<img src="modelImages3/${param.Pid}" style="width: 100%">
-			</div>
-		</div>
-		<br></br>
-		<div class="row">
-			<div class="col-md-12">
-				<img src="modelImages4/${param.Pid}" style="width: 100%">
-			</div>
-		</div>
-		<br></br>
-
-		<!-- 	    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script> -->
-		<%-- 		<script src="${context}/js/bootstrap.min.js"></script> --%>
-		<%-- 		<script src="${context}/js/jquerysession.js"></script> --%>
-		<!-- 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-		<%-- 		<script src="${context}/js/jquery.fancybox.min.js"></script> --%>
-		<%-- 		<script src="${context}/js/sweetalert.min.js"></script> --%>
-		<%-- 		<script src="${context}/js/clean-blog.min.js"></script> --%>
-		<%--        <script type='text/javascript' src="${context}/js/jquery.mycart.js"></script> --%>
-		<%-- 		 <script src="${context}/jsUtil/includeHeader.js"></script> --%>
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-12"> -->
+<%-- 				<img src="modelImages1/${param.Pid}" style="width: 100%"> --%>
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<br></br> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-12"> -->
+<%-- 				<img src="modelImages2/${param.Pid}" style="width: 100%"> --%>
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<br></br> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-12"> -->
+<%-- 				<img src="modelImages3/${param.Pid}" style="width: 100%"> --%>
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<br></br> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-12"> -->
+<%-- 				<img src="modelImages4/${param.Pid}" style="width: 100%"> --%>
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<br></br> -->
 
 		<script>
 		var ctx = "<%=request.getContextPath()%>";
@@ -343,7 +337,7 @@ img.displayImg {
 			
 			
 	
-			getCarouselItems(1);
+// 			getCarouselItems(1);
 			
 			function getCarouselItems(id){
 				$.ajax({
@@ -629,8 +623,8 @@ img.displayImg {
           		        var span2 = $('<span></span>').css('display','inline-block');
           		        div23.append(span1);
           		        div24.append(span2);
-          		      document.getElementById('0').click();
-                      span2.append($('<select><option>先選商品</option></select>')).append($("<button class='btn btn-danger'>add to cart</button>"));
+//           		      document.getElementById('0').click();
+//                       span2.append($('<select><option>先選商品</option></select>')).append($("<button class='btn btn-danger'>add to cart</button>"));
           		        }
 
              		}

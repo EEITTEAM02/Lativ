@@ -113,19 +113,19 @@ tr {
 					<tbody>
 						<tr>
 							<td class="info1"><span class="span_info">姓名</span></td>
-							<td><p name="name_send">Eka</p></td>
+							<td><p name="name_send">${sessionScope.login_customer_info.name}</p></td>
 						</tr>
 						<tr>
 							<td class="info1"><span class="span_info">手機</span></td>
-							<td><p name="phone_send">0935689552</p></td>
+							<td><p name="phone_send">${sessionScope.login_customer_info.tel}</p></td>
 						</tr>
 						<tr>
 							<td class="info1"><span class="span_info">地址</span></td>
-							<td><p name="addr_send">樂園</p></td>
+							<td><p name="addr_send">${sessionScope.login_customer_info.addr_customer}</p></td>
 						</tr>
 						<tr>
 							<td class="info1"><span class="span_info">Email</span></td>
-							<td><p name="mail_send">vu0ru843@pchome.com.tw</p></td>
+							<td><p name="mail_send">${sessionScope.login_customer_info.mail}</p></td>
 						</tr>
 					</tbody>
 				</table>

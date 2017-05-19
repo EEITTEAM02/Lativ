@@ -62,150 +62,18 @@ h1 {
 	font-size: 1.2em;
 	margin: .6em 0;
 }
+
+.container ={
+margin:0 auto;
+}
 </style>
 </head>
 <body>
-<div class="container">
-		<nav class="navbar navbar-inverse">
-		<h1 class="topRight">${sName}</h1>
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">vetements</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav ">
-					<li class="navbar-left "><a href="index.jsp">Home</a></li>
-					<li class="navbar-left "><a href="productDisplay.jsp">Product</a></li>
-					<li class="navbar-left active"><a href="#">UploadProduct</a></li>
-					<li class="navbar-left"><a href="memberLounge.jsp"><c:if test="${user == 'authenticated'}">OrderHistory</c:if></a></li>
-					<li class="navbar-right" id="login-user"><a href="#">登入</a></li>
-					<li class="navbar-right" id="register-user"><a href="#">註冊</a></li>
-					<li class="navbar-right" id="logout"><a href="#">登出</a></li>
-				</ul>
-			</div>
-		</div>
-		</nav>
-	</div>
-	
-	<div id="dialogLogin-form" title="user login">
-						<p class="validateTips">All form fields are required.</p>
-
-						<form id="loginForm" class="form-horizontal">
-							<div class="form-group">
-								<label for="email" class="col-lg-2 control-label">電子郵件</label>
-								<div class="col-lg-10">
-									<div class="input-group">
-										<input type="email" id="email2" name="email2"
-											class="form-control" placeholder="請輸入電子郵件"><span
-											id="spanEmail"></span>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="password" class="col-lg-2 control-label">密碼</label>
-								<div class="col-lg-10">
-									<div class="input-group">
-										<input type="password" id="password2" name="password2"
-											class="form-control" placeholder="請輸入密碼"> <span
-											id="spanPwd"></span>
-									</div>
-								</div>
-							</div>
-
-							<div class="checkbox">
-								<label for="checkbox"><input id="rm" name="rm"
-									type="checkbox" value="true">記得我</label>
-							</div>
-
-							<div class="form-group">
-								<div class="col-lg-10 col-lg-offset-2">
-									<button type="submit" id="buttonLogin" class="btn btn-primary">登入</button>
-									<div id="messageLogin"></div>
-								</div>
-
-							</div>
-						</form>
-					</div>
-
-					<div id="dialogRegister-form" title="Register New User">
-						<p class="validateTips">All form fields are required.</p>
-
-						<form id="registerForm" class="form-horizontal">
-							<div class="form-group">
-								<label for="name" class="col-lg-2 control-label">姓名</label>
-								<div class="col-lg-10">
-									<div class="input-group">
-										<input type="text" id="name" name="name" class="form-control"
-											placeholder="請輸入姓名">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="email" class="col-lg-2 control-label">電子郵件</label>
-								<div class="col-lg-10">
-									<div class="input-group">
-										<input type="email" id="email1" name="email1"
-											class="form-control" placeholder="請輸入電子郵件">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="password" class="col-lg-2 control-label">密碼</label>
-								<div class="col-lg-10">
-									<div class="input-group">
-										<input type="password" id="password1" name="password1"
-											class="form-control" placeholder="請輸入密碼">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="address" class="col-lg-2 control-label">地址</label>
-								<div class="col-lg-10">
-									<div class="input-group">
-										<input type="text" id="address" name="address"
-											class="form-control" placeholder="請輸入地址">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="phoneno" class="col-lg-2 control-label">電話</label>
-								<div class="col-lg-10">
-									<div class="input-group">
-										<input type="text" id="phoneno" name="phoneno"
-											class="form-control" placeholder="請輸入電話">
-									</div>
-									<span id="spanRegister2"></span>
-								</div>
-							</div>
-                            
-                            	<div class="form-group">
-								<label for="gender" class="col-lg-2 control-label">性別</label>
-								<div class="col-lg-10">
-									<div class="input-group">
-										<label>
-                                           <input type="radio" name="gender" value="male" id="genderM"/>男
-                                        </label>
-                                        <label>
-                                        <input type="radio" name="gender" value="female" id="genderF"/>女
-                                        </label>
-									</div><span id="spanRegister"></span>
-								</div>
-							</div>
 
 
-							<div class="form-group">
-								<div class="col-lg-10 col-lg-offset-2">
-									<button type="submit" id="buttonRegister"
-										class="btn btn-primary">註冊</button>
-									<div id="messageRegister"></div>
-								</div>
-
-							</div>
-						</form>
-					</div>
 					
 					<!-- 每頁不同的內容從這裡開始 -->
-<div class="container">
+<div class="container-fluid" style="border:1px solid #cecece;">
   <div class="row">
     <div class="col-md-6">
 
@@ -214,11 +82,11 @@ h1 {
             <table border="0">
                 <tr>
                     <td>Product Name: </td>
-                    <td><input type="text" name="name" size="50"/></td>
+                    <td><input type="text" name="name" size="20"/></td>
                 </tr>
                 <tr>
                     <td>Size: </td>
-                    <td><select name="size" />
+                    <td><select name="size" style="width:174px;">
                     <option value="XL">XL</option>
                     <option value="L">L</option>
                     <option value="M">M</option>
@@ -228,23 +96,23 @@ h1 {
                 </tr>
                 <tr>
                     <td>color: </td>
-                    <td><input type="text" name="color" size="50"/></td>
+                    <td><input type="text" name="color" size="20"/></td>
                 </tr>
                 <tr>
                     <td>price: </td>
                     <td><input type="number" name="price" size="50"/></td>
                 </tr>
                 <tr>
-                    <td>discountCat: </td>
-                    <td ><select id="discountSelect1" name="discountCat"></select></td>
+                    <td>discountCat: </td> 
+                    <td ><select id="discountSelect1" name="discountCat" style="width:174px;"></select></td>
                 </tr>
                 <tr>
                     <td>description: </td>
-                    <td><input type="textarea" name="descript" size="50"/></td>
+                    <td><input type="textarea" name="descript" size="20"/></td>
                 </tr>
                 <tr>
                     <td>categoryId: </td>
-                    <td><select id="categoryId1" name="categoryId"></select></td>
+                    <td><select id="categoryId1" name="categoryId" style="width:174px;"></select></td>
                 </tr>
                 
                 <tr>
@@ -303,19 +171,20 @@ h1 {
                
                 <tr>
                     <td>請先選 categoryId: </td>
-                    <td><select id="categoryId2" ><option disabled selected value>-- select an option --</option></select></td>
+                    <td><select id="categoryId2" style="width:174px;"><option disabled selected value>-- select an option --</option></select></td>
                 </tr>
                 <tr>
                     <td>Product Number: </td>
-                    <td><select name="pno" id="pno"><option value="0">0</option></select></td><td><select name="pnoA" id="pnoA"></select></td>
+                    <td><select name="pno" id="pno" style="width:174px; "><option value="0">0</option></select></td>
+<!--                     <td><select name="pnoA" id="pnoA" style="width:174px;"></select></td> -->
                 </tr>
                 <tr>
                     <td>Product Name: </td>
-                    <td><input type="text" name="name" size="50"/></td>
+                    <td><input type="text" name="name" size="20"/></td>
                 </tr>
                 <tr>
                     <td>Size: </td>
-                    <td><select name="size" />
+                    <td><select name="size" style="width:174px;">
                     <option value="XL">XL</option>
                     <option value="L">L</option>
                     <option value="M">M</option>
@@ -325,32 +194,32 @@ h1 {
                 </tr>
                 <tr>
                     <td>color: </td>
-                    <td><input type="text" name="color" size="50"/></td>
+                    <td><input type="text" name="color" size="20"/></td>
                 </tr>
                 <tr>
                     <td>price: </td>
-                    <td><input type="text" name="price" size="50"/></td>
+                    <td><input type="number" name="price" size="50"/></td>
                 </tr>
                 <tr>
                     <td>discountCat: </td>
-                    <td><select id="discountSelect2" name="discountCat"></select></td>
+                    <td><select id="discountSelect2" name="discountCat" style="width:174px;"></select></td>
                 </tr>
                 <tr>
                     <td>description: </td>
-                    <td><input type="textarea" name="descript" size="50"/></td>
+                    <td><input type="textarea" name="descript" size="20"/></td>
                 </tr>
                 <tr>
                     <td>categoryId: </td>
-                    <td><select id="categoryId3" name="categoryId"></select></td>
+                    <td><select id="categoryId3" name="categoryId" style="width:174px;"></select></td>
                 </tr>
                 
                 <tr>
                     <td>noInStock: </td>
-                    <td><input type="text" name="noInStock" size="50"/></td>
+                    <td><input type="text" name="noInStock" size="20"/></td>
                 </tr>
                 <tr>
                     <td>for_sale: </td>
-                    <td><select name="for_sale"><option value="1">上架</option><option value="0">下架</option></select></td>
+                    <td><select name="for_sale" ><option value="1">上架</option><option value="0">下架</option></select></td>
                 </tr>
                 
                 <tr>
@@ -396,42 +265,7 @@ h1 {
          </div>
          </div>
          
-         
-          <script>
-                    $(function() {
-
-                    	if (localStorage.chkbx && localStorage.chkbx != '') {
-                            $('#rm').attr('checked', 'checked');
-                            $('#email2').val(localStorage.email2);
-                            $('#password2').val(localStorage.password2);
-                        } else {
-                            $('#rm').removeAttr('checked');
-                            $('#email2').val('');
-                            $('#password2').val('');
-                        }
-                      
-         
-                        $('#rm').on('click',function() {
-         
-                            if ($('#rm').is(':checked')) {
-                                // save username and password
-                               
-                                 $('#spanEmail').text($('#email2').val()).hide();
-                                 $('#spanPwd').text($('#password2').val()).hide();
-                                 console.log($('#spanPwd').text());
-                                localStorage.email2 = $('#spanEmail').text();
-                                localStorage.password2 =$('#spanPwd').text();
-                                localStorage.chkbx = $('#rm').val();
-                            } else {
-                                localStorage.email2 = '';
-                                localStorage.password2 = '';
-                                localStorage.chkbx = '';
-                            }
-                        });
-                    });
- 
-        </script>
-        
+       
          <!-- 每頁不同的內容到這裡結束 -->
     <script>
     $(function() {
@@ -495,302 +329,16 @@ h1 {
     	   }
        })         	      
     	 	
-    	<!-- login/logout-->
-
-		if (localStorage.chkbx && localStorage.chkbx != '') {
-            $('#rm').attr('checked', 'checked');
-            $('#email2').val(localStorage.email2);
-            $('#password2').val(localStorage.password2);
-        } else {
-            $('#rm').removeAttr('checked');
-            $('#email2').val('');
-            $('#password2').val('');
-        }
-      
-
-        $('#rm').on('click',function() {
-
-            if ($('#rm').is(':checked')) {
-                // save username and password
-               
-                 $('#spanEmail').text($('#email2').val()).hide();
-                 $('#spanPwd').text($('#password2').val()).hide();
-                 console.log($('#spanPwd').text());
-                localStorage.email2 = $('#spanEmail').text();
-                localStorage.password2 =$('#spanPwd').text();
-                localStorage.chkbx = $('#rm').val();
-            } else {
-                localStorage.email2 = '';
-                localStorage.password2 = '';
-                localStorage.chkbx = '';
-            }
-        });
-		 $('#buttonLogin').hide();
-         $('#buttonRegister').hide();
-		$('#logout').click(function() {
-			$.get("Logout.do", function(data) {
-				location.reload();
-			});
-		})
-		
-		var dialog, formRegister, formLogin, email2 = $("#email2"), email1 = $("#email1"),password2 = $("#password2"), password1 = $("#password1"), name = $("#name")
-			,addr = $("#address"),phoneno = $("#phoneno"),genderM = $('#genderM'), genderF = $('#genderF'),
-			emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-			allFieldsLogin = $([]).add(email2).add(password2),
-			tips = $( ".validateTips" ),
-			allFieldsRegister = $([]).add(name).add(email1).add(password1).add(addr).add(phoneno).add(genderM).add(genderF);
-		
-		function updateTips( t ) {
-		      tips
-		        .text( t )
-		        .addClass( "ui-state-highlight" );
-		      setTimeout(function() {
-		        tips.removeClass( "ui-state-highlight", 1500 );
-		      }, 500 );
-		    }
-		
-		function checkLength( o, n, min, max ) {
-		      if ( o.val().length > max || o.val().length < min ) {
-		        o.addClass( "ui-state-error" );
-		        updateTips( "Length of " + n + " must be between " +
-		          min + " and " + max + "." );
-		        return false;
-		      } else {
-		        return true;
-		      }
-		    }
-		
-		function checkRegexp( o, regexp, n ) {
-		      if ( !( regexp.test( o.val() ) ) ) {
-		        o.addClass( "ui-state-error" );
-		        updateTips( n );
-		        return false;
-		      } else {
-		        return true;
-		      }
-		    }
-
-		
-
-		function loginUser() {
-
-			var valid = true;
-		      allFieldsLogin.removeClass( "ui-state-error" );
-		 
-		      valid = valid && checkLength( email2, "email", 6, 80 );
-		      valid = valid && checkLength( password2, "password", 3, 16 );
-		
-		      valid = valid && checkRegexp( email2, emailRegex, "eg. ui@jquery.com" );
-		      valid = valid && checkRegexp( password2, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-			
-			event.preventDefault();
-			if (valid) {
-			var data = $('#loginForm').serialize();
-			$.post("LoginNew.do", data, function(data) {
-			
-				if (data==''){
-					
-					location.reload();
-				}
-				else if (data.substring(0, 2) != "We") {
-					$('#spanPwd').html(data);
-				} 						
-				
-				else {
-					$('#spanPwd').empty();
-
-					dialogLogin.dialog("close");
-					location.reload();
-				}
-			})
-			}
-
-
-			return valid;
-		}
-		
-		function registerUser() {
-			var valid = true;
-			 allFieldsRegister.removeClass( "ui-state-error" );
-			  
-		 	  valid = valid && checkLength( name, "name", 3, 80 );
-		      valid = valid && checkLength( email1, "email", 6, 80 );
-		      valid = valid && checkLength( password1, "password", 3, 16 );
-		      
-		      valid = valid && checkLength( addr, "address", 3, 50 );
-		      valid = valid && checkLength( phoneno, "phone #", 3, 16 );
-		
-		      valid = valid && checkRegexp( email1, emailRegex, "eg. ui@jquery.com" );
-		      valid = valid && checkRegexp( password1, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-		      valid = valid && checkRegexp(phoneno,/^([0-9])+$/,"phone no field only allow : 0-9");
-		      
-		    event.preventDefault();
-		    if (valid) {
-			var data = $('#registerForm').serialize();
-			$.post("Register.do", data, function(data) {
-				if (data.substring(0, 2) != "Su") {
-					$('#spanRegister').html(data);
-				} else {
-					$('#spanRegister').empty();
-
-
-						alert(data);
-					dialogLogin.dialog("close");
-					location.reload();
-				}
-			})
-		    }
-		    return valid;
-		}
-
-		dialogLogin = $("#dialogLogin-form").dialog({
-			
-			
-			closeOnEscape: true,
-		    open: function(event, ui) {
-		        $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-		    },
-		
-			autoOpen : false,
-//				height: 450,
-				width : 390,
-			modal : true,
-			resizable : false,
-			 buttons: {"Login": loginUser,
-			        Cancel: function() {
-			        	if ($('#rm').is(':checked')) {
-			        	     $('#spanEmail').text($('#email2').val()).hide();
-	                         $('#spanPwd').text($('#password2').val()).hide();
-	                        localStorage.email2 = $('#spanEmail').text();
-	                        localStorage.password2 =$('#spanPwd').text();
-	                        localStorage.chkbx = $('#rm').val();
-	                    } else {
-	                        localStorage.email2 = '';
-	                        localStorage.password2 = '';
-	                        localStorage.chkbx = '';
-	                    }
-			          dialogLogin.dialog( "close" );
-			        }
-			      },
-			close : function() {
-				
-				$('#spanPwd').empty();
-				formLogin[0].reset();
-				allFieldsLogin.removeClass("ui-state-error");
-			}
-		});
-		
-		dialogRegister = $("#dialogRegister-form").dialog({
-			
-			
-			closeOnEscape: true,
-		    open: function(event, ui) {
-		        $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-		    },
-		
-			autoOpen : false,
-			height: 500,
-			width : 390,
-			modal : true,
-			resizable : false,
-			buttons : {
-				"Register": registerUser,
-		        Cancel:function (){
-		            dialogRegister.dialog( "close" );
-		        }
-			},
-			close : function() {
-				$('#spanPwd').empty();
-				formRegister[0].reset();
-				allFieldsRegister.removeClass("ui-state-error");
-				
-			}
-		});
-
-		formRegister = dialogRegister.find("#registerForm").on("submit", function(event) {
-			event.preventDefault();
-			registerUser();
-		});
-		formLogin = dialogLogin.find("#loginForm").on("submit", function(event) {
-			event.preventDefault();
-			if ($('#rm').is(':checked')) {
-        	     $('#spanEmail').text($('#email2').val()).hide();
-                $('#spanPwd').text($('#password2').val()).hide();
-               localStorage.email2 = $('#spanEmail').text();
-               localStorage.password2 =$('#spanPwd').text();
-               localStorage.chkbx = $('#rm').val();
-           } else {
-               localStorage.email2 = '';
-               localStorage.password2 = '';
-               localStorage.chkbx = '';
-           }
-			loginUser();
-		});
-
-		$("#login-user").button().on("click", function() {
-			if (localStorage.chkbx != '') {
-                $('#rm').attr('checked', 'checked');
-                $('#email2').val(localStorage.email2);
-                $('#password2').val(localStorage.password2);
-            } else {
-                $('#rm').removeAttr('checked');
-                $('#email2').val('');
-                $('#password2').val('');
-            }
-			dialogLogin.dialog("open").css('overflow', 'hidden');   //hides scroll bar
-			$('.validateTips').text('All form fields are required.');
-		});
-		$("#register-user").button().on("click", function() {
-			dialogRegister.dialog("open").css('overflow', 'hidden');;
-			$('.validateTips').text('All form fields are required.');
-		});
-		<!-- login/logout-->
-//     	 var $submit = $('input[type="submit"]');
-//     	    $submit.prop('disabled', true);
-//     	    $('input[type="text"]').on('input change', function() { //'input change keyup paste'
-//     	        $submit.prop('disabled', !$(this).val().length);
-//     	    });
-
     	         $('#pnoA').change(function(){
     	    	    	var pnoA =$('#pnoA').val();
                         console.log("pnoA:"+pnoA);
     	    	    	$('#myForm img').remove();
-    	    	    	var image1 = $('<img></img>').attr('src','productImages/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
-    	    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
-    	    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
-    	    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
-    	    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	}); 
-    	    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pnoA).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    	    $(this).css("cursor","pointer");
-    	    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	    	}).mouseleave(function() {   
-    	    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	    	});
+    	    	    	var image1 = $('<img></img>').attr('src','productImages/'+pnoA).css({'width':'50px','height':'50px'});
+    	    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pnoA).css({'width':'50px','height':'50px'});
+    	    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pnoA).css({'width':'50px','height':'50px'});
+    	    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pnoA).css({'width':'50px','height':'50px'});
+    	    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pnoA).css({'width':'50px','height':'50px'}); 
+    	    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pnoA).css({'width':'50px','height':'50px'});
     	    	    	
     	    	    	$('#productImg').append(image1);   	    	
     	    	    	$('#colorImg').append(image2);
@@ -821,42 +369,12 @@ h1 {
                 var pno = $('#pno').val();
                 console.log("pno:"+pno);
     	    	$('#myForm img').remove();
-    	    	var image1 = $('<img></img>').attr('src','productImages/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
-    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
-    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
-    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
-    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	}); 
-    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pno).css({'width':'50px','height':'50px'}).mouseenter(function() {
-    	    	    $(this).css("cursor","pointer");
-    	    	    $(this).animate({width: "150%", height: "200%"}, 'slow');
-    	    	}).mouseleave(function() {   
-    	    	    $(this).animate({width: "60%"}, 'slow');
-    	    	});
+    	    	var image1 = $('<img></img>').attr('src','productImages/'+pno).css({'width':'50px','height':'50px'});
+    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pno).css({'width':'50px','height':'50px'});
+    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pno).css({'width':'50px','height':'50px'});
+    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pno).css({'width':'50px','height':'50px'});
+    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pno).css({'width':'50px','height':'50px'}); 
+    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pno).css({'width':'50px','height':'50px'});
     	    	
     	    	$('#productImg').append(image1);   	    	
     	    	$('#colorImg').append(image2);
@@ -883,8 +401,6 @@ h1 {
     	    	})
     	    	
     	    })
-    	    
-    	
     	
     })
     </script>

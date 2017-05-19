@@ -8,6 +8,7 @@
         <id name="orderNo" column="orderNo">
             <generator class="identity"/>
         </id>
+       
         
         <property name="dealDate" column="dealDate" />
         <property name="addr_send" column="addr_send" />

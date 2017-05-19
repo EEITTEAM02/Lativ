@@ -34,7 +34,7 @@
 	<div >
 		<nav id="selectpage">
 			<ul class="nav nav-pills customer_label">
-		  		<li class="select_item_btn" id="select_item_1" role="presentation"><a href="#">page1</a></li>
+		  		<li class="select_item_btn" id="select_item_1" role="presentation"><a href="#">訂單查詢明細</a></li>
 		  		<li class="select_item_btn" id="select_item_2" role="presentation"><a href="#">會員資料修改</a></li>
 		 		<li class="select_item_btn" id="select_item_3" role="presentation"><a href="#">密碼修改</a></li>
 		 		<li class="select_item_btn" id="select_item_4" role="presentation"><a href="#">聯絡客服</a></li>

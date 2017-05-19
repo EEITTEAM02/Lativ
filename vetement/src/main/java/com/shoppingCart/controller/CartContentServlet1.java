@@ -34,17 +34,24 @@ public class CartContentServlet1 extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/plain;charset=UTF-8");  
 //	    response.setCharacterEncoding("UTF-8");
+		 java.util.Date utilDate = new java.util.Date();
+		 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 		HttpSession session = request.getSession(false);
 		PrintWriter out = response.getWriter();
 	    OrderService osrvc = new OrderService();
 	    Integer mno =(Integer) session.getAttribute("mno");
+	    System.out.println(mno);
 	    CustomerService msrvc = new CustomerService();
-//	    CustomerVO aCustomer = msrvc.getOneCustomer(mno);
+
 	    Set<OrderVO> orderList = msrvc.getOrderVOsByCustomerId(mno);
+	   
+	    if (orderList.isEmpty() ){
+	    	osrvc.addOrder(sqlDate, mno, null, null, false, null, null);
+	    	orderList = msrvc.getOrderVOsByCustomerId(mno);
+	    }
 	    Iterator<OrderVO> it = orderList.iterator();
 	    OrderVO target=null;
-	    java.util.Date utilDate = new java.util.Date();
-	    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+	   
 	   
 	    while(it.hasNext()){
 	    	target = it.next();

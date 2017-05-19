@@ -62,14 +62,6 @@ h1 {
 	margin: .6em 0;
 }
 
-.ui-dialog .ui-state-error {
-	padding: .3em;
-}
-
-.validateTips {
-	border: 1px solid transparent;
-	padding: 0.3em;
-}
 
 h1#a {
 	text-indent: 100%;
@@ -442,8 +434,6 @@ img.displayImg {
 		        return true;
 		      }
 		    }
-
-		
 
 		function loginUser() {
 
