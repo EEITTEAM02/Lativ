@@ -36,7 +36,7 @@
 	border-radius: 30px; 
 	min-height: 800px; 
 	max-height: auto; 
-	width: 55%; 
+	width: 80%; 
 	padding-top: 70px; 
 	padding-left: 5px; 
 	padding-right: 5px; 
@@ -47,7 +47,7 @@
 	border: 2px solid #337ab7; 
 	border-radius: 30px; 
 	height: 800px; 
-	width: 55%; 
+	width: 80%; 
 	padding-top: 70px; 
 	padding-left: 50px; 
 }

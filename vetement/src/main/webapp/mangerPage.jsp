@@ -67,7 +67,6 @@ body{
 			<div class="pan2_item" id="pan2_item_1">
   				<jsp:include page="uploadProduct2.jsp"></jsp:include>  
 			</div>
-			
 			<div class="pan2_item" id="pan2_item_2">
 				<jsp:include page="/admin/DiscountRule.jsp"></jsp:include>
 			</div>
@@ -94,6 +93,14 @@ body{
 				$('.select_item_btn').removeClass('active');
 				$('#select_item_4').addClass('active');
 			};
+			
+			if (${ bbb == "del5" }){
+				$('.pan2_item').hide();
+				$("#pan2_item_3").show();
+				$('.select_item_btn').removeClass('active');
+				$('#select_item_3').addClass('active');
+			};
+			
 		})
 		
 		$('.select_item_btn').click(function(){
