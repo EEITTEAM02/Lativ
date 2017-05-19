@@ -93,9 +93,7 @@ img.displayImg {
 	<body>
     <ul class="breadcrumb">
         <li><a href="#">訂單及明細</a></li>
-        <li><a href="#">Private</a></li>
-        <li><a href="#">Pictures</a></li>
-        <li class="active">Vacation</li>
+      
     </ul>
     <div class='container'>
         <div class='row'>
