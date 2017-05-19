@@ -48,7 +48,7 @@ public class OrderItemHistoryServlet extends HttpServlet {
 		ProductionService psrvc = new ProductionService();
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=DB01";
+		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
 		    conn = DriverManager.getConnection(url,"sa", "sa123456");
 		    pstmt = conn.prepareStatement("select score from rating where productId=?");
 		    

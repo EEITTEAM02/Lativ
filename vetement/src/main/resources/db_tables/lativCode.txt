@@ -1,0 +1,10 @@
+﻿DROP PROCEDURE compro
+
+CREATE PROCEDURE compro @proId int
+as
+begin
+SELECT p.productId,comment,pubtime,orderNo,productName,size,color 
+FROM comment c join production p 
+ON c.productId = p.productId 
+WHERE productName = (select productName from production where productId = @proId) order by pubtime desc
+end
