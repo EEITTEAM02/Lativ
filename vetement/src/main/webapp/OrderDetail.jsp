@@ -117,8 +117,8 @@ img.displayImg {
 					<td>折價</td>
 					<td>總價</td>
 					<td>產品圖</td>
-					<td>評分</td>
-					<td>刪除</td>
+					<td>評價</td>
+					<td>刪除評價</td>
 				</tr>
 			</thead>
 			<tbody>
