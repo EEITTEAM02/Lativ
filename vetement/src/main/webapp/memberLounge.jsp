@@ -435,8 +435,6 @@ img.displayImg {
 		      }
 		    }
 
-		
-
 		function loginUser() {
 
 			var valid = true;
