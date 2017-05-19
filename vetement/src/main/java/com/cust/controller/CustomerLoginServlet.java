@@ -105,6 +105,8 @@ public class CustomerLoginServlet extends HttpServlet {
 		if("logout".equals(action)){
 			
 			HttpSession session = req.getSession();
+			session.setAttribute("shoppingCartBack", null);
+			session.setAttribute("recommend", null);
 			session.removeAttribute("login_customer_info");
 		}
 	

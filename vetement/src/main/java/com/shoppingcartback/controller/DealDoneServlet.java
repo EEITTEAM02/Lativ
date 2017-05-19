@@ -90,6 +90,9 @@ public class DealDoneServlet extends HttpServlet {
 		OrderService dao = new OrderService();
 		dao.updateOrder(orderNo, dealDate, customerId, addr_send, price_total, status1, name_send, tel_send);
 		
+//		session.setAttribute("shoppingCartBack", null);
+//		session.setAttribute("recommend", null);
+		session.setAttribute("dealInformation", null);
 		response.sendRedirect(request.getContextPath()+"/Search/search.jsp");
 	}
 
