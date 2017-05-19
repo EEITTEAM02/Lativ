@@ -73,7 +73,7 @@ margin:0 auto;
 
 					
 					<!-- 每頁不同的內容從這裡開始 -->
-<div class="container" style="border:1px solid #cecece;">
+<div class="container-fluid" style="border:1px solid #cecece;">
   <div class="row">
     <div class="col-md-6">
 
@@ -175,7 +175,8 @@ margin:0 auto;
                 </tr>
                 <tr>
                     <td>Product Number: </td>
-                    <td><select name="pno" id="pno" style="width:174px;"><option value="0">0</option></select></td><td><select name="pnoA" id="pnoA" style="width:174px;"></select></td>
+                    <td><select name="pno" id="pno" style="width:174px; "><option value="0">0</option></select></td>
+<!--                     <td><select name="pnoA" id="pnoA" style="width:174px;"></select></td> -->
                 </tr>
                 <tr>
                     <td>Product Name: </td>
