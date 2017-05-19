@@ -3,6 +3,7 @@ package com.shoppingcartback.controller;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ import com.disc.model.DiscountVO;
 import com.order.model.OrderService;
 import com.order.model.OrderVO;
 import com.orderItem.model.OrderItemVO;
+import com.search.model.SearcherService;
 import com.shoppingcartback.model.ShoppingCart;
 import com.shoppingcartback.util.CartDAO;
 import com.shoppingcartback.util.CartService;
@@ -106,6 +108,10 @@ public class UpdateProductServlet extends HttpServlet {
 			
 //			cartDao.orderItemVOUpdate(orderNo, productId, count, price_discount, price_item);
 		}
+		
+		SearcherService daoSearch = new SearcherService();
+		List<Object[]> listRecommend = daoSearch.getHotProduction(target.getOrderNo());
+		session.setAttribute("recommend", listRecommend);
 		
 		cart.reDatabase(target);
 		response.sendRedirect(request.getContextPath() + "/ProductBack/ProductCheck.jsp");
