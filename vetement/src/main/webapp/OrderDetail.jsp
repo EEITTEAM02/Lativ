@@ -215,7 +215,7 @@ img.displayImg {
                                             var cell6 = $('<td></td>').text(orderItem.unitPriceO);
                                             var cell7 = $('<td></td>').text(orderItem.unitPriceD);
                                             var cell8 = $('<td></td>').text(orderItem.totalPrice);
-                                            var cell9 = $('<a></a>').attr('href', '/WebsiteV1.3/productPages/' + orderItem.pnoWithPage + '.jsp');
+                                            var cell9 = $('<a></a>').attr('href', '${pageContext.request.contextPath}/productPages.jsp?Pid=' + orderItem.pnoWithPage);
 
                                             var img = $('<img></img>').attr("src", "productImages/" + orderItem.pno).addClass('displayImg');
                                             cell9.append(img);
