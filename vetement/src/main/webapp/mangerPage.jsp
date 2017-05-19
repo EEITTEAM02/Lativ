@@ -65,7 +65,11 @@ body{
 		
 		<div id="pan2">
 			<div class="pan2_item" id="pan2_item_1">
+<<<<<<< HEAD
    				
+=======
+  				<jsp:include page="uploadProduct2.jsp"></jsp:include>  
+>>>>>>> branch 'master' of https://github.com/EEITTEAM02/Lativ.git
 			</div>
 			
 			<div class="pan2_item" id="pan2_item_2">

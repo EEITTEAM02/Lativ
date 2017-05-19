@@ -79,12 +79,12 @@ body{
 		
 		<div id="pan2" >
 		
-			<div class="pan2_item" id="pan2_item_1">
+			<div class="pan2_item" id="pan2_item_1"  style="display:block">
 				<jsp:include page="OrderDetail.jsp"></jsp:include>
 			</div>
 			
 			
-			<div class="pan2_item customer_info_edit" id="pan2_item_2" style="display:block">
+			<div class="pan2_item customer_info_edit" id="pan2_item_2">
 				<jsp:include page="/customer/editCustomerInfo.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item customer_info_edit" id="pan2_item_3">

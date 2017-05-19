@@ -105,14 +105,14 @@ img.displayImg {
 				<tr>
 					<td>明細編號</td>
 					<td>產品名稱</td>
-					<td>尺       寸</td>
-					<td>顏       色</td>
-					<td>數       量</td>
-					<td>原       價</td>
-					<td>折       價</td>
-					<td>總       價</td>
+					<td>尺寸</td>
+					<td>顏色</td>
+					<td>數量</td>
+					<td>原價</td>
+					<td>折價</td>
+					<td>總價</td>
 					<td>產品圖片</td>
-					<td>評       價</td>
+					<td>評價</td>
 					<td>刪除評價</td>
 				</tr>
 			</thead>
