@@ -78,12 +78,13 @@ body{
 		</div>
 		
 		<div id="pan2" >
-			<div class="pan2_item" id="pan2_item_1">
-				
+		
+			<div class="pan2_item" id="pan2_item_1"  style="display:block">
+				<jsp:include page="OrderDetail.jsp"></jsp:include>
 			</div>
 			
 			
-			<div class="pan2_item customer_info_edit" id="pan2_item_2" style="display:block">
+			<div class="pan2_item customer_info_edit" id="pan2_item_2">
 				<jsp:include page="/customer/editCustomerInfo.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item customer_info_edit" id="pan2_item_3">
@@ -101,19 +102,17 @@ body{
 	</div>
 
 </body>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	$(function(){
 		$('.select_item_btn').removeClass('active');
 		$('#select_item_1').addClass('active');
-		console.log("1");
 	
 	if (${ aaa == "del3" }){
-			console.log("2");
 			$('.pan2_item').hide();
 			$("#pan2_item_4").show();
 			$('.select_item_btn').removeClass('active');
 			$('#select_item_4').addClass('active');
-			console.log("3");
 		};
 	});
 	

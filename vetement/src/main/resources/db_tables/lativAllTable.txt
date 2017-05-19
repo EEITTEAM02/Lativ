@@ -9,7 +9,7 @@ drop table production
 drop table category
 drop table discount 
 drop table customer
-
+DROP PROCEDURE compro
 
 create table customer(
 	customerId int identity(1,1) not null,
@@ -128,6 +128,15 @@ create table news(
 	pubdate date,
 	constraint news_PK1 primary key(newsno)
 )
+
+CREATE PROCEDURE compro @proId int
+as
+begin
+SELECT p.productId,comment,pubtime,orderNo,productName,size,color 
+FROM comment c join production p 
+ON c.productId = p.productId 
+WHERE productName = (select productName from production where productId = @proId) order by pubtime desc
+end
 
 insert into news values ('變更客服電話','親愛的會員您好
 
@@ -7095,7 +7104,7 @@ SELECT * FROM OPENROWSET(
 --兒童 上身類 POLO衫
 -------------------------------1
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-select '純棉經典polo衫','S','紅','290','25',1,'深淺色請分開洗滌',2,25,(  
+select '純棉經典polo衫-童','S','紅','290','25',1,'深淺色請分開洗滌',2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7117,26 +7126,26 @@ SELECT * FROM OPENROWSET(
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','紅','290','32',1,2,25,(  
+select '純棉經典polo衫-童','M','紅','290','32',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img)
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','紅','290','32',1,2,25,(  
+select '純棉經典polo衫-童','L','紅','290','32',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img)
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','紅','290','32',1,2,25,(  
+select '純棉經典polo衫-童','XL','紅','290','32',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img)
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','黃','290','21',1,2,25,(  
+select '純棉經典polo衫-童','S','黃','290','21',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7145,26 +7154,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','黃','290','5',1,2,25,(  
+select '純棉經典polo衫-童','M','黃','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','黃','290','5',1,2,25,(  
+select '純棉經典polo衫-童','L','黃','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','黃','290','5',1,2,25,(  
+select '純棉經典polo衫-童','XL','黃','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img) 
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','白','290','21',1,2,25,(  
+select '純棉經典polo衫-童','S','白','290','21',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7173,26 +7182,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','白','290','5',1,2,25,(  
+select '純棉經典polo衫-童','M','白','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','白','290','5',1,2,25,(  
+select '純棉經典polo衫-童','L','白','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','白','290','5',1,2,25,(  
+select '純棉經典polo衫-童','XL','白','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img) 
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','綠','290','21',1,2,25,(  
+select '純棉經典polo衫-童','S','綠','290','21',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7201,26 +7210,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','綠','290','5',1,2,25,(  
+select '純棉經典polo衫-童','M','綠','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','綠','290','5',1,2,25,(  
+select '純棉經典polo衫-童','L','綠','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','綠','290','5',1,2,25,(  
+select '純棉經典polo衫-童','XL','綠','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img) 
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','藍','290','21',1,2,25,(  
+select '純棉經典polo衫-童','S','藍','290','21',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7229,19 +7238,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','藍','290','5',1,2,25,(  
+select '純棉經典polo衫-童','M','藍','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','藍','290','5',1,2,25,(  
+select '純棉經典polo衫-童','L','藍','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','藍','290','5',1,2,25,(  
+select '純棉經典polo衫-童','XL','藍','290','5',1,2,25,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_k_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img) 
@@ -7251,7 +7260,7 @@ SELECT * FROM OPENROWSET(
 --男 上身類 POLO衫
 -------------------------------1
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-select '純棉經典polo衫','S','紅','390','25',1,'深淺色請分開洗滌',2,26,(  
+select '純棉經典polo衫-男','S','紅','390','25',1,'深淺色請分開洗滌',2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7273,26 +7282,26 @@ SELECT * FROM OPENROWSET(
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','紅','390','32',1,2,26,(  
+select '純棉經典polo衫-男','M','紅','390','32',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img)
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','紅','390','32',1,2,26,(  
+select '純棉經典polo衫-男','L','紅','390','32',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img)
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','紅','390','32',1,2,26,(  
+select '純棉經典polo衫-男','XL','紅','390','32',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img)
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','黃','390','21',1,2,26,(  
+select '純棉經典polo衫-男','S','黃','390','21',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7301,26 +7310,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','黃','390','5',1,2,26,(  
+select '純棉經典polo衫-男','M','黃','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','黃','390','5',1,2,26,(  
+select '純棉經典polo衫-男','L','黃','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','黃','390','5',1,2,26,(  
+select '純棉經典polo衫-男','XL','黃','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img) 
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','白','390','21',1,2,26,(  
+select '純棉經典polo衫-男','S','白','390','21',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7329,26 +7338,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','白','390','5',1,2,26,(  
+select '純棉經典polo衫-男','M','白','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','白','390','5',1,2,26,(  
+select '純棉經典polo衫-男','L','白','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','白','390','5',1,2,26,(  
+select '純棉經典polo衫-男','XL','白','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img) 
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','綠','390','21',1,2,26,(  
+select '純棉經典polo衫-男','S','綠','390','21',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7357,26 +7366,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','綠','390','5',1,2,26,(  
+select '純棉經典polo衫-男','M','綠','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','綠','390','5',1,2,26,(  
+select '純棉經典polo衫-男','L','綠','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','綠','390','5',1,2,26,(  
+select '純棉經典polo衫-男','XL','綠','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img) 
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','藍','390','21',1,2,26,(  
+select '純棉經典polo衫-男','S','藍','390','21',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -7385,19 +7394,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','藍','390','5',1,2,26,(  
+select '純棉經典polo衫-男','M','藍','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','藍','390','5',1,2,26,(  
+select '純棉經典polo衫-男','L','藍','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','藍','390','5',1,2,26,(  
+select '純棉經典polo衫-男','XL','藍','390','5',1,2,26,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_m_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img) 
@@ -8212,7 +8221,7 @@ SELECT * FROM OPENROWSET(
 --女 上身類 POLO衫
 -------------------------------1
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-select '純棉經典polo衫','S','紅','390','25',1,'深淺色請分開洗滌',2,36,(  
+select '純棉經典polo衫-女','S','紅','390','25',1,'深淺色請分開洗滌',2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img),(  
@@ -8234,26 +8243,26 @@ SELECT * FROM OPENROWSET(
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','紅','390','32',1,2,36,(  
+select '純棉經典polo衫-女','M','紅','390','32',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img)
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','紅','390','32',1,2,36,(  
+select '純棉經典polo衫-女','L','紅','390','32',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img)
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','紅','390','32',1,2,36,(  
+select '純棉經典polo衫-女','XL','紅','390','32',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_red.jpg',
    SINGLE_BLOB) AS img)
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','黃','390','21',1,2,36,(  
+select '純棉經典polo衫-女','S','黃','390','21',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img),(  
@@ -8262,26 +8271,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','黃','390','5',1,2,36,(  
+select '純棉經典polo衫-女','M','黃','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','黃','390','5',1,2,36,(  
+select '純棉經典polo衫-女','L','黃','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','黃','390','5',1,2,36,(  
+select '純棉經典polo衫-女','XL','黃','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_yellow.jpg',
    SINGLE_BLOB) AS img) 
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','白','390','21',1,2,36,(  
+select '純棉經典polo衫-女','S','白','390','21',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img),(  
@@ -8290,26 +8299,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','白','390','5',1,2,36,(  
+select '純棉經典polo衫-女','M','白','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','白','390','5',1,2,36,(  
+select '純棉經典polo衫-女','L','白','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','白','390','5',1,2,36,(  
+select '純棉經典polo衫-女','XL','白','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_white.jpg',
    SINGLE_BLOB) AS img) 
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','綠','390','21',1,2,36,(  
+select '純棉經典polo衫-女','S','綠','390','21',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img),(  
@@ -8318,26 +8327,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','綠','390','5',1,2,36,(  
+select '純棉經典polo衫-女','M','綠','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','綠','390','5',1,2,36,(  
+select '純棉經典polo衫-女','L','綠','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','綠','390','5',1,2,36,(  
+select '純棉經典polo衫-女','XL','綠','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_green.jpg',
    SINGLE_BLOB) AS img) 
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','藍','390','21',1,2,36,(  
+select '純棉經典polo衫-女','S','藍','390','21',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -8346,26 +8355,26 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','藍','390','5',1,2,36,(  
+select '純棉經典polo衫-女','M','藍','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','藍','390','5',1,2,36,(  
+select '純棉經典polo衫-女','L','藍','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','藍','390','5',1,2,36,(  
+select '純棉經典polo衫-女','XL','藍','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_blue.jpg',
    SINGLE_BLOB) AS img)
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '純棉經典polo衫','S','黑','390','21',1,2,36,(  
+select '純棉經典polo衫-女','S','黑','390','21',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_black.jpg',
    SINGLE_BLOB) AS img),(  
@@ -8374,19 +8383,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','M','黑','390','5',1,2,36,(  
+select '純棉經典polo衫-女','M','黑','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_black.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','L','黑','390','5',1,2,36,(  
+select '純棉經典polo衫-女','L','黑','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_black.jpg',
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '純棉經典polo衫','XL','黑','390','5',1,2,36,(  
+select '純棉經典大polo衫-女','XL','黑','390','5',1,2,36,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/polo_w_01/picture_main_black.jpg',
    SINGLE_BLOB) AS img)
