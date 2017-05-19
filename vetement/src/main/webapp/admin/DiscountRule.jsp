@@ -204,14 +204,20 @@
 										</th>										
 									</tr>
 									<tr>
-										<td class='add_discount_td'><span id='discount_id' ></span></td>
+										<td class='add_discount_td' style='text-align:center'><span id='discount_id'></span></td>
 										<td class='add_discount_td'><input id='edit_discount_description' type='text' name=''></td>
 										<td class='add_discount_td'>
 											<select id='edit_cloth_amount'></select>
 										</td>										
 										<td class='add_discount_td add_discount_td_right'>
-											<input id='edit_discount_type1' class='edit_discount' type='text' value='' placeholder='折數'>
-											<input id='edit_discount_type2' class='edit_discount' type='text' value='' placeholder='單件金額' style="display:none">
+											<div id='div_edit_discount_type1' class='div_edit_discount' >
+												<input id='edit_discount_type1' class='edit_discount' type='text' value='' placeholder='折數'>
+												<span>折數</span>
+											</div>
+											<div id='div_edit_discount_type2' class='div_edit_discount'  style="display:none">
+												<input id='edit_discount_type2' class='edit_discount' type='text' value='' placeholder='單件金額'>
+												<span>/1件</span>
+											</div>
 										</td>								
 									</tr>
 								</table>
@@ -258,8 +264,14 @@
 											<select id='add_cloth_amount'></select>
 										</td>
 										<td class='add_discount_td add_discount_td_right'>
-											<input id='add_discount_type1' class='add_discount' type='text' value='' placeholder='折數'>
-											<input id='add_discount_type2' class='add_discount' type='text' value='' placeholder='單件金額' style="display:none">
+											<div id='div_add_discount_type1' class='div_add_discount_type'>
+												<input id='add_discount_type1' class='add_discount' type='text' value='' placeholder='折數'>
+												<span>折</span>
+											</div>
+											<div id='div_add_discount_type2' class='div_add_discount_type' style="display:none">
+												<input id='add_discount_type2' class='add_discount' type='text' value='' placeholder='單件金額'>
+												<span>/1件</span>
+											</div>
 										</td>
 									</tr>
 								</table>
@@ -335,14 +347,15 @@
 		
 		//輸入折扣或單件金額有兩個input，都先隱藏，點到的再show出來，看起來的效果會像點到哪個就出現哪個
 		if(this.className == 'half_toggle_add') {
+			console.log("#div_add_discount_"+ on_click_id);
 			$('.add_discount').val("");
-			$('.add_discount').hide();
-			$("#add_discount_"+ on_click_id).show();			
+			$('.div_add_discount_type').hide();
+			$("#div_add_discount_"+ on_click_id).show();			
 		}
 		else {
 			$('.edit_discount').val("");
-			$('.edit_discount').hide();
-			$("#edit_discount_"+ on_click_id).show();
+			$('.div_edit_discount').hide();
+			$("#div_edit_discount_"+ on_click_id).show();
 		}
 	});
 	
@@ -406,8 +419,29 @@
 				$('#discount_id').text( response_discount_data.packageNo );
 				$('#edit_discount_description').val(response_discount_data.descript);
 				$('#edit_cloth_amount option[value="' + response_discount_data.quantity_condition + '"]').prop('selected', true);
-				$('#edit_discount_type1').val( response_discount_data.discount1.toFixed(2) * 10 );
-				$('#edit_discount_type2').val(response_discount_data.discount2)
+				
+				//要先把2個toggle都設為背景色、黑字，由於對話框的class是共用的，再點選另外的修改，之前進來顯示的的會留在上面(下面輸入折數/金額的div亦同)
+				$('.half_toggle_edit').css({'background-color':'rgb(173,216,230)','color':'black'});
+				$('.div_edit_discount').hide();
+				if(response_discount_data.discount1 == null){
+					$('#edit_discount_type1').val(0);
+				}
+				else{
+					$('#edit_discount_type1').val( response_discount_data.discount1.toFixed(2) * 10 );
+					//如果discout1 !=null，toggle_type1:較深藍、白字
+					$('#edit_toggle_type1').css({'background-color':'rgb(56, 153, 236)','color':'white'});
+					$('#div_edit_discount_type1').show();
+					
+				}
+				if(response_discount_data.discount2 == null){
+					$('#edit_discount_type2').val(0);
+				}
+				else{
+					$('#edit_discount_type2').val(response_discount_data.discount2);
+					//如果discout2 !=null，toggle_type1:較深藍、白字
+					$('#edit_toggle_type2').css({'background-color':'rgb(56, 153, 236)','color':'white'});
+					$('#div_edit_discount_type2').show();
+				}
 			}			
 		})
 	});

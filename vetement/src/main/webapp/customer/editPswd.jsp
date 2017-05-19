@@ -46,7 +46,7 @@
 			$.ajax({
 				url:'${pageContext.request.contextPath}/CustomerServlet?action=editPswd',
 				type:'POST',
-				dataType:'json',
+				//dataType:'json',	//dataType指的是回傳值的型態，當沒有回傳值的時候，就不能去定它的型態
 				data:{
 					new_pswd:$('#confirm_password').val()
 				},
