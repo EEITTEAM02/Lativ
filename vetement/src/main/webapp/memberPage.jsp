@@ -50,7 +50,7 @@
 	width: 80%; 
 	padding-top: 70px; 
 	padding-left: 50px;
-/* 	background-image:url('images/custbg.jpg');  */
+ 	background-image:url('images/custbg.jpg');  
 }
 body{
 	background-image:url('images/background_closet35.jpg');
