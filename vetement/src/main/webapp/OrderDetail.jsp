@@ -7,15 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"> --%>
 <!-- Theme CSS -->
-<link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
-<script src="js/jquery-3.2.0.min.js"></script>
+<%-- <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet"> --%>
+<!-- <script src="js/jquery-3.2.0.min.js"></script> -->
 <!-- Custom Fonts -->
-<link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
+<%-- <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> --%>
+<!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
+<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>  -->
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">   -->
 <style>
 
 #display{
@@ -39,6 +39,12 @@
 #all,th {
 	border: 5px solid #220088;
 	padding: .5em 10px;
+	text-align: center;
+}
+#orderDetailTable td{
+	padding:10px;
+}
+#orderDetailTable{
 	text-align: center;
 }
 #h{
@@ -172,13 +178,13 @@ img.displayImg {
                     url: "OrderHistoryServlet.do",
                     datatype: "json",
                     success: function(datas) {
-                        console.log(datas);
+
                         var tb = $('#orderHistoryTable>tbody');
                         var docFrag = $(document.createDocumentFragment());
                         tb.empty();
                         $.each(JSON.parse(datas), function(idx, order) {
                             var idd = idx + 1;
-
+                            
                             var cell1 = $('<td></td>').text(order.ono);
                             var cell2 = $('<td></td>').text(order.orderDate);
                             var cell3 = $('<td></td>').text(order.deliveryAddr);
@@ -200,8 +206,9 @@ img.displayImg {
                                         var tb1 = $('#orderDetailTable>tbody');
                                         var docFrag1 = $(document.createDocumentFragment());
                                         tb1.empty();
+                                        console.log(data);
                                         $.each(JSON.parse(data), function(idx, orderItem) {
-
+                                        	
                                             var cell1 = $('<td></td>').text(orderItem.oino);
                                             var cell2 = $('<td></td>').text(orderItem.pname);
                                             var cell3 = $('<td></td>').text(orderItem.size);
@@ -214,10 +221,11 @@ img.displayImg {
 
                                             var img = $('<img></img>').attr("src", "productImages/" + orderItem.pno).addClass('displayImg');
                                             cell9.append(img);
+                                            var cell21 = $('<td></td>').css('text-align','center').append(cell9);
                                             var cell10 = $('<td></td>').text(orderItem.score);
                                             var cell11 = $('<td></td>').text(orderItem.score);
                                             var row1 = $('<tr></tr>');
-                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell9, cell10, cell11]);
+                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell21, cell10, cell11]);
                                             docFrag1.append(row1);
                                         })
 

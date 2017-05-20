@@ -76,7 +76,22 @@
 					},
 					complete : function() {
 						progressLabel.text("Complete!");
-						location.href="${pageContext.request.contextPath}//ProductBack/DealDone.do";
+						swal({title:"您已完成訂購",
+							  type:"success",
+							  showCancelButton:true,
+							  confirmButtonColor: "#DD6B55",
+							  confirmButtonText: "繼續購物",
+							  cancelButtonText: "觀看訂單明細",
+							  closeOnConfirm: false,
+							  closeOnCancel: false	  
+							},function(isConfirm){
+								if(isConfirm){
+									location.href="${pageContext.request.contextPath}/ProductBack/DealDone.do?direction=/Search/search.jsp";
+								}else{
+									location.href="${pageContext.request.contextPath}/ProductBack/DealDone.do?direction=/memberPage.jsp";
+								}
+							});
+// 						location.href="${pageContext.request.contextPath}//ProductBack/DealDone.do";
 					}
 				});
 

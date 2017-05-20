@@ -37,9 +37,10 @@
             text-align: center;
             font-size: 24px;
             padding: 3px;
+            border:none;
 	}
 	.tb1{
-	padding-bottom: 10px
+	padding-bottom: 10px;
 	}
 	
 </style>
@@ -98,7 +99,7 @@
 						        <h4 class="modal-title" id="myModalLabel" style='font-family:Microsoft Jhenghei;text-align:center; font-weight: bold;font-size: 30px; '>${customer_serviceVO.title_service}</h4>
 						      </div>
 						      <div style='font-family:Microsoft Jhenghei;text-align:left; padding:15px;'>問題 :</div>
-						      <pre style='font-family:Microsoft Jhenghei;text-align:left; padding:15px;'>${customer_serviceVO.content_service}</pre>
+						      <pre style='font-family:Microsoft Jhenghei;text-align:left; padding:15px;font-size: 18px'>${customer_serviceVO.content_service}</pre>
 						      <hr>
 						      <div style='text-align:left; padding:15px;'>回覆 :</div>
 						      <div style='text-align:left; padding:15px;'>${customer_serviceVO.reply_service}</div>

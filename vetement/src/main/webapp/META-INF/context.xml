@@ -4,8 +4,8 @@
 
 	<Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/lativ"
-		password="111Lativ" type="javax.sql.DataSource"
-		url="jdbc:sqlserver://lativ111.database.windows.net:1433;DatabaseName=Lativ111" username="lativ111" />
+		password="Eeit9302" type="javax.sql.DataSource"
+		url="jdbc:sqlserver://vetements.database.windows.net:1433;DatabaseName=vetements" username="vetements@vetements" />
 
 
 </Context>

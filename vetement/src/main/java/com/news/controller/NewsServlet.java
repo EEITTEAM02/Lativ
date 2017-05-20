@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONValue;
 
@@ -38,6 +39,7 @@ public class NewsServlet extends HttpServlet{
 		NewsService newsSvc = new NewsService();
 		String action = req.getParameter("action");
 		String url = "/mangerPage.jsp";
+		HttpSession session = req.getSession();
 		
 		//selete
 		if("sel".equals(action)){
@@ -68,9 +70,11 @@ public class NewsServlet extends HttpServlet{
 			
 			newsSvc.deleteNews(newsno);
 			
+			session.setAttribute("bbb", "del5");
+//			RequestDispatcher successView = req.getRequestDispatcher(url);// 刪除成功後,轉交回送出刪除的來源網頁
+//			successView.forward(req, res);
 			
-			RequestDispatcher successView = req.getRequestDispatcher(url);// 刪除成功後,轉交回送出刪除的來源網頁
-			successView.forward(req, res);
+			res.sendRedirect("/vetement/mangerPage.jsp");
 		};
 		
 		//insert
@@ -120,7 +124,7 @@ public class NewsServlet extends HttpServlet{
 					
 					newsVO1 = newsSvc.addNews(title1,content1,pubdate11);
 					
-					
+					session.setAttribute("bbb", "del5");
 					res.sendRedirect("/vetement/mangerPage.jsp");
 //					RequestDispatcher successView = req.getRequestDispatcher(url); // 新增成功後轉交listAllEmp.jsp
 //					successView.forward(req, res);
@@ -163,7 +167,7 @@ public class NewsServlet extends HttpServlet{
 				}
 				
 				newsVO = newsSvc.updateNews(newsno1,title,content,pubdate);
-				
+				session.setAttribute("bbb", "del5");
 				req.setAttribute("newsVO", newsVO); // 資料庫update成功後,正確的的empVO物件,存入req
 				res.sendRedirect("/vetement/mangerPage.jsp");
 //				RequestDispatcher successView = req.getRequestDispatcher(url); // 修改成功後,轉交listOneEmp.jsp

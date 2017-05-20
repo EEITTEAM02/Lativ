@@ -116,6 +116,14 @@ public class DiscountServlet extends HttpServlet {
 			Double discount_type1 = Double.parseDouble(req.getParameter("updated_discount1"));
 			Double discount_type2 = Double.parseDouble(req.getParameter("updated_discount2"));
 			
+//			System.out.println(discount_type1);
+//			System.out.println(discount_type2);
+			if (discount_type1 == 0.0){
+				discount_type1 = null;
+			}
+			if (discount_type2 == 0.0){
+				discount_type2 = null;
+			}
 			DiscountDAO discountDAO = new DiscountDAO();
 			
 			DiscountVO updated_rule = new DiscountVO();
