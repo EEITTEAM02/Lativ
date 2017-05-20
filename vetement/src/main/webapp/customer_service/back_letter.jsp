@@ -36,14 +36,15 @@
 	.outer_container123 {
 		width: 1000px;
 	    margin: 0 auto;
-	    border: 1px solid black;
+	    border: 2px solid #337ab7;
 	    border-radius: 20px;
 	    padding-top: 1%;
 	    padding-bottom: 5%;
 /* 	    padding-left:5%; */
 	    font-family: Microsoft Jhenghei;
     	font-size: 16px;
-    	text-align:center
+    	text-align:center;
+    	background-color:oldlace
 	}
 	
 </style>
