@@ -11,10 +11,12 @@
 		font-family: Glyphicons Halflings
 	}
 	#header_title{
-		margin-left: 835px;
 	    font-family: Microsoft Jhenghei;
 	    font-weight: bold;
 	    font-size: 26px;
+	}
+	#header_manager_title{
+		padding-left:45%;
 	}
 	
 </style>
@@ -22,11 +24,8 @@
 <body>
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header page-scroll">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-			<span class="sr-only">Toggle navigation</span>
-				Menu <i class="fa fa-bars"></i>
-		    </button>
+		<div id='header_manager_title' class="navbar-header page-scroll">
+
 <%-- 		    <a class="navbar-brand" href="${pageContext.request.contextPath}/indexTemplate.jsp">首頁</a> --%>
 <%-- 		    <a class="navbar-brand" href="${pageContext.request.contextPath}/Search/search.jsp">產品</a> --%>
 		    <c:if test="${sessionScope.login_customer_info != null}">
