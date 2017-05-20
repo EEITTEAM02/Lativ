@@ -7,10 +7,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 /**
  * Servlet implementation class ProductRating
@@ -21,12 +24,19 @@ public class GetProductRatingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		Context envContext = null;
 		Writer out = response.getWriter();
 		try{
 			//use jdbc since we dont have rating dao
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
-		    conn = DriverManager.getConnection(url,"sa", "sa123456");
+//			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
+//		    conn = DriverManager.getConnection(url,"sa", "sa123456");
+			envContext = new InitialContext();
+			Context initContext  = (Context)envContext.lookup("java:/comp/env");
+			DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
+			
+		    conn = ds.getConnection();
+			
 		    pstmt = conn.prepareStatement("select score from rating where productId=?");
 		    
 		    String pno = (String) (request.getParameter("pno"));

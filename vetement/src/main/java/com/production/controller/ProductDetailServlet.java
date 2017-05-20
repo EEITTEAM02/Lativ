@@ -13,12 +13,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
 import org.json.simple.JSONValue;
 
@@ -80,8 +83,8 @@ public class ProductDetailServlet extends HttpServlet{
 						
 			Connection conn = null;
 			PreparedStatement pstmt = null;
-
-			System.out.println("l2:"+l2);
+			Context envContext = null;
+			
 			int l2Size = l2.size();
 		    List<ArrayList<String>> array1 = new ArrayList();
 		    List<ArrayList<Integer>> array4 = new ArrayList();
@@ -102,9 +105,16 @@ public class ProductDetailServlet extends HttpServlet{
 		    	int x =1;
 		    	color = psrvc.getOneProduct(l2.get(j)).getColor();
 		    	prodName = psrvc.getOneProduct(l2.get(j)).getProductName();
-		    	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
-			    conn = DriverManager.getConnection(url,"sa", "sa123456");
+//		    	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//			    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
+//			    conn = DriverManager.getConnection(url,"sa", "sa123456");
+		    	
+		    	envContext = new InitialContext();
+				Context initContext  = (Context)envContext.lookup("java:/comp/env");
+				DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
+				
+			    conn = ds.getConnection();
+		    	
 			    pstmt = conn.prepareStatement("select size,quantity_in_stock,productId,price from production where color=? and productName=?");
 		    	pstmt.setString(1, color);
 		    	pstmt.setString(2, prodName);
