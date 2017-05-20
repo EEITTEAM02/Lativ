@@ -165,8 +165,8 @@ public class UploadServlet2 extends HttpServlet {
             ProductionService psvc = new ProductionService();
             psvc.addProduct(name, size, color, price, discountCat, noInStock,for_sale,descript,categoryId, bytes1, bytes2, bytes3, bytes4,bytes5,bytes6,bytes7);
             
-            request.setAttribute("result1", "uploaded");
-            request.getRequestDispatcher("/uploadProduct2.jsp").forward(request, response);
+            request.setAttribute("result1", "以新增");
+            request.getRequestDispatcher("/mangerPage.jsp").forward(request, response);
              
         
  

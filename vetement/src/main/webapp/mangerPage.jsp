@@ -84,6 +84,11 @@ body{
 	
 	<script>
 		$(function(){
+			if ((window.location.pathname.substring(9) === '/UploadServlet2')||(window.location.pathname.substring(9) === '/ProductModify2.do')){
+				$('#select_item_1').click();
+			}
+			
+		
 			$('.select_item_btn').removeClass('active');
 			$('#select_item_1').addClass('active');
 			
