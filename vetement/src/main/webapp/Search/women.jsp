@@ -38,6 +38,7 @@
 	/*     margin-left:250px; */
 	margin-top: 150px;
 	/*     display:inline-block; */
+	font-family:Microsoft Jhenghei;
 }
 
 .vertical-menu a {

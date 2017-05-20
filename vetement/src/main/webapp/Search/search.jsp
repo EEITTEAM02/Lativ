@@ -77,6 +77,39 @@
 					<jsp:include page="/util/navbar2.jsp"></jsp:include>
 				</div>
 				<div class="col-md-12 ">
+					<div id="carousel-example-generic" class="carousel slide"
+						data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0"
+								class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="item active">
+								<a href="${pageContext.request.contextPath}/Search/discountDivison1.jsp"><img class="slide-image"
+									src="${pageContext.request.contextPath}/img/discountDivImg1_2.jpg"
+									style="width: 100%;"></a>
+							</div>
+							<div class="item">
+								<a href="${pageContext.request.contextPath}/Search/discountDivison2.jsp"><img class="slide-image"
+									src="${pageContext.request.contextPath}/img/discountDivImg2_2.jpg"
+									style="width: 100%;"></a>
+							</div>
+							<div class="item">
+								<a href="${pageContext.request.contextPath}/Search/discountDivison3.jsp"><img class="slide-image"
+									src="${pageContext.request.contextPath}/img/discountDivImg3_2.jpg"
+									style="width: 100%;"></a>
+							</div>
+						</div>
+						<a class="left carousel-control" href="#carousel-example-generic"
+							data-slide="prev"> <span
+							class="glyphicon glyphicon-chevron-left"></span>
+						</a> <a class="right carousel-control"
+							href="#carousel-example-generic" data-slide="next"> <span
+							class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</div>
 					<div id="display"></div>
 				</div>
 			</div>
@@ -85,7 +118,9 @@
 
 
 	<div>
-		<div id="display" style="margin-top:400px;"><div id="pageDiv"></div></div>
+		<div id="display" style="margin-top: 950px;">
+			<div id="pageDiv"></div>
+		</div>
 	</div>
 
 
@@ -105,10 +140,11 @@
 	<script>
 		$(function() {
 			var pageDiv = $("#pageDiv");//變數給值時寫在最前面，確定不會有使用此變數的方法抓不到此變數
-			
+
 			//不用任何事件，一開始即能執行。
 			if ("${sessionScope.SearchKeyword}" != "") {
-				$('input[name="searcher"]').val("${sessionScope.SearchKeyword}");
+				$('input[name="searcher"]')
+						.val("${sessionScope.SearchKeyword}");
 				getData("${SearchKeyword}");
 			} else {
 				getData("", 1);//一開始即列出所有商品，每頁呈現的產品數量，符合規定的每頁筆數
@@ -125,14 +161,14 @@
 				getPage(keyWord); //隨著蒐尋商品數量改變頁碼數
 				getData(keyWord, 1); //列出第一頁的商品
 			});
-			
+
 			pageDiv.on('click', '.pageNumber', function() {
 				var keyWord = $('input[name="searcher"]').val();
 				var pageNumber = $(this).text();
 				$("#display").empty();
 				getData(keyWord, pageNumber);
 			});
-			
+
 			function search(event) {
 				var keyWord = $('input[name="searcher"]').val();
 				if (event.which == 13) {
@@ -142,7 +178,7 @@
 					getData(keyWord, 1); //列出第一頁的商品
 				}
 			}
-			
+
 			//隨著蒐尋到的資料筆數，設定頁碼數
 			function getPage(keyWord) {
 				$.getJSON("Search.do", {
@@ -169,8 +205,8 @@
 					pageDiv.append(docFragment);
 				})
 			}
-			
-			function getData(keyWord,pageNumber) {
+
+			function getData(keyWord, pageNumber) {
 				$.getJSON("Search.do", {
 					"keyWord" : keyWord,
 					"pageNumber" : pageNumber
