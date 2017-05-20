@@ -9,12 +9,15 @@ import java.sql.ResultSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
 import org.json.JSONObject;
 
@@ -27,6 +30,7 @@ public class RateProductServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection conn1 = null;
+		Context envContext = null;
 //		Connection conn2 = null;
 		PreparedStatement pstmt1 = null;
 		PreparedStatement pstmt2 = null;
@@ -39,9 +43,16 @@ public class RateProductServlet extends HttpServlet {
 		    String score = (String) jsonObject.get("score");
 		    Integer cid = (Integer) session.getAttribute("mno");
 		  //use jdbc since we dont have rating dao
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
-		    conn1 = DriverManager.getConnection(url,"sa", "sa123456");
+//			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
+//		    conn1 = DriverManager.getConnection(url,"sa", "sa123456");
+		    
+		    envContext = new InitialContext();
+			Context initContext  = (Context)envContext.lookup("java:/comp/env");
+			DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
+			
+		    conn1 = ds.getConnection();
+		    
 		    pstmt1 = conn1.prepareStatement("select score,times from rating where productId=?");
 		    pstmt1.setInt(1,id);
 		    ResultSet rs = pstmt1.executeQuery();
