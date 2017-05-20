@@ -27,11 +27,12 @@ public class SearcherDAO {
 			"from ProductionVO where packageNo=:packageNo and for_sale = true and picture_model1 is not null";
 	
 	private static final String getHotProduct=
-			"select productId, productName, price from production where productName in"+
-			" (select Top(10) p.productName from orderItem o join production p on o.productId=p.productId join orders os on o.orderNo = os.orderNo  where o.orderNo in"+
-			" (select orderNo from orderItem where productId in (select productId from orderItem where orderNo = :orderNo))"+
-			" and os.dealDate BETWEEN (convert(datetime,convert(varchar,GetDate(),111))-30) AND convert(datetime,convert(varchar,GetDate(),111))"+ 
-			" group by p.productName order by sum(quantity_order) desc) and picture_model1 is not null";
+			"select productId, productName, price from production where productName in (select Top(10) p.productName "
+			+ "from orderItem o join production p on o.productId=p.productId join orders os on o.orderNo = os.orderNo  where o.orderNo in"
+			+ "(select orderNo from orderItem o join production p on o.productId = p.productId where p.productName in"
+			+ "(select p.productName from orderItem o join production p on o.productId = p.productId where orderNo = :orderNo))"
+			+ "and os.dealDate BETWEEN (convert(datetime,convert(varchar,GetDate(),111))-30) AND convert(datetime,convert(varchar,GetDate(),111)) "
+			+ "group by p.productName order by sum(quantity_order) desc) and picture_model1 is not null";
 	
 	private static final String autocomplete = "Select distinct productName from ProductionVO "
 			+ "where productName like :productName and for_sale = true and picture_model1 is not null";
