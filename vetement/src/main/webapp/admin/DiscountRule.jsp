@@ -23,7 +23,7 @@
 	    font-family: Microsoft Jhenghei;
     	font-size: 16px;
     	text-align:center;
-    	background-color:oldlace
+/*     	background-color:oldlace; */
 	}
 	
 	#add_toggle_type1{

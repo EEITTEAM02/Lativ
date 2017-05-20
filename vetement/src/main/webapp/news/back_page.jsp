@@ -18,7 +18,7 @@
  		    padding-bottom: 5%; 
  		    font-family: Microsoft Jhenghei;
  	    	font-size: 16px; 
- 	    	background-color:oldlace
+/*  	    	background-color:oldlace */
 /* 	    	text-align:center  */
  		} 
 		
