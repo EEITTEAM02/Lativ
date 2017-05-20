@@ -197,7 +197,7 @@
 				
 					//管理人員頁面做出後再判斷id做導頁;目前就是把customerId:5:張格魯設為管理員
 					if(response_login_customer_object["customerId"] == 5) {
-						location.href = 'mangerPage.jsp';
+						location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
 					}
 					else {
 						location.reload();

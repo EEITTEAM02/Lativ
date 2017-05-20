@@ -3,6 +3,14 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+<c:if test="${sessionScope.login_customer_info == null}">
+	<c:redirect url = "indexTemplate.jsp"/>
+</c:if>
+<c:if test="${sessionScope.login_customer_info.getCustomerId() != '5'}">
+	<c:redirect url = "indexTemplate.jsp"/>
+</c:if>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -42,6 +50,8 @@ body{
     background-position: center;
     background-size: cover;
 }
+
+
 </style>
 
 
@@ -70,20 +80,22 @@ body{
 			<div class="pan2_item" id="pan2_item_2">
 				<jsp:include page="/admin/DiscountRule.jsp"></jsp:include>
 			</div>
-			<div class="pan2_item" id="pan2_item_3" style="background-color: rgba(217, 255, 255, .5);border-radius: 20px;">
+			<div class="pan2_item" id="pan2_item_3">
 				<jsp:include page="/news/back_page.jsp"></jsp:include>
 			</div>
-			<div class="pan2_item" id="pan2_item_4" style="background-color: rgba(217, 255, 255, .5);border-radius: 20px;">
+			<div class="pan2_item" id="pan2_item_4">
 				<jsp:include page="/customer_service/back_letter.jsp"></jsp:include>
-			</div>
-			<div class="pan2_item" id="pan2_item_5">
-				
 			</div>
 		</div>
 	</div>
 	
 	<script>
 		$(function(){
+			if ((window.location.pathname.substring(9) === '/UploadServlet2')||(window.location.pathname.substring(9) === '/ProductModify2.do')){
+				$('#select_item_1').click();
+			}
+			
+		
 			$('.select_item_btn').removeClass('active');
 			$('#select_item_1').addClass('active');
 			
@@ -99,6 +111,27 @@ body{
 				$("#pan2_item_3").show();
 				$('.select_item_btn').removeClass('active');
 				$('#select_item_3').addClass('active');
+			};
+			
+			if (${ bbb == "disc_upd" }){
+				$('.pan2_item').hide();
+				$("#pan2_item_2").show();
+				$('.select_item_btn').removeClass('active');
+				$('#select_item_2').addClass('active');
+			};
+			
+			if (${ bbb == "disc_del" }){
+				$('.pan2_item').hide();
+				$("#pan2_item_2").show();
+				$('.select_item_btn').removeClass('active');
+				$('#select_item_2').addClass('active');
+			};
+			
+			if (${ bbb == "disc_ins" }){
+				$('.pan2_item').hide();
+				$("#pan2_item_2").show();
+				$('.select_item_btn').removeClass('active');
+				$('#select_item_2').addClass('active');
 			};
 			
 		})

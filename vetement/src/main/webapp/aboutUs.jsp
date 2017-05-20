@@ -119,6 +119,9 @@
 	font-family:Microsoft Jhenghei;
 	font-size: 16px;
     padding:5px;
+}
+.container-self{
+	margin-left:10%;
 }	
 </style>
 </head>
@@ -128,13 +131,9 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <c:set var="context" value="${pageContext.request.contextPath}" />
 	<!-- Navigation -->
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container">
-			<div class="container-fluid">
-				
-				<jsp:include page="header.jsp"></jsp:include>
-			
-			</div>
+	<nav id='header' class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<jsp:include page="header.jsp"></jsp:include>
+		<div class="container-self">
 			
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">

@@ -4,11 +4,14 @@ package com.production.controller;
 
 import java.io.IOException;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 import java.sql.*;
 import java.util.HashMap;
@@ -54,15 +57,23 @@ public class ProductXMLServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		Context envContext = null;
 		String stringId= null;
 		List l1 = new LinkedList();
 		List<Integer> l2 = new LinkedList<Integer>();
 		try {
 			
 			//use jdbc since we don't have category model yet
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=DB01";
-		    conn = DriverManager.getConnection(url,"sa", "sa123456");
+//			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=DB01";
+//		    conn = DriverManager.getConnection(url,"sa", "sa123456");
+		    
+		    envContext = new InitialContext();
+			Context initContext  = (Context)envContext.lookup("java:/comp/env");
+			DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
+			
+		    conn = ds.getConnection();
+		    
 		    pstmt = conn.prepareStatement("select categoryId from category where class_top=?");
 		   		    		    		    
 			Integer id = Integer.parseInt(request.getParameter("id"));

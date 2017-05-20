@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<c:if test="${sessionScope.login_customer_info == null}">
+	<c:redirect url = "../indexTemplate.jsp"/>
+</c:if>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -134,7 +139,7 @@ tr {
 						<c:forEach var="item" items="${shoppingCartBack.cart}">
 							<tr>
 								<td style="vertical-align: middle;">
-									<img id="image" src="Image.do?productName=${item.value.productionVO.productName}&size=${item.value.productionVO.size}&color=${item.value.productionVO.color}"/>
+									<img id="image" src="${pageContext.request.contextPath}/Search/Image.do?productId=${item.value.productionVO.productId}"/>
 									<span name="productName">${item.value.productionVO.productName}</span>-<span name="size">${item.value.productionVO.size}</span>-<span name="color">${item.value.productionVO.color}</span>
 									<c:if test="${item.value.difference>0}">
 										<div><a href="${pageContext.request.contextPath}/Search/Search.do?searchPackageNo=${item.value.productionVO.packageNo}">差${item.value.difference}件即可享用折扣，請按此加購商品</a></div>

@@ -139,18 +139,18 @@ img.displayImg {
 
 					<!-- 每頁不同的內容從這裡開始 -->
 					<div class="row">
-						<div class="col-sm-2" id="leftSide">
-							<mark>特價</mark>
-							<ul class="list-group">
-							</ul>
-							<mark>類別</mark>
-							<ul class="list-group">
-								<li data-id="1" class="list-group-item active">女</li>
-								<li data-id="2" class="list-group-item">男</li>
-								<li data-id="3" class="list-group-item">兒童</li>
-							</ul>
-						</div>
-						<div class="col-sm-5">
+<!-- 						<div class="col-sm-2" id="leftSide"> -->
+<!-- 							<mark>特價</mark> -->
+<!-- 							<ul class="list-group"> -->
+<!-- 							</ul> -->
+<!-- 							<mark>類別</mark> -->
+<!-- 							<ul class="list-group"> -->
+<!-- 								<li data-id="1" class="list-group-item active">女</li> -->
+<!-- 								<li data-id="2" class="list-group-item">男</li> -->
+<!-- 								<li data-id="3" class="list-group-item">兒童</li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
+						<div class="col-sm-6">
 							<a title="Pima 棉V領T恤" href="productImages/${param.Pid}"
 								data-fancybox="gallery1" id="bigImg"> <img
 								src="productImages/${param.Pid}" class="img-rounded"
@@ -158,7 +158,7 @@ img.displayImg {
 							</a>
 
 						</div>
-						<div class="col-sm-5" id="div2">
+						<div class="col-sm-6" id="div2">
 							<div class="row">
 								<div class="col-md-9 well" id="div21" style="">
 									<div id="div211"

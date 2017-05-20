@@ -46,7 +46,7 @@ public class productImageServlet extends HttpServlet {
 				if(psvc.getOneProduct(pno).getPicture_main()!=null)
 			        content = psvc.getOneProduct(pno).getPicture_main();
 				else{
-					File fi =new File("C:/Framework-Webapp/eclipse_workspace1/WebsiteV1.3/WebContent/productImages/not_available.jpg");
+					File fi =new File("D:/iii/Workspace/SQL/productImages/No_Image.jpg");
 					byte[] fileContent = Files.readAllBytes(fi.toPath());
 					content = fileContent;
 				}
@@ -55,7 +55,7 @@ public class productImageServlet extends HttpServlet {
 				if(psvc.getOneProduct(pno).getPicture_color()!=null)
 						content = psvc.getOneProduct(pno).getPicture_color();
 				else{
-					File fi =new File("C:/Framework-Webapp/eclipse_workspace1/WebsiteV1.3/WebContent/productImages/not_available.jpg");
+					File fi =new File("D:/iii/Workspace/SQL/productImages/No_Image.jpg");
 					byte[] fileContent = Files.readAllBytes(fi.toPath());
 					content = fileContent;
 				}
@@ -64,7 +64,7 @@ public class productImageServlet extends HttpServlet {
 				if(psvc.getOneProduct(pno).getPicture_model1()!=null)
 				    content = psvc.getOneProduct(pno).getPicture_model1();
 				else{
-					File fi =new File("C:/Framework-Webapp/eclipse_workspace1/WebsiteV1.3/WebContent/productImages/not_available.jpg");
+					File fi =new File("D:/iii/Workspace/SQL/productImages/No_Image.jpg");
 					byte[] fileContent = Files.readAllBytes(fi.toPath());
 					content = fileContent;
 				}
@@ -73,7 +73,7 @@ public class productImageServlet extends HttpServlet {
 				if(psvc.getOneProduct(pno).getPicture_model2()!=null)
 				content = psvc.getOneProduct(pno).getPicture_model2();
 				else{
-					File fi =new File("C:/Framework-Webapp/eclipse_workspace1/WebsiteV1.3/WebContent/productImages/not_available.jpg");
+					File fi =new File("D:/iii/Workspace/SQL/productImages/No_Image.jpg");
 					byte[] fileContent = Files.readAllBytes(fi.toPath());
 					content = fileContent;
 				}
@@ -82,7 +82,7 @@ public class productImageServlet extends HttpServlet {
 				if(psvc.getOneProduct(pno).getPicture_model3()!=null)
 				content = psvc.getOneProduct(pno).getPicture_model3();
 				else{
-					File fi =new File("C:/Framework-Webapp/eclipse_workspace1/WebsiteV1.3/WebContent/productImages/not_available.jpg");
+					File fi =new File("D:/iii/Workspace/SQL/productImages/No_Image.jpg");
 					byte[] fileContent = Files.readAllBytes(fi.toPath());
 					content = fileContent;
 				}
@@ -91,7 +91,7 @@ public class productImageServlet extends HttpServlet {
 				if(psvc.getOneProduct(pno).getPicture_model4()!=null)
 				content = psvc.getOneProduct(pno).getPicture_model4();
 				else{
-					File fi =new File("C:/Framework-Webapp/eclipse_workspace1/WebsiteV1.3/WebContent/productImages/not_available.jpg");
+					File fi =new File("D:/iii/Workspace/SQL/productImages/No_Image.jpg");
 					byte[] fileContent = Files.readAllBytes(fi.toPath());
 					content = fileContent;
 				}

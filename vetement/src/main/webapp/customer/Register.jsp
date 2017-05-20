@@ -59,12 +59,15 @@
 	#addr {
 		width:335px;
 	}	
+	.register_all{
+		background-color:oldlace;
+	}
 	
 </style>
 <title>Insert title here</title>
 <script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 </head>
-<body>
+<body class=register_all>
 <c:set var="context" value="${pageContext.request.contextPath}" />
 	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top" ></nav>
 	
@@ -214,26 +217,34 @@
 			success: function(response_count) {	//去接ajax傳回來的結果
 				if(response_count != "99999") {
 					//alert('成功新增' + response_count + "筆資料。");
-					alert("註冊成功!");
-					//swal("註冊成功!", "", "success")
-					$.post(
-						"${pageContext.request.contextPath}/CustomerLoginServlet?action=login", 
-						{ account: $("#register_email").val(), password: $("#confirm_password").val() },
-						
-						function(response_customer_data) {
-							//console.log(response_customer_data);
-							//送過去的e-mail和pswd送過去沒有比對到資料(isEmptyObject)的這件事情是false means 有比對到資料，就導到另一頁
-							if( jQuery.isEmptyObject(response_customer_data) == false ) {
-								location.href = '${pageContext.request.contextPath}/indexTemplate.jsp';
-							}
-							else {
-								alert("註冊後登入失敗!");
-							}
-						},
-						"json"
-					);
-					
-					
+					//alert("註冊成功!");
+					swal({
+						title: "註冊成功!",
+						text: "",
+						type: "success",
+						showCancelButton: false,
+						confirmButtonClass: "btn-success",
+						confirmButtonText: "確認",
+						closeOnConfirm: false
+					},
+					function(){
+						$.post(
+							"${pageContext.request.contextPath}/CustomerLoginServlet?action=login", 
+							{ account: $("#register_email").val(), password: $("#confirm_password").val() },
+							
+							function(response_customer_data) {
+								//console.log(response_customer_data);
+								//送過去的e-mail和pswd送過去沒有比對到資料(isEmptyObject)的這件事情是false means 有比對到資料，就導到另一頁
+								if( jQuery.isEmptyObject(response_customer_data) == false ) {
+									location.href = '${pageContext.request.contextPath}/indexTemplate.jsp';
+								}
+								else {
+									alert("註冊後登入失敗!");
+								}
+							},
+							"json"
+						);						
+					});
 				}
 				else {
 					$('#register_email_error_msg').text("所輸入帳號已存在，請重新輸入。");
