@@ -25,6 +25,9 @@ public class CartDAO {
 	private static final String GetProductForImg = 
 			"from ProductionVO where productName=:productName and size=:size and color=:color";
 	
+	private static final String GetProductForImg02 = 
+			"Select picture_main from production where productId=:productId";
+	
 	public void insertByOrderNo(OrderVO orderVO){
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try{
@@ -140,6 +143,22 @@ public class CartDAO {
 		return productionVO;
 	}
 	
+	public byte[] getProductionForImg(Integer productId){
+		byte[] pic = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			Query query = session.createSQLQuery(GetProductForImg02);
+			query.setParameter("productId", productId);
+			pic = (byte[])query.list().get(0);
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return pic;
+	}
+	
 	public static void main(String args[]){
 		CartDAO dao = new CartDAO();
 //		dao.orderItemVODelete(1,1);
@@ -150,7 +169,10 @@ public class CartDAO {
 //		System.out.println(orderVO.getOrderNo());
 		
 //		ProductionVO VO = dao.getProductionForImage("Pima 棉V領T恤", "L", "紅");
-		ProductionVO VO = dao.getProductionForSearch(1);
-		System.out.println(VO.getProductName());
+//		ProductionVO VO = dao.getProductionForSearch(1);
+//		System.out.println(VO.getProductName());
+		
+		byte[] pic = dao.getProductionForImg(1);
+		System.out.println(pic);
 	}
 }
