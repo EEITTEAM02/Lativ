@@ -58,10 +58,16 @@ public class ProductDetailServlet extends HttpServlet{
 			CategoryVO category = csrvc.findByPrimaryKey(aProduct.getCategoryId());
 			String mainCat = category.getClass_top();
 			
+			List<Integer> usedUpPno = new LinkedList<Integer>();
+			
 			for(;pno1<=pno+25;pno1++){
+				
 				if(pName.equals(psrvc.getOneProduct(pno1).getProductName())){
 					l1.add(pno1);
 				}
+				
+				usedUpPno.add(pno1);
+				if (pno1==size) break;
 			}
 //			for(;pno2>;pno2--){
 //				if(pName.equals(psrvc.getOneProduct(pno2).getProductName())){
@@ -70,14 +76,16 @@ public class ProductDetailServlet extends HttpServlet{
 //			}
 			
 			for(;pno2>size-10;pno2--){
+				
+				if (usedUpPno.contains(pno2)) break;
 				if(pName.equals(psrvc.getOneProduct(pno2).getProductName())){
 					l1.add(pno2);
 				}
 			}
-			System.out.println("l1:"+l1);
+			
 			
 			int i =l1.size();
-			System.out.println("l1Size:"+i);
+			
 			int counter =1;
 			for (Integer pno3 : l1){
 				byte[] cImg = psrvc.getOneProduct(pno3).getPicture_color();
