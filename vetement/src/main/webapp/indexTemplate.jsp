@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${sessionScope.login_customer_info.getCustomerId() == '5'}">
+	<c:redirect url = "mangerPage.jsp"/>
+</c:if>	
 <!DOCTYPE html>
 <html>
 <head>
