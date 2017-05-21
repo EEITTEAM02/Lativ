@@ -79,8 +79,8 @@ public class MailServlet extends HttpServlet {
 				
 				pass.sendMail(mail, "忘記密碼通知" , targetCust.getName() + "你好:<br><a  href=' http://"+request.getServerName() + ":"+ request.getServerPort() + request.getContextPath()
 						+ "/modifyPass.jsp?mail=" + targetCust.getMail() + "'>重設密碼</a>");
-				errorMsg.put("errormail", "以寄到信箱");
-				return; 
+				
+			
 			}
 			
 			if (!errorMsg.isEmpty()){
