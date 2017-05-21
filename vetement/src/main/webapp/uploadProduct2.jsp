@@ -70,11 +70,13 @@ h1 {
 	font-size: 1.2em;
 	margin: .6em 0;
 }
-
-input, select{
-  width:100%;
-  box-sizing:border-box;
-}
+.container { 
+ margin:0 auto;
+} 
+/* input, select{  */
+/*   width:100%;  */
+/*    box-sizing:border-box;  */
+/*  }  */
 </style>
 </head>
 <body>
