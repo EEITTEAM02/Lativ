@@ -47,13 +47,17 @@ public class MailServlet extends HttpServlet {
 			Iterator it = listOfCustomers.iterator();
 			List<String> listOfEmails = new LinkedList<String>();
 			CustomerVO cust =null;
+			CustomerVO targetCust = null;
+			Map<String,Integer> mapOfMailId = new HashMap<String,Integer>();
 			while(it.hasNext()){
 				cust=(CustomerVO) it.next();
-				listOfEmails.add(cust.getMail());
+				listOfEmails.add(cust.getMail());				
+				mapOfMailId.put(cust.getMail(), cust.getCustomerId());
 			}
 			
 			if (listOfEmails.contains(account)){
 				mail = account;
+				targetCust = login.getOneCustomer(mapOfMailId.get(mail)); 
 			}
 			else {
 				errorMsg.put("errormail", "帳號不存在");
@@ -71,10 +75,10 @@ public class MailServlet extends HttpServlet {
 				return;
 			}
 
-			else if ("forgetPassword".equals(action)&& cust!=null) {
+			else if ("forgetPassword".equals(action)&& targetCust!=null) {
 				
-				pass.sendMail(mail, "忘記密碼通知" , cust.getName() + "你好:<br><a  href=' http://"+request.getServerName() + ":"+ request.getServerPort() + request.getContextPath()
-						+ "/modifyPass.jsp?mail=" + cust.getMail() + "'>重設密碼</a>");
+				pass.sendMail(mail, "忘記密碼通知" , targetCust.getName() + "你好:<br><a  href=' http://"+request.getServerName() + ":"+ request.getServerPort() + request.getContextPath()
+						+ "/modifyPass.jsp?mail=" + targetCust.getMail() + "'>重設密碼</a>");
 				errorMsg.put("errormail", "以寄到信箱");
 				return; 
 			}
