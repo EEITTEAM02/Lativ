@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import com.discount.model.DiscountService;
-import com.discount.model.DiscountVO;
+import com.disc.model.DiscountService;
+import com.disc.model.DiscountVO;
 
 public class GetDiscountCatServlet extends HttpServlet{
 

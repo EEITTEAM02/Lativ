@@ -139,7 +139,7 @@ tr {
 						<c:forEach var="item" items="${shoppingCartBack.cart}">
 							<tr>
 								<td style="vertical-align: middle;">
-									<img id="image" src="Image.do?productName=${item.value.productionVO.productName}&size=${item.value.productionVO.size}&color=${item.value.productionVO.color}"/>
+									<img id="image" src="${pageContext.request.contextPath}/Search/Image.do?productId=${item.value.productionVO.productId}"/>
 									<span name="productName">${item.value.productionVO.productName}</span>-<span name="size">${item.value.productionVO.size}</span>-<span name="color">${item.value.productionVO.color}</span>
 									<c:if test="${item.value.difference>0}">
 										<div><a href="${pageContext.request.contextPath}/Search/Search.do?searchPackageNo=${item.value.productionVO.packageNo}">差${item.value.difference}件即可享用折扣，請按此加購商品</a></div>

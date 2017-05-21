@@ -39,4 +39,8 @@ public class CartService {
 	public ProductionVO getProductionForSearch(Integer productId){
 		return dao.getProductionForSearch(productId);
 	}
+	
+	public byte[] getProductionForImg(Integer productId){
+		return dao.getProductionForImg(productId);
+	}
 }

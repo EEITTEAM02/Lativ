@@ -39,6 +39,8 @@ public class SearcherDAO {
 	
 	private static final String getProductByName = "select productId from ProductionVO where productName = :productName and for_sale = true and picture_model1 is not null";
 	
+	private static final String getPage="Select count(*) from production where for_sale=1 and picture_model1 is not null";
+	
 	public List<ProductionVO> fuzzySearch(String keyWord){
 		List<ProductionVO> list = null;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -177,6 +179,21 @@ public class SearcherDAO {
 		return list;
 	}
 	
+	public Integer getPage(){
+		Integer count = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try{
+			session.beginTransaction();
+			Query query = session.createSQLQuery(getPage);
+			count = (Integer)query.list().get(0);
+			session.getTransaction().commit();
+		}catch(RuntimeException ex){
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return count;
+	}
+	
 	public static void main(String[] args) {
 		SearcherDAO dao = new SearcherDAO();
 		List<ProductionVO> list = null;
@@ -200,14 +217,14 @@ public class SearcherDAO {
 //			System.out.println(VO.getProductName());
 //		}
 		
-		List<Object[]> list02 = null;
-		list02 = dao.getHotProduction(3);
-		for(Object[] A:list02){
-			for(Object column:A){
-				System.out.print(column+", ");
-			}
-			System.out.println();
-		}
+//		List<Object[]> list02 = null;
+//		list02 = dao.getHotProduction(3);
+//		for(Object[] A:list02){
+//			for(Object column:A){
+//				System.out.print(column+", ");
+//			}
+//			System.out.println();
+//		}
 		
 //		List<Object> list03 = dao.getAutocompleteSearch("童");
 //		for(Object ob:list03){
@@ -218,6 +235,9 @@ public class SearcherDAO {
 //		for(Object ob:list04){
 //			System.out.println(ob);
 //		}
+		
+		Integer count = dao.getPage();
+		System.out.println(count);
 	}
 
 }

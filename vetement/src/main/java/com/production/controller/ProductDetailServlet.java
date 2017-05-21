@@ -42,7 +42,8 @@ public class ProductDetailServlet extends HttpServlet{
 		Integer pno = Integer.parseInt(request.getParameter("pno"));
 		
 		Integer pno1 = pno;
-		Integer pno2 = pno-1;
+//		Integer pno2 = pno-1;
+		
 		List<Integer> l1= new LinkedList<Integer>();          //list of pnos/productId with the same name
 		List<Integer> l2= new LinkedList<Integer>();          //list of pnos/productId with color images
 		
@@ -52,25 +53,39 @@ public class ProductDetailServlet extends HttpServlet{
 			int size = psrvc.getAll().size();
 			ProductionVO aProduct = psrvc.getOneProduct(pno);
 			String pName = aProduct.getProductName();
-			
+			Integer pno2 = size;
 			CategoryService csrvc = new CategoryService();
 			CategoryVO category = csrvc.findByPrimaryKey(aProduct.getCategoryId());
 			String mainCat = category.getClass_top();
 			
-			for(;pno1<=size;pno1++){
+			List<Integer> usedUpPno = new LinkedList<Integer>();
+			
+			for(;pno1<=pno+25;pno1++){
+				
 				if(pName.equals(psrvc.getOneProduct(pno1).getProductName())){
 					l1.add(pno1);
 				}
+				
+				usedUpPno.add(pno1);
+				if (pno1==size) break;
 			}
-			for(;pno2>0;pno2--){
+//			for(;pno2>;pno2--){
+//				if(pName.equals(psrvc.getOneProduct(pno2).getProductName())){
+//					l1.add(pno2);
+//				}
+//			}
+			
+			for(;pno2>size-10;pno2--){
+				
+				if (usedUpPno.contains(pno2)) break;
 				if(pName.equals(psrvc.getOneProduct(pno2).getProductName())){
 					l1.add(pno2);
 				}
 			}
-			System.out.println("l1:"+l1);
+			
 			
 			int i =l1.size();
-			System.out.println("l1Size:"+i);
+			
 			int counter =1;
 			for (Integer pno3 : l1){
 				byte[] cImg = psrvc.getOneProduct(pno3).getPicture_color();
@@ -135,7 +150,7 @@ public class ProductDetailServlet extends HttpServlet{
 		    	array10.add(array11);
 		    }
 		    System.out.println("array1:"+array1);
-		    
+		    System.out.println("array4:"+array4);
 
 		    DiscountService dsrvc = new DiscountService();
 		    Integer packageNo = aProduct.getPackageNo();

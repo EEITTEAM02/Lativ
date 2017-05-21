@@ -9177,10 +9177,10 @@ SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/sock_w_01/picture_color_black.jpg',
    SINGLE_BLOB) AS img) 
 
-insert into customer values('陳小花',0,'huahua@gmail.com','lativ123','106台北市大安區復興南路一段386號','0910123567');
+insert into customer values('陳小花',0,'huahua01@gmail.com','lativ123','106台北市大安區復興南路一段386號','0910123567');
 insert into customer values('黃琪琪',1,'chichi123@gmail.com','lalala','231新北市新店區民權路108號','0912687987');
 insert into customer values('李阿男',1,'south88@gmail.com','cloth12345','新北市板橋區府中路39號','0910888999');
-insert into customer values('許娜娜',0,'na_na0505@gmail.com','lativ123','台北市大安區信義路3段100號','0918555666');
+insert into customer values('許娜娜',0,'na.na0505@gmail.com','lativ123','台北市大安區信義路3段100號','0918555666');
 insert into customer values('張格魯',1,'kevin8081@gmail.com','sa123456','新北市蘆洲區三民路116號','0988588668');
 
 insert into customer_service values (1,'衣服太小件','衣服太小件可以換一件嗎?','請直接寄送回來就可以了喔~','2017-03-22');

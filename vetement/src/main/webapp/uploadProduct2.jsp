@@ -7,52 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>ProductUpload/Modify</title>
-<!--  與mangerPage產生衝突，先註解下列引用  -->
 
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-<!-- <script src="js/jquery-3.2.0.min.js"></script> -->
-<!-- <link rel="stylesheet" -->
-<!-- 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-<!-- <script src="js/jquerysession.js"></script> -->
-<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-<!-- <script src="js/bootstrap.min.js"></script> -->
 <style>
-
-/* 與mangerPage產生衝突，先註解下列CSS */
-
-/* div span { 
-     display: inline-block; 
-     width: 35px; 
-     text-align: center; 
- } */
-
-.dialogRegister-form input {
-    width: 35px;
-}
-
-.dialogLogin-form input {
-    width: 35px;
-}
-
-/* 與mangerPage產生衝突，先註解下列CSS */
-
-/* .ui-dialog-titlebar-close { 
-     visibility: hidden; 
-	} 
- @media ( min-width : 768px) { 
- 	.navbar-nav { 
- 		width: 100%; 
- 		text-align: center; 
- 	} 
- 	.navbar-nav>li { 
- 		float: none; 
- 		display: inline-block; 
- 	} 
- 	.navbar-nav>li.navbar-right {
- 		float: right !important; 
- 	} 
- } */
 
 h1#a {
 	text-indent: 100%;
@@ -70,13 +26,33 @@ h1 {
 	font-size: 1.2em;
 	margin: .6em 0;
 }
-.container { 
- margin:0 auto;
-} 
-/* input, select{  */
-/*   width:100%;  */
-/*    box-sizing:border-box;  */
-/*  }  */
+
+#myForm2,#myForm {
+position:relative;
+}
+
+#myForm2 input {
+  width:100%;
+  box-sizing:border-box;
+}
+
+#myForm2 select {
+  width:100%;
+  box-sizing:border-box;
+}
+
+#myForm input {
+  width:100%;
+  box-sizing:border-box;
+}
+
+
+#myForm select {
+  width:100%;
+  box-sizing:border-box;
+}
+
+
 </style>
 </head>
 <body>
@@ -89,8 +65,8 @@ h1 {
     <div class="col-md-6">
 
         <h1>新增產品 </h1>
-        <form method="post" action="UploadServlet2" enctype="multipart/form-data">
-            <table border="0">
+        <form id="myForm2" method="post" action="UploadServlet2" enctype="multipart/form-data">
+            <table >
                 <tr>
                     <td>產品名: </td>
                     <td><input type="text" name="name"/></td>
@@ -165,7 +141,7 @@ h1 {
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button type="submit" value="Save" class="btn btn-info">送出</button>
+                        <button type="submit" value="Save" class="btn btn-info" >送出</button>
                     </td>
                 </tr>
                
@@ -178,7 +154,7 @@ h1 {
 
         <h1>調整產品 </h1>
         <form id="myForm" method="post" action="ProductModify2.do" enctype="multipart/form-data">
-            <table border="0">
+            <table >
                
                 <tr>
                     <td>請先選 分類: </td>

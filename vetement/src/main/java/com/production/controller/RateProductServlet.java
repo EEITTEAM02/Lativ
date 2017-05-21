@@ -56,20 +56,41 @@ public class RateProductServlet extends HttpServlet {
 		    pstmt1 = conn1.prepareStatement("select score,times from rating where productId=?");
 		    pstmt1.setInt(1,id);
 		    ResultSet rs = pstmt1.executeQuery();
-		    rs.next();
-		    Double oldScore = Double.parseDouble(rs.getString(1));
-		    Integer counter =Integer.parseInt(rs.getString(2));
-		    pstmt1.close();
-//		    conn1.close();
-           
-		    Double newScore = (Double.parseDouble(score)+oldScore*counter)/(counter+1);
-		  
-		    //update rating table
-		    pstmt2 = conn1.prepareStatement("update rating set score =?,times=? where productId=?"); 
-		    pstmt2.setDouble(1, newScore);
-		    pstmt2.setInt(2, counter+1);
-		    pstmt2.setInt(3, id);
-		    pstmt2.executeUpdate();
+		    boolean abc = rs.next();
+		    Double oldScore =null;
+		    Integer counter =null;
+		    Double newScore =null;
+		    if (abc){
+		    	 oldScore = Double.parseDouble(rs.getString(1));
+				    counter =Integer.parseInt(rs.getString(2));
+				    pstmt1.close();
+		            newScore = (Double.parseDouble(score)+oldScore*counter)/(counter+1);
+		            
+		          //update rating table
+				    pstmt2 = conn1.prepareStatement("update rating set score =?,times=? where productId=?"); 
+				    pstmt2.setDouble(1, newScore);
+				    pstmt2.setInt(2, counter+1);
+				    pstmt2.setInt(3, id);
+				    pstmt2.executeUpdate();
+		    }
+		    else{
+		    	pstmt1.close();
+		    	oldScore = new Double(0);
+		    	counter = new Integer(0);
+		    	newScore = Double.parseDouble(score);
+		    	pstmt2 = conn1.prepareStatement("insert into rating values(?,?,?)"); 
+			    pstmt2.setDouble(2, newScore);
+			    pstmt2.setInt(3, counter+1);
+			    pstmt2.setInt(1, id);
+			    pstmt2.executeUpdate();
+		    	
+		    }
+		   
+		    
+		    
+		    
+		    
+		    
 		    ServletContext sctx = this.getServletConfig().getServletContext();
 		    Set<Integer> l3;       
 		    String cid1 = cid.toString();   
@@ -81,8 +102,7 @@ public class RateProductServlet extends HttpServlet {
 		    	   l3 = (Set<Integer>) sctx.getAttribute(cid1);
 		       }
 		       l3.add(id);
-//		      System.out.println(l3);
-		       pstmt2.close();
+		    pstmt2.close();
 		    conn1.close();
 
 		    

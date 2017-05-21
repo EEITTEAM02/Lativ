@@ -43,4 +43,9 @@ public class SearcherService {
 	public List<Object> getProductByName(String productName){
 		return dao.getProductByName(productName);
 	}
+	
+	public Integer getPage(){
+		return dao.getPage();
+	}
+	
 }

@@ -36,24 +36,28 @@ public class CheckPurchaseServlet extends HttpServlet{
        
        ProductionService psrvc = new ProductionService();
        ProductionVO aProduct = psrvc.getOneProduct(pno);
-       Integer size = psrvc.getAll().size();
+       int size = psrvc.getAll().size();
        String pname = aProduct.getProductName();
        List<Integer> l1 = new LinkedList<Integer>();
        Integer pno1 = pno;
-       for (;pno1>0;pno1--){
+       for (;pno1>pno-25;pno1--){
+    	   if (pno1==1) break;
     	   String pname1 = psrvc.getOneProduct(pno1).getProductName();
     	   if(pname1.equals(pname)){
     		   l1.add(pno1);
     	   }
        }
+       System.out.println(size);
        Integer pno2 = pno;
        if(pno2<size)
            pno2 =pno+1;
-       for (;pno2<=size;pno2++){
+       for (;pno2<=pno+25;pno2++){
+    	   System.out.println("pno2:"+pno2);
     	   String pname2 = psrvc.getOneProduct(pno2).getProductName();
     	   if(pname2.equals(pname)){
     		   l1.add(pno2);
     	   }
+    	   if(pno2==size) break;
        }
        
        Set<Integer> l3;       
