@@ -181,17 +181,15 @@
 
 			//隨著蒐尋到的資料筆數，設定頁碼數
 			function getPage(keyWord) {
-				$.getJSON("Search.do", {
-					"keyWord" : keyWord
-				}, function(data) {
+				$.getJSON("Page.do", function(data) {
 					//每次都重新產生頁碼
 					pageDiv.empty();
 					var docFragment = $(document.createDocumentFragment());
-					var productAmount = data.length;
+					var productAmount = data.pageCount;
 					//在SearcherDAO設定每頁3筆，query.setMaxResults(3);
 					//有餘數時，頁面加1;
-					var pageAmount = ((data.length) / 20);
-					if ((data.length) % 20) {
+					var pageAmount = (productAmount / 20);
+					if (productAmount % 20) {
 						pageAmount = pageAmount + 1;
 					}
 					//製造頁碼
