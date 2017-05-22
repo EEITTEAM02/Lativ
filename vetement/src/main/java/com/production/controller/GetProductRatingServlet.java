@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,27 +22,52 @@ import javax.sql.DataSource;
  */
 public class GetProductRatingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+private DataSource ds =null;   
+	
+	public void init(ServletConfig config) throws ServletException
+	   {
+	      super.init(config);   
+	      Context envContext = null;
+	      Context initContext = null;
+	      try
+	      { 
+	    	  envContext = new InitialContext();
+	    	  initContext  = (Context)envContext.lookup("java:/comp/env");
+	    	  ds = (DataSource)initContext.lookup("jdbc/TestDB");
+	      }
+	      catch(NamingException ne)
+	      {
+	         ne.printStackTrace();              
+	       }
+	       catch(Exception e)
+	       {
+	          e.printStackTrace();
+	       }
+	   }
+	   
+	public DataSource getTestDS()
+	      {
+	         return ds;
+	      }
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		Context envContext = null;
+//		Context envContext = null;
 		Writer out = response.getWriter();
 		try{
-			//use jdbc since we dont have rating dao
-//			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
-//		    conn = DriverManager.getConnection(url,"sa", "sa123456");
-			envContext = new InitialContext();
-			Context initContext  = (Context)envContext.lookup("java:/comp/env");
-			DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
-			
-		    conn = ds.getConnection();
+//			envContext = new InitialContext();
+//			Context initContext  = (Context)envContext.lookup("java:/comp/env");
+//			DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
+//			
+//		    conn = ds.getConnection();
+			conn = getTestDS().getConnection();
 			
 		    pstmt = conn.prepareStatement("select score from rating where productId=?");
 		    
 		    String pno = (String) (request.getParameter("pno"));
-//		    System.out.println(pno);
+
 		    pstmt.setString(1, pno);
 		    ResultSet rs = pstmt.executeQuery();
 		    String currentScore = "0";

@@ -279,6 +279,19 @@
     <servlet-name>Customer_ServiceServlet</servlet-name>
     <url-pattern>/customer_service.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CheckPurchaseServlet1</servlet-name>    
+    <servlet-class>com.production.controller.CheckPurchaseServlet</servlet-class>
+   <load-on-startup>1</load-on-startup>
+</servlet> 
+
+ <servlet>
+    <servlet-name>ProductDetailServlet1</servlet-name>    
+    <servlet-class>com.production.controller.ProductDetailServlet</servlet-class>
+   <load-on-startup>2</load-on-startup>
+</servlet> 
+
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>

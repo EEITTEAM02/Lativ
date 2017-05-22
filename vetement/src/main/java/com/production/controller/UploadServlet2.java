@@ -109,9 +109,9 @@ public class UploadServlet2 extends HttpServlet {
         }
         if (colorImg != null) {
             // prints out some information for debugging
-            System.out.println(colorImg.getName());
-            System.out.println(colorImg.getSize());
-            System.out.println(colorImg.getContentType());
+//            System.out.println(colorImg.getName());
+//            System.out.println(colorImg.getSize());
+//            System.out.println(colorImg.getContentType());
              
             // obtains input stream of the upload file
             inputStream3 = colorImg.getInputStream();

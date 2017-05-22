@@ -187,7 +187,7 @@ public class ProductModifyServlet2 extends HttpServlet {
         				break;
         			}
         			if(psvc.getOneProduct(pno1).getProductName().equals(oldName)){
-        				System.out.println("added pno:" +pno1);
+//        				System.out.println("added pno:" +pno1);
         				listOfPnos.add(pno1);       				
         			}
         			
@@ -200,7 +200,7 @@ public class ProductModifyServlet2 extends HttpServlet {
         				break;
         			}
         		}
-        		System.out.println(listOfPnos);
+//        		System.out.println(listOfPnos);
         		Iterator it = listOfPnos.iterator();
         		while(it.hasNext()){
         			Integer proId=(Integer) it.next();

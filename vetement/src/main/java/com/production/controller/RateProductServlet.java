@@ -11,6 +11,8 @@ import java.util.Set;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,11 +29,39 @@ import org.json.JSONObject;
  */
 public class RateProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private DataSource ds =null;   
+	
+	public void init(ServletConfig config) throws ServletException
+	   {
+	      super.init(config);   
+	      Context envContext = null;
+	      Context initContext = null;
+	      try
+	      { 
+	    	  envContext = new InitialContext();
+	    	  initContext  = (Context)envContext.lookup("java:/comp/env");
+	    	  ds = (DataSource)initContext.lookup("jdbc/TestDB");
+	      }
+	      catch(NamingException ne)
+	      {
+	         ne.printStackTrace();              
+	       }
+	       catch(Exception e)
+	       {
+	          e.printStackTrace();
+	       }
+	   }
+	   
+	public DataSource getTestDS()
+	      {
+	         return ds;
+	      }
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection conn1 = null;
-		Context envContext = null;
-//		Connection conn2 = null;
+//		Context envContext = null;
+
 		PreparedStatement pstmt1 = null;
 		PreparedStatement pstmt2 = null;
 		Writer out = response.getWriter();
@@ -42,17 +72,13 @@ public class RateProductServlet extends HttpServlet {
 		    Integer id = (Integer) jsonObject.get("id");
 		    String score = (String) jsonObject.get("score");
 		    Integer cid = (Integer) session.getAttribute("mno");
-		  //use jdbc since we dont have rating dao
-//			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//		    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
-//		    conn1 = DriverManager.getConnection(url,"sa", "sa123456");
 		    
-		    envContext = new InitialContext();
-			Context initContext  = (Context)envContext.lookup("java:/comp/env");
-			DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
-			
-		    conn1 = ds.getConnection();
-		    
+//		    envContext = new InitialContext();
+//			Context initContext  = (Context)envContext.lookup("java:/comp/env");
+//			DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
+//			
+//		    conn1 = ds.getConnection();
+		    conn1 = getTestDS().getConnection();
 		    pstmt1 = conn1.prepareStatement("select score,times from rating where productId=?");
 		    pstmt1.setInt(1,id);
 		    ResultSet rs = pstmt1.executeQuery();

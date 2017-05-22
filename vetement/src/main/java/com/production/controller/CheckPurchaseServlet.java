@@ -107,12 +107,15 @@ public class CheckPurchaseServlet extends HttpServlet{
        Iterator it3 = l3.iterator();
        while(it3.hasNext()){
     	   Integer rated = (Integer) it3.next();
-    	   for(Integer a :l1){
-    		   if(rated.equals(a)){
-    			   flag=false;
-
-    		   }
-    	   }
+//    	   for(Integer a :l1){
+//    		   if(rated.equals(a)){
+//    			   flag=false;
+//
+//    		   }
+//    	   }
+    	   
+    	   if (l1.contains(rated))
+    		   flag=false;
        }
        if (flag){
 		   out.write("1");

@@ -182,8 +182,8 @@ public class ProductDetailServlet extends HttpServlet{
 		    	array7.add(array8);
 		    	array10.add(array11);
 		    }
-		    System.out.println("array1:"+array1);
-		    System.out.println("array4:"+array4);
+//		    System.out.println("array1:"+array1);
+//		    System.out.println("array4:"+array4);
 
 		    DiscountService dsrvc = new DiscountService();
 		    Integer packageNo = aProduct.getPackageNo();
