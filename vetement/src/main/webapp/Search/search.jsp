@@ -90,8 +90,8 @@
 						</ol>
 						<div class="carousel-inner">
 							<div class="item active">
-								<a href="${pageContext.request.contextPath}/Search/discountDivison1.jsp"><img class="slide-image"
-									src="${pageContext.request.contextPath}/img/discountDivImg1_2.jpg"
+								<a href="${pageContext.request.contextPath}/Search/discountDivison3.jsp"><img class="slide-image"
+									src="${pageContext.request.contextPath}/img/discountDivImg3_2.jpg"
 									style="width: 100%;"></a>
 							</div>
 							<div class="item">
@@ -100,8 +100,8 @@
 									style="width: 100%;"></a>
 							</div>
 							<div class="item">
-								<a href="${pageContext.request.contextPath}/Search/discountDivison3.jsp"><img class="slide-image"
-									src="${pageContext.request.contextPath}/img/discountDivImg3_2.jpg"
+								<a href="${pageContext.request.contextPath}/Search/discountDivison1.jsp"><img class="slide-image"
+									src="${pageContext.request.contextPath}/img/discountDivImg1_2.jpg"
 									style="width: 100%;"></a>
 							</div>
 						</div>

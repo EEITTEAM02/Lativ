@@ -33,7 +33,7 @@ public class GetProductRatingServlet extends HttpServlet {
 //		    conn = DriverManager.getConnection(url,"sa", "sa123456");
 			envContext = new InitialContext();
 			Context initContext  = (Context)envContext.lookup("java:/comp/env");
-			DataSource ds = (DataSource)initContext.lookup("jdbc/Lativ");
+			DataSource ds = (DataSource)initContext.lookup("jdbc/lativ");
 			
 		    conn = ds.getConnection();
 			
