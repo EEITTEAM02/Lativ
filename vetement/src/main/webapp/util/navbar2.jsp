@@ -26,8 +26,8 @@
 }
 
 #display li {
-	width: 180px;
-	height: 300px;
+	width: 240px;
+	height: 350px;
 	float: none;
 	display: inline-block;
 	margin-left: 28px;
@@ -37,18 +37,22 @@
 }
 
 .productImage {
-	width: 200px;
+	width: 240px;
 	margin: auto;
 }
 
 .productName {
 	width: 100%;
 	text-align: center;
+	font-family:Microsoft Jhenghei;
+	font-size:16px;
 }
 
 .productPrice {
 	width: 100%;
 	text-align: center;
+	font-family:Microsoft Jhenghei;
+	font-size:16px;
 }
 
 #pageDiv {

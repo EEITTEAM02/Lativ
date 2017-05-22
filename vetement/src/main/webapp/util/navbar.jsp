@@ -43,11 +43,13 @@
 .productName {
 	width: 100%;
 	text-align: center;
+	font-family:Microsoft Jhenghei;
 }
 
 .productPrice {
 	width: 100%;
 	text-align: center;
+	font-family:Microsoft Jhenghei;
 }
 
 #pageDiv {

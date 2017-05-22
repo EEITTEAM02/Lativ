@@ -37,6 +37,7 @@ public class DiscountServlet extends HttpServlet {
 		res.setHeader("content-type", "text/html;charset=UTF-8");
 		PrintWriter ajax_out = res.getWriter();
 		String act = req.getParameter("action");
+		HttpSession session = req.getSession();
 		
 		//Display all discount condition
 		if("getAll".equals(act)){
@@ -138,6 +139,8 @@ public class DiscountServlet extends HttpServlet {
 			
 			if(updated_rule != null ) update_count = 1;
 			
+			session.setAttribute("bbb", "disc_upd");
+			
 			ajax_out.println(update_count);	
 			ajax_out.close();
 		}
@@ -163,6 +166,8 @@ public class DiscountServlet extends HttpServlet {
 			
 			if(new_discount_rule != null ) insert_count = 1;
 			
+			session.setAttribute("bbb", "disc_ins");
+			
 			ajax_out.println(insert_count);	
 			ajax_out.close();	
 		}
@@ -174,6 +179,7 @@ public class DiscountServlet extends HttpServlet {
 			DiscountService discountSvc = new DiscountService();
 			Integer delete_count = discountSvc.deleteDiscount(packageId);
 		
+			session.setAttribute("bbb", "disc_del");
 			
 			ajax_out.println(delete_count);	
 			ajax_out.close();

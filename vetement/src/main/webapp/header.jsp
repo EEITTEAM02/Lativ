@@ -48,14 +48,14 @@
 	 					</li>
 						
 						<li>
-							<a href="#" id='logout'>登出</a>	
+							<a href="#" id='logout'style='font-size:18px'>登出</a>	
 	   					</li>						   								   								   	
 					</c:when>
 					<c:otherwise>
-						<li id="login_user">
+						<li id="login_user" style='font-size:18px'>
 						    <a href="#">登入</a>
 						</li>
-						<li id="register_user">
+						<li id="register_user" style='font-size:18px'>
 						   <a href="#">註冊</a>
 						</li>							   	
 					</c:otherwise>
@@ -79,7 +79,8 @@
  				type: 'POST',
  				success: function() {
  					swal({title: "您已登出",type: "success"},function(){
- 						location.href="${pageContext.request.contextPath}/indexTemplate.jsp";	
+ 						//location.href="${pageContext.request.contextPath}/indexTemplate.jsp";
+ 						location.reload();
  					});
  				}
  			})
