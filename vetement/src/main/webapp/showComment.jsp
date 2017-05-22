@@ -196,10 +196,12 @@
         $( "#opener" ).click(function() {
         	//查詢是否購買過商品
         	$.get('CommentCheck',{action:"check",'customerId':cid,'productId':pid},function(datas){
-        		if(datas.trim()=="null"){
+        			var jsdata = JSON.parse(datas)
+        		console.log(jsdata);
+        		console.log(jsdata.length);
+        		if(jsdata.length == 0){
         			swal("請先購買商品");	        	             	
         		}else{     			
-        			var jsdata = JSON.parse(datas)
         			ordId = jsdata[0].orderNo
         			//查詢是否評論過商品
         			$.get('CommentCheck',{action:"GET_ONE",'customerId':cid,'productId':pid},function(data){

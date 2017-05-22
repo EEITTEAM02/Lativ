@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>折扣專區</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
  <!-- Theme CSS -->
 <%--     <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet"> --%>

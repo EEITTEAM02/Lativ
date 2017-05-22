@@ -93,12 +93,7 @@ img.displayImg {
 <body>
 
 	<body>
-  	<button type='button' id='opener' class='btn btn-primary btn-sm'>我要評論</button>
-  	<div id="dialog1" title="請輸入評價">
-	<textarea rows="14" cols="50" name="name" class="form-control" id="form-text" placeholder="評價內容"></textarea>
-	</div>
-  	
-  	
+	
     <div class='container'>
         <div class='row'>
             <div class='col-md-12'></div>
@@ -119,8 +114,6 @@ img.displayImg {
 					<td>折價</td>
 					<td>總價</td>
 					<td>產品圖片</td>
-					<td>評價</td>
-					<td>刪除評價</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -141,48 +134,7 @@ img.displayImg {
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $(function() {
-        	
-        	
-        	
-        	var text;
-            $( "#dialog1" ).dialog({
-               autoOpen: false,
-               height: 450,
-			   width : 500,
-			   closeOnEscape: false,
-			   modal : true,
-			   resizable : false,
-			   dialogClass: "dlg-no-close",
-               buttons: {
-                "OK": function() {
-                	$(this).dialog("close");
-                	text = $('#form-text').val()
-                	$.get('CommentCheck',{action:"insert",'customerId':1,
-                		'productId':6,'orderNo':1,'comment':text},function(data){
-                			if(data.trim()=="add ok"){
-                				alert("評價成功");
-                			}else{
-								alert(data);
-                				$('#form-text').val('');
-                			}
-                		})
-                },
-                "close": function() {$(this).dialog("close");}
-                },	
-            });
-          
-            //點擊後確認是否評價過
-            $( "#opener" ).click(function() {
-            	$.get('CommentCheck',{action:"GET_ONE",'customerId':2,'productId':1},function(data){
-            		if (data.trim() == "null"){
-            			$( "#dialog1" ).dialog( "open" );
-            		}else{
-            			alert("已評價過");
-            		}
-            	})               
-            });
-        	
-        	
+
         	//order detail dialog
 			
             var dialog;
@@ -259,10 +211,8 @@ img.displayImg {
                                             var img = $('<img></img>').attr("src", "productImages/" + orderItem.pno).addClass('displayImg');
                                             cell9.append(img);
                                             var cell21 = $('<td></td>').css('text-align','center').append(cell9);
-                                            var cell10 = $('<td></td>').append("<button type='button' id='opener' class='btn btn-primary btn-sm'>我要評論</button>");
-                                            var cell11 = $('<td></td>').text(orderItem.score);
                                             var row1 = $('<tr></tr>');
-                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell21, cell10, cell11]);
+                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell21]);
                                             docFrag1.append(row1);
                                         })
                                         tb1.append(docFrag1);
