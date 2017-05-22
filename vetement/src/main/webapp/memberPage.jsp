@@ -49,7 +49,7 @@
 	padding-left: 5px; 
 	padding-right: 5px; 
 /* 	background-color: rgba(217, 255, 255, .5); */
-	background-image:url('images/wood.jpg');  
+	background-image:url('images/custbg.jpg');  
  } 
 .customer_info_edit{
 	margin: auto; 

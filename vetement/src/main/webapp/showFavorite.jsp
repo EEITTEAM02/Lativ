@@ -21,11 +21,11 @@
 	text-align: center;
 	font-size:20px;
 }
-#favoriteTable th{
+#display_th{
 	font-size:20px;
 	text-align: center;
 }
-#all,#favoriteTable th {
+#all,#display_th {
 	border: 5px solid #220088;
 	padding: .5em 10px;
 	text-align: center;

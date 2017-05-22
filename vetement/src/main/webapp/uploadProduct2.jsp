@@ -210,9 +210,17 @@ position:relative;
                 </tr>
                 
                 <tr>
+                    <td>影響同名商品: </td>
+                    <td><input type="checkbox" name="checkbox" /></td>
+                </tr>
+                <tr>
+                
+                <tr>
                     <td>標誌: </td>
                     <td><input type="file" name="icon" /></td>
                 </tr>
+                <tr>
+                                      
                 <tr id="productImg">
                     <td>產品圖: </td>
                     <td><input type="file" name="productImg"/></td>
@@ -273,17 +281,25 @@ position:relative;
     		'url':'GetCategoryId.do',
     		'success':function(data){
     			var length = Object.keys(data).length;
+    			var counter =0;
                 for (var i =1;i<=length;i++){
                 	
                 	var option1 = $('<option></option>').val(i).text(data[i]);
                 	var option2 = $('<option></option>').val(i).text(data[i]);
-                	var option3 = $('<option></option>').val(i).text(data[i]);
+                	var option3 = $('<option></option>').val(i).text(data[i]);               	
+                	var option4 = $('<option></option>').val('all').text('不分類');
                 	$('#categoryId1').append(option1);
-                 	$('#categoryId2').append(option2);
+                 	
+                	if (counter ===0)             	
+                 		$('#categoryId2').append(option4)                	
+                 	
+                	$('#categoryId2').append(option2);                 	
                  	$('#categoryId3').append(option3);
+                 	counter++;
                 }
                 $('#categoryId2').change(function(){
             		var selectedCat = $('#categoryId2').val();
+            		if (selectedCat !== 'all'){
             		var selectPno = $('#pno');
             		selectPno.empty();
             		var option0 = $('<option></option>').val('option0').text('select an option');
@@ -300,21 +316,25 @@ position:relative;
             				
             			}
             		})
+            		}
+            		
+            		else{
+            			 $.ajax({
+            		    	   'url':'GetAllProdId.do',
+            		    	   'success':function(data){
+            		    		   var selectPno = $('#pno');
+            		    		   selectPno.empty();
+            		    		   $.each(data,function(){
+            		    			   var option = $('<option></option').val(window.parseInt(this)).text(window.parseInt(this));
+            		    			   selectPno.append(option);
+            		    		   })
+            		    	   }
+            		       }) 
+            		}
             	});
     		}
     	})
-                
-       $.ajax({
-    	   'url':'GetAllProdId.do',
-    	   'success':function(data){
-    		   var selectPnoA = $('#pnoA');
-    		   selectPnoA.empty();
-    		   $.each(data,function(){
-    			   var option = $('<option></option').val(window.parseInt(this)).text(window.parseInt(this));
-    			   selectPnoA.append(option);
-    		   })
-    	   }
-       })         	      
+                       	      
     	 	
     	         $('#pnoA').change(function(){
     	    	    	var pnoA =$('#pnoA').val();
@@ -339,7 +359,7 @@ position:relative;
     	    	    		var data = $.parseJSON(obj);
     	    	    	    
     	    	    		$('#myForm input:eq(0)').val(data.name);
-    	        	    	$('#myForm select:eq(3)').val(data.size).change();   //look for the option with val data.size and select it
+    	        	    	$('#myForm select:eq(3)').val(data.size);   //look for the option with val data.size and select it
     	        	    	$('#myForm input:eq(1)').val(data.color);
     	        	    	$('#myForm input:eq(2)').val(data.price);
     	        	    	$('#myForm select:eq(4)').val(data.discountCat).change;
@@ -354,7 +374,7 @@ position:relative;
     	    	
                 $('#pno').change(function(){   
                 var pno = $('#pno').val();
-                console.log("pno:"+pno);
+                
     	    	$('#myForm img').remove();
     	    	var image1 = $('<img></img>').attr('src','productImages/'+pno).css({'width':'50px','height':'50px'});
     	    	var image2 = $('<img></img>').attr('src','colorImages/'+pno).css({'width':'50px','height':'50px'});
@@ -373,16 +393,16 @@ position:relative;
     	    	
     	    	$.get('AutoCompleteProductServlet.do',{'pno':pno},function(obj){
     	    		var data = $.parseJSON(obj);
-    	    	    
+    	    	    console.log(data.size);
     	    		$('#myForm input:eq(0)').val(data.name);
-        	    	$('#myForm select:eq(3)').val(data.size).change();   //look for the option with val data.size and select it
+        	    	$('#myForm select:eq(2)').val(data.size).change;   //look for the option with val data.size and select it
         	    	$('#myForm input:eq(1)').val(data.color);
         	    	$('#myForm input:eq(2)').val(data.price);
-        	    	$('#myForm select:eq(4)').val(data.discountCat).change;
+        	    	$('#myForm select:eq(3)').val(data.discountCat).change;
         	    	$('#myForm input:eq(3)').val(data.descript);
-        	    	$('#myForm select:eq(5)').val(data.categoryId).change;
+        	    	$('#myForm select:eq(4)').val(data.categoryId).change;
         	    	$('#myForm input:eq(4)').val(data.noInStock);
-        	    	$('#myForm select:eq(6)').val(data.for_sale).change;
+        	    	$('#myForm select:eq(5)').val(data.for_sale).change;
         	    	
         	    	
     	    	})

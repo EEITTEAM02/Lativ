@@ -152,6 +152,9 @@
 				</div>
 				<button class="login_btn" id="login_submit" type="button">登入</button>
 <!-- 				<button class="login_btn" id="cancel_btn" type="button">取消</button> -->
+				<div class="footer text-center" style="display: inline-block;margin-left: 20px;">
+					<a href="/vetement/forgetpass.jsp">忘記密碼?</a>
+				</div>
 			</div>
 		</form>
 	</div>

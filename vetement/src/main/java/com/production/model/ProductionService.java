@@ -66,6 +66,25 @@ public class ProductionService {
 
 		return dao.findByPrimaryKey(productId);
 	}
+	
+	public void updateProduct2(Integer productId, String productName,
+			 Double price, Integer packageNo, boolean for_sale,String describe, Integer categoryId) {
+
+		ProductionVO productVO = new ProductionVO();   
+		productVO.setProductId(productId);
+		productVO.setProductName(productName);
+       
+       productVO.setPrice(price);
+	productVO.setPackageNo(packageNo);
+       productVO.setCategoryId(categoryId);
+       productVO.setDescribe(describe);
+		
+		productVO.setFor_sale(for_sale);
+	
+		
+		dao.update(productVO);
+
+	}
 
 	public void deleteProduct(Integer productId) {
 		dao.delete(productId);

@@ -191,7 +191,13 @@ img.displayImg {
 							<div class="row">
 								<div class="col-sm-6 well" id="div26">
 									<div id="comm" style="display: inline-block">
-										<a href='#' onClick=openwindow('showComment.jsp?pid=${param.Pid}','test',700,500)>查看評價</a>
+										<c:if test="${sessionScope.login_customer_info != null}">
+											<c:set var="cid" scope = "session" value="${sessionScope.login_customer_info.customerId}"/>
+										</c:if>
+										<c:if test="${sessionScope.login_customer_info == null}">
+											<c:set var="cid" scope = "session" value="null"/>
+										</c:if>
+										<a href='#' onClick=openwindow('showComment.jsp?pid=${param.Pid}&cid=${cid}','test',700,500)>查看評價</a>
 									</div>
 									<div id="like"
 										style="display: inline-block; margin-left: 60px;">
