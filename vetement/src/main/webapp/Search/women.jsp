@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>女仕時裝</title>
 <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -139,9 +139,9 @@ img.displayImg {
 				<div class="vertical-menu">
 					<div name="discountDiv" class="side">
 						<a class="discountHead">折扣商品</a> 
-						<a name=discount1 href="discountDivison1.jsp">折扣1</a> 
-						<a name=discount2 href="discountDivison2.jsp">折扣2</a> 
-						<a name=discount3 href="discountDivison3.jsp">媽媽節特價．兩件8折</a> 
+						<a name=discount1 href="discountDivison1.jsp">襪子與配件買3件NT480</a> 
+						<a name=discount2 href="discountDivison2.jsp">男性上衣襯衫一件7折起</a> 
+						<a name=discount3 href="discountDivison3.jsp">媽媽節特價女性商品買兩件打8折</a> 
 					</div>
 					<div class="side">
 						<a name="middle" class="active">上身類</a> <a name="bottom">短袖印花T恤</a>

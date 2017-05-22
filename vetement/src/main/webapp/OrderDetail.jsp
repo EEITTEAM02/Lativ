@@ -17,7 +17,6 @@
 <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>  -->
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">   -->
 <style>
-
 #display{
 	margin:auto;
 	text-align: center;
@@ -35,7 +34,6 @@
 	font-size:20px;
 	text-align: center;
 }
-
 #all,th {
 	border: 5px solid #220088;
 	padding: .5em 10px;
@@ -72,7 +70,6 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
 #pan{
 	width:1400px;
 	margin:auto;
@@ -85,7 +82,6 @@
 	width:1000px;
 	margin:auto;
 }
-
 img.displayImg {
 	height: 40px;
 	width: 40px;
@@ -97,7 +93,7 @@ img.displayImg {
 <body>
 
 	<body>
-  
+	
     <div class='container'>
         <div class='row'>
             <div class='col-md-12'></div>
@@ -118,8 +114,6 @@ img.displayImg {
 					<td>折價</td>
 					<td>總價</td>
 					<td>產品圖片</td>
-					<td>評價</td>
-					<td>刪除評價</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -140,7 +134,7 @@ img.displayImg {
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $(function() {
-        	
+
         	//order detail dialog
 			
             var dialog;
@@ -172,13 +166,11 @@ img.displayImg {
                 table.append(thead);
                 table.append(tbody);
                 $('.col-md-12').append(table);
-
                 $.ajax({
                     type: "get",
                     url: "OrderHistoryServlet.do",
                     datatype: "json",
                     success: function(datas) {
-
                         var tb = $('#orderHistoryTable>tbody');
                         var docFrag = $(document.createDocumentFragment());
                         tb.empty();
@@ -191,7 +183,6 @@ img.displayImg {
                             var cell4 = $('<td></td>').text(order.orderSum);
                             var row = $('<tr></tr>').attr('id', idd);
                             row.append([cell1, cell2, cell3, cell4]);
-
                             row.on("click", function() {
                                 dialogOrderDetail.dialog("open");
                                 $.ajax({
@@ -202,7 +193,6 @@ img.displayImg {
                                         'ono': order.ono
                                     },
                                     success: function(data) {
-
                                         var tb1 = $('#orderDetailTable>tbody');
                                         var docFrag1 = $(document.createDocumentFragment());
                                         tb1.empty();
@@ -218,30 +208,21 @@ img.displayImg {
                                             var cell7 = $('<td></td>').text(orderItem.unitPriceD);
                                             var cell8 = $('<td></td>').text(orderItem.totalPrice);
                                             var cell9 = $('<a></a>').attr('href', '${pageContext.request.contextPath}/productPages.jsp?Pid=' + orderItem.pnoWithPage);
-
                                             var img = $('<img></img>').attr("src", "productImages/" + orderItem.pno).addClass('displayImg');
                                             cell9.append(img);
                                             var cell21 = $('<td></td>').css('text-align','center').append(cell9);
-                                            var cell10 = $('<td></td>').text(orderItem.score);
-                                            var cell11 = $('<td></td>').text(orderItem.score);
                                             var row1 = $('<tr></tr>');
-                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell21, cell10, cell11]);
+                                            row1.append([cell1, cell2, cell3, cell4, , cell5, cell6, cell7, cell8, cell21]);
                                             docFrag1.append(row1);
                                         })
-
                                         tb1.append(docFrag1);
-
                                     },
-
                                     error: function(request, status, error) {
                                         alert(request.responseText);
                                     }
-
-
                                 })
                             });
                             docFrag.append(row);
-
                         });
                         tb.append(docFrag);
                     },
@@ -252,7 +233,6 @@ img.displayImg {
                 });
             
         })
-
     </script>
 </body>
 

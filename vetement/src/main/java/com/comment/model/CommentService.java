@@ -38,5 +38,8 @@ public class CommentService {
 	public Set<CommentVO> getOne(Integer customerId,Integer productId){
 		return dao.findByPrimaryKey(customerId, productId);
 	}
+	public List<CommentTwoVO> all(Integer customerId,Integer productId){
+		return dao.all(customerId, productId);
+	}
 
 }
