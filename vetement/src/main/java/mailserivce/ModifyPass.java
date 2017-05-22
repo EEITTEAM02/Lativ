@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cust.model.CustomerService;
 import com.login_Model.loginService;
 import com.member.Model.MemberListVO;
 import com.member.Model.MemberService;
@@ -50,7 +51,7 @@ public class ModifyPass extends HttpServlet {
 			 return;
 		}
 		try {
-			loginService login = new loginService();
+			CustomerService login = new CustomerService();
 			MemberListVO vo=login.getMemberList().get(account.toLowerCase());
             ShopVO sb= login.getShopList().get(account.toLowerCase());
 			if (vo!=null) {

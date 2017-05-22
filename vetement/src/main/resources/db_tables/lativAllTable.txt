@@ -1,4 +1,6 @@
-﻿﻿drop table rating
+﻿﻿
+
+drop table rating
 drop table news
 drop table comment
 drop table customer_service
@@ -278,7 +280,7 @@ SELECT * FROM OPENROWSET(
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  'Pima 棉V領T恤- 白','L','白','290','8',1,2,1 ,(
+   select  'Pima 棉V領T恤','L','白','290','8',1,2,1 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/mTshirtShortWhite.jpg',
    SINGLE_BLOB) AS img),(  

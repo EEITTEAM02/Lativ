@@ -2,7 +2,11 @@ package com.production.controller;
 
 
 import java.io.IOException;
-import java.io.InputStream; 
+import java.io.InputStream;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +37,7 @@ public class ProductModifyServlet2 extends HttpServlet {
         Integer categoryId = Integer.parseInt(request.getParameter("categoryId"));
         Integer noInStock = Integer.parseInt(request.getParameter("noInStock"));
         String for_sale0 = request.getParameter("for_sale");
+        String checkbox = request.getParameter("checkbox");
         if (for_sale0.equals("1")){
         	for_sale0 = "true";
         }
@@ -168,7 +173,44 @@ public class ProductModifyServlet2 extends HttpServlet {
          
         try {
             // connects to the database
-            psvc.updateProduct(pno,name, size, color, price, discountCat, noInStock,for_sale,descript,categoryId, bytes1, bytes2, bytes3, bytes4,bytes5,bytes6,bytes7);
+        	String oldName = psvc.getOneProduct(pno).getProductName();
+        	if(checkbox!=null){
+        		Set<Integer> listOfPnos = new HashSet<Integer>();
+        		int sizeOfAll = psvc.getAll().size();
+        		Integer pno1 = pno;
+        		Integer pno2 = pno;
+        		if (pno2<sizeOfAll){
+        			pno2+=1;
+        		}
+        		for (;pno1>=pno-25;pno1--){      			
+        			if(pno1==0){
+        				break;
+        			}
+        			if(psvc.getOneProduct(pno1).getProductName().equals(oldName)){
+        				System.out.println("added pno:" +pno1);
+        				listOfPnos.add(pno1);       				
+        			}
+        			
+        		}
+        		for (;pno2<=pno+25;pno2++){
+        			if(psvc.getOneProduct(pno2).getProductName().equals(oldName)){
+        				listOfPnos.add(pno2);
+        			}
+        			if (pno2==sizeOfAll){
+        				break;
+        			}
+        		}
+        		System.out.println(listOfPnos);
+        		Iterator it = listOfPnos.iterator();
+        		while(it.hasNext()){
+        			Integer proId=(Integer) it.next();
+        			ProductionVO aProductVO= psvc.getOneProduct(proId);
+        			psvc.updateProduct(proId,name,  aProductVO.getSize(),aProductVO.getColor(),price,discountCat,aProductVO.getQuantity_in_stock(),for_sale,aProductVO.getDescribe(),categoryId,aProductVO.getIcon(),aProductVO.getPicture_main(),aProductVO.getPicture_color(),aProductVO.getPicture_model1(),aProductVO.getPicture_model2(),aProductVO.getPicture_model3(),aProductVO.getPicture_model4());       			
+        		}
+        		
+        	}
+        	else
+        		psvc.updateProduct(pno,name, size, color, price, discountCat, noInStock,for_sale,descript,categoryId, bytes1, bytes2, bytes3, bytes4,bytes5,bytes6,bytes7);
             
             request.setAttribute("result2", "已更新");
             request.getRequestDispatcher("/mangerPage.jsp").forward(request, response);
