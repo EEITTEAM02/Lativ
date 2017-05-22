@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>女仕時裝</title>
 <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
