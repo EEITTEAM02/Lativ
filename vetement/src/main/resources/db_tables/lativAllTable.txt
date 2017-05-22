@@ -1,6 +1,4 @@
-﻿﻿
-
-drop table rating
+﻿drop table rating
 drop table news
 drop table comment
 drop table customer_service
@@ -164,9 +162,11 @@ create table rating (
  times int
  )
 
+
+insert into discount values (null,160,3,'襪子與配件買3件NT480');
+insert into discount values (0.7,null,1,'男性上衣襯衫一件7折起');
+insert into discount values (0.8,null,2,'媽媽節特價女性商品買兩件打8折');
 insert into discount values (1,null,1,'無打折');
-insert into discount values (null,133,3,'買3件399');
-insert into discount values (0.8,null,2,'媽媽節特價買兩件打8折');
 
 insert into category values('男','上身類','短袖背心');
 insert into category values('男','外套類','休閒外套');
@@ -462,7 +462,7 @@ SELECT * FROM OPENROWSET(
 
       --production in cat4
   insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-   select 'Fleece條紋套裝組','L','藍','390','78',1,'不可濕放，以免衣物染色；不可烘乾，請弱速輕脫水，勿大力搓揉',1,4,(  
+   select 'Fleece條紋套裝組','L','藍','390','78',1,'不可濕放，以免衣物染色；不可烘乾，請弱速輕脫水，勿大力搓揉',1,27,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesBlue.jpg',
    SINGLE_BLOB) AS img),(  
@@ -483,19 +483,19 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece條紋套裝組','M','藍','390','14',1,1,4,(  
+   select 'Fleece條紋套裝組','M','藍','390','14',1,1,27,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesBlue.jpg',
    SINGLE_BLOB) AS img)
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece條紋套裝組','S','藍','390','5',1,1,4,(  
+   select 'Fleece條紋套裝組','S','藍','390','5',1,1,27,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesBlue.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select 'Fleece條紋套裝組','L','紅','390','7',1,1,4,(  
+   select 'Fleece條紋套裝組','L','紅','390','7',1,1,27,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesRed.jpg',
    SINGLE_BLOB) AS img),(  
@@ -506,21 +506,21 @@ SELECT * FROM OPENROWSET(
 
    
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece條紋套裝組','M','紅','390','2',1,1,4,(  
+   select 'Fleece條紋套裝組','M','紅','390','2',1,1,27,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesRed.jpg',
    SINGLE_BLOB) AS img) 
 
 
      insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece條紋套裝組','S','紅','390','9',1,1,4,(  
+   select 'Fleece條紋套裝組','S','紅','390','9',1,1,27,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesRed.jpg',
    SINGLE_BLOB) AS img)
 
 
     insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-   select  'Fleece條紋套裝組','L','白','390','8',1,1,4 ,(
+   select  'Fleece條紋套裝組','L','白','390','8',1,1,27 ,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesWhite.jpg',
    SINGLE_BLOB) AS img),(  
@@ -529,13 +529,13 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece條紋套裝組','M','白','390','3',1,1,4,(
+   select 'Fleece條紋套裝組','M','白','390','3',1,1,27,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesWhite.jpg',
    SINGLE_BLOB) AS img)
 
    insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-   select 'Fleece條紋套裝組','S','白','390','33',1,1,4,(
+   select 'Fleece條紋套裝組','S','白','390','33',1,1,27,(
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/MFleeceStripesWhite.jpg',
    SINGLE_BLOB) AS img)
@@ -9179,11 +9179,11 @@ SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/sock_w_01/picture_color_black.jpg',
    SINGLE_BLOB) AS img) 
 
-insert into customer values('陳小花',0,'huahua01@gmail.com','lativ123','106台北市大安區復興南路一段386號','0910123567');
-insert into customer values('黃琪琪',1,'chichi123@gmail.com','lalala','231新北市新店區民權路108號','0912687987');
-insert into customer values('李阿男',1,'south88@gmail.com','cloth12345','新北市板橋區府中路39號','0910888999');
-insert into customer values('許娜娜',0,'na.na0505@gmail.com','lativ123','台北市大安區信義路3段100號','0918555666');
-insert into customer values('張格魯',1,'kevin8081@gmail.com','sa123456','新北市蘆洲區三民路116號','0988588668');
+insert into customer values('陳小花',0,'huahua@gmail.com','Lativ123','106,台北市,大安區,復興南路一段386號','0910123567');
+insert into customer values('黃琪琪',1,'chichi123@gmail.com','Lalala87','231,新北市,新店區,民權路108號','0912687987');
+insert into customer values('李阿男',1,'south88@gmail.com','08cloth08','220,新北市,板橋區,府中路39號','0910888999');
+insert into customer values('許娜娜',0,'na.na0505@gmail.com','May5566','106,台北市,大安區,信義路3段100號','0918555666');
+insert into customer values('張格魯',1,'kevin8081@gmail.com','sa123456','247,新北市,蘆洲區,三民路116號','0988588668');
 
 insert into customer_service values (1,'衣服太小件','衣服太小件可以換一件嗎?','請直接寄送回來就可以了喔~','2017-03-22');
 insert into customer_service values (1,'褲子破了','褲子在洗過後就破了一個洞，我可以更換一件嗎?','人為破損無法更換喔','2017-03-28');
@@ -9215,4 +9215,7 @@ insert into orderItem values(null,null,2,null,3,2)
  insert into rating values (107,4,1);
   insert into rating values (116,3,1);
   
-  Update production set packageNo = 3 where categoryId in(6,7,8,9,10,36,37,38,39,40,41,42,43,44,45);
+Update production set packageNo = 4; 
+Update production set packageNo = 1 where categoryId in(4,23,35,45);
+Update production set packageNo = 2 where categoryId in(1,26,32,33,34);
+Update production set packageNo = 3 where categoryId in(6,7,8,9,10,36,37,38,39,40,41,42,43,44);
