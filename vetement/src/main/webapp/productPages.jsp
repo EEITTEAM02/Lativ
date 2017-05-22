@@ -139,17 +139,7 @@ img.displayImg {
 
 					<!-- 每頁不同的內容從這裡開始 -->
 					<div class="row">
-<!-- 						<div class="col-sm-2" id="leftSide"> -->
-<!-- 							<mark>特價</mark> -->
-<!-- 							<ul class="list-group"> -->
-<!-- 							</ul> -->
-<!-- 							<mark>類別</mark> -->
-<!-- 							<ul class="list-group"> -->
-<!-- 								<li data-id="1" class="list-group-item active">女</li> -->
-<!-- 								<li data-id="2" class="list-group-item">男</li> -->
-<!-- 								<li data-id="3" class="list-group-item">兒童</li> -->
-<!-- 							</ul> -->
-<!-- 						</div> -->
+
 						<div class="col-sm-6">
 							<a title="Pima 棉V領T恤" href="productImages/${param.Pid}"
 								data-fancybox="gallery1" id="bigImg"> <img
@@ -263,31 +253,6 @@ img.displayImg {
 		</div>
 		</div>
 
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-md-12"> -->
-<%-- 				<img src="modelImages1/${param.Pid}" style="width: 100%"> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 		<br></br> -->
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-md-12"> -->
-<%-- 				<img src="modelImages2/${param.Pid}" style="width: 100%"> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 		<br></br> -->
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-md-12"> -->
-<%-- 				<img src="modelImages3/${param.Pid}" style="width: 100%"> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 		<br></br> -->
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-md-12"> -->
-<%-- 				<img src="modelImages4/${param.Pid}" style="width: 100%"> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 		<br></br> -->
-
 		<script>
 		var ctx = "<%=request.getContextPath()%>";
 		
@@ -341,26 +306,6 @@ img.displayImg {
 					 }
 				 })
 			
-			
-	
-// 			getCarouselItems(1);
-			
-			function getCarouselItems(id){
-				$.ajax({
-					url:'${context}/GetMostInStockProduct.do',
-					data:{"id":id},
-					success:function(data){
-	 					console.log(data);
-					var counter =0;
-						$.each(data,function(idx,entity){
-							$('.carousel-inner img:eq('+counter+')').attr('src','productImages/'+idx);
-							$('.carousel-inner a:eq('+counter+')').attr('href',ctx+'/productPages/'+entity+'.jsp');								
-							counter++;
-						})
-					
-					}
-				})
-			}
 		
             var discountList = $('ul.list-group:eq(0)');
             
@@ -403,10 +348,6 @@ img.displayImg {
 	                }
 		    }
 			
-		    
-		 
-            
-		    
 		    function getRating(pno) {
 		    	 var rating = (function() {
 				        var rating1 = null;
@@ -571,7 +512,7 @@ img.displayImg {
        	                
        	                for (var i=0;i<datas.l2.length;i++){
           		            img = $('<img></img>').attr({"src":"colorImages/"+datas.l2[i],"id":i}).addClass("colorImg").click(function loadSth(event){
-          		            	span2.empty();
+//           		            	span2.empty();
           		            	span1.empty();
           		            	$('#smallImg').attr("src","productImages/"+datas.l2[event.target.id]);
           		            	$('#bigImg').attr("href","productImages/"+datas.l2[event.target.id]);
@@ -586,7 +527,7 @@ img.displayImg {
                                 
                                  var cs = $('<a></a>').append(clickableSize).css({'margin-right':'10px'});
                                  if(checkAuth()){ 
-                                 var aa = $('<a></a>').attr({"outerI":outerI,"innerI":innerI}).append(cs).click(function(){
+                                  var aa = $('<a></a>').attr({"outerI":outerI,"innerI":innerI}).append(cs).click(function(){
                                 	 
                                 	 span2.empty();
                                 	 $(this).siblings().css({'background-color':'transparent'});
@@ -608,7 +549,7 @@ img.displayImg {
                                      })
                                      
                                      var button = $('<button></button').myCart(cartCart).addClass('btn btn-danger my-cart-btn').attr
-                                     ({'data-size':selectedSize,'data-unitPriceD':price,'data-unitPriceO':price,'data-id':selectedPno,'data-quantity':1,'data-name':datas.pName,'data-image':"productImages/"+selectedPno}).html('add to cart').mouseover(function(){                                    	
+                                     ({'data-size':selectedSize,'data-unitPriceD':price,'data-unitPriceO':price,'data-id':selectedPno,'data-quantity':1,'data-name':datas.pName,'data-image':"productImages/"+selectedPno}).html('加到購物車').mouseover(function(){                                    	
 
                                      });
                                      
@@ -629,8 +570,9 @@ img.displayImg {
           		        var span2 = $('<span></span>').css('display','inline-block');
           		        div23.append(span1);
           		        div24.append(span2);
+          		        
 //           		      document.getElementById('0').click();
-//                       span2.append($('<select><option>先選商品</option></select>')).append($("<button class='btn btn-danger'>add to cart</button>"));
+                      span2.append($('<select><option>先選商品</option></select>')).append($("<button class='btn btn-danger'>加到購物車</button>"));
           		        }
 
              		}
@@ -707,14 +649,14 @@ img.displayImg {
 
 						    	if(flag){
 						    	swal({
-						    		  title: "Are you sure?",
-						    		  text: "No turning back!",
+						    		  title: "確定嗎?",
+						    		  text: "要付錢喔!",
 						    		  type: "warning",
 						    		  showCancelButton: true,
 						    		  confirmButtonColor: "#DD6B55",
-						    		  confirmButtonText: "Yes, proceed to checkout!",
+						    		  confirmButtonText: "到結帳頁面!",
 						    		  closeOnConfirm: false,
-						    		  cancelButtonText: 'No, cancel!',
+						    		  cancelButtonText: '不,取消!',
 						    		  confirmButtonClass: 'btn btn-success',
 						    		  cancelButtonClass: 'btn btn-danger',
 						    	}  
