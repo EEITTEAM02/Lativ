@@ -34,9 +34,10 @@ public class DisplayImageServlet extends HttpServlet {
 		String productIdstr = request.getParameter("productId");
 		Integer productId = Integer.parseInt(productIdstr);
 		
-		ProductionVO productionVO = dao.getProductionForSearch(productId);
+//		ProductionVO productionVO = dao.getProductionForSearch(productId);
 		
-		byte[] image = productionVO.getPicture_main();
+//		byte[] image = productionVO.getPicture_main();
+		byte[] image = dao.getProductionForImg(productId);
 		out.write(image);
 		out.close();
 	}

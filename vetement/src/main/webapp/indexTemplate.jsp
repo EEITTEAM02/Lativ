@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${sessionScope.login_customer_info.getCustomerId() == '5'}">
+	<c:redirect url = "mangerPage.jsp"/>
+</c:if>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -253,9 +256,9 @@
     <!-- /Main Content -->
     
     <div class="row">
-    	<div class="col-md-4"><a href="Search/Search.do?searchPackageNo=1"><img class="discountImg  img-responsive" src="img/discount1.jpg"/></a></div>
-    	<div class="col-md-4"><a href="Search/Search.do?searchPackageNo=2"><img class="discountImg  img-responsive" src="img/discount2_2.jpg"/></a></div>
-    	<div class="col-md-4"><a href="Search/Search.do?searchPackageNo=3"><img class="discountImg  img-responsive" src="img/discount3_2.jpg"/></a></div>
+    	<div class="col-md-4"><a href="Search/discountDivison1.jsp"><img class="discountImg  img-responsive" src="img/discount1.jpg"/></a></div>
+    	<div class="col-md-4"><a href="Search/discountDivison2.jsp"><img class="discountImg  img-responsive" src="img/discount2_3.jpg"/></a></div>
+    	<div class="col-md-4"><a href="Search/discountDivison3.jsp"><img class="discountImg  img-responsive" src="img/discount3_2.jpg"/></a></div>
     </div>
     
     	

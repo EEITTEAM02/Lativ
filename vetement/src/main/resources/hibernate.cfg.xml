@@ -7,7 +7,7 @@
 	<session-factory>
 
  		<!-- JNDI連線池 (Apache Tomcat 連線池DBCP)設定 -->
-<!-- 		<property name="hibernate.connection.datasource">java:/comp/env/jdbc/lativ</property> -->
+		<property name="hibernate.connection.datasource">java:/comp/env/jdbc/lativ</property>
 		
 <!-- 連線池c3p0設定 -->
 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
@@ -20,6 +20,11 @@
 		<property name="hibernate.c3p0.timeout">1800</property>
 		<property name="hibernate.c3p0.max_statements">50</property>
         
+<!--         連接遠端資料庫 -->
+<!-- 		<property name="hibernate.connection.url">jdbc:sqlserver://vetements.database.windows.net:1433;DatabaseName=vetements</property> -->
+<!-- 		<property name="hibernate.connection.username">vetements@vetements</property> -->
+<!-- 		<property name="hibernate.connection.password">Eeit9302</property>        -->
+
 		<!--SQL方言,以下使用SQLServer -->
 		<property name="hibernate.dialect">hibernate.util.SQlServerDBDialect</property>
 		

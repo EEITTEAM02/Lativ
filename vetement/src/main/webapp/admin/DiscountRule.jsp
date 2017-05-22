@@ -160,8 +160,8 @@
 						<th class='display_all_th'>折扣名稱</th>
 						<th class='display_all_th'>件數</th>
 						<th class='display_all_th'>折扣類型</th>
-						<th class='display_all_th'>Update</th>
-						<th class='display_all_th'>Delete</th>
+						<th class='display_all_th'>修改</th>
+						<th class='display_all_th'>刪除</th>
 					</tr>
 <%-- 						<c:forEach var="each_discountVO" items="${list}"> --%>
 <!-- 						<tr> -->
@@ -522,48 +522,47 @@
 		})
 	});
 		//刪除規則
-	$(document).on('click', '.delete', function(){	
+	$(document).on('click', '.delete', function(){
 		var button_on_click_id = this.id
 		var on_click_id = button_on_click_id.split("_")[1];
 		swal({
-			  title: "確定要刪除嗎?",
-			  text: "按下確定就無法回復了喔",
-			  type: "warning",
-			  showCancelButton: true,
-			  confirmButtonClass: "btn-danger",
-			  confirmButtonText: "確定",
-			  cancelButtonText: "取消",
-			  closeOnConfirm: false,
-			  closeOnCancel: false
-			},
+			title: "確定要刪除嗎?",
+			text: "按下確定就無法回復了喔",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonClass: "btn-danger",
+			confirmButtonText: "確定",
+			cancelButtonText: "取消",
+			closeOnConfirm: false,
+			closeOnCancel: false
+		},
 		function(isConfirm) {
-		console.log(isConfirm);	
-		  if (isConfirm == true) {
-			$.ajax({
-						url: '${pageContext.request.contextPath}/DiscountServlet?action=delete',
-						type: 'POST',
-						dataType: 'json',
-						data:{
-							delete_id: on_click_id
-						},
-						error: function(xhr) {
-							//alert('Ajax request 發生錯誤');
-							swal("", "某些商品正套用於此折扣規則，無法刪除", "warning")
-						},
-						success: function(response_delete_count){
-							//alert("成功刪除" + response_delete_count + "筆資料。" );
-							
-							swal("刪除成功", "", "success")
-							//location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
-						}
-
-					})
-			    swal("刪除", "刪除成功", "success");
-			  } else {
-			    swal("取消", "已取消此次動作", "error");
-			  }
-			});
+			if (isConfirm == true) {
+				$.ajax({
+					url: '${pageContext.request.contextPath}/DiscountServlet?action=delete',
+					type: 'POST',
+					dataType: 'json',
+					data:{
+						delete_id: on_click_id
+					},
+					error: function(xhr) {
+						//alert('Ajax request 發生錯誤');
+						swal("", "某些商品正套用於此折扣規則，無法刪除", "warning")
+					},
+					success: function(response_delete_count){
+						//alert("成功刪除" + response_delete_count + "筆資料。" );
+						
+						swal("刪除成功", "", "success")
+						location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
+					}
 		
+				})
+				swal("刪除", "刪除成功", "success");
+			} 
+			else {
+				swal("取消", "已取消此次動作", "error");
+			}
+		});	
 	});	
 	
 	

@@ -170,8 +170,8 @@ public class ProductModifyServlet2 extends HttpServlet {
             // connects to the database
             psvc.updateProduct(pno,name, size, color, price, discountCat, noInStock,for_sale,descript,categoryId, bytes1, bytes2, bytes3, bytes4,bytes5,bytes6,bytes7);
             
-            request.setAttribute("result2", "modified");
-            request.getRequestDispatcher("/uploadProduct2.jsp").forward(request, response);
+            request.setAttribute("result2", "已更新");
+            request.getRequestDispatcher("/mangerPage.jsp").forward(request, response);
              
         
  

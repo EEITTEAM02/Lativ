@@ -16,7 +16,7 @@
 		<property name="discount2" column="discount2" />
 		<property name="descript" column="descript" />
 		
-		<set name="products" table="production" lazy="false" cascade="all"  inverse="true"  order-by="productId asc">			
+		<set name="products" table="production" lazy="true" cascade="all"  inverse="true"  order-by="productId asc">			
 			<key>
 				<column name="packageNo" />
 			</key>
