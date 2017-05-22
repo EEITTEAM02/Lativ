@@ -41,18 +41,19 @@ public class CheckPurchaseServlet extends HttpServlet{
        List<Integer> l1 = new LinkedList<Integer>();
        Integer pno1 = pno;
        for (;pno1>pno-25;pno1--){
-    	   if (pno1==1) break;
+    	   
     	   String pname1 = psrvc.getOneProduct(pno1).getProductName();
     	   if(pname1.equals(pname)){
     		   l1.add(pno1);
     	   }
+    	   if (pno1==1) break;
        }
-       System.out.println(size);
+   
        Integer pno2 = pno;
        if(pno2<size)
            pno2 =pno+1;
        for (;pno2<=pno+25;pno2++){
-    	   System.out.println("pno2:"+pno2);
+    	   
     	   String pname2 = psrvc.getOneProduct(pno2).getProductName();
     	   if(pname2.equals(pname)){
     		   l1.add(pno2);
@@ -80,32 +81,25 @@ public class CheckPurchaseServlet extends HttpServlet{
     	   OrderVO anOrder =(OrderVO) it.next();
     	   Set<OrderItemVO> setOfOIs =anOrder.getOrderItemVOs();
     	   Iterator it2 = setOfOIs.iterator();
-//    	   System.out.println("l1:"+l1);
+
+    	   outerloop:
     	   while(it2.hasNext()){
     		   OrderItemVO anOI = (OrderItemVO) it2.next();
     		   Integer pID = anOI.getProductionVO().getProductId();
-               outerloop:
-    		   for (Integer a :l1){
-            	   if(a.equals(pID)){
-            		   
-//            		   if (sctx.getAttribute(mno1)!=null){
-//            		   List<Integer> l2= (List<Integer>) sctx.getAttribute(mno1); 
-//            		   Iterator it3 = l2.iterator();
-//            		   while(it3.hasNext()){
-//            			   if(it3.next().equals(a)){
-//            				   System.out.println("1111");
-//            				   flag = false;
-//            				   break outerloop;
-//            			   }
-//            		   }
-//            		   }
-            		   
-            		   
-            		 
-            		   flag = true;
-            		   
-            	   }
-               }
+               
+//    		   for (Integer a :l1){
+//            	   if(a.equals(pID)){
+//            		   
+//            		   flag = true;
+//            		   break outerloop;
+//            		   
+//            	   }
+//               }
+    		   
+    		   if (l1.contains(pID)) {
+    			   flag=true;
+    			   break outerloop;
+    		   }
     		 
     	   }
 	   
@@ -116,7 +110,7 @@ public class CheckPurchaseServlet extends HttpServlet{
     	   for(Integer a :l1){
     		   if(rated.equals(a)){
     			   flag=false;
-//    			   System.out.println("false flag");
+
     		   }
     	   }
        }
