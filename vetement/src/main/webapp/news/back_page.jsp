@@ -116,20 +116,39 @@
 			
 			$('#d1').click(function() {
 				var deleteno = $('select[name="deleteno"]').val();
-				
 				console.log(deleteno);
 				
-				$.ajax({
-					'type':'GET',
-					'url':'news.do',
-					'dataType':'xml',
-					'data':{action:"del",'deleteno':deleteno},
-					'complete':
-						function(){
-							alert('刪除成功');
-							window.location.reload();
-						},
-				});
+				swal({
+					  title: "確定要刪除嗎?",
+					  text: "按下確定就無法回復了喔!!!",
+					  type: "warning",
+					  showCancelButton: true,
+					  confirmButtonColor: "btn-danger",
+					  confirmButtonText: "確定",
+					  cancelButtonText: "取消",
+					  closeOnConfirm: false,
+
+					},
+					function(isConfirm){
+					  					  
+						$.ajax({
+							'type':'GET',
+							'url':'news.do',
+							'dataType':'xml',
+							'data':{action:"del",'deleteno':deleteno},
+							'complete':
+								function(){
+								
+// 									window.location.reload();
+								},
+						});
+						
+					    swal("刪除", "刪除成功", "success");
+					  
+					});
+				
+				
+				
 			});
 			
 			
