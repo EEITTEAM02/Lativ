@@ -50,6 +50,10 @@ body{
     background-position: center;
     background-size: cover;
 }
+.abc{ 
+
+	background-image:url('images/wood.jpg'); 
+}
 </style>
 
 
@@ -75,17 +79,14 @@ body{
 			<div class="pan2_item" id="pan2_item_1">
   				<jsp:include page="uploadProduct2.jsp"></jsp:include>  
 			</div>
-			<div class="pan2_item" id="pan2_item_2">
+			<div class="pan2_item abc" id="pan2_item_2">
 				<jsp:include page="/admin/DiscountRule.jsp"></jsp:include>
 			</div>
-			<div class="pan2_item" id="pan2_item_3" style="background-color: rgba(217, 255, 255, .5);border-radius: 20px;">
+			<div class="pan2_item abc" id="pan2_item_3">
 				<jsp:include page="/news/back_page.jsp"></jsp:include>
 			</div>
-			<div class="pan2_item" id="pan2_item_4" style="background-color: rgba(217, 255, 255, .5);border-radius: 20px;">
+			<div class="pan2_item abc" id="pan2_item_4">
 				<jsp:include page="/customer_service/back_letter.jsp"></jsp:include>
-			</div>
-			<div class="pan2_item" id="pan2_item_5">
-				
 			</div>
 		</div>
 	</div>

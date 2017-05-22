@@ -16,13 +16,14 @@
 	.outer_container {
 		width: 1000px;
 	    margin: 0 auto;
-	    border: 1px solid black;
+	    border: 2px solid #337ab7;
 	    border-radius: 20px;
 	    padding-top: 1%;
 	    padding-bottom: 5%;
 	    font-family: Microsoft Jhenghei;
     	font-size: 16px;
-    	text-align:center
+    	text-align:center;
+/*     	background-color:oldlace; */
 	}
 	
 	#add_toggle_type1{
@@ -48,8 +49,9 @@
 	
 	#add_new_rule{
  		font-family:Microsoft Jhenghei; 
-		background-color: rgba(0, 0, 0, 0.83);
+		background-color: rgba(0, 0, 0, 0.7);
     	color: white;
+    	margin-top: 20px;
 	}
 	#add_new_rule:hover{
 		background-color: black;
@@ -111,10 +113,12 @@
 		padding: 22px;
     	text-align: center;
     	font-weight: bold;
+    	font-size: 20px;
 	}
 	
 	.discount_tr {
 		border-bottom: 1px solid gray;
+		font-size: 18px;
 	}
 
 	.update {

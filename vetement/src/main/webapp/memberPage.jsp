@@ -48,7 +48,8 @@
 	padding-top: 70px; 
 	padding-left: 5px; 
 	padding-right: 5px; 
-	background-color: rgba(217, 255, 255, .5);
+/* 	background-color: rgba(217, 255, 255, .5); */
+	background-image:url('images/custbg.jpg');  
  } 
 .customer_info_edit{
 	margin: auto; 
@@ -101,7 +102,7 @@ body{
 			
 			
 			<div class="pan2_item customer_service" id="pan2_item_4">
-				<jsp:include page="/customer_service/view_letter.jsp"></jsp:include>
+				<jsp:include page="/customer_service/view_letter2.jsp"></jsp:include>
 			</div>
 			<div class="pan2_item" id="pan2_item_5">
 				<jsp:include page="showFavorite.jsp"></jsp:include>

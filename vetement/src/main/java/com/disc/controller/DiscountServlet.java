@@ -154,6 +154,13 @@ public class DiscountServlet extends HttpServlet {
 			Double discount_type2 = Double.parseDouble(req.getParameter("dis_type2"));
 			String discount_name = req.getParameter("dis_name");
 			
+			if (discount_type1 == 0.0){
+				discount_type1 = null;
+			}
+			if (discount_type2 == 0.0){
+				discount_type2 = null;
+			}
+			
 			DiscountVO  new_discount_rule = new DiscountVO();
 			new_discount_rule.setQuantity_condition(discount_per_cloth);
 			new_discount_rule.setDiscount1(discount_type1);

@@ -12,12 +12,13 @@
  		.outer_container1111 { 
  			width: 1000px;
  		    margin: 0 auto;
- 		    border: 1px solid black;
+ 		    border: 2px solid #337ab7;
  		    border-radius: 20px; 
  		    padding-top: 1%; 
  		    padding-bottom: 5%; 
  		    font-family: Microsoft Jhenghei;
  	    	font-size: 16px; 
+/*  	    	background-color:oldlace */
 /* 	    	text-align:center  */
  		} 
 		
