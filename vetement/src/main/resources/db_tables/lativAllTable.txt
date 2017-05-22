@@ -2560,7 +2560,7 @@ SELECT * FROM OPENROWSET(
 --男 家居服配件 家居服
 -------------------------------1
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-select '壓線休閒皮帶','M','淺咖','490','45',1,'皮製品收納請置於通風乾燥處',2,4,(  
+select '壓線休閒皮帶','M','淺咖','190','45',1,'皮製品收納請置於通風乾燥處',2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_01/picture_main_Sbrown.jpg',
    SINGLE_BLOB) AS img),(  
@@ -2581,14 +2581,14 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '壓線休閒皮帶','L','淺咖','490','23',1,2,4,(  
+select '壓線休閒皮帶','L','淺咖','190','23',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_01/picture_main_Sbrown.jpg',
    SINGLE_BLOB) AS img)
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '壓線休閒皮帶','M','深咖','490','28',1,2,4,(  
+select '壓線休閒皮帶','M','深咖','190','28',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_01/picture_main_Dbrown.jpg',
    SINGLE_BLOB) AS img),(  
@@ -2597,7 +2597,7 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '壓線休閒皮帶','L','深咖','490','5',1,2,4,(  
+select '壓線休閒皮帶','L','深咖','190','5',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_01/picture_main_Dbrown.jpg',
    SINGLE_BLOB) AS img) 
@@ -2606,7 +2606,7 @@ SELECT * FROM OPENROWSET(
 
 -------------------------------2
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-select '都會紳士皮帶','M','深咖','490','45',1,'皮製品收納請置於通風乾燥處',2,4,(  
+select '都會紳士皮帶','M','深咖','190','45',1,'皮製品收納請置於通風乾燥處',2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_02/picture_main_Dbrown.jpg',
    SINGLE_BLOB) AS img),(  
@@ -2627,14 +2627,14 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '都會紳士皮帶','L','深咖','490','23',1,2,4,(  
+select '都會紳士皮帶','L','深咖','190','23',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_02/picture_main_Dbrown.jpg',
    SINGLE_BLOB) AS img)
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '都會紳士皮帶','M','黑','490','28',1,2,4,(  
+select '都會紳士皮帶','M','黑','190','28',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_02/picture_main_black.jpg',
    SINGLE_BLOB) AS img),(  
@@ -2643,7 +2643,7 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '都會紳士皮帶','L','黑','490','5',1,2,4,(  
+select '都會紳士皮帶','L','黑','190','5',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_02/picture_main_black.jpg',
    SINGLE_BLOB) AS img) 
@@ -2652,7 +2652,7 @@ SELECT * FROM OPENROWSET(
 
 -------------------------------3
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,describe,packageNo,categoryId,picture_main,picture_color,picture_model1,picture_model2,picture_model3,picture_model4)
-select '仿舊休閒皮帶','M','淺咖','490','45',1,'皮製品收納請置於通風乾燥處',2,4,(  
+select '仿舊休閒皮帶','M','淺咖','190','45',1,'皮製品收納請置於通風乾燥處',2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_03/picture_main_Sbrown.jpg',
    SINGLE_BLOB) AS img),(  
@@ -2673,14 +2673,14 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img)
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '仿舊休閒皮帶','L','淺咖','490','23',1,2,4,(  
+select '仿舊休閒皮帶','L','淺咖','190','23',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_03/picture_main_Sbrown.jpg',
    SINGLE_BLOB) AS img)
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '仿舊休閒皮帶','M','深咖','490','28',1,2,4,(  
+select '仿舊休閒皮帶','M','深咖','190','28',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_03/picture_main_Dbrown.jpg',
    SINGLE_BLOB) AS img),(  
@@ -2689,14 +2689,14 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '仿舊休閒皮帶','L','深咖','490','5',1,2,4,(  
+select '仿舊休閒皮帶','L','深咖','190','5',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_03/picture_main_Dbrown.jpg',
    SINGLE_BLOB) AS img)
 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main,picture_color)
-select '仿舊休閒皮帶','M','黑','490','28',1,2,4,(  
+select '仿舊休閒皮帶','M','黑','190','28',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_03/picture_main_black.jpg',
    SINGLE_BLOB) AS img),(  
@@ -2705,7 +2705,7 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into production(productName,size,color,price,quantity_in_stock,for_sale,packageNo,categoryId,picture_main)
-select '仿舊休閒皮帶','L','黑','490','5',1,2,4,(  
+select '仿舊休閒皮帶','L','黑','190','5',1,2,4,(  
 SELECT * FROM OPENROWSET(
    BULK 'D:/iii/Workspace/SQL/productImages/accessory_m_03/picture_main_black.jpg',
    SINGLE_BLOB) AS img) 
@@ -9190,15 +9190,6 @@ insert into customer_service values (1,'褲子破了','褲子在洗過後就破�
 insert into customer_service values (2,'衣服尺寸不對','我買的是XL，但是來的是L','請直接寄送回來就可以了喔~','2017-04-08');
 
 
-insert into orders values ('2107-04-03',1,'somewhere','123456','someone',600.1,1)
-insert into orders values ('2107-04-03',2,'somewhere','139754','someoneElse',500.1,1)
-insert into orders values (null,1,null,null,null,null,0)
-
-insert into orderItem values(null,null,3,null,3,1)   
-insert into orderItem values(null,null,2,null,3,2) 
-
-
-
  insert into rating values (1,5,1);
  insert into rating values (11,4,1);
   insert into rating values (20,3,1);
@@ -9216,6 +9207,6 @@ insert into orderItem values(null,null,2,null,3,2)
   insert into rating values (116,3,1);
   
 Update production set packageNo = 4; 
-Update production set packageNo = 1 where categoryId in(4,23,35,45);
+Update production set packageNo = 1 where categoryId in(4);
 Update production set packageNo = 2 where categoryId in(1,26,32,33,34);
 Update production set packageNo = 3 where categoryId in(6,7,8,9,10,36,37,38,39,40,41,42,43,44);

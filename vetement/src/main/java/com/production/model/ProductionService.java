@@ -90,6 +90,10 @@ public class ProductionService {
 		dao.delete(productId);
 	}
 	
+	public List<Object[]> getProductDetails(String color,String productName){
+		return dao.getProductDetails(color, productName);
+	}
+	
 	public void updateQuantity(Integer productId,Integer quantity_in_stock){
 		dao.updateQuantity(productId, quantity_in_stock);
 	}

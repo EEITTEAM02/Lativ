@@ -61,6 +61,15 @@
 	padding-left: 50px;
  	background-image:url('images/custbg.jpg');  
 }
+#pan2_item_5{
+	margin: auto; 
+	border: 2px solid #337ab7; 
+	border-radius: 30px; 
+	height: 800px; 
+	width: 90%; 
+	padding-top: 70px; 
+ 	background-image:url('images/custbg.jpg');
+}
 body{
 	background-image:url('images/background_closet35.jpg');
 	background-repeat: no-repeat;

@@ -11,7 +11,7 @@ public interface ProductionDAO_interface {
         public List<ProductionVO> getAll();
         public List<ProductionVO> findByCategoryId(Integer categoryId);
         public List<ProductionVO> getMostInStock();
-      
+        public List<Object[]> getProductDetails(String color,String productName);
 
         
 }

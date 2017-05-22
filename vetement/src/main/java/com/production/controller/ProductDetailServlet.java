@@ -124,27 +124,60 @@ public class ProductDetailServlet extends HttpServlet{
 //			    String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Lativ";
 //			    conn = DriverManager.getConnection(url,"sa", "sa123456");
 		    	
-		    	envContext = new InitialContext();
-				Context initContext  = (Context)envContext.lookup("java:/comp/env");
-				DataSource ds = (DataSource)initContext.lookup("jdbc/lativ");
-				
-			    conn = ds.getConnection();
+//		    	envContext = new InitialContext();
+//				Context initContext  = (Context)envContext.lookup("java:/comp/env");
+//
+//				DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
+//				
+//			    conn = ds.getConnection();
+//		    	
+//			    pstmt = conn.prepareStatement("select size,quantity_in_stock,productId,price from production where color=? and productName=?");
+//		    	pstmt.setString(1, color);
+//		    	pstmt.setString(2, prodName);
+//			    ResultSet rs = pstmt.executeQuery();
+//			    
+//			    while(rs.next()){
+//			    	array2.add(rs.getString(1));
+//			    	array5.add(rs.getInt(2));
+//			    	array8.add(rs.getInt(3));
+//			    	array11.add(rs.getDouble(4));
+//			    }
+//			    rs.close();
+//			    pstmt.close();
+//			    conn.close();
 		    	
-			    pstmt = conn.prepareStatement("select size,quantity_in_stock,productId,price from production where color=? and productName=?");
-		    	pstmt.setString(1, color);
-		    	pstmt.setString(2, prodName);
-			    ResultSet rs = pstmt.executeQuery();
-			    
-			    while(rs.next()){
-			    	array2.add(rs.getString(1));
-			    	array5.add(rs.getInt(2));
-			    	array8.add(rs.getInt(3));
-			    	array11.add(rs.getDouble(4));
-			    }
-			    rs.close();
-			    pstmt.close();
-			    conn.close();
-		    	array1.add(array2);
+		    	List<Object[]> listOfDetails = psrvc.getProductDetails(color, prodName);
+		    	for (Object[] aArray:listOfDetails){
+		    		
+		    		int counter1 =0;
+		    		for (Object aColumn:aArray){
+		    			
+		    			switch (counter1) {		    			
+		    			case 0: {String size1 = (String) aColumn;
+		    			array2.add(size1);
+		    			counter1++;
+		    			break;
+		    			}
+		    			case 1: {Integer quantity1 = (Integer) aColumn;
+		    			array5.add(quantity1);
+		    			counter1++;
+		    			break;
+		    			}
+		    			case 2: {Integer prodId1 = (Integer) aColumn;
+		    			array8.add(prodId1);
+		    			counter1++;
+		    			break;
+		    			}
+		    			case 3: {Double price1 = (Double) aColumn;
+		    			array11.add(price1);
+		    			counter1++;
+		    			break;
+		    			}
+		    			
+		    			}
+		    		}
+		    	}
+			    array1.add(array2);
 		    	array4.add(array5);
 		    	array7.add(array8);
 		    	array10.add(array11);

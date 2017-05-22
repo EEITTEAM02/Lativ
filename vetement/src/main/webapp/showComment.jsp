@@ -196,9 +196,7 @@
         $( "#opener" ).click(function() {
         	//查詢是否購買過商品
         	$.get('CommentCheck',{action:"check",'customerId':cid,'productId':pid},function(datas){
-        			var jsdata = JSON.parse(datas)
-        		console.log(jsdata);
-        		console.log(jsdata.length);
+        		var jsdata = JSON.parse(datas)
         		if(jsdata.length == 0){
         			swal("請先購買商品");	        	             	
         		}else{     			
