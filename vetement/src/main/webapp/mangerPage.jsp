@@ -5,10 +5,10 @@
 <html>
 
 <c:if test="${sessionScope.login_customer_info == null}">
-	<c:redirect url = "indexTemplate.jsp"/>
+	<c:redirect url = "index.jsp"/>
 </c:if>
 <c:if test="${sessionScope.login_customer_info.getCustomerId() != '5'}">
-	<c:redirect url = "indexTemplate.jsp"/>
+	<c:redirect url = "index.jsp"/>
 </c:if>
 
 <head>
