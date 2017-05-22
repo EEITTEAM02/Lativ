@@ -175,9 +175,9 @@
 		    var tb = $('#panes').empty();
 		    var docFrag = $(document.createDocumentFragment());
 			if(datas[0] == null){
-				swal({title:"無任何評論!"},function(){
-				window.close();
-				})
+				var cell11 = $("<h1 style='text-align:center;color:red;'>暫無任何評論</h1>");
+				docFrag.append(cell11);
+				$("#panes").append(docFrag);
 			}else{		
 			   $.each(datas,function(idx,comment){
 				   var cell1 = $('<p></p>').attr({"id":"orderNo"}).text("訂單編號:"+comment.orderNo);
