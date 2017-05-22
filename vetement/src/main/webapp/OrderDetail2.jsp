@@ -3,6 +3,7 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
      <jsp:useBean id="orderSvc" scope="page" class="com.order.model.OrderService" />
+     <jsp:useBean id="orderitemSvc" scope="page" class="com.orderItem.model.OrderItemService" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -116,27 +117,60 @@ img.displayImg {
 <div>
 	<div>
 		<table>
-			<tr>
-				<th>訂單編號</th>
-				<th>訂購日期</th>
-				<th>地址</th>
-				<th>總價</th>
-				<th>訂單明細</th>
-			</tr>
-			<c:forEach var="orderVO" items="${orderSvc.all}">
-				<c:if test="${sessionScope.login_customer_info.customerId==orderVO.customerVO.customerId}">
+<!-- 			<tr> -->
+<!-- 				<th>訂單編號</th> -->
+<!-- 				<th>訂購日期</th> -->
+<!-- 				<th>地址</th> -->
+<!-- 				<th>總價</th> -->
+<!-- 				<th>訂單明細</th> -->
+<!-- 			</tr> -->
+<%-- 			<c:forEach var="orderVO" items="${orderSvc.all}"> --%>
+<%-- 				<c:if test="${sessionScope.login_customer_info.customerId==orderVO.customerVO.customerId}"> --%>
+<!-- 					<tr> -->
+<%-- 						<td>${orderVO.orderNo}</td>			 --%>
+<%-- 						<td>${orderVO.dealDate}</td>			 --%>
+<%-- 						<td>${orderVO.addr_send}</td>			 --%>
+<%-- 						<td>${orderVO.price_total}</td> --%>
+<!-- 						<td><a href="#tr1" class="btn btn-info btn-sm">明細</a></td>	 -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+					
+<!-- 					<td id="tr1" style="display:none;">123</td> -->
+<!-- 					</tr> -->
+					
+<%-- 				</c:if>					 --%>
+<%-- 			</c:forEach> --%>
 					<tr>
-						<td>${orderVO.orderNo}</td>			
-						<td>${orderVO.dealDate}</td>			
-						<td>${orderVO.addr_send}</td>			
-						<td>${orderVO.price_total}</td>
+						<td>明細編號</td>
+						<td>產品名稱</td>
+						<td>尺寸</td>
+						<td>顏色</td>
+						<td>數量</td>
+						<td>原價</td>
+						<td>折價</td>
+						<td>總價</td>
+						<td>產品圖片</td>
+						<td>評價</td>
+						<td>刪除評價</td>
+					</tr>	
+			<c:forEach var="orderitemVO" items="${orderitemSvc.all}">
+					
+					<tr>
+						<td>${OrderItemVO.pname}</td>			
+						<td>${OrderItemVO.size}</td>			
+						<td>${OrderItemVO.color}</td>			
+						<td>${OrderItemVO.quantity}</td>
+						<td>${OrderItemVO.unitPriceO}</td>
+						<td>${OrderItemVO.unitPriceD}</td>
+						<td>${OrderItemVO.totalPrice}</td>
+<%-- 						<td>${OrderItemVO.('<a></a>').attr('href', '${pageContext.request.contextPath}/productPages.jsp?Pid=' + orderItem.pnoWithPage)}</td> --%>
+						<td>${OrderItemVO.quantity}</td>
+						<td>${OrderItemVO.quantity}</td>
+						<td>${OrderItemVO.score}</td>
+						<td>${OrderItemVO.score}</td>
 						<td><a href="#tr1" class="btn btn-info btn-sm">明細</a></td>	
-					</tr>
-					<tr>
-					<td id="tr1" style="display:none;">123</td>
-					</tr>
-				</c:if>					
-			</c:forEach>
+					</tr>	
+					</c:forEach>
 		</table>
 	</div>
 </div>
