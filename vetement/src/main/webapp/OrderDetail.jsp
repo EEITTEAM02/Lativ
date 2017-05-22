@@ -34,7 +34,7 @@
 	font-size:20px;
 	text-align: center;
 }
-#all,th {
+#all,#th {
 	border: 5px solid #220088;
 	padding: .5em 10px;
 	text-align: center;
@@ -156,10 +156,10 @@ img.displayImg {
                 var table = $('<table></table>').attr('id', 'orderHistoryTable').addClass('table table-bordered table-hover');
                 var thead = $('<thead></thead>');
                 var tr = $('<tr></tr>');
-                var th1 = $('<th></th>').text('訂單編號');
-                var th2 = $('<th></th>').text('訂購日期');
-                var th3 = $('<th></th>').text('地址');
-                var th4 = $('<th></th>').text('總價');
+                var th1 = $('<th></th>').attr("id","th").text('訂單編號');
+                var th2 = $('<th></th>').attr("id","th").text('訂購日期');
+                var th3 = $('<th></th>').attr("id","th").text('地址');
+                var th4 = $('<th></th>').attr("id","th").text('總價');
                 var tbody = $('<tbody></tbody>');
                 tr.append([th1, th2, th3, th4]);
                 thead.append(tr);
