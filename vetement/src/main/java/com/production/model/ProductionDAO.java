@@ -157,69 +157,29 @@ public class ProductionDAO implements ProductionDAO_interface{
 		return list;
 	}
 	
+	//select size,quantity_in_stock,productId,price from production where color=? and productName=?
+	
+	public List<Object[]> getProductDetails(String color,String productName){
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		List<Object[]> list = null;
+				try {
+					session.beginTransaction();
+					Query query = session.createQuery("select size,quantity_in_stock,productId,price from ProductionVO where color=:color and productName=:productName");
+					query.setParameter("color", color);
+					query.setParameter("productName", productName);
+					list = query.list();
+					session.getTransaction().commit();
+				} catch (RuntimeException ex) {
+					session.getTransaction().rollback();
+					throw ex;
+				}
+		
+		return list;
+	}
 	public static void main(String[] args) {
 
 		ProductionDAO dao = new ProductionDAO();
 
-		//�� �s�W
-//		com.dept.model.DeptVO deptVO = new com.dept.model.DeptVO(); // ����POJO
-//		deptVO.setDeptno(10);
-
-//		ProductionVO ProductionVO1 = new ProductionVO();
-//		ProductionVO1.setName("輕柔短袖衫-女");
-//		ProductionVO1.setSize("S");
-//		ProductionVO1.setColor("khaki");
-//		ProductionVO1.setPrice(249d);
-//		ProductionVO1.setDiscountCat(0);
-//		ProductionVO1.setCat1("女");
-//		ProductionVO1.setCat2("上衣");
-//		ProductionVO1.setCat3("短袖衫");
-//		ProductionVO1.setquantity_in_stock(19);
-//		ProductionVO1.setAvailable(true);
-//		dao.insert(ProductionVO1);
-
-
-
-		//�� �ק�
-//		ProductionVO ProductionVO1 = new ProductionVO();
-//		ProductionVO1.setName("輕柔短袖衫-女");
-//		ProductionVO1.setSize("S");
-//		ProductionVO1.setColor("khaki");
-//		ProductionVO1.setPrice(249d);
-//		ProductionVO1.setDiscountCat(0);
-//		ProductionVO1.setCat1("女");
-//		ProductionVO1.setCat2("上衣");
-//		ProductionVO1.setCat3("短袖衫");
-//		ProductionVO1.setquantity_in_stock(19);
-//		ProductionVO1.setAvailable(true);
-//		dao.update(ProductionVO1);
-
-
-
-		//�� �R��(�p��cascade - �h��emp2.hbm.xml�p�G�]�� cascade="all"��
-		// cascade="delete"�N�|�R���Ҧ��������-�]�A���ݳ����P�P�������䥦���u�N�|�@�ֳQ�R��)
-		// �ҥH�ثe�b�W��65��67��A�ĥΥh�����p���Y��A�A�R�����覡�A�o�O����w�����覡
-//		dao.delete(2017041007l);
-
-
-
-		//�� �d��-findByPrimaryKey (�h��emp2.hbm.xml�����]��lazy="false")(�u!)
-//		MemberVO empVO3 = dao.findByPrimaryKey(10);
-//		System.out.print(empVO3.getMno() + ",");
-//		System.out.print(empVO3.getName() + ",");
-//		System.out.print(empVO3.getPw() + ",");
-//		System.out.print(empVO3.getAddr() + ",");
-//		System.out.print(empVO3.getEmail() + ",");
-//		System.out.print(empVO3.getphoneno() + ",");
-//		// �`�N�H�U�T�檺�g�k (�u!)
-//		System.out.print(empVO3.getDeptVO().getDeptno() + ",");
-//		System.out.print(empVO3.getDeptVO().getDname() + ",");
-//		System.out.print(empVO3.getDeptVO().getLoc());
-//		System.out.println("\n---------------------");
-
-
-
-		//�� �d��-getAll (�h��emp2.hbm.xml�����]��lazy="false")(�u!)
 		List<ProductionVO> list = dao.getAll();
 		for (ProductionVO aProduct : list) {
 			System.out.print(aProduct.getProductId() + ",");
