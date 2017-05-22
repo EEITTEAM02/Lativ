@@ -19,6 +19,7 @@ import org.json.simple.JSONValue;
 
 import com.comment.model.ComentOnlyVO;
 import com.comment.model.CommentService;
+import com.comment.model.CommentTwoVO;
 import com.comment.model.CommentVO;
 import com.production.model.ProductionService;
 import com.production.model.ProductionVO;
@@ -39,7 +40,7 @@ public class CommentServlet extends HttpServlet{
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		res.setHeader("content-type", "text/html;charset=UTF-8");
 		res.setCharacterEncoding("UTF-8");
-		req.setCharacterEncoding("UTF-8");
+
 		
 		String action = req.getParameter("action");
 		
@@ -54,7 +55,7 @@ public class CommentServlet extends HttpServlet{
 				Integer customerId = new Integer(req.getParameter("customerId").trim());
 				Integer productId = new Integer(req.getParameter("productId").trim());
 				Integer orderNo = new Integer(req.getParameter("orderNo").trim());
-//				System.out.println(comment);
+				System.out.println(orderNo);
 				if (comment == null || comment.trim().length() == 0) {
 					errorMsgs.add("評價請勿空白");
 				}
@@ -139,6 +140,32 @@ public class CommentServlet extends HttpServlet{
 				e.printStackTrace();
 			}
 			
+		}
+		
+		if("check".equals(action)){
+			List<String> errorMsgs = new LinkedList<String>();
+			req.setAttribute("errorMsgs", errorMsgs);
+			try{
+				Integer customerId = new Integer(req.getParameter("customerId").trim());
+				Integer productId = new Integer(req.getParameter("productId").trim());
+				List  l1 = new LinkedList();
+				CommentService commentSvc = new CommentService();
+				List<CommentTwoVO> selectord = commentSvc.all(customerId, productId);
+				for(CommentTwoVO aord : selectord){
+					Map m1 = new HashMap();
+					m1.put("orderNo", aord.getOrderNo());
+					m1.put("customerId", aord.getCustomerId());
+					m1.put("productId", aord.getProductId());
+					l1.add(m1);
+				}
+			//	System.out.println(l1);
+				String jsonString = JSONValue.toJSONString(l1);
+				System.out.println(jsonString);
+				res.getWriter().println(jsonString);
+			}catch (Exception e) {
+				errorMsgs.add("???"+e.getMessage());
+				e.printStackTrace();
+			}
 		}
 		if("GET_ONE".equals(action)){
 			

@@ -96,6 +96,30 @@ public class CommentDAO implements Comment_interface{
 		}
 		return list;
 	}
+	@Override
+	public List<CommentTwoVO> all(Integer customerId, Integer productId) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		List<CommentTwoVO> list = new ArrayList<CommentTwoVO>();
+		try{
+			session.beginTransaction();
+			Query query = session.createSQLQuery("{call ord(?,?)}");
+			query.setParameter(0,customerId);
+			query.setParameter(1, productId);
+			List<Object[]> objects =  query.list();
+			for(Object[] object:objects){
+				CommentTwoVO alist = new CommentTwoVO();
+				alist.setOrderNo((Integer)object[0]);
+				alist.setCustomerId((Integer)object[1]);
+				alist.setProductId((Integer)object[2]);
+				list.add(alist);
+			}
+			session.getTransaction().commit();
+		}catch (Exception e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return list;
+	}
 
 	@Override
 	public Set<CommentVO> findByPrimaryKey(Integer customerId, Integer productId) {
@@ -117,6 +141,9 @@ public class CommentDAO implements Comment_interface{
 		}
 		return set;
 	}
+	
+	
+
 
 	public static void main(String[] args){
 		CommentDAO dao = new CommentDAO();
