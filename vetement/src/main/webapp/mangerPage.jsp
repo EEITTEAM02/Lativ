@@ -58,7 +58,7 @@ body{
 </head>
 <body>
 
-	<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top" >
+	<nav id='header' class="navbar navbar-inverse navbar-custom navbar-fixed-top" >
 		<jsp:include page="header_manager.jsp"></jsp:include> 	
 	 </nav>
 	 
