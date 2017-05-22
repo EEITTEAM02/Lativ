@@ -95,7 +95,7 @@
  				type: 'POST',
  				success: function() {
  					swal({title: "您已登出",type: "success"},function(){
- 						location.href="${pageContext.request.contextPath}/indexTemplate.jsp";	
+ 						location.href="${pageContext.request.contextPath}/index.jsp";	
  					});
  				}
  			})

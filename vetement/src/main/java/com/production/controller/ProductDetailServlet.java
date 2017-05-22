@@ -126,7 +126,8 @@ public class ProductDetailServlet extends HttpServlet{
 		    	
 		    	envContext = new InitialContext();
 				Context initContext  = (Context)envContext.lookup("java:/comp/env");
-				DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
+
+				DataSource ds = (DataSource)initContext.lookup("jdbc/lativ");
 				
 			    conn = ds.getConnection();
 		    	
