@@ -71,11 +71,6 @@ public class ProductDetailServlet extends HttpServlet{
 				usedUpPno.add(pno1);
 				if (pno1==size) break;
 			}
-//			for(;pno2>;pno2--){
-//				if(pName.equals(psrvc.getOneProduct(pno2).getProductName())){
-//					l1.add(pno2);
-//				}
-//			}
 			
 			for(;pno2>size-10;pno2--){
 				
@@ -86,9 +81,6 @@ public class ProductDetailServlet extends HttpServlet{
 			}
 			
 			
-			int i =l1.size();
-			
-			int counter =1;
 			for (Integer pno3 : l1){
 				byte[] cImg = psrvc.getOneProduct(pno3).getPicture_color();
 				if (cImg!=null){
@@ -96,30 +88,25 @@ public class ProductDetailServlet extends HttpServlet{
 					l2.add(pno3);					
 				   }
 				}
-			}
-						
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			Context envContext = null;
+			}				
 			
 			int l2Size = l2.size();
 		    List<ArrayList<String>> array1 = new ArrayList();
 		    List<ArrayList<Integer>> array4 = new ArrayList();
 		    List<ArrayList<Integer>> array7 = new ArrayList();
 		    List<ArrayList<Double>> array10 = new ArrayList();
-		    int j;
+
 		    String color = "";
 		    String prodName ="";
 		    ArrayList<String> array2 = null;
 		    ArrayList<Integer> array5 = null;
 		    ArrayList<Integer> array8 = null;
 		    ArrayList<Double> array11 = null;
-		    for (j=0;j<l2Size;j++){
+		    for (int j=0;j<l2Size;j++){
 		    	array2 =new ArrayList<String>();
 		    	array5 =new ArrayList<Integer>();
 		    	array8 =new ArrayList<Integer>();
 		    	array11 =new ArrayList<Double>();
-		    	int x =1;
 		    	color = psrvc.getOneProduct(l2.get(j)).getColor();
 		    	prodName = psrvc.getOneProduct(l2.get(j)).getProductName();
 //		    	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -188,10 +175,10 @@ public class ProductDetailServlet extends HttpServlet{
 //		    System.out.println("array4:"+array4);
 
 		    DiscountService dsrvc = new DiscountService();
-		    Integer packageNo = aProduct.getPackageNo();
+
 			DiscountVO myDiscount =  dsrvc.getOneDiscount(aProduct.getPackageNo());
 			String discountDescript = myDiscount.getDescript();
-			Integer discountNo = myDiscount.getQuantity_condition();
+
 		    Double unitPriceDiscounted = aProduct.getPrice();
 		
 				if(myDiscount.getDiscount1()!=null)
@@ -211,7 +198,7 @@ public class ProductDetailServlet extends HttpServlet{
             m1.put("array10", array10);
             m1.put("discountType", discountDescript);
             m1.put("unitPriceDiscounted", unitPriceDiscounted);
-            m1.put("mainCat", mainCat);
+//            m1.put("mainCat", mainCat);
             String jsonString = JSONValue.toJSONString(m1); 
             out.println(jsonString);
 			 out.flush();

@@ -108,6 +108,7 @@ public class CustomerLoginServlet extends HttpServlet {
 			HttpSession session = req.getSession();
 			session.setAttribute("shoppingCartBack", null);
 			session.setAttribute("recommend", null);
+			session.setAttribute("dealInformation", null);
 			session.removeAttribute("login_customer_info");
 		}
 	

@@ -544,8 +544,8 @@ img.displayImg {
             	}
             	})
 
-                 $('li:contains("'+datas.discountType+'")').addClass('active');
-       	         $('li:contains("'+datas.mainCat+'")').addClass('active');      
+//                  $('li:contains("'+datas.discountType+'")').addClass('active');
+//        	         $('li:contains("'+datas.mainCat+'")').addClass('active');      
        	                
        	                for (var i=0;i<datas.l2.length;i++){
           		            img = $('<img></img>').attr({"src":"colorImages/"+datas.l2[i],"id":i}).addClass("colorImg").click(function loadSth(event){

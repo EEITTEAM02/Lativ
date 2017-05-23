@@ -95,7 +95,6 @@
 		</form>
 	</div>
 
-	<form class="form-horizontal"  method="post" action="customer_service.do">
 
 			<table  rules="none" class="tb1" >
 				<tr>
@@ -109,6 +108,7 @@
 				<tr style="border-top:1px solid silver;">
 					<td width='200' class="td11">${customer_serviceVO.receive_date}</td>
 					<td width='300' class="td11">${customer_serviceVO.title_service}</td>
+	<form class="form-horizontal"  method="post" action="customer_service.do">
 					<td width='300' class="td11">
 						<c:choose>
 					
@@ -142,22 +142,24 @@
 						  </div>
 						</div>	
 					</td>
-					
+					</form>
+					<form method="post" action="customer_service.do">
 						<td width='100' class="td11">
-							<button class="btn btn-danger btn-sm" value="刪除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></input>
+							<button class="btn btn-danger btn-sm" value="刪除">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							
 				  			<input type="hidden" name="no_service" value="${customer_serviceVO.no_service}"></input>
 				    		<input type="hidden" name="action"value="del1"></input>
 				    		</button>
 				    		
 						</td>
-					
+					</form>
 					
 				</tr>
 
 				</c:forEach>
 			</table>
 
-	</form>
 
 
 	<script>
@@ -219,7 +221,7 @@
 						ta5.empty();
 						ta5.append($("<tr></tr>").attr({class:'co1'}).text('內容不可以空白'));
 					}else{
-						$.post('customer_service.do',{action:"ins",'receive_date':val1,'title_service':val2,'content_service':val3,'customerId':val4},function(){
+						$.post('customer_service.do',{action:"ins",'receive_date':val1,'title_service':val2,'content_service':val3,'customerId':val4},function(data){
 						
 						$('#tr191').slideUp();
 						var ta2 = $('#ta2');
@@ -229,7 +231,8 @@
 						ta3.empty();
 			
 						ta2.html("<input type='text'  name='title_service' size='80' placeholder='標題'>");
-						ta3.html("<textarea rows='10' cols='80'  name='content_service' placeholder='內文'></textarea>");	
+						ta3.html("<textarea rows='10' cols='80'  name='content_service' placeholder='內文'></textarea>");
+						window.location.href="memberPage.jsp";
 						});
 					};
 				})

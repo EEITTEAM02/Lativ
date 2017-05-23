@@ -61,7 +61,7 @@ public class UploadServlet2 extends HttpServlet {
         if (request.getParameter("for_sale")!=null&&!request.getParameter("for_sale").equals("")){
             for_sale = Boolean.valueOf(request.getParameter("for_sale"));
         }
-         
+         System.out.println(for_sale);
         InputStream inputStream1 = null;
         InputStream inputStream2 = null;
         InputStream inputStream3 = null;

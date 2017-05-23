@@ -119,6 +119,7 @@
 	.discount_tr {
 		border-bottom: 1px solid gray;
 		font-size: 20px;
+		color: darkslategrey;
 	}
 
 	.update {
