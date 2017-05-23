@@ -33,6 +33,12 @@
 	font-size:20px;
 	text-align: center;
 }
+<<<<<<< HEAD
+#all,#th1 {
+	
+	border-style:outset;
+	padding: .5em 10px;
+}
 #th {
 	text-align: center;
 	font-size:20px;
@@ -81,7 +87,9 @@ img.displayImg {
 </head>
 <body>
 
-	<body>
+
+	
+	
 	
     <div class='container'>
         <div class='row'>
@@ -101,7 +109,7 @@ img.displayImg {
 					<td>數量</td>
 					<td>原價</td>
 					<td>折價</td>
-					<td>總價</td>
+					<td>小計</td>
 					<td>產品圖片</td>
 				</tr>
 			</thead>
@@ -145,10 +153,10 @@ img.displayImg {
                 var table = $('<table></table>').attr('id', 'orderHistoryTable').addClass('table table-bordered table-hover');
                 var thead = $('<thead></thead>');
                 var tr = $('<tr></tr>');
-                var th1 = $('<th></th>').attr("id","th").text('訂單編號');
-                var th2 = $('<th></th>').attr("id","th").text('訂購日期');
-                var th3 = $('<th></th>').attr("id","th").text('地址');
-                var th4 = $('<th></th>').attr("id","th").text('總價');
+                var th1 = $('<th></th>').attr("id","th1").text('訂單編號');
+                var th2 = $('<th></th>').attr("id","th1").text('訂購日期');
+                var th3 = $('<th></th>').attr("id","th1").text('地址');
+                var th4 = $('<th></th>').attr("id","th1").text('總價');
                 var tbody = $('<tbody></tbody>');
                 tr.append([th1, th2, th3, th4]);
                 thead.append(tr);
