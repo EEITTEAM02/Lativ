@@ -29,30 +29,32 @@
 	text-align: center;
 	font-size:20px;
 }
-#OrderItemTable th{
-	font-size:20px;
+/* #OrderItemTable th{ */
+/* 	font-size:20px; */
+/* 	text-align: center; */
+/* } */
+#all,#th2 {
 	text-align: center;
-}
-<<<<<<< HEAD
-#all,#th1 {
-	
 	border-style:outset;
 	padding: .5em 10px;
 }
-#th {
-	text-align: center;
-	font-size:20px;
-}
+/* #th { */
+/* 	text-align: center; */
+/* 	font-size:20px; */
+/* } */
 #orderDetailTable td{
 	margin:auto;
 	text-align:center;
+	border-style:solid;
+	padding:5px;
 }
 #orderDetailTable{
 	text-align: center;
+	font-size:35px;
 }
 #orderHistoryTable td{
 	text-align:center;
-	font-size:18px;
+	font-size:30px;
 }
 
 #h{
@@ -60,7 +62,7 @@
 	text-align:center;
 }
 #pan{
-	width:1400px;
+	width:100%;
 	margin:auto;
 }
 #pan1{
@@ -70,10 +72,12 @@
 	font-family:標楷體;
 	width:1000px;
 	margin:auto;
+	font-size:35px;
+	
 }
 img.displayImg {
-	height: 40px;
-	width: 40px;
+	height: 80px;
+	width: 80px;
 }
 #orderDetailTable td{
 	vertical-align:middle;
@@ -85,7 +89,7 @@ img.displayImg {
 
 
 </head>
-<body>
+<body style="margin:15px auto">
 
 
 	
@@ -153,10 +157,10 @@ img.displayImg {
                 var table = $('<table></table>').attr('id', 'orderHistoryTable').addClass('table table-bordered table-hover');
                 var thead = $('<thead></thead>');
                 var tr = $('<tr></tr>');
-                var th1 = $('<th></th>').attr("id","th1").text('訂單編號');
-                var th2 = $('<th></th>').attr("id","th1").text('訂購日期');
-                var th3 = $('<th></th>').attr("id","th1").text('地址');
-                var th4 = $('<th></th>').attr("id","th1").text('總價');
+                var th1 = $('<th></th>').attr("id","th2").text('訂單編號');
+                var th2 = $('<th></th>').attr("id","th2").text('訂購日期');
+                var th3 = $('<th></th>').attr("id","th2").text('地址');
+                var th4 = $('<th></th>').attr("id","th2").text('總價');
                 var tbody = $('<tbody></tbody>');
                 tr.append([th1, th2, th3, th4]);
                 thead.append(tr);
@@ -234,5 +238,5 @@ img.displayImg {
 </body>
 
 
-</body>
+
 </html>
