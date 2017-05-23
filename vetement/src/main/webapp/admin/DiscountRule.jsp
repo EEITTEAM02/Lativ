@@ -113,12 +113,12 @@
 		padding: 22px;
     	text-align: center;
     	font-weight: bold;
-    	font-size: 20px;
+    	font-size: 22px;
 	}
 	
 	.discount_tr {
 		border-bottom: 1px solid gray;
-		font-size: 18px;
+		font-size: 20px;
 	}
 
 	.update {

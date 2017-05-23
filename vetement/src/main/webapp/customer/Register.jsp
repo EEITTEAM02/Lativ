@@ -236,7 +236,7 @@
 								//console.log(response_customer_data);
 								//送過去的e-mail和pswd送過去沒有比對到資料(isEmptyObject)的這件事情是false means 有比對到資料，就導到另一頁
 								if( jQuery.isEmptyObject(response_customer_data) == false ) {
-									location.href = '${pageContext.request.contextPath}/indexTemplate.jsp';
+									location.href = '${pageContext.request.contextPath}/index.jsp';
 								}
 								else {
 									alert("註冊後登入失敗!");
