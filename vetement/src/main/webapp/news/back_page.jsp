@@ -27,7 +27,14 @@
 		}
 		</style>
 
-
+<!-- 		<script src="../js/jquery-1.12.3.min.js"></script> -->
+<!--最新編譯和最佳化的 CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
+<!-- 選擇性佈景主題 -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
+<!-- 最新編譯和最佳化的 JavaScript -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+<%-- <script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script> --%>
 	</head>
 	<body>
 	<div class="outer_container1111">
@@ -116,60 +123,59 @@
 		
 		<script>
 			
-		$('#d1').click(function() {
-			var deleteno = $('select[name="deleteno"]').val();
+// 		$('#d1').click(function() {
+// 			var deleteno = $('select[name="deleteno"]').val();
 			
-			console.log(deleteno);
+// 			console.log(deleteno);
 			
-			$.ajax({
-				'type':'GET',
-				'url':'news.do',
-				'dataType':'xml',
-				'data':{action:"del",'deleteno':deleteno},
-				'complete':
-					function(){
-						alert('刪除成功');
-						window.location.reload();
-					},
-			});
-		});
-			
-// 			$('#d1').click(function() {
-// 				var deleteno = $('select[name="deleteno"]').val();
-// 				console.log(deleteno);
-				
-// 				swal({
-// 					  title: "確定要刪除嗎?",
-// 					  text: "按下確定就無法回復了喔!!!",
-// 					  type: "warning",
-// 					  showCancelButton: true,
-// 					  confirmButtonColor: "btn-danger",
-// 					  confirmButtonText: "確定",
-// 					  cancelButtonText: "取消",
-// 					  closeOnConfirm: false,
-
+// 			$.ajax({
+// 				'type':'GET',
+// 				'url':'news.do',
+// 				'dataType':'xml',
+// 				'data':{action:"del",'deleteno':deleteno},
+// 				'complete':
+// 					function(){
+// 						alert('刪除成功');
+// 						window.location.reload();
 // 					},
-// 					function(isConfirm){
-					  					  
-// 						$.ajax({
-// 							'type':'GET',
-// 							'url':'news.do',
-// 							'dataType':'xml',
-// 							'data':{action:"del",'deleteno':deleteno},
-// 							'complete':
-// 								function(){
-								
-// // 									window.location.reload();
-// 								},
-// 						});
-						
-// 					    swal("刪除", "刪除成功", "success");
-					  
-// 					});
-				
-				
-				
 // 			});
+// 		});
+			
+			$('#d1').click(function() {
+				var deleteno = $('select[name="deleteno"]').val();
+				console.log(deleteno);
+				
+				swal({
+					  title: "確定要刪除嗎?",
+					  text: "按下確定就無法回復了喔!!!",
+					  type: "warning",
+					  showCancelButton: true,
+					  confirmButtonColor: "btn-danger",
+					  confirmButtonText: "確定",
+					  cancelButtonText: "取消",
+					  closeOnConfirm: false,
+
+					},
+					function(isConfirm){
+					  					  
+						$.ajax({
+							'type':'GET',
+							'url':'news.do',
+							'dataType':'xml',
+							'data':{action:"del",'deleteno':deleteno},
+							'complete':
+								function(){
+								window.location.href="mangerPage.jsp";
+								},
+						});
+					
+						swal("刪除", "刪除成功", "success");
+						
+
+					});
+
+
+			});
 			
 			
 			$('#n1').click(function() {
