@@ -9180,7 +9180,7 @@ SELECT * FROM OPENROWSET(
    SINGLE_BLOB) AS img) 
 
 insert into customer values('陳小花',0,'huahua@gmail.com','Lativ123','106,台北市,大安區,復興南路一段386號','0910123567');
-insert into customer values('黃琪琪',1,'chichi123@gmail.com','Lalala87','231,新北市,新店區,民權路108號','0912687987');
+insert into customer values('黃琪琪',1,'eeit9330@gmail.com','sa123456','231,新北市,新店區,民權路108號','0912687987');
 insert into customer values('李阿男',1,'south88@gmail.com','08cloth08','220,新北市,板橋區,府中路39號','0910888999');
 insert into customer values('許娜娜',0,'na.na0505@gmail.com','May5566','106,台北市,大安區,信義路3段100號','0918555666');
 insert into customer values('張格魯',1,'kevin8081@gmail.com','sa123456','247,新北市,蘆洲區,三民路116號','0988588668');
