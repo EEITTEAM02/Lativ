@@ -28,7 +28,8 @@
 	 text-align:center;
 }
 #h1{
-	font-family:標楷體;
+/* 	font-family:標楷體; */
+	font-weight:800;
 	color:#009FCC;
 	text-align:center;
 }
