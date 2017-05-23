@@ -178,6 +178,7 @@ public class NewsServlet extends HttpServlet{
 				errorMsgs.add(e.getMessage());
 				RequestDispatcher failureView = req
 						.getRequestDispatcher("/mangerPage.jsp");
+				session.setAttribute("bbb", "del5");
 				failureView.forward(req, res);
 				
 			};
