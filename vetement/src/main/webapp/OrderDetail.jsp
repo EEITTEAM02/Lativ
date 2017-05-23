@@ -33,9 +33,20 @@
 	font-size:20px;
 	text-align: center;
 }
+<<<<<<< HEAD
+#all,#th1 {
+	
+	border-style:outset;
+	padding: .5em 10px;
+=======
 #th {
+>>>>>>> branch 'master' of https://github.com/EEITTEAM02/Lativ.git
 	text-align: center;
+<<<<<<< HEAD
+	font-size:30px;
+=======
 	font-size:20px;
+>>>>>>> branch 'master' of https://github.com/EEITTEAM02/Lativ.git
 }
 #orderDetailTable td{
 	margin:auto;
@@ -81,7 +92,16 @@ img.displayImg {
 </head>
 <body>
 
-	<body>
+	
+	<h3>範例:區塊透明度</h3> <p > 實驗改變下列樣式中的透明屬性數值</p>
+<div style='height:100px;background: url(sample1.jpg) '>
+   
+  <div style='background-color: #ffffff; opacity:0.5; filter:alpha(opacity=50); height:600px'>
+    <h3>有看到底層Div區塊成半透明狀了嗎?</h3>
+  </div>
+</div>
+	
+	
 	
     <div class='container'>
         <div class='row'>
@@ -101,7 +121,7 @@ img.displayImg {
 					<td>數量</td>
 					<td>原價</td>
 					<td>折價</td>
-					<td>總價</td>
+					<td>小計</td>
 					<td>產品圖片</td>
 				</tr>
 			</thead>
@@ -145,10 +165,10 @@ img.displayImg {
                 var table = $('<table></table>').attr('id', 'orderHistoryTable').addClass('table table-bordered table-hover');
                 var thead = $('<thead></thead>');
                 var tr = $('<tr></tr>');
-                var th1 = $('<th></th>').attr("id","th").text('訂單編號');
-                var th2 = $('<th></th>').attr("id","th").text('訂購日期');
-                var th3 = $('<th></th>').attr("id","th").text('地址');
-                var th4 = $('<th></th>').attr("id","th").text('總價');
+                var th1 = $('<th></th>').attr("id","th1").text('訂單編號');
+                var th2 = $('<th></th>').attr("id","th1").text('訂購日期');
+                var th3 = $('<th></th>').attr("id","th1").text('地址');
+                var th4 = $('<th></th>').attr("id","th1").text('總價');
                 var tbody = $('<tbody></tbody>');
                 tr.append([th1, th2, th3, th4]);
                 thead.append(tr);
