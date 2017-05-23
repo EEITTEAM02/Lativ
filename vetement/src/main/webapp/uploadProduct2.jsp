@@ -75,7 +75,7 @@ bottom:0;
                 <tr>
                     <td>大小: </td>
                     <td><select name="size" ">
-                    <option value="XL">XL</option>
+                    <option value="XL" selected>XL</option>
                     <option value="L">L</option>
                     <option value="M">M</option>
                     <option value="S">S</option>
@@ -109,7 +109,7 @@ bottom:0;
                 </tr>
                 <tr>
                     <td>上下架: </td>
-                    <td><select><option value="true">上架</option><option value="false">下架</option></select></td>
+                    <td><select name="for_sale"><option value="true" selected>上架</option><option value="false">下架</option></select></td>
                 </tr>
                 
                 <tr>
@@ -174,7 +174,7 @@ bottom:0;
                 <tr>
                     <td>大小: </td>
                     <td><select name="size" >
-                    <option value="XL">XL</option>
+                    <option value="XL" selected>XL</option>
                     <option value="L">L</option>
                     <option value="M">M</option>
                     <option value="S">S</option>
@@ -208,7 +208,7 @@ bottom:0;
                 </tr>
                 <tr>
                     <td>上下架: </td>
-                    <td><select name="for_sale" ><option value="1">上架</option><option value="0">下架</option></select></td>
+                    <td><select name="for_sale" ><option value="1" selected>上架</option><option value="0">下架</option></select></td>
                 </tr>
                 
                 <tr>
