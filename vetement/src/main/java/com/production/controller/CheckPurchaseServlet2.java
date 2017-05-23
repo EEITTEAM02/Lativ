@@ -51,7 +51,7 @@ public class CheckPurchaseServlet2 extends HttpServlet{
 	    	   l3 = (Set<String>) sctx.getAttribute(mno1);
 	       }
 	      
-	      System.out.println("l3:"+l3);
+//	      System.out.println("l3:"+l3);
        
        OrderService osrvc = new OrderService();
        List<OrderVO> listOfOrders = osrvc.getOrdersByCustomerId(mno);

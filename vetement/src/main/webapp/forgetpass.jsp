@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>忘記密碼?</title>
  <!-- Theme CSS -->
 <link href="${pageContext.request.contextPath}/css/clean-blog.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -66,21 +66,17 @@
 </style>
 </head>
 <body>
-<nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top">
-		<jsp:include page="header.jsp"></jsp:include> 	
-	 </nav>
+<!-- 	 <nav id='header' class="navbar navbar-default navbar-custom navbar-fixed-top"> -->
+<%-- 		<jsp:include page="header.jsp"></jsp:include> 	 --%>
+<!-- 	 </nav> -->
 	 
-	 <header class="intro-header" >
-		<div class="container" style="margin-bottom: 100px"></div>
-	</header>
+<!-- 	 <header class="intro-header" > -->
+<!-- 		<div class="container" style="margin-bottom: 100px"></div> -->
+<!-- 	</header> -->
 
 	<form  align="center" action="MailServlet" method="post" >
 		
-		<div class="input">
-		<h2>請輸入您的帳號:</h2>
-		<div class="blockinput">
-					
-					
+		請輸入您的帳號:<br>
 		<input type="text" name="Account"><font style="color:red">${errorMsg.errormail}</font><br>
         <input type="submit" name="submit" id="submit" value="送出">
 	    <input type="hidden" name="action" value="forgetPassword" >
@@ -88,23 +84,7 @@
         
 	</form>
 
-<form id="form" method="Post" Action="${pageContext.request.contextPath}/CustomerLoginServlet?action=login">
-			<div class="input">
-				<div class="blockinput">
-					<label>帳號</label>
-					<input id="email" class="input" type="text" name="email" value="huahua@gmail.com" onfocus="this.placeholder=''" onblur="this.placeholder='電子郵件'" autoComplete="off" chi="帳號">
-					<div id="email_error_msg" class="error_msg"></div>
-				</div>
-				<div class="blockinput">
-					<label>密碼</label>
-					<input id="pswd" class="input" type="password" name="pswd" value="Lativ123" onfocus="this.placeholder=''" onblur="this.placeholder='密碼'" autoComplete="off" chi="密碼">
-					<div id="pswd_error_msg" class="error_msg"></div>
-				</div>
-				<button class="login_btn" id="login_submit" type="button">登入</button>
-<!-- 				<button class="login_btn" id="cancel_btn" type="button">取消</button> -->
-				<div class="footer text-center" style="display: inline-block;margin-left: 20px;">
-					<a href="/vetement/forgetpass.jsp">忘記密碼?</a>
-				</div>
+				
 			</div>
 		</form>
 
