@@ -53,11 +53,6 @@
 	margin: 5px;
 }
 
-/* div span { */
-/* 	display: inline-block; */
-/* 	width: 35px; */
-/* 	text-align: center; */
-/* } */
 .dialogRegister-form input {
 	width: 35px;
 }
@@ -65,9 +60,7 @@
 .dialogLogin-form input {
 	width: 35px;
 }
-/* .ui-dialog-titlebar-close { */
-/*     visibility: hidden; */
-/* } */
+
 label, input {
 	display: block;
 }
@@ -85,10 +78,6 @@ fieldset {
 	display: inline-block;
 }
 
-/* h1 { */
-/* 	font-size: 1.2em; */
-/* 	margin: .6em 0; */
-/* } */
 .ui-dialog .ui-state-error {
 	padding: .3em;
 }
@@ -134,8 +123,6 @@ img.displayImg {
 			<jsp:include page="/util/navbar2.jsp"></jsp:include>
 			<div class="col-md-12">
 				<div class="jumbotron">
-
-
 
 					<!-- 每頁不同的內容從這裡開始 -->
 					<div class="row">
@@ -326,9 +313,7 @@ img.displayImg {
 			}
 		
 		$(function() {
-			
-		
-			
+				
 			 $('[data-toggle="tooltip"]').tooltip()
 			
 			//載入頁面同時確認是否已收藏
@@ -564,7 +549,7 @@ img.displayImg {
        	                
        	                for (var i=0;i<datas.l2.length;i++){
           		            img = $('<img></img>').attr({"src":"colorImages/"+datas.l2[i],"id":i}).addClass("colorImg").click(function loadSth(event){
-          		            	console.log($(this));
+          		            	
           		            	span1.empty();
           		            	$('#smallImg').attr("src","productImages/"+datas.l2[event.target.id]);
           		            	$('#bigImg').attr("href","productImages/"+datas.l2[event.target.id]);
@@ -579,7 +564,7 @@ img.displayImg {
                                  var cs = $('<a></a>').append(clickableSize).css({'margin-right':'10px'});
 
                                  var aa = $('<a></a>').attr({"outerI":outerI,"innerI":innerI}).append(cs).click(function(){
-                                	 console.log($(this));
+                                	 
                                 	 span2.empty();
                                 	 $(this).siblings().css({'background-color':'transparent'});
                                  	 $(this).css({'background-color':'white'});
