@@ -16,20 +16,12 @@ h1#a {
 	overflow: hidden;
 }
 
-h1.topRight {
-	text-align: right;
-	color: white;
-	line-height: 3px;
-}
 
 h1 {
 	font-size: 1.2em;
 	margin: .6em 0;
 }
 
-#myForm2,#myForm {
-position:relative;
-}
 
 #myForm2 input {
   width:100%;
@@ -46,11 +38,24 @@ position:relative;
   box-sizing:border-box;
 }
 
-
 #myForm select {
   width:100%;
   box-sizing:border-box;
 }
+
+.col-md-6{
+position:relative;
+}
+
+#myForm,#myForm2{
+  min-height:650px;
+}
+
+#mybtn1,#mybtn2{
+position:absolute;
+bottom:0;
+}
+
 
 
 </style>
@@ -62,7 +67,7 @@ position:relative;
 					<!-- 每頁不同的內容從這裡開始 -->
 <div class="container-fluid" style="border:1px solid #cecece;">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6" >
 
         <h1>新增產品 </h1>
         <form id="myForm2" method="post" action="UploadServlet2" enctype="multipart/form-data">
@@ -141,7 +146,7 @@ position:relative;
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button type="submit" value="Save" class="btn btn-info" >送出</button>
+                        <button type="submit" value="Save" class="btn btn-info" id="mybtn1">送出</button>
                     </td>
                 </tr>
                
@@ -247,7 +252,7 @@ position:relative;
                 </tr>
                 <tr >
                     <td colspan="2">
-                        <button type="submit" value="Save" class="btn btn-info">送出</button>
+                        <button type="submit" value="Save" class="btn btn-info " id="mybtn2">送出</button>
                     </td>
                 </tr>
                
