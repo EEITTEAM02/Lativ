@@ -28,11 +28,13 @@ public class Customer_ServiceServlet extends HttpServlet {
 		res.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("utf-8");
 		
+		
 		HttpSession session = req.getSession();
 		PrintWriter out = res.getWriter();
 		Customer_ServiceService customer_serviceSvc = new Customer_ServiceService();
 		String action = req.getParameter("action");
 		
+		System.out.println(action);
 		
 		if ("ins".equals(action)){
 			
@@ -67,7 +69,10 @@ public class Customer_ServiceServlet extends HttpServlet {
 			
 			
 			customer_serviceVO = customer_serviceSvc.addCustomer_Service(customerId,title_service,content_service,"",pubdate);
-			out.append("已收到您的問題，我們將盡快回覆您");
+
+			session.setAttribute("aaa", "del3");
+//			res.sendRedirect("/vetement/memberPage.jsp");
+			return;
 		}
 		try{
 			if ("upd".equals(action)){
