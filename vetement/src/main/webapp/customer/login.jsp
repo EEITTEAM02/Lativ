@@ -142,12 +142,12 @@
 			<div class="input">
 				<div class="blockinput">
 					<label>帳號</label>
-					<input id="email" class="input" type="text" name="email" value="huahua@gmail.com" onfocus="this.placeholder=''" onblur="this.placeholder='電子郵件'" autoComplete="off" chi="帳號">
+					<input id="email" class="input" type="text" name="email" value="" placeholder="電子郵件" onfocus="this.placeholder=''" onblur="this.placeholder='電子郵件'" autoComplete="off" chi="帳號">
 					<div id="email_error_msg" class="error_msg"></div>
 				</div>
 				<div class="blockinput">
 					<label>密碼</label>
-					<input id="pswd" class="input" type="password" name="pswd" value="Lativ123" onfocus="this.placeholder=''" onblur="this.placeholder='密碼'" autoComplete="off" chi="密碼">
+					<input id="pswd" class="input" type="password" name="pswd" value="" placeholder="密碼" onfocus="this.placeholder=''" onblur="this.placeholder='密碼'" autoComplete="off" chi="密碼">
 					<div id="pswd_error_msg" class="error_msg"></div>
 				</div>
 				<button class="login_btn" id="login_submit" type="button">登入</button>
