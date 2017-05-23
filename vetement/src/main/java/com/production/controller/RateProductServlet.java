@@ -42,7 +42,7 @@ public class RateProductServlet extends HttpServlet {
 	      { 
 	    	  envContext = new InitialContext();
 	    	  initContext  = (Context)envContext.lookup("java:/comp/env");
-	    	  ds = (DataSource)initContext.lookup("jdbc/lativ");
+	    	  ds = (DataSource)initContext.lookup("jdbc/TestDB");
 	      }
 	      catch(NamingException ne)
 	      {

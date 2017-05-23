@@ -175,10 +175,10 @@ public class ProductDetailServlet extends HttpServlet{
 //		    System.out.println("array4:"+array4);
 
 		    DiscountService dsrvc = new DiscountService();
-		    Integer packageNo = aProduct.getPackageNo();
+
 			DiscountVO myDiscount =  dsrvc.getOneDiscount(aProduct.getPackageNo());
 			String discountDescript = myDiscount.getDescript();
-			Integer discountNo = myDiscount.getQuantity_condition();
+
 		    Double unitPriceDiscounted = aProduct.getPrice();
 		
 				if(myDiscount.getDiscount1()!=null)
