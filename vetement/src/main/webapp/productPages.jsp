@@ -612,23 +612,25 @@ return window.purchase;
 					    					
 					    var $cartIcon = $(".my-cart-icon");
 					
-					   var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+ 					   var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
 
-					    $addTocartBtn.prepend($image);
+ 					    $addTocartBtn.prepend($image);
 					
 					    var position = $cartIcon.position();
+					    
+ 					    $image.remove();
 					
-					    $image.animate({
+// 					    $image.animate({
 					
-					      top: position.top,
+// 					      top: position.top,
 
-					      left: position.left
+// 					      left: position.left
 					
-					    }, 1500 , "linear", function() {
+// 					    }, 1500 , "linear", function() {
 					
-					      $image.remove();
+// 					      $image.remove();
 					
-					    });
+// 					    });
 					
 					  }
                 	
