@@ -7,12 +7,18 @@ ON c.productId = p.productId
 WHERE productName = (select productName from production where productId = @proId) order by pubtime desc
 end
 
-CREATE PROCEDURE ord (@cId int,@pId int)
+CREATE PROCEDURE [dbo].[ord] (@cId int,@pId int)
 as
 begin
-select a.orderNo,customerId,productId
+select a.orderNo,customerId,p.productId,p.productName
 from orders a join orderItem b
 on a.orderNo = b.orderNo
-where customerId = @cId and productId = @pId
+join production p
+on p.productId = b.productId
+where customerId = @cid and productName = (
+											select productName
+											from	production
+											where productId = @pid
+											)
 order by orderNo desc
 end
