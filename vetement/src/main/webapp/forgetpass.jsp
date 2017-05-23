@@ -73,12 +73,12 @@
 <!-- 	 <header class="intro-header" > -->
 <!-- 		<div class="container" style="margin-bottom: 100px"></div> -->
 <!-- 	</header> -->
-
+	
 	<form  align="center" action="MailServlet" method="post" >
 		
-		請輸入您的帳號:<br>
+		<h2>請輸入您的帳號:</h2>
 		<input type="text" name="Account"><font style="color:red">${errorMsg.errormail}</font><br>
-        <input type="submit" name="submit" id="submit" value="送出">
+        <input type="submit" name="submit" id="submit" onclick="disp_alert()" value="送出">        
 	    <input type="hidden" name="action" value="forgetPassword" >
         <input type="reset" name="cancel" id="cancel" value="重填">
         
@@ -87,7 +87,12 @@
 				
 			</div>
 		</form>
-
+<script type="text/javascript">
+	function disp_alert()
+	{
+	alert("請到您的信箱收取驗證郵件！")
+	}
+	</script>
 
 
 </body>
