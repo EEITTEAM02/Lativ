@@ -26,8 +26,6 @@
 	margin: auto;
 	border-collapse: collapse;
 	width: 80%;
-	border: 1px solid #eee;
-	padding: .6em 10px;
 	text-align: center;
 	font-size:20px;
 }
@@ -35,41 +33,25 @@
 	font-size:20px;
 	text-align: center;
 }
-#all,#th {
-	border: 5px solid #220088;
-	padding: .5em 10px;
+#th {
 	text-align: center;
+	font-size:20px;
 }
 #orderDetailTable td{
-	padding:10px;
+	margin:auto;
+	text-align:center;
 }
 #orderDetailTable{
 	text-align: center;
 }
+#orderHistoryTable td{
+	text-align:center;
+	font-size:18px;
+}
+
 #h{
 	color:#009FCC;
 	text-align:center;
-}
-.danger{
-  font-weight:bold;
-  padding: 15px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;   
-  text-decoration: none;
-  outline: none;
-  color: white;
-  background-color: red;
-  border: none;
-  border-radius: 10px;
-}
-.danger:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.danger:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
 }
 #pan{
 	width:1400px;
@@ -86,6 +68,12 @@
 img.displayImg {
 	height: 40px;
 	width: 40px;
+}
+#orderDetailTable td{
+	vertical-align:middle;
+}
+.col-md-12{
+	margin-top:30px;
 }
 </style>
 
