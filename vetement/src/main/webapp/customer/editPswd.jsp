@@ -27,7 +27,7 @@
 		<form>
 			<div>
 				<label>密碼</label><br>
-				<input type='text' id="member_password" name='member_password' value='' chi='密碼'><br>
+				<input type='password' id="member_password" name='member_password' value='' chi='密碼'><br>
 				<div class='tip'>密碼長度:8-12字元、須包含數字與大小寫英文</div>
 				<div id="member_password_error_msg" class="error_msg"></div><br>
 			</div>
