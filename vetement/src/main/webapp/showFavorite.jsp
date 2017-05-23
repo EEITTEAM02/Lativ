@@ -59,13 +59,18 @@ hight:90%;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+.favorite_style{
+	font-family:Microsoft Jhenghei;
+}
+
 </style>
 
 
 </head>
 <body>	
 <c:set var="context" value="${pageContext.request.contextPath}" />
-	<div id="favorite">
+	<div id="favorite" class='favorite_style'>
 		<h1 id="h1">我的收藏商品</h1>
 		<br>
 		<div id="display1">
