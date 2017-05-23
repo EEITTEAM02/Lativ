@@ -70,13 +70,13 @@ body{
 	
 	<div id="pan">
 		<div id="pan1">
-			<div>
+			<div >
 				<jsp:include page="mangerSelect.jsp"></jsp:include>
 			</div>
 		</div>
 		
 		<div id="pan2">
-			<div class="pan2_item" id="pan2_item_1">
+			<div class="pan2_item abc" id="pan2_item_1">
   				<jsp:include page="uploadProduct2.jsp"></jsp:include>  
 			</div>
 			<div class="pan2_item abc" id="pan2_item_2">

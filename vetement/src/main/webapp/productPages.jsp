@@ -255,6 +255,63 @@ img.displayImg {
 
 		<script>
 		var ctx = "<%=request.getContextPath()%>";
+		var cid = null;
+		var pid = ${param.Pid};
+		var universalPno = ${param.Pid};
+		
+		
+		  function checkPurchase() {
+			    var purchase = (function() {
+			        var isPurchase = null;
+			        var pno = universalPno;
+
+			        $.ajax({
+			            'async': false,
+			            'global': false,
+			            'data':{'pno':pno},
+			            'url': ctx+'/CheckPurchase.do',
+			            'success': function(resp) {
+			                isPurchase = (resp === "1");
+			            }
+			        });
+			        return isPurchase;
+			    })();
+			    return purchase;
+			}
+		  
+		  function checkAuth() {
+			    var logged = (function() {
+			        var isLogged = null;
+			        $.ajax({
+			            'async': false,
+			            'global': false,
+			            'url': ctx+'/LoginCheckServlet.do',
+			            'success': function(resp) {
+			                isLogged = (resp === "1");
+			            }
+			        });
+			        return isLogged;
+			    })();
+			    return logged;
+			}
+		  
+		  function getRating(pno) {
+		    	 var rating = (function() {
+				        var rating1 = null;
+				        $.ajax({
+				            'async': false,
+				            'global': false,
+				            'data':{'pno':pno},
+				            'url': ctx+'/GetProductRating.do',
+				            'success': function(resp) {
+				                rating1 = resp;
+				            }
+				        });
+				        return rating1;
+				    })();
+				    return rating;
+		    }
+
 		
 		
 		// 查詢評價彈出視窗
@@ -270,8 +327,7 @@ img.displayImg {
 		
 		$(function() {
 			
-			var cid = null;
-			var pid = ${param.Pid};
+		
 			
 			 $('[data-toggle="tooltip"]').tooltip()
 			
@@ -310,7 +366,7 @@ img.displayImg {
             var discountList = $('ul.list-group:eq(0)');
             
             
-		var universalPno = ${param.Pid};
+// 				 var universalPno = ${param.Pid};
 			drawStar(universalPno);
 		    if(!checkAuth()){
 		    	$('#dragme').hide();
@@ -343,27 +399,27 @@ img.displayImg {
 	                    e.style.width ="20px";
 	                    e.style.height ="20px";
 	                    e.id = 'idimg' + (window.parseInt(x)+1) ;
-// 	                    console.log(e.id);
+
 	                    document.getElementById('div25').appendChild(e);
 	                }
 		    }
 			
-		    function getRating(pno) {
-		    	 var rating = (function() {
-				        var rating1 = null;
-				        $.ajax({
-				            'async': false,
-				            'global': false,
-				            'data':{'pno':pno},
-				            'url': ctx+'/GetProductRating.do',
-				            'success': function(resp) {
-				                rating1 = resp;
-				            }
-				        });
-				        return rating1;
-				    })();
-				    return rating;
-		    }
+// 		    function getRating(pno) {
+// 		    	 var rating = (function() {
+// 				        var rating1 = null;
+// 				        $.ajax({
+// 				            'async': false,
+// 				            'global': false,
+// 				            'data':{'pno':pno},
+// 				            'url': ctx+'/GetProductRating.do',
+// 				            'success': function(resp) {
+// 				                rating1 = resp;
+// 				            }
+// 				        });
+// 				        return rating1;
+// 				    })();
+// 				    return rating;
+// 		    }
 			
 		    if(checkAuth()){
 		    	if(checkPurchase()){
@@ -463,11 +519,7 @@ img.displayImg {
                 function loadPage(){
                 
                      $('ul.list-group>li').removeClass('active');
-//                     var y = window.location.search.substring(1);
-//                     if(y<=3)
-//                         $('ul.list-group:eq(1)>li[data-id="' +y + '"]').addClass('active');
-//                     else
-//                     	 $('ul.list-group:eq(0)>li[data-id="' +y + '"]').addClass('active');
+
   				 $.ajax({
              		type: "GET",
          		    url: ctx+"/ProductDetailServlet.do",
@@ -512,13 +564,12 @@ img.displayImg {
        	                
        	                for (var i=0;i<datas.l2.length;i++){
           		            img = $('<img></img>').attr({"src":"colorImages/"+datas.l2[i],"id":i}).addClass("colorImg").click(function loadSth(event){
-//           		            	span2.empty();
+          		            	console.log($(this));
           		            	span1.empty();
           		            	$('#smallImg').attr("src","productImages/"+datas.l2[event.target.id]);
           		            	$('#bigImg').attr("href","productImages/"+datas.l2[event.target.id]);
            		            	 var length = ($(datas.array1)[event.target.id].length);
-                                 
-                                
+                                                                
                                  for (var i =0;i<length;i++){
                                  var outerI = event.target.id;
                                  var innerI = i;
@@ -526,9 +577,9 @@ img.displayImg {
                                  clickableSize = $(datas.array1)[outerI][innerI];
                                 
                                  var cs = $('<a></a>').append(clickableSize).css({'margin-right':'10px'});
-                                 if(checkAuth()){ 
-                                  var aa = $('<a></a>').attr({"outerI":outerI,"innerI":innerI}).append(cs).click(function(){
-                                	 
+
+                                 var aa = $('<a></a>').attr({"outerI":outerI,"innerI":innerI}).append(cs).click(function(){
+                                	 console.log($(this));
                                 	 span2.empty();
                                 	 $(this).siblings().css({'background-color':'transparent'});
                                  	 $(this).css({'background-color':'white'});
@@ -549,16 +600,17 @@ img.displayImg {
                                      })
                                      
                                      var button = $('<button></button').myCart(cartCart).addClass('btn btn-danger my-cart-btn').attr
-                                     ({'data-size':selectedSize,'data-unitPriceD':price,'data-unitPriceO':price,'data-id':selectedPno,'data-quantity':1,'data-name':datas.pName,'data-image':"productImages/"+selectedPno}).html('加到購物車').mouseover(function(){                                    	
-
-                                     });
-                                     
-                                     
+                                     ({'data-size':selectedSize,'data-unitPriceD':price,'data-unitPriceO':price,'data-id':selectedPno,'data-quantity':1,'data-name':datas.pName,'data-image':"productImages/"+selectedPno}).html('加到購物車');                                 	
+                                                                       
                                      div214.text('產品編號:'+selectedPno);
-                                 	span2.append(select).append(button)});                                   
-          		            	span1.append(aa);
-          		            	
-                                 }
+                                 	span2.append(select).append(button);
+                                 	if (!checkAuth()){
+                                 		button.prop('disabled',true);
+                                 	}
+                                 	                                   	
+                                 	});                                   
+          		            	    span1.append(aa);
+
                                  }                         
                                  
           		            	});
@@ -570,9 +622,10 @@ img.displayImg {
           		        var span2 = $('<span></span>').css('display','inline-block');
           		        div23.append(span1);
           		        div24.append(span2);
+           		        $('#0').click();
+          		       
           		        
-//           		      document.getElementById('0').click();
-                      span2.append($('<select><option>先選商品</option></select>')).append($("<button class='btn btn-danger'>加到購物車</button>"));
+                    //  span2.append($('<select><option>先選商品</option></select>')).append($("<button class='btn btn-danger'>加到購物車</button>"));
           		        }
 
              		}
@@ -580,12 +633,10 @@ img.displayImg {
              )
                 	
                 	var goToCartIcon = function($addTocartBtn){
-					    
-						
+					    					
 					    var $cartIcon = $(".my-cart-icon");
 					
 					   var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
-// 							  console.log ($addTocartBtn.data("image"));
 
 					    $addTocartBtn.prepend($image);
 					
@@ -692,45 +743,45 @@ img.displayImg {
                 
                 loadPage();
                
-                
+                $("a[outerI='0'][innerI='0']").click();
                 
              
                 
                 
-                function checkPurchase() {
-    			    var purchase = (function() {
-    			        var isPurchase = null;
-    			        var pno = universalPno;
-//     			        console.log(pno);
-    			        $.ajax({
-    			            'async': false,
-    			            'global': false,
-    			            'data':{'pno':pno},
-    			            'url': ctx+'/CheckPurchase.do',
-    			            'success': function(resp) {
-    			                isPurchase = (resp === "1");
-    			            }
-    			        });
-    			        return isPurchase;
-    			    })();
-    			    return purchase;
-    			}
+//                 function checkPurchase() {
+//     			    var purchase = (function() {
+//     			        var isPurchase = null;
+//     			        var pno = universalPno;
+
+//     			        $.ajax({
+//     			            'async': false,
+//     			            'global': false,
+//     			            'data':{'pno':pno},
+//     			            'url': ctx+'/CheckPurchase.do',
+//     			            'success': function(resp) {
+//     			                isPurchase = (resp === "1");
+//     			            }
+//     			        });
+//     			        return isPurchase;
+//     			    })();
+//     			    return purchase;
+//     			}
             
-            function checkAuth() {
-			    var logged = (function() {
-			        var isLogged = null;
-			        $.ajax({
-			            'async': false,
-			            'global': false,
-			            'url': ctx+'/LoginCheckServlet.do',
-			            'success': function(resp) {
-			                isLogged = (resp === "1");
-			            }
-			        });
-			        return isLogged;
-			    })();
-			    return logged;
-			}
+//             function checkAuth() {
+// 			    var logged = (function() {
+// 			        var isLogged = null;
+// 			        $.ajax({
+// 			            'async': false,
+// 			            'global': false,
+// 			            'url': ctx+'/LoginCheckServlet.do',
+// 			            'success': function(resp) {
+// 			                isLogged = (resp === "1");
+// 			            }
+// 			        });
+// 			        return isLogged;
+// 			    })();
+// 			    return logged;
+// 			}
 
 			   
 			   $('.fancybox').fancybox({
