@@ -372,6 +372,8 @@ bottom:0;
             		    	   'success':function(data){
             		    		   var selectPno = $('#pno');
             		    		   selectPno.empty();
+            		    		   var option0 = $('<option></option>').val('option0').text('select an option');
+            		    		   selectPno.append(option0);
             		    		   $.each(data,function(){
             		    			   var option = $('<option></option').val(window.parseInt(this)).text(window.parseInt(this));
             		    			   selectPno.append(option);
