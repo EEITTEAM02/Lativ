@@ -50,7 +50,8 @@
 }
 #orderDetailTable{
 	text-align: center;
-	font-size:35px;
+	font-size: 25px;
+	font-family:標楷體;
 }
 #orderHistoryTable td{
 	text-align:center;
@@ -89,7 +90,8 @@ img.displayImg {
 
 
 </head>
-<body style="margin:15px auto">
+<body>
+
 
 
 	
@@ -235,6 +237,7 @@ img.displayImg {
             
         })
     </script>
+
 </body>
 
 

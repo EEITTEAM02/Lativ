@@ -50,6 +50,7 @@
 	padding-right: 5px; 
 /* 	background-color: rgba(217, 255, 255, .5); */
 	background-image:url('images/custbg.jpg');  
+	
  } 
 .customer_info_edit{
 	margin: auto; 
@@ -69,6 +70,7 @@
 	width: 90%; 
 	padding-top: 70px; 
  	background-image:url('images/custbg.jpg');
+ 	
 }
 body{
 	background-image:url('images/background_closet35.jpg');
