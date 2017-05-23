@@ -62,23 +62,23 @@
 	<h2 style="font-family:Microsoft Jhenghei;text-align: center;color:#9F4D95;font-size: 40px; font-weight: bold">聯絡客服</h2>
 	
 	<div style="padding-left:20px;padding-bottom: 20px"><a id="tr181" href="#tr191" class="btn btn-primary">聯絡我們</a></div>
-	<div id="tr191" style="display:none;">
+	<div id="tr191" style="display:none; font-size: 18px;">
 		<form>
 		<table>
 			<tr>
-				<td style='text-align:center ; width:80px'>日&nbsp;&nbsp;&nbsp;&nbsp;期:</td>
+				<td style='text-align:center ; width:80px; font-size: 18px;'>日&nbsp;&nbsp;&nbsp;&nbsp;期:</td>
 				<td id="ta1"></td>
 			</tr>
 			<tr>
-				<td style='text-align:center ; width:80px'>標&nbsp;&nbsp;&nbsp;&nbsp;題:</td>
+				<td style='text-align:center ; width:80px; font-size: 18px;'>標&nbsp;&nbsp;&nbsp;&nbsp;題:</td>
 				<td id="ta2"><input type="text" name="title_service" size="80"  placeholder='標題'></td>
 			</tr>
 			<tr>
-				<td style='text-align:center ; width:80px'></td>
+				<td style='text-align:center ; width:80px; font-size: 18px;'></td>
 				<td id="ta4"></td>
 			</tr>
 			<tr>
-				<td style='text-align:center ; width:80px'>問題內容:</td>
+				<td style='text-align:center ; width:80px; font-size: 18px;'>問題內容:</td>
 				<td id="ta3"><textarea rows='10' cols='80'  name='content_service' placeholder='內文'></textarea></td>
 			</tr>
 			<tr>
@@ -86,7 +86,7 @@
 				<td id="ta5"></td>
 			</tr>
 			<tr>
-				<td colspan='2' style='text-align:center;padding:20px'>
+				<td colspan='2' style='text-align:center;padding:20px; font-size: 18px;'>
 					<input type='button' value='送出內容' id= 'go1'><input type='hidden' name='customerId' value='${sessionScope.login_customer_info.getCustomerId()}'>&nbsp;&nbsp;&nbsp;
 					<input type='button' value='刪除內容' id= 'd1'>
 				</td>
