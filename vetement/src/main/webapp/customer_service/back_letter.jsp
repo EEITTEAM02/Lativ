@@ -128,19 +128,65 @@
 							</div>	
 						</td>
 					</form>
-					<form method="post" action="customer_service.do">
+<!-- 					<form method="post" action="customer_service.do"> -->
 						<td width='50' class="td11">
-							<button class="btn btn-danger btn-lg" value="刪除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></input>
+							<button class="btn btn-danger btn-lg" id="d2" value="${customer_serviceVO.no_service}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 				  			<input type="hidden" name="no_service" value="${customer_serviceVO.no_service}">
 				    		<input type="hidden" name="action"value="del">
 				    		</button>
 				    		
 						</td>
-					</form>
+<!-- 					</form> -->
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
 </div>
+
+<script>
+
+	$('#d2').click(function() {
+		
+		var deleteno = $(this).val();
+		console.log(deleteno);
+		
+		swal({
+			  title: "確定要刪除嗎?",
+			  text: "按下確定就無法回復了喔!!!",
+			  type: "warning",
+			  showCancelButton: true,
+			  confirmButtonColor: "btn-danger",
+			  confirmButtonText: "確定",
+			  cancelButtonText: "取消",
+			  closeOnConfirm: false,
+	
+			},
+			function(isConfirm){
+			  	if(isConfirm == true){
+				$.ajax({
+					'type':'GET',
+					'url':'customer_service.do',
+					'dataType':'xml',
+					'data':{action:"del",'no_service':deleteno},
+					'complete':
+						swal({title:"刪除成功"},function(){
+	    					window.location.reload();
+	    					}) 
+				});
+			
+			  	}else{
+			  		
+				swal("刪除", "刪除成功", "success");
+			  	}			  
+				
+	
+			});
+	
+	
+	});
+
+
+</script>
+
 </body>
 </html>
