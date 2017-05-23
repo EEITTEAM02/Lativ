@@ -38,15 +38,10 @@
 	
 	border-style:outset;
 	padding: .5em 10px;
-=======
+}
 #th {
->>>>>>> branch 'master' of https://github.com/EEITTEAM02/Lativ.git
 	text-align: center;
-<<<<<<< HEAD
-	font-size:30px;
-=======
 	font-size:20px;
->>>>>>> branch 'master' of https://github.com/EEITTEAM02/Lativ.git
 }
 #orderDetailTable td{
 	margin:auto;
@@ -92,14 +87,7 @@ img.displayImg {
 </head>
 <body>
 
-	
-	<h3>範例:區塊透明度</h3> <p > 實驗改變下列樣式中的透明屬性數值</p>
-<div style='height:100px;background: url(sample1.jpg) '>
-   
-  <div style='background-color: #ffffff; opacity:0.5; filter:alpha(opacity=50); height:600px'>
-    <h3>有看到底層Div區塊成半透明狀了嗎?</h3>
-  </div>
-</div>
+
 	
 	
 	
