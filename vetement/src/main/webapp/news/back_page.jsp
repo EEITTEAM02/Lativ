@@ -22,6 +22,9 @@
 /* 	    	text-align:center  */
  		} 
 		
+		.wordsize{
+		font-size: 20px ;
+		}
 		</style>
 
 
@@ -34,32 +37,32 @@
 		<ul>
 			<li>
 			    <FORM METHOD="post">
-			        <b>新增 :</b>
-			        <input type="button" value="新增公告" name="new1" id='n1' class="btn btn-info btn-sm">
+			        <b class="wordsize">新增 :</b>
+			        <input type="button" value="新增公告" name="new1" id='n1' class="btn btn-info btn-sm wordsize">
 			    </FORM>
 			 </li>
 			 <br>
  			<li>
  				<FORM >
-			       <b>更改公告 :</b>
+			       <b class="wordsize">更改公告 :</b>
 			       <select size="1" name="newsno1" >
 				       <c:forEach var="newsVO" items="${newsSvc.all}" > 
 				       		<option value="${newsVO.newsno}">${newsVO.newsno} : ${newsVO.title}
 				       </c:forEach>   
 			       </select>
-			       <input type="button" value="送出" id='s1' class="btn btn-info btn-sm"">
+			       <input type="button" value="送出" id='s1' class="btn btn-info btn-sm wordsize">
 			    </FORM>
 			</li>
 			<br>
 			<li>
  				<FORM >
-			       <b>刪除公告 :</b>
+			       <b class="wordsize">刪除公告 :</b>
 			       <select size="1" name="deleteno" >
 				       <c:forEach var="newsVO" items="${newsSvc.all}" > 
 				       		<option value="${newsVO.newsno}">${newsVO.newsno} : ${newsVO.title}
 				       </c:forEach>   
 			       </select>
-			       <input type="button" value="刪除" id='d1' class="btn btn-danger btn-sm" >
+			       <input type="button" value="刪除" id='d1' class="btn btn-danger btn-sm wordsize" >
 			    </FORM>
 			</li>
 		</ul>
@@ -76,33 +79,33 @@
 			</c:if>
 			<form method="post" action="news.do">
 				<table border='1' >
-					<tr><td width='80' style='text-align:center'>編  號</td>
+					<tr><td width='80' style='text-align:center' class="wordsize">編  號</td>
 						<td width='580' style='text-align:left' id='ta1'>
 <!-- 							<input type='text'  name='newsno' size='80' readonly="readonly"> -->
 						</td>
 					</tr>
 	
-					<tr><td width='80' style='text-align:center'>主  題</td>
+					<tr><td width='80' style='text-align:center' class="wordsize">主  題</td>
 						<td width='580' id='ta2'>
 <!-- 							<input type='text'  name='title' size='80' placeholder='標題'> -->
 						</td>
 					</tr> 
 
-   					<tr><td width='80' style='text-align:center'>內  文</td>
+   					<tr><td width='80' style='text-align:center' class="wordsize">內  文</td>
    						<td width='580' id='ta3'>
 <!--    							<textarea rows='10' cols='73'  name='content' placeholder='內文' overflow-y='visible'></textarea> -->
    						</td>
    					</tr>
 
-   					<tr><td width='80' style='text-align:center'>日  期</td>
+   					<tr><td width='80' style='text-align:center' class="wordsize">日  期</td>
    						<td width='580' id='ta4'>
 <!--    							<input type='text'  name='pubdate' size='80' placeholder='日期'> -->
    						</td>
    					</tr>
 
    					<tr><td colspan='2'style='text-align:center'>
-   					<input type='submit' value='送出內容' id= 'go1' class="btn btn-info btn-sm" >&nbsp;&nbsp;&nbsp;
-   					<input type='button' value='刪除內容' id= 's2' class="btn btn-warning btn-sm" ></td></tr>
+   					<input type='submit' value='送出內容' id= 'go1' class="btn btn-info btn-sm wordsize" >&nbsp;&nbsp;&nbsp;
+   					<input type='button' value='刪除內容' id= 's2' class="btn btn-warning btn-sm wordsize" ></td></tr>
 			 		<input type="hidden" name="action" value="ins">
 				</table>
 			</form>
