@@ -64,7 +64,7 @@
 	}
 	
 </style>
-<title>Insert title here</title>
+<title>會員註冊</title>
 <script src="${pageContext.request.contextPath}/js/sweetalert.min.js"></script>
 </head>
 <body class=register_all>
@@ -83,8 +83,8 @@
 				</div>
 				<div>
 					<label>性別</label><br>
-					<input type='radio' name="sex" value=1>男 
-					<input type='radio' name="sex" value=0>女
+					<input type='radio' name="sex" value=1 >男 
+					<input type='radio' name="sex" value=0 style='margin-left:10px'>女
 					<input type='hidden' id="sex" name='sex' value='' chi='性別'>
 					<div id="sex_error_msg" class="error_msg"></div> <br>
 				</div>
