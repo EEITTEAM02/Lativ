@@ -52,7 +52,7 @@ body{
 }
 .abc{ 
 
-	background-image:url('images/wood.jpg'); 
+	background-image:url('images/wood2.jpg'); 
 }
 </style>
 
