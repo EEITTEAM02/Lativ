@@ -56,13 +56,9 @@ position:absolute;
 bottom:0;
 }
 
-
-
 </style>
 </head>
 <body>
-
-
 					
 					<!-- 每頁不同的內容從這裡開始 -->
 <div class="container-fluid" style="border:1px solid #cecece;">
@@ -70,7 +66,7 @@ bottom:0;
     <div class="col-md-6" >
 
         <h1>新增產品 </h1>
-        <form id="myForm2" method="post" action="UploadServlet2" enctype="multipart/form-data">
+        <form id="myForm2" method="post" action="UploadServlet2" enctype="multipart/form-data" onsubmit="return validateForm2()">
             <table >
                 <tr>
                     <td>產品名: </td>
@@ -144,6 +140,7 @@ bottom:0;
                     <td>大圖4: </td>
                     <td><input type="file" name="modelImg4" /></td>
                 </tr>
+                
                 <tr>
                     <td colspan="2">
                         <button type="submit" value="Save" class="btn btn-info" id="mybtn1">送出</button>
@@ -158,7 +155,7 @@ bottom:0;
          <div class="col-md-6">
 
         <h1>調整產品 </h1>
-        <form id="myForm" method="post" action="ProductModify2.do" enctype="multipart/form-data">
+        <form id="myForm" method="post" action="ProductModify2.do" enctype="multipart/form-data" onsubmit="return validateForm1()">
             <table >
                
                 <tr>
@@ -268,6 +265,52 @@ bottom:0;
        
          <!-- 每頁不同的內容到這裡結束 -->
     <script>
+    function validateForm2() {
+        var x = document.forms["myForm2"]["name"].value;
+        var y = document.forms["myForm2"]["color"].value;
+        var z = document.forms["myForm2"]["price"].value;
+        var w = document.forms["myForm2"]["noInStock"].value;
+        if (x.trim() == "") {
+            swal("產品名請勿空白");
+            return false;
+        }
+        if (y.trim() == "") {
+            swal("顏色請勿空白");
+            return false;
+        }
+        if (z.trim() == "") {
+            swal("價錢請勿空白");
+            return false;
+        }
+        if (w.trim() == "") {
+            swal("庫存請勿空白");
+            return false;
+        }
+    }
+    
+    function validateForm1() {
+        var x = document.forms["myForm"]["name"].value;
+        var y = document.forms["myForm"]["color"].value;
+        var z = document.forms["myForm"]["price"].value;
+        var w = document.forms["myForm"]["noInStock"].value;
+        if (x.trim() == "") {
+            swal("產品名請勿空白");
+            return false;
+        }
+        if (y.trim() == "") {
+            swal("顏色請勿空白");
+            return false;
+        }
+        if (z.trim() == "") {
+            swal("價錢請勿空白");
+            return false;
+        }
+        if (w.trim() == "") {
+            swal("庫存請勿空白");
+            return false;
+        }
+    }
+     
     $(function() {
     	$.ajax({
     		'url':'GetDiscountCat.do',
@@ -341,41 +384,41 @@ bottom:0;
     	})
                        	      
     	 	
-    	         $('#pnoA').change(function(){
-    	    	    	var pnoA =$('#pnoA').val();
-                        console.log("pnoA:"+pnoA);
-    	    	    	$('#myForm img').remove();
-    	    	    	var image1 = $('<img></img>').attr('src','productImages/'+pnoA).css({'width':'50px','height':'50px'});
-    	    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pnoA).css({'width':'50px','height':'50px'});
-    	    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pnoA).css({'width':'50px','height':'50px'});
-    	    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pnoA).css({'width':'50px','height':'50px'});
-    	    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pnoA).css({'width':'50px','height':'50px'}); 
-    	    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pnoA).css({'width':'50px','height':'50px'});
+//     	         $('#pnoA').change(function(){
+//     	    	    	var pnoA =$('#pnoA').val();
+//                         console.log("pnoA:"+pnoA);
+//     	    	    	$('#myForm img').remove();
+//     	    	    	var image1 = $('<img></img>').attr('src','productImages/'+pnoA).css({'width':'50px','height':'50px'});
+//     	    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pnoA).css({'width':'50px','height':'50px'});
+//     	    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pnoA).css({'width':'50px','height':'50px'});
+//     	    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pnoA).css({'width':'50px','height':'50px'});
+//     	    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pnoA).css({'width':'50px','height':'50px'}); 
+//     	    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pnoA).css({'width':'50px','height':'50px'});
     	    	    	
-    	    	    	$('#productImg').append(image1);   	    	
-    	    	    	$('#colorImg').append(image2);
-    	    	    	$('#modelImg1').append(image3);
-    	    	    	$('#modelImg2').append(image4);
-    	    	    	$('#modelImg3').append(image5);
-    	    	    	$('#modelImg4').append(image6);
+//     	    	    	$('#productImg').append(image1);   	    	
+//     	    	    	$('#colorImg').append(image2);
+//     	    	    	$('#modelImg1').append(image3);
+//     	    	    	$('#modelImg2').append(image4);
+//     	    	    	$('#modelImg3').append(image5);
+//     	    	    	$('#modelImg4').append(image6);
     	    	    	
     	    	    	
-    	    	    	$.get('AutoCompleteProductServlet.do',{'pno':pnoA},function(obj){
-    	    	    		var data = $.parseJSON(obj);
+//     	    	    	$.get('AutoCompleteProductServlet.do',{'pno':pnoA},function(obj){
+//     	    	    		var data = $.parseJSON(obj);
     	    	    	    
-    	    	    		$('#myForm input:eq(0)').val(data.name);
-    	        	    	$('#myForm select:eq(3)').val(data.size);   //look for the option with val data.size and select it
-    	        	    	$('#myForm input:eq(1)').val(data.color);
-    	        	    	$('#myForm input:eq(2)').val(data.price);
-    	        	    	$('#myForm select:eq(4)').val(data.discountCat).change;
-    	        	    	$('#myForm input:eq(3)').val(data.descript);
-    	        	    	$('#myForm select:eq(5)').val(data.categoryId).change;
-    	        	    	$('#myForm input:eq(4)').val(data.noInStock);
-    	        	    	$('#myForm select:eq(6)').val(data.for_sale).change;
+//     	    	    		$('#myForm input:eq(0)').val(data.name);
+//     	        	    	$('#myForm select:eq(3)').val(data.size);   //look for the option with val data.size and select it
+//     	        	    	$('#myForm input:eq(1)').val(data.color);
+//     	        	    	$('#myForm input:eq(2)').val(data.price);
+//     	        	    	$('#myForm select:eq(4)').val(data.discountCat).change;
+//     	        	    	$('#myForm input:eq(3)').val(data.descript);
+//     	        	    	$('#myForm select:eq(5)').val(data.categoryId).change;
+//     	        	    	$('#myForm input:eq(4)').val(data.noInStock);
+//     	        	    	$('#myForm select:eq(6)').val(data.for_sale).change;
     	        	    	   	        	    	
-    	    	    	})
+//     	    	    	})
     	    	    	
-    	    	    })
+//     	    	    })
     	    	
                 $('#pno').change(function(){   
                 var pno = $('#pno').val();
