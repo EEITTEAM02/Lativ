@@ -192,11 +192,11 @@
     <url-pattern>/ProductDetailServlet.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>CheckPurchaseServlet</servlet-name>
-    <servlet-class>com.production.controller.CheckPurchaseServlet</servlet-class>
+    <servlet-name>CheckPurchaseServlet2</servlet-name>
+    <servlet-class>com.production.controller.CheckPurchaseServlet2</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CheckPurchaseServlet</servlet-name>
+    <servlet-name>CheckPurchaseServlet2</servlet-name>
     <url-pattern>/CheckPurchase.do</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -282,7 +282,7 @@
   
   <servlet>
     <servlet-name>CheckPurchaseServlet1</servlet-name>    
-    <servlet-class>com.production.controller.CheckPurchaseServlet</servlet-class>
+    <servlet-class>com.production.controller.CheckPurchaseServlet2</servlet-class>
    <load-on-startup>1</load-on-startup>
 </servlet> 
 

@@ -23,6 +23,8 @@ import javax.sql.DataSource;
 
 import org.json.JSONObject;
 
+import com.production.model.ProductionService;
+
 
 /**
  * Servlet implementation class ProductRating
@@ -73,6 +75,9 @@ public class RateProductServlet extends HttpServlet {
 		    String score = (String) jsonObject.get("score");
 		    Integer cid = (Integer) session.getAttribute("mno");
 		    
+		    ProductionService psrvc = new ProductionService();
+		    String pname = psrvc.getOneProduct(id).getProductName();
+		    
 //		    envContext = new InitialContext();
 //			Context initContext  = (Context)envContext.lookup("java:/comp/env");
 //			DataSource ds = (DataSource)initContext.lookup("jdbc/TestDB");
@@ -118,16 +123,27 @@ public class RateProductServlet extends HttpServlet {
 		    
 		    
 		    ServletContext sctx = this.getServletConfig().getServletContext();
-		    Set<Integer> l3;       
+//		    Set<Integer> l3;       
+//		    String cid1 = cid.toString();   
+//		    if (sctx.getAttribute(cid1)==null){      
+//		    	    l3 = new LinkedHashSet<Integer>();
+//		           sctx.setAttribute(cid1, l3);
+//		       }
+//		       else{		    	   
+//		    	   l3 = (Set<Integer>) sctx.getAttribute(cid1);
+//		       }
+//		       l3.add(id);
+		    Set<String> l3;
 		    String cid1 = cid.toString();   
 		    if (sctx.getAttribute(cid1)==null){      
-		    	    l3 = new LinkedHashSet<Integer>();
+		    	    l3 = new LinkedHashSet<String>();
 		           sctx.setAttribute(cid1, l3);
 		       }
 		       else{		    	   
-		    	   l3 = (Set<Integer>) sctx.getAttribute(cid1);
+		    	   l3 = (Set<String>) sctx.getAttribute(cid1);
 		       }
-		       l3.add(id);
+		       l3.add(pname);
+		    
 		    pstmt2.close();
 		    conn1.close();
 
