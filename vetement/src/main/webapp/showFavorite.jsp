@@ -6,20 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>我的收藏</title>
-<<<<<<< HEAD
-<!-- <script src="js/jquery-3.2.0.min.js"></script> -->
-=======
 <script src="js/jquery-3.2.0.min.js"></script>
->>>>>>> branch 'master' of https://github.com/EEITTEAM02/Lativ.git
 <style>
-<<<<<<< HEAD
-
-#display1{
-	width:900px;
-=======
 #display1{
  	width:900px; 
->>>>>>> branch 'master' of https://github.com/EEITTEAM02/Lativ.git
 	margin:auto;
 	text-align: center;
 }
@@ -28,17 +18,11 @@
 	width: 95%;
 	font-size:20px;
 }
-<<<<<<< HEAD
- #al{ 
- 	padding:10px; 
- } 
-=======
 
  #al{ 
  	padding:10px; 
  } 
 
->>>>>>> branch 'master' of https://github.com/EEITTEAM02/Lativ.git
 #display_th{
 	margin:auto;
 	 text-align:center;
@@ -75,10 +59,6 @@ hight:90%;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/EEITTEAM02/Lativ.git
 </style>
 
 
@@ -124,7 +104,7 @@ hight:90%;
 			   var cell4 = $('<td></td>').attr({"id":"al"}).text(product.price);
 			   var cell5 = $('<td></td>').attr({"id":"al"});
 			   
-			   var elementA = $('<a></a>').attr({"width":"70px"});
+			   var elementA = $('<a></a>');
 			   elementA.attr("href", '${context}/productPages.jsp?Pid='+product.productId);//連接柏瑜的網址
 			   elementA.append(img);
 			   cell5.append(elementA);
