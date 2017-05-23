@@ -42,7 +42,6 @@ public class ProductDetailServlet extends HttpServlet{
 		Integer pno = Integer.parseInt(request.getParameter("pno"));
 		
 		Integer pno1 = pno;
-//		Integer pno2 = pno-1;
 		
 		List<Integer> l1= new LinkedList<Integer>();          //list of pnos/productId with the same name
 		List<Integer> l2= new LinkedList<Integer>();          //list of pnos/productId with color images
@@ -64,6 +63,9 @@ public class ProductDetailServlet extends HttpServlet{
 				
 				if(pName.equals(psrvc.getOneProduct(pno1).getProductName())){
 					l1.add(pno1);
+				}
+				else{
+					break;
 				}
 				
 				usedUpPno.add(pno1);
