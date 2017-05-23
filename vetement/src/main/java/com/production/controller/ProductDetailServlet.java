@@ -198,7 +198,7 @@ public class ProductDetailServlet extends HttpServlet{
             m1.put("array10", array10);
             m1.put("discountType", discountDescript);
             m1.put("unitPriceDiscounted", unitPriceDiscounted);
-            m1.put("mainCat", mainCat);
+//            m1.put("mainCat", mainCat);
             String jsonString = JSONValue.toJSONString(m1); 
             out.println(jsonString);
 			 out.flush();
