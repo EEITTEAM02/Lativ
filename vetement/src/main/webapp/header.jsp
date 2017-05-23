@@ -11,6 +11,10 @@
 	.glyphicon:before {
 		font-family: Glyphicons Halflings
 	}
+	.header_font{
+	  font-family: Microsoft Jhenghei;
+	  font-size: 18px;
+	}
 </style>
 </head>
 <body>
@@ -21,15 +25,15 @@
 			<span class="sr-only">Toggle navigation</span>
 				Menu <i class="fa fa-bars"></i>
 		    </button>
-		    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">首頁</a>
-		    <a class="navbar-brand" href="${pageContext.request.contextPath}/Search/search.jsp">購物</a>
+		    <a class="navbar-brand header_font" href="${pageContext.request.contextPath}/index.jsp">首頁</a>
+		    <a class="navbar-brand header_font" href="${pageContext.request.contextPath}/Search/search.jsp">購物</a>
 		    <c:if test="${sessionScope.login_customer_info != null}">
-		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/memberPage.jsp">會員專區</a>
+		    	<a class="navbar-brand header_font" href="${pageContext.request.contextPath}/memberPage.jsp">會員專區</a>
 	        </c:if>
 <%-- 	         <c:if test="${sessionScope.login_customer_info != null}"> --%>
 <%-- 		    	<a class="navbar-brand" href="${pageContext.request.contextPath}/ProductBack/Checkout.do">結帳</a> --%>
 <%-- 	        </c:if> --%>
-	        <a class="navbar-brand" href="${pageContext.request.contextPath}/aboutUs.jsp">關於我們</a>
+	        <a class="navbar-brand header_font" href="${pageContext.request.contextPath}/aboutUs.jsp">關於我們</a>
 	        
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->

@@ -52,8 +52,13 @@ position:relative;
 }
 
 #mybtn1,#mybtn2{
-position:absolute;
-bottom:0;
+	position:absolute;
+	margin-top:5%;
+	margin-left:35%;
+	font-family: Microsoft Jhenghei;
+}
+.input_height{
+	margin-top:5px;
 }
 
 </style>
@@ -61,21 +66,22 @@ bottom:0;
 <body>
 					
 					<!-- 每頁不同的內容從這裡開始 -->
-<div class="container-fluid" style="border:1px solid #cecece;">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-6" >
 
-        <h1>新增產品 </h1>
+        <h1 style='font-size:40px; font-family:Microsoft Jhenghei; color:darkblue'>新增產品 </h1>
         <form id="myForm2" method="post" action="UploadServlet2" enctype="multipart/form-data" onsubmit="return validateForm2()">
-            <table >
+            <table style='font-size:16px; font-family:Microsoft Jhenghei; font-weight:800'>
                 <tr>
                     <td>產品名: </td>
-                    <td><input type="text" name="name"/></td>
+                    <td><input type="text" name="name" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>大小: </td>
+
                     <td><select name="size" ">
-                    <option value="XL" selected>XL</option>
+                    <option value="XL" selected class='input_height'>XL</option>
                     <option value="L">L</option>
                     <option value="M">M</option>
                     <option value="S">S</option>
@@ -84,61 +90,61 @@ bottom:0;
                 </tr>
                 <tr>
                     <td>顏色: </td>
-                    <td><input type="text" name="color" /></td>
+                    <td><input type="text" name="color" class='input_height' /></td>
                 </tr>
                 <tr>
                     <td>價錢: </td>
-                    <td><input type="number" name="price" /></td>
+                    <td><input type="number" name="price" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>折價: </td> 
-                    <td ><select id="discountSelect1" name="discountCat" ></select></td>
+                    <td ><select id="discountSelect1" name="discountCat" class='input_height'></select></td>
                 </tr>
                 <tr>
                     <td>描述: </td>
-                    <td><input type="textarea" name="descript" /></td>
+                    <td><input type="textarea" name="descript" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>分類: </td>
-                    <td><select id="categoryId1" name="categoryId" ></select></td>
+                    <td><select id="categoryId1" name="categoryId" class='input_height' ></select></td>
                 </tr>
                 
                 <tr>
                     <td>庫存: </td>
-                    <td><input type="number" name="noInStock" /></td>
+                    <td><input type="number" name="noInStock" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>上下架: </td>
-                    <td><select name="for_sale"><option value="true" selected>上架</option><option value="false">下架</option></select></td>
+                    <td><select name="for_sale" class='input_height'><option value="true" selected>上架</option><option value="false">下架</option></select></td>
                 </tr>
                 
                 <tr>
                     <td>標誌: </td>
-                    <td><input type="file" name="icon" /></td>
+                    <td><input type="file" name="icon" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>產品圖: </td>
-                    <td><input type="file" name="productImg" /></td>
+                    <td><input type="file" name="productImg" class='input_height' /></td>
                 </tr>
                 <tr>
                     <td>顏色圖: </td>
-                    <td><input type="file" name="colorImg" /></td>
+                    <td><input type="file" name="colorImg" class='input_height' /></td>
                 </tr>
                 <tr>
                     <td>大圖1: </td>
-                    <td><input type="file" name="modelImg1" /></td>
+                    <td><input type="file" name="modelImg1" class='input_height' /></td>
                 </tr>
                 <tr>
                     <td>大圖2: </td>
-                    <td><input type="file" name="modelImg2" /></td>
+                    <td><input type="file" name="modelImg2" class='input_height' /></td>
                 </tr>
                 <tr>
                     <td>大圖3: </td>
-                    <td><input type="file" name="modelImg3" /></td>
+                    <td><input type="file" name="modelImg3" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>大圖4: </td>
-                    <td><input type="file" name="modelImg4" /></td>
+                    <td><input type="file" name="modelImg4" class='input_height'/></td>
                 </tr>
                 
                 <tr>
@@ -154,26 +160,26 @@ bottom:0;
          
          <div class="col-md-6">
 
-        <h1>調整產品 </h1>
+        <h1 style='font-size:40px; font-family:Microsoft Jhenghei;color:darkblue'>調整產品 </h1>
         <form id="myForm" method="post" action="ProductModify2.do" enctype="multipart/form-data" onsubmit="return validateForm1()">
-            <table >
+            <table  style='font-size:16px; font-family:Microsoft Jhenghei; font-weight:800'>
                
                 <tr>
                     <td>請先選 分類: </td>
-                    <td><select id="categoryId2" ><option disabled selected value>-- select an option --</option></select></td>
+                    <td><select id="categoryId2" class='input_height'><option disabled selected value>-- select an option --</option></select></td>
                 </tr>
                 <tr>
                     <td>產品編號: </td>
-                    <td><select name="pno" id="pno" ><option value="0">0</option></select></td>
+                    <td><select name="pno" id="pno" class='input_height'><option value="0">0</option></select></td>
 <!--                     <td><select name="pnoA" id="pnoA" ></select></td> -->
                 </tr>
                 <tr>
                     <td>產品名: </td>
-                    <td><input type="text" name="name" size="20"/></td>
+                    <td><input type="text" name="name" size="20" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>大小: </td>
-                    <td><select name="size" >
+                    <td><select name="size" class='input_height'>
                     <option value="XL" selected>XL</option>
                     <option value="L">L</option>
                     <option value="M">M</option>
@@ -183,69 +189,69 @@ bottom:0;
                 </tr>
                 <tr>
                     <td>顏色: </td>
-                    <td><input type="text" name="color" /></td>
+                    <td><input type="text" name="color" class='input_height' /></td>
                 </tr>
                 <tr>
                     <td>價錢: </td>
-                    <td><input type="number" name="price" /></td>
+                    <td><input type="number" name="price" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>折價: </td>
-                    <td><select id="discountSelect2" name="discountCat" ></select></td>
+                    <td><select id="discountSelect2" name="discountCat" class='input_height'></select></td>
                 </tr>
                 <tr>
                     <td>描述: </td>
-                    <td><input type="textarea" name="descript" /></td>
+                    <td><input type="textarea" name="descript" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>分類: </td>
-                    <td><select id="categoryId3" name="categoryId" ></select></td>
+                    <td><select id="categoryId3" name="categoryId" class='input_height'></select></td>
                 </tr>
                 
                 <tr>
                     <td>庫存: </td>
-                    <td><input type="text" name="noInStock" /></td>
+                    <td><input type="text" name="noInStock" class='input_height'/></td>
                 </tr>
                 <tr>
                     <td>上下架: </td>
-                    <td><select name="for_sale" ><option value="1" selected>上架</option><option value="0">下架</option></select></td>
+                    <td><select name="for_sale" class='input_height'><option value="1" selected>上架</option><option value="0">下架</option></select></td>
                 </tr>
                 
                 <tr>
                     <td>影響同名商品: </td>
-                    <td><input type="checkbox" name="checkbox" /></td>
+                    <td><input type="checkbox" name="checkbox" class='input_height'/></td>
                 </tr>
                 <tr>
                 
                 <tr>
                     <td>標誌: </td>
-                    <td><input type="file" name="icon" /></td>
+                    <td><input type="file" name="icon" class='input_height'/></td>
                 </tr>
                 <tr>
                                       
                 <tr id="productImg">
                     <td>產品圖: </td>
-                    <td><input type="file" name="productImg"/></td>
+                    <td><input type="file" name="productImg"class='input_height'/></td>
                 </tr>
                 <tr id="colorImg">
                     <td>顏色圖: </td>
-                    <td><input type="file" name="colorImg"  /></td>
+                    <td><input type="file" name="colorImg" class='input_height' /></td>
                 </tr>
                 <tr id="modelImg1">
                     <td>大圖1: </td>
-                    <td><input type="file" name="modelImg1" /></td>
+                    <td><input type="file" name="modelImg1" class='input_height' /></td>
                 </tr>
                 <tr id="modelImg2">
                     <td>大圖2: </td>
-                    <td><input type="file" name="modelImg2" /></td>
+                    <td><input type="file" name="modelImg2" class='input_height'/></td>
                 </tr>
                 <tr id="modelImg3">
                     <td>大圖3: </td>
-                    <td><input type="file" name="modelImg3" /></td>
+                    <td><input type="file" name="modelImg3" class='input_height'/></td>
                 </tr>
                 <tr id="modelImg4">
                     <td>大圖4: </td>
-                    <td><input type="file" name="modelImg4" /></td>
+                    <td><input type="file" name="modelImg4" class='input_height'/></td>
                 </tr>
                 <tr >
                     <td colspan="2">

@@ -49,10 +49,17 @@ body{
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    
 }
 .abc{ 
 
-	background-image:url('images/wood.jpg'); 
+	background-image:url('images/wood2.jpg'); 
+
+	    border-radius: 20px; 
+}
+.edf{
+	border: 2px solid #337ab7;
+
 }
 </style>
 
@@ -76,7 +83,7 @@ body{
 		</div>
 		
 		<div id="pan2">
-			<div class="pan2_item abc" id="pan2_item_1">
+			<div class="pan2_item abc edf" id="pan2_item_1" style="display:block">
   				<jsp:include page="uploadProduct2.jsp"></jsp:include>  
 			</div>
 			<div class="pan2_item abc" id="pan2_item_2">
