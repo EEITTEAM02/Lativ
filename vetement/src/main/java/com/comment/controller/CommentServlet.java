@@ -158,9 +158,7 @@ public class CommentServlet extends HttpServlet{
 					m1.put("productId", aord.getProductId());
 					l1.add(m1);
 				}
-			//	System.out.println(l1);
 				String jsonString = JSONValue.toJSONString(l1);
-				System.out.println(jsonString);
 				res.getWriter().println(jsonString);
 			}catch (Exception e) {
 				errorMsgs.add("???"+e.getMessage());
