@@ -62,6 +62,15 @@ position:relative;
 	margin-top:5px;
 }
 
+#mybtn0{
+position:absolute;
+	margin-top:5%;
+	margin-left:10%;
+	font-family: Microsoft Jhenghei;
+	bottom:0;
+}
+
+
 </style>
 </head>
 <body>
