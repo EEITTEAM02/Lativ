@@ -123,59 +123,62 @@
 		
 		<script>
 			
-		$('#d1').click(function() {
-			var deleteno = $('select[name="deleteno"]').val();
+// 		$('#d1').click(function() {
+// 			var deleteno = $('select[name="deleteno"]').val();
 			
-			console.log(deleteno);
+// 			console.log(deleteno);
 			
-			$.ajax({
-				'type':'GET',
-				'url':'news.do',
-				'dataType':'xml',
-				'data':{action:"del",'deleteno':deleteno},
-				'complete':
-					function(){
-						alert('刪除成功');
-						window.location.reload();
-					},
-			});
-		});
-			
-// 			$('#d1').click(function() {
-// 				var deleteno = $('select[name="deleteno"]').val();
-// 				console.log(deleteno);
-				
-// 				swal({
-// 					  title: "確定要刪除嗎?",
-// 					  text: "按下確定就無法回復了喔!!!",
-// 					  type: "warning",
-// 					  showCancelButton: true,
-// 					  confirmButtonColor: "btn-danger",
-// 					  confirmButtonText: "確定",
-// 					  cancelButtonText: "取消",
-// 					  closeOnConfirm: false,
-
+// 			$.ajax({
+// 				'type':'GET',
+// 				'url':'news.do',
+// 				'dataType':'xml',
+// 				'data':{action:"del",'deleteno':deleteno},
+// 				'complete':
+// 					function(){
+// 						alert('刪除成功');
+// 						window.location.reload();
 // 					},
-// 					function(isConfirm){
-					  					  
-// 						$.ajax({
-// 							'type':'GET',
-// 							'url':'news.do',
-// 							'dataType':'xml',
-// 							'data':{action:"del",'deleteno':deleteno},
-// 							'complete':
-// 								function(){
-// 								window.location.href="mangerPage.jsp";
-// 								},
-// 						});
+// 			});
+// 		});
+			
+			$('#d1').click(function() {
+				var deleteno = $('select[name="deleteno"]').val();
+				console.log(deleteno);
+				
+				swal({
+					  title: "確定要刪除嗎?",
+					  text: "按下確定就無法回復了喔!!!",
+					  type: "warning",
+					  showCancelButton: true,
+					  confirmButtonColor: "btn-danger",
+					  confirmButtonText: "確定",
+					  cancelButtonText: "取消",
+					  closeOnConfirm: false,
+
+					},
+					function(isConfirm){
+					  	if(isConfirm == true){
+						$.ajax({
+							'type':'GET',
+							'url':'news.do',
+							'dataType':'xml',
+							'data':{action:"del",'deleteno':deleteno},
+							'complete':
+								swal({title:"刪除成功"},function(){
+	            					window.location.reload();
+	            					}) 
+						});
 					
-// 						swal("刪除", "刪除成功", "success");
+					  	}else{
+					  		
+						swal("刪除", "刪除成功", "success");
+					  	}			  
 						
 
-// 					});
+					});
 
 
-// 			});
+			});
 			
 			
 			$('#n1').click(function() {
