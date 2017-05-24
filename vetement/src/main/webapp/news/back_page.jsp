@@ -157,19 +157,22 @@
 
 					},
 					function(isConfirm){
-					  					  
+					  	if(isConfirm == true){
 						$.ajax({
 							'type':'GET',
 							'url':'news.do',
 							'dataType':'xml',
 							'data':{action:"del",'deleteno':deleteno},
 							'complete':
-								function(){
-								window.location.href="mangerPage.jsp";
-								},
+								swal({title:"刪除成功"},function(){
+	            					window.location.reload();
+	            					}) 
 						});
 					
+					  	}else{
+					  		
 						swal("刪除", "刪除成功", "success");
+					  	}			  
 						
 
 					});
