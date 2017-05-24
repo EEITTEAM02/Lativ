@@ -11,6 +11,13 @@ public class ProductionService {
 		dao = new ProductionDAO();
 	}
 
+	public List<ProductionVO> getProdsWithName(String name){
+		return dao.getProdsWithName(name);
+	}
+	public List<ProductionVO> getLastTenProds(){
+		return dao.getLastTenProds();
+	}
+	
 	public ProductionVO addProduct(String productName, String size, String color,
 			 Double price, Integer packageNo, Integer quantity_in_stock, boolean for_sale,String describe, Integer categoryId, byte[] icon,byte[] picture_main,
 			 byte[] picture_color,byte[] picture_model1,byte[] picture_model2,byte[] picture_model3,byte[] picture_model4) {

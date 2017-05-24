@@ -45,6 +45,39 @@ public class ProductionDAO implements ProductionDAO_interface{
 		return list;
 	}
 	
+	@Override
+	public List<ProductionVO> getLastTenProds(){
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		List<ProductionVO> list = null;
+		try {
+			session.beginTransaction();
+			SQLQuery q = session.createSQLQuery("select top 10 * from production order by productId desc");
+			q.addEntity(ProductionVO.class);
+			list =q.list();
+			session.getTransaction().commit();
+		} catch (RuntimeException ex) {
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return list;
+	}
+	
+	@Override
+	public List<ProductionVO> getProdsWithName(String name){
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		List<ProductionVO> list = null;
+		try {
+			session.beginTransaction();
+			Query q = session.createQuery("from ProductionVO where productName=:productName ");
+			q.setParameter("productName", name);
+			list =q.list();
+			session.getTransaction().commit();
+		} catch (RuntimeException ex) {
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return list;
+	}
 	
 	
 	@Override

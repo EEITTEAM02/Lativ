@@ -56,6 +56,7 @@ position:relative;
 	margin-top:5%;
 	margin-left:35%;
 	font-family: Microsoft Jhenghei;
+	bottom:0;
 }
 .input_height{
 	margin-top:5px;
@@ -117,7 +118,10 @@ position:relative;
                     <td>上下架: </td>
                     <td><select name="for_sale" class='input_height'><option value="true" selected>上架</option><option value="false">下架</option></select></td>
                 </tr>
-                
+                <tr>
+                    
+                    <td><input type="text" name="oneClick" style="display:none" value="0"/></td>
+                </tr>
                 <tr>
                     <td>標誌: </td>
                     <td><input type="file" name="icon" class='input_height'/></td>
@@ -149,13 +153,14 @@ position:relative;
                 
                 <tr>
                     <td colspan="2">
+                       <button type="button" class="btn btn-info" id="mybtn0">一鍵輸入</button>
                         <button type="submit" value="Save" class="btn btn-info" id="mybtn1">送出</button>
                     </td>
                 </tr>
                
             </table>
         </form>
-         <span>${result1}</span>
+<%--          <span>${result1}</span> --%>
          </div>
          
          <div class="col-md-6">
@@ -261,9 +266,9 @@ position:relative;
                
             </table>
         </form>
-         <span>${result2}</span>
+<%--          <span>${result2}</span> --%>
          </div>
-       
+      
         
          </div>
          </div>
@@ -271,6 +276,9 @@ position:relative;
        
          <!-- 每頁不同的內容到這裡結束 -->
     <script>
+   
+    
+    
     function validateForm2() {
         var x = document.forms["myForm2"]["name"].value;
         var y = document.forms["myForm2"]["color"].value;
@@ -318,6 +326,20 @@ position:relative;
     }
      
     $(function() {
+    	
+    	var oneClick = document.getElementById("mybtn0");
+    	console.log(oneClick);
+        oneClick.addEventListener('click',function(){
+        	$("#myForm2 input[name='name']").val('新衣服');
+        	$("#myForm2 select[name='size']").val('S');
+        	$("#myForm2 input[name='color']").val('紅');
+        	$("#myForm2 input[name='price']").val('100');
+        	$("#myForm2 select[name='discountCat'] option:eq(1)").prop('selected',true);
+        	$("#myForm2 input[name='descript']").val('深淺色請分開洗滌');
+        	$("#myForm2 select[name='categoryId'] option:eq(0)").prop('selected',true);
+        	$("#myForm2 input[name='noInStock']").val('50');
+        	$("#myForm2 input[name='oneClick']").val('1');
+        });
     	$.ajax({
     		'url':'GetDiscountCat.do',
     		'success':function(data){
@@ -431,20 +453,20 @@ position:relative;
                 $('#pno').change(function(){   
                 var pno = $('#pno').val();
                 
-    	    	$('#myForm img').remove();
-    	    	var image1 = $('<img></img>').attr('src','productImages/'+pno).css({'width':'50px','height':'50px'});
-    	    	var image2 = $('<img></img>').attr('src','colorImages/'+pno).css({'width':'50px','height':'50px'});
-    	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pno).css({'width':'50px','height':'50px'});
-    	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pno).css({'width':'50px','height':'50px'});
-    	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pno).css({'width':'50px','height':'50px'}); 
-    	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pno).css({'width':'50px','height':'50px'});
+//     	    	$('#myForm img').remove();
+//     	    	var image1 = $('<img></img>').attr('src','productImages/'+pno).css({'width':'50px','height':'50px'});
+//     	    	var image2 = $('<img></img>').attr('src','colorImages/'+pno).css({'width':'50px','height':'50px'});
+//     	    	var image3 = $('<img></img>').attr('src','modelImages1/'+pno).css({'width':'50px','height':'50px'});
+//     	    	var image4 = $('<img></img>').attr('src','modelImages2/'+pno).css({'width':'50px','height':'50px'});
+//     	    	var image5 = $('<img></img>').attr('src','modelImages3/'+pno).css({'width':'50px','height':'50px'}); 
+//     	    	var image6 = $('<img></img>').attr('src','modelImages4/'+pno).css({'width':'50px','height':'50px'});
     	    	
-    	    	$('#productImg').append(image1);   	    	
-    	    	$('#colorImg').append(image2);
-    	    	$('#modelImg1').append(image3);
-    	    	$('#modelImg2').append(image4);
-    	    	$('#modelImg3').append(image5);
-    	    	$('#modelImg4').append(image6);
+//     	    	$('#productImg').append(image1);   	    	
+//     	    	$('#colorImg').append(image2);
+//     	    	$('#modelImg1').append(image3);
+//     	    	$('#modelImg2').append(image4);
+//     	    	$('#modelImg3').append(image5);
+//     	    	$('#modelImg4').append(image6);
     	    	$('#pno option[value=option0]').remove();
     	    	
     	    	$.get('AutoCompleteProductServlet.do',{'pno':pno},function(obj){

@@ -1,6 +1,7 @@
 package com.production.controller;
 
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream; 
 import javax.servlet.ServletException;
@@ -34,6 +35,23 @@ public class UploadServlet2 extends HttpServlet {
     	Integer categoryId = null;
     	Integer noInStock = null;
     	boolean for_sale = false;
+    	
+    	  InputStream inputStream1 = null;
+          InputStream inputStream2 = null;
+          InputStream inputStream3 = null;
+          InputStream inputStream4 = null; // input stream of the upload file
+          InputStream inputStream5 = null;
+          InputStream inputStream6 = null; 
+          InputStream inputStream7 = null;
+          
+          byte[] bytes1 =null;
+          byte[] bytes2 =null;
+          byte[] bytes3 =null;
+          byte[] bytes4 =null;
+          byte[] bytes5 =null;
+          byte[] bytes6 =null;
+          byte[] bytes7 =null;
+          
         if (request.getParameter("name")!=null&&!request.getParameter("name").equals("")){
     	    name = request.getParameter("name");
         }
@@ -61,22 +79,30 @@ public class UploadServlet2 extends HttpServlet {
         if (request.getParameter("for_sale")!=null&&!request.getParameter("for_sale").equals("")){
             for_sale = Boolean.valueOf(request.getParameter("for_sale"));
         }
-         System.out.println(for_sale);
-        InputStream inputStream1 = null;
-        InputStream inputStream2 = null;
-        InputStream inputStream3 = null;
-        InputStream inputStream4 = null; // input stream of the upload file
-        InputStream inputStream5 = null;
-        InputStream inputStream6 = null; 
-        InputStream inputStream7 = null;
         
-        byte[] bytes1 =null;
-        byte[] bytes2 =null;
-        byte[] bytes3 =null;
-        byte[] bytes4 =null;
-        byte[] bytes5 =null;
-        byte[] bytes6 =null;
-        byte[] bytes7 =null;
+        if (request.getParameter("oneClick").equals("1")){
+        	System.out.println("in oneClick");
+                    
+             inputStream2 = new FileInputStream("C:/project_workspace/LocalRepository/vetement/src/main/resources/images/picture_main_black.jpg");
+             bytes2 = IOUtils.toByteArray(inputStream2);
+             
+             inputStream3 = new FileInputStream("C:/project_workspace/LocalRepository/vetement/src/main/resources/images/picture_color_black.jpg");
+             bytes3 = IOUtils.toByteArray(inputStream3);
+             
+             inputStream4 = new FileInputStream("C:/project_workspace/LocalRepository/vetement/src/main/resources/images/picture_model1.jpg");
+             bytes4 = IOUtils.toByteArray(inputStream4);
+             
+             inputStream5 = new FileInputStream("C:/project_workspace/LocalRepository/vetement/src/main/resources/images/picture_model2.jpg");
+             bytes5 = IOUtils.toByteArray(inputStream5);
+             
+             inputStream6 = new FileInputStream("C:/project_workspace/LocalRepository/vetement/src/main/resources/images/picture_model3.jpg");
+             bytes6 = IOUtils.toByteArray(inputStream6);
+             
+        }
+         
+      
+        
+      
        
         // obtains the upload file part in this multipart request
         Part icon = request.getPart("icon");
@@ -97,6 +123,7 @@ public class UploadServlet2 extends HttpServlet {
             inputStream1 = icon.getInputStream();
             bytes1 = IOUtils.toByteArray(inputStream1);
         }
+        if (request.getParameter("oneClick").equals("0")){
         if (productImg != null) {
             // prints out some information for debugging
 //            System.out.println(productImg.getName());
@@ -107,6 +134,8 @@ public class UploadServlet2 extends HttpServlet {
             inputStream2 = productImg.getInputStream();
             bytes2 = IOUtils.toByteArray(inputStream2);
         }
+    }
+        if (request.getParameter("oneClick").equals("0")){
         if (colorImg != null) {
             // prints out some information for debugging
 //            System.out.println(colorImg.getName());
@@ -117,7 +146,8 @@ public class UploadServlet2 extends HttpServlet {
             inputStream3 = colorImg.getInputStream();
             bytes3 = IOUtils.toByteArray(inputStream3);
         }
-        
+        }
+        if (request.getParameter("oneClick").equals("0")){
         if (modelImg1 != null) {
             // prints out some information for debugging
 //            System.out.println(modelImg1.getName());
@@ -128,7 +158,8 @@ public class UploadServlet2 extends HttpServlet {
             inputStream4 = modelImg1.getInputStream();
             bytes4 = IOUtils.toByteArray(inputStream4);
         }
-        
+        }
+        if (request.getParameter("oneClick").equals("0")){
         if (modelImg2 != null) {
             // prints out some information for debugging
 //            System.out.println(modelImg2.getName());
@@ -138,7 +169,9 @@ public class UploadServlet2 extends HttpServlet {
             // obtains input stream of the upload file
             inputStream5 = modelImg2.getInputStream();
             bytes5 = IOUtils.toByteArray(inputStream5);
-        } 
+        }
+        }
+        if (request.getParameter("oneClick").equals("0")){
         if (modelImg3 != null) {
             // prints out some information for debugging
 //            System.out.println(modelImg3.getName());
@@ -148,7 +181,8 @@ public class UploadServlet2 extends HttpServlet {
             // obtains input stream of the upload file
             inputStream6 = modelImg3.getInputStream();
             bytes6 = IOUtils.toByteArray(inputStream6);
-        } 
+        }
+        }
         if (modelImg4 != null) {
             // prints out some information for debugging
 //            System.out.println(modelImg4.getName());

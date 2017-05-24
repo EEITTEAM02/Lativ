@@ -40,7 +40,7 @@ public class ProductDetailServlet extends HttpServlet{
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		Integer pno = Integer.parseInt(request.getParameter("pno"));
-		
+	
 		Integer pno1 = pno;
 		
 		List<Integer> l1= new LinkedList<Integer>();          //list of pnos/productId with the same name
@@ -49,36 +49,58 @@ public class ProductDetailServlet extends HttpServlet{
 		
 		try{
 			ProductionService psrvc = new ProductionService();
-			int size = psrvc.getAll().size();
+//			int size = psrvc.getAll().size();
 			ProductionVO aProduct = psrvc.getOneProduct(pno);
 			String pName = aProduct.getProductName();
-			Integer pno2 = size;
-			CategoryService csrvc = new CategoryService();
-			CategoryVO category = csrvc.findByPrimaryKey(aProduct.getCategoryId());
-			String mainCat = category.getClass_top();
+//			Integer pno2 = size;
+//			CategoryService csrvc = new CategoryService();
+//			CategoryVO category = csrvc.findByPrimaryKey(aProduct.getCategoryId());
+//			String mainCat = category.getClass_top();
 			
-			List<Integer> usedUpPno = new LinkedList<Integer>();
+//			List<Integer> usedUpPno = new LinkedList<Integer>();
 			
-			for(;pno1<=pno+25;pno1++){
-				
-				if(pName.equals(psrvc.getOneProduct(pno1).getProductName())){
-					l1.add(pno1);
-				}
-				else{
-					break;
-				}
-				
-				usedUpPno.add(pno1);
-				if (pno1==size) break;
+//			for(;pno1<=pno+25;pno1++){
+//			
+//				if(pName.equals(psrvc.getOneProduct(pno1).getProductName())){
+//					l1.add(pno1);
+//				}
+//				else{
+//					break;
+//				}
+//				
+//				usedUpPno.add(pno1);
+//				if (pno1==size) break;
+//			}
+			
+			List<ProductionVO> listOfProdsWithSameName = psrvc.getProdsWithName(pName);
+			Iterator it4 = listOfProdsWithSameName.iterator();
+			while (it4.hasNext()){
+				ProductionVO aProduct3 = (ProductionVO) it4.next();
+				Integer pid = aProduct3.getProductId();
+					l1.add(pid);
+//					usedUpPno.add(pid);
 			}
 			
-			for(;pno2>size-10;pno2--){
-				
-				if (usedUpPno.contains(pno2)) break;
-				if(pName.equals(psrvc.getOneProduct(pno2).getProductName())){
-					l1.add(pno2);
-				}
-			}
+//			for(;pno2>size-10;pno2--){
+//				System.out.println("pno2:"+pno2);
+//				if (usedUpPno.contains(pno2)) break;
+//				if(pName.equals(psrvc.getOneProduct(pno2).getProductName())){
+//					l1.add(pno2);
+//				}
+//				if (pno2==1) break;
+//			}
+			
+//			List<ProductionVO> lastTenProds = psrvc.getLastTenProds();
+//			Iterator it3 = lastTenProds.iterator();
+//			while (it3.hasNext()){
+//				ProductionVO aProduct2 = (ProductionVO) it3.next();
+//				String pname = aProduct2.getProductName();
+//				Integer pid2 = aProduct2.getProductId();
+//				if (usedUpPno.contains(pid2)) break;
+//				if(pName.equals(pname)){
+//					l1.add(pid2);
+//				}
+//			}
 			
 			
 			for (Integer pno3 : l1){
