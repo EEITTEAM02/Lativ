@@ -31,7 +31,7 @@ public class SearcherDAO {
 			+ "from orderItem o join production p on o.productId=p.productId join orders os on o.orderNo = os.orderNo  where o.orderNo in"
 			+ "(select orderNo from orderItem o join production p on o.productId = p.productId where p.productName in"
 			+ "(select p.productName from orderItem o join production p on o.productId = p.productId where orderNo = :orderNo))"
-			+ "and os.dealDate BETWEEN (convert(datetime,convert(varchar,GetDate(),111))-30) AND (convert(datetime,convert(varchar,GetDate(),111))-1) "
+			+ "and os.dealDate BETWEEN (convert(datetime,convert(varchar,GetDate(),111))-30) AND convert(datetime,convert(varchar,GetDate(),111)) "
 			+ "group by p.productName order by sum(quantity_order) desc) and picture_model1 is not null";
 	
 	private static final String autocomplete = "Select distinct productName from ProductionVO "
