@@ -86,6 +86,22 @@ img.displayImg {
 .col-md-12{
 	margin-top:30px;
 }
+
+.order_list{
+    margin: auto;
+    border: 2px solid #337ab7;
+    border-radius: 30px;
+    height: 800px;
+    width: 110%;
+    padding-top: 70px;
+    background-image: url(images/custbg.jpg);
+    font-family: Microsoft Jhenghei;
+}
+#idd:hover {
+	background-color:wheat
+}
+
+
 </style>
 
 
@@ -97,7 +113,7 @@ img.displayImg {
 	
 	
 	
-    <div class='container'>
+    <div class='container order_list'>
         <div class='row'>
             <div class='col-md-12'></div>
         </div>
@@ -184,7 +200,7 @@ img.displayImg {
                             var cell2 = $('<td></td>').text(order.orderDate);
                             var cell3 = $('<td></td>').text(order.deliveryAddr);
                             var cell4 = $('<td></td>').text(order.orderSum);
-                            var row = $('<tr></tr>').attr('id', idd);
+                            var row = $('<tr></tr>').attr('id', 'idd');
                             row.append([cell1, cell2, cell3, cell4]);
                             row.on("click", function() {
                                 dialogOrderDetail.dialog("open");
