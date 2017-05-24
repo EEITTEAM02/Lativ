@@ -227,6 +227,10 @@ tr {
 		var addr_send = $('input[name="addr_send"]');
 		var mail_send = $('input[name="mail_send"]');
 		
+		var str = "${sessionScope.login_customer_info.addr_customer}";
+		str = str.replace(/,/g, "");
+		$('p[name="addr_send"]').text(str);
+		
 		$("#copy").click(
 			function() {
 				if ($("#copy").prop("checked")) {

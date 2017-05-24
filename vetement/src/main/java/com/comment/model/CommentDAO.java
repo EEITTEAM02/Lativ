@@ -38,12 +38,10 @@ public class CommentDAO implements Comment_interface{
 			commentvo.setOrderNo(commentVO.getOrderNo());
 			Date today = new Date();
 			String sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(today);
-			System.out.println(sdf);
 			commentvo.setPubtime(today);
 			session.save(commentvo);
 			
 			session.getTransaction().commit();
-			System.out.println("新增成功");
 		}catch (RuntimeException e) {
 			session.getTransaction().rollback();
 			throw e;
@@ -60,8 +58,6 @@ public class CommentDAO implements Comment_interface{
 			query.setParameter(1, productId);
 			query.executeUpdate();
 			session.getTransaction().commit();
-			
-			System.out.println("刪除成功");
 		}catch (RuntimeException e) {
 			session.getTransaction().rollback();
 			throw e;
