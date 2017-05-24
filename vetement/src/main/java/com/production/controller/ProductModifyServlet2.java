@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletException;
@@ -176,37 +177,47 @@ public class ProductModifyServlet2 extends HttpServlet {
         	String oldName = psvc.getOneProduct(pno).getProductName();
         	if(checkbox!=null){
         		Set<Integer> listOfPnos = new HashSet<Integer>();
-        		int sizeOfAll = psvc.getAll().size();
-        		Integer pno1 = pno;
-        		Integer pno2 = pno;
-        		if (pno2<sizeOfAll){
-        			pno2+=1;
-        		}
-        		for (;pno1>=pno-25;pno1--){      			
-        			if(pno1==0){
-        				break;
-        			}
-        			if(psvc.getOneProduct(pno1).getProductName().equals(oldName)){
-//        				System.out.println("added pno:" +pno1);
-        				listOfPnos.add(pno1);       				
-        			}
-        			
-        		}
-        		for (;pno2<=pno+25;pno2++){
-        			if(psvc.getOneProduct(pno2).getProductName().equals(oldName)){
-        				listOfPnos.add(pno2);
-        			}
-        			if (pno2==sizeOfAll){
-        				break;
-        			}
-        		}
-//        		System.out.println(listOfPnos);
-        		Iterator it = listOfPnos.iterator();
+        		
+        		ProductionService psrvc = new ProductionService();
+        		List<ProductionVO> listOfProds = psrvc.getProdsWithName(oldName);
+        		
+        		Iterator it = listOfProds.iterator();
         		while(it.hasNext()){
-        			Integer proId=(Integer) it.next();
-        			ProductionVO aProductVO= psvc.getOneProduct(proId);
-        			psvc.updateProduct(proId,name,  aProductVO.getSize(),aProductVO.getColor(),price,discountCat,aProductVO.getQuantity_in_stock(),for_sale,aProductVO.getDescribe(),categoryId,aProductVO.getIcon(),aProductVO.getPicture_main(),aProductVO.getPicture_color(),aProductVO.getPicture_model1(),aProductVO.getPicture_model2(),aProductVO.getPicture_model3(),aProductVO.getPicture_model4());       			
-        		}
+        			ProductionVO aProductVO=(ProductionVO)it.next();
+        			psvc.updateProduct(aProductVO.getProductId(),name,  aProductVO.getSize(),aProductVO.getColor(),price,discountCat,aProductVO.getQuantity_in_stock(),for_sale,aProductVO.getDescribe(),categoryId,aProductVO.getIcon(),aProductVO.getPicture_main(),aProductVO.getPicture_color(),aProductVO.getPicture_model1(),aProductVO.getPicture_model2(),aProductVO.getPicture_model3(),aProductVO.getPicture_model4());       			      		}
+//        		int sizeOfAll = psvc.getAll().size();
+//        		Integer pno1 = pno;
+//        		Integer pno2 = pno;
+//        		if (pno2<sizeOfAll){
+//        			pno2+=1;
+//        		}
+//        		for (;pno1>=pno-25;pno1--){      			
+//        			if(pno1==0){
+//        				break;
+//        			}
+//        			if(psvc.getOneProduct(pno1).getProductName().equals(oldName)){
+//        				
+//        				listOfPnos.add(pno1);       				
+//        			}
+//        			
+//        		}
+//        		for (;pno2<=pno+25;pno2++){
+//        			if(psvc.getOneProduct(pno2).getProductName().equals(oldName)){
+//        				listOfPnos.add(pno2);
+//        			}
+//        			if (pno2==sizeOfAll){
+//        				break;
+//        			}
+//        		}
+        		
+        		
+
+//        		Iterator it2 = listOfPnos.iterator();
+//        		while(it2.hasNext()){
+//        			Integer proId=(Integer) it2.next();
+//        			ProductionVO aProductVO= psvc.getOneProduct(proId);
+//        			psvc.updateProduct(proId,name,  aProductVO.getSize(),aProductVO.getColor(),price,discountCat,aProductVO.getQuantity_in_stock(),for_sale,aProductVO.getDescribe(),categoryId,aProductVO.getIcon(),aProductVO.getPicture_main(),aProductVO.getPicture_color(),aProductVO.getPicture_model1(),aProductVO.getPicture_model2(),aProductVO.getPicture_model3(),aProductVO.getPicture_model4());       			
+//        		}
         		
         	}
         	else
