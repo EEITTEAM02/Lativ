@@ -82,13 +82,22 @@
 	height:290px;
 	border-radius:10px; 
 }
+
+.custom_index{
+	bakground-color:#e7e7e7;
+	border-color: #e7e7e7;
+}
+
+.intro-header{
+	margin-top:2.7%
+}
 </style>
 </head>
 
 <body>
 <c:set var="context" value="${pageContext.request.contextPath}" />
     <!-- Navigation -->
-    <nav id="header" class="navbar navbar-default navbar-custom navbar-fixed-top " >
+    <nav id="header" class="navbar navbar-default navbar-fixed-top custom_index" >
 <!--         <div class="container-fluid" "> -->
 <!--             Brand and toggle get grouped for better mobile display -->
 <!--             <div class="navbar-header page-scroll"> -->
