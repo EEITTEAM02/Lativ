@@ -118,6 +118,7 @@
 					<input type='text' id="phone_no" name='phone_no' value='' chi='電話'>
 					<div id="phone_no_error_msg" class="error_msg"></div><br>
 					<input id="register" type="button" name="register_btn" value="註冊">
+					<input id="onekey" type="button" name="onekey_btn" value="一鍵輸入 " style='font-size: 8px; margin-left: 27%'>
 				</div>	
 			</form>		
 		</div>
@@ -126,6 +127,16 @@
 <script src="${context}/jsUtil/includeHeader.js"></script>
 <script src="${context}/jsUtil/validation.js"></script>
 <script type="text/javascript">
+	$('#onekey').click(function(){
+		var name = $('[name="member_name"]').val("黃枝枝");
+		var mail = $('[name="register_email"]').val("huahua@gmail.com");
+		var mail = $('[name="member_password"]').val("Lativ123");
+		var cmail = $('[name="confirm_password"]').val("Lativ123");
+		var add = $('[name="addr"]').val("信義路四段19巷11號");
+		var tel = $('[name="phone_no"]').val("0988666888");
+	})
+	
+	
 	$('input:radio[name="sex"]').change(function() {
         if (this.checked) {	//this.checked意謂這個radio button被點到
 			$('#sex').val(this.value);	//radio button的value就會寫到id=sex這個input的value裡面 
