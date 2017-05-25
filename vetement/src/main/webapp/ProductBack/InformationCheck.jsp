@@ -163,7 +163,7 @@ tr {
 			</div>
 			<div class="box">
 				<div id="accordion">
-					<span id="span1">捐贈發票<input type="radio" id="radio1" checked="checked"
+					<span id="span1">捐贈發票&nbsp;&nbsp;<input type="radio" id="radio1" checked="checked"
 						name="invoice" value="捐贈發票" /></span>
 					<div>
 						<span>捐贈單位</span> 
@@ -175,10 +175,10 @@ tr {
 						</select>
 						<input type="hidden" name="help_institute" value="${dealInformation.help_selected}"/>
 					</div>
-					<span id="span2">二聯式電子發票<input type="radio" id="radio2"
+					<span id="span2">二聯式電子發票&nbsp;&nbsp;<input type="radio" id="radio2"
 						name="invoice" value="二聯式電子發票" /></span>
 					<span>會員載具 由我們自動為您兌獎，中獎後主動通知</span>
-					<span id="span3">三聯式紙本發票<input type="radio" id="radio3"
+					<span id="span3">三聯式紙本發票&nbsp;&nbsp;<input type="radio" id="radio3"
 						name="invoice" value="三聯式紙本發票" /></span>
 					<div>
 						<div class="invoice_box">

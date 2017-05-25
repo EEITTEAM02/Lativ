@@ -81,7 +81,7 @@
 	}
 	.add_discount_th{
 		padding-bottom: 25px;
-	    padding-left: 14px;
+	    padding-left: 12px;
 	    text-align: center;
 	    background-color: lightblue;
 	    padding-top: 25px;
