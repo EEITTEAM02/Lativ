@@ -98,6 +98,12 @@ img.displayImg {
 	text-decoration: none;
 	color: #337ab7;
 }
+#comm{
+	float:left;
+	width:125px;
+	text-align:center;
+	padding:10px;
+}
 </style>
 
 
@@ -166,8 +172,8 @@ img.displayImg {
 								<div class="col-sm-6 well" id="div25"></div>
 							</div>
 							<div class="row">
-								<div class="col-sm-6 well" id="div26">
-									<div id="comm" style="display: inline-block">
+								<div class="col-sm-6 well" id="div26" style="padding:0px;">
+									<div id="comm">
 										<c:if test="${sessionScope.login_customer_info != null}">
 											<c:set var="cid" scope = "session" value="${sessionScope.login_customer_info.customerId}"/>
 										</c:if>
@@ -176,10 +182,11 @@ img.displayImg {
 										</c:if>
 										<a href='#' onClick=openwindow('showComment.jsp?pid=${param.Pid}&cid=${cid}','test',700,500)>查看評價</a>
 									</div>
-									<div id="like"
-										style="display: inline-block; margin-left: 60px;">
-										<img id="likeimg" data-toggle="tooltip" data-placement="top"
-											title="加入我的收藏">
+									<div style='width:2px;float:left;height:42px;display: inline-block;background:#C0C0C0;'>
+									</div>
+
+									<div id="like" style="display: inline-block;float:left;margin-left:45px;">
+										<img id="likeimg"  data-toggle="tooltip" data-placement="top" title="加入我的收藏">
 									</div>
 								</div>
 							</div>
