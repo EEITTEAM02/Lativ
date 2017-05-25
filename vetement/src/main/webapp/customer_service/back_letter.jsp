@@ -169,7 +169,7 @@
 					'dataType':'xml',
 					'data':{action:"del",'no_service':deleteno},
 					'complete':
-						swal({title:"刪除成功"},function(){
+						swal({title:"刪除成功",type:"success"},function(){
 	    					window.location.reload();
 	    					}) 
 				});

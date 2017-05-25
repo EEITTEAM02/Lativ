@@ -553,8 +553,12 @@
 					success: function(response_delete_count){
 						//alert("成功刪除" + response_delete_count + "筆資料。" );
 						
-						swal("刪除成功", "", "success")
-						location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
+// 						swal("刪除成功", "", "success")
+// 						location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
+						swal({title:"刪除成功",type:"success"},function(){
+	    					window.location.reload();
+	    					})
+						
 					}
 		
 				})
