@@ -248,22 +248,22 @@ img.displayImg {
 		
 		
 		  function checkPurchase() {
-			    var purchase = (function() {
-			        var isPurchase = null;
-			        var pno = universalPno;
+// 			    var purchase = (function() {
+// 			        var isPurchase = null;
+// 			        var pno = universalPno;
 
-			        $.ajax({
-			            'async': false,
-			            'global': false,
-			            'data':{'pno':pno},
-			            'url': ctx+'/CheckPurchase.do',
-			            'success': function(resp) {
-			                isPurchase = (resp === "1");
-			            }
-			        });
-			        return isPurchase;
-			    })();
-			    return purchase;
+// 			        $.ajax({
+// 			            'async': false,
+// 			            'global': false,
+// 			            'data':{'pno':pno},
+// 			            'url': ctx+'/CheckPurchase.do',
+// 			            'success': function(resp) {
+// 			                isPurchase = (resp === "1");
+// 			            }
+// 			        });
+// 			        return isPurchase;
+// 			    })();
+// 			    return purchase;
 			}
 		  
 		  function checkAuth() {
