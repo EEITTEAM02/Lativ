@@ -39,8 +39,9 @@ public class CartContentServlet1 extends HttpServlet{
 		HttpSession session = request.getSession(false);
 		PrintWriter out = response.getWriter();
 	    OrderService osrvc = new OrderService();
+	    
+	    
 	    Integer mno =(Integer) session.getAttribute("mno");
-	    System.out.println(mno);
 	    CustomerService msrvc = new CustomerService();
 
 	    Set<OrderVO> orderList = msrvc.getOrderVOsByCustomerId(mno);
