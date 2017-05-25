@@ -31,12 +31,12 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/sweetalert.css">
 <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="css/jquery.fancybox.min.css" />
-<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+	href="${context}/css/jquery-ui.min.css">
+<link rel="stylesheet" href="${context}/css/jquery.fancybox.min.css" />
+<script src="${context}/js/jquery-3.2.0.min.js"></script>
 <script src="${context}/js/bootstrap.min.js"></script>
 <script src="${context}/js/jquerysession.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="${context}/js/jquery-ui.min.js"></script>
 <script src="${context}/js/jquery.fancybox.min.js"></script>
 <script src="${context}/js/sweetalert.min.js"></script>
 <script src="${context}/js/clean-blog.min.js"></script>
@@ -264,6 +264,8 @@ img.displayImg {
 // 			        return isPurchase;
 // 			    })();
 // 			    return purchase;
+
+return false;
 			}
 		  
 		  function checkAuth() {
