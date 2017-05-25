@@ -52,8 +52,7 @@ public class CartContentServlet1 extends HttpServlet{
 	    }
 	    Iterator<OrderVO> it = orderList.iterator();
 	    OrderVO target=null;
-	   
-	   
+	   	   
 	    while(it.hasNext()){
 	    	target = it.next();
 		      if(!target.isStatus1()){			    	  

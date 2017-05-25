@@ -248,7 +248,7 @@ img.displayImg {
 		</div>
 
 		<script>
-		var purchase = false;
+		
 		var ctx = "<%=request.getContextPath()%>";
 		var cid = null;
 		var pid = ${param.Pid};
@@ -256,24 +256,24 @@ img.displayImg {
 		
 		
 		  function checkPurchase() {
-// 			    var purchase = (function() {
-// 			        var isPurchase = null;
-// 			        var pno = universalPno;
+			    var purchase = (function() {
+			        var isPurchase = null;
+			        var pno = universalPno;
 
-// 			        $.ajax({
-// 			            'async': false,
-// 			            'global': false,
-// 			            'data':{'pno':pno},
-// 			            'url': ctx+'/CheckPurchase.do',
-// 			            'success': function(resp) {
-// 			                isPurchase = (resp === "1");
-// 			            }
-// 			        });
-// 			        return isPurchase;
-// 			    })();
-// 			    return purchase;
+			        $.ajax({
+			            'async': false,
+			            'global': false,
+			            'data':{'pno':pno},
+			            'url': ctx+'/CheckPurchase.do',
+			            'success': function(resp) {
+			                isPurchase = (resp === "1");
+			            }
+			        });
+			        return isPurchase;
+			    })();
+			    return purchase;
 
-return window.purchase;
+
 			}
 		  
 		  function checkAuth() {
@@ -399,7 +399,7 @@ return window.purchase;
 	                }
 		    }
 			
-	       function ratable(){
+	       
 		    if(checkAuth()){
 		    	if(checkPurchase()){
 			for (var i = 1; i < 6;i++)
@@ -410,7 +410,7 @@ return window.purchase;
                 document.getElementById("idimg" + i).onmousedown = mousedown;
 		    	}
 		    }
-	       }
+	       
 
 
             function mouseover(e) {
@@ -580,10 +580,8 @@ return window.purchase;
                                      })
                                      
                                      var button = $('<button></button').myCart(cartCart).addClass('btn btn-danger my-cart-btn').attr
-                                     ({'data-size':selectedSize,'data-unitPriceD':price,'data-unitPriceO':price,'data-id':selectedPno,'data-quantity':1,'data-name':datas.pName,'data-image':"productImages/"+selectedPno}).html('加到購物車').click(function(){
-                                    	 window.purchase = true;
-                                    	 ratable();
-                                     });                                 	
+                                     ({'data-size':selectedSize,'data-unitPriceD':price,'data-unitPriceO':price,'data-id':selectedPno,'data-quantity':1,'data-name':datas.pName,'data-image':"productImages/"+selectedPno}).html('加到購物車');
+                                                                  	
                                                                        
                                      div214.text('產品編號:'+selectedPno);
                                  	span2.append(select).append(button);

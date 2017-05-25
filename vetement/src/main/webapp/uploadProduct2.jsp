@@ -337,7 +337,7 @@ position:absolute;
     $(function() {
     	
     	var oneClick = document.getElementById("mybtn0");
-    	console.log(oneClick);
+    	
         oneClick.addEventListener('click',function(){
         	$("#myForm2 input[name='name']").val('新衣服');
         	$("#myForm2 select[name='size']").val('S');
