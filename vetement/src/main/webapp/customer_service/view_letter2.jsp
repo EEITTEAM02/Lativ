@@ -165,7 +165,7 @@
 	<script>
 
 
-	$('#d3').click(function() {
+	$('button.btn-danger').click(function() {
 		
 		var deleteno = $(this).val();
 		console.log(deleteno);

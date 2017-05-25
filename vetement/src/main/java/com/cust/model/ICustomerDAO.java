@@ -15,4 +15,5 @@ public interface ICustomerDAO { //DAO介面
 	public CustomerVO findbyAccount(String mail);
 	public Set<OrderVO> getOrderVOsByCustomerId(Integer customerId);
 	public List<CustomerVO> getAll();
+    
 }

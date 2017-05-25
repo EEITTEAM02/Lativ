@@ -31,12 +31,12 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/sweetalert.css">
 <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="css/jquery.fancybox.min.css" />
-<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+	href="${context}/css/jquery-ui.min.css">
+<link rel="stylesheet" href="${context}/css/jquery.fancybox.min.css" />
+<script src="${context}/js/jquery-3.2.0.min.js"></script>
 <script src="${context}/js/bootstrap.min.js"></script>
 <script src="${context}/js/jquerysession.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="${context}/js/jquery-ui.min.js"></script>
 <script src="${context}/js/jquery.fancybox.min.js"></script>
 <script src="${context}/js/sweetalert.min.js"></script>
 <script src="${context}/js/clean-blog.min.js"></script>
@@ -248,6 +248,7 @@ img.displayImg {
 		</div>
 
 		<script>
+		var purchase = false;
 		var ctx = "<%=request.getContextPath()%>";
 		var cid = null;
 		var pid = ${param.Pid};
@@ -255,22 +256,24 @@ img.displayImg {
 		
 		
 		  function checkPurchase() {
-			    var purchase = (function() {
-			        var isPurchase = null;
-			        var pno = universalPno;
+// 			    var purchase = (function() {
+// 			        var isPurchase = null;
+// 			        var pno = universalPno;
 
-			        $.ajax({
-			            'async': false,
-			            'global': false,
-			            'data':{'pno':pno},
-			            'url': ctx+'/CheckPurchase.do',
-			            'success': function(resp) {
-			                isPurchase = (resp === "1");
-			            }
-			        });
-			        return isPurchase;
-			    })();
-			    return purchase;
+// 			        $.ajax({
+// 			            'async': false,
+// 			            'global': false,
+// 			            'data':{'pno':pno},
+// 			            'url': ctx+'/CheckPurchase.do',
+// 			            'success': function(resp) {
+// 			                isPurchase = (resp === "1");
+// 			            }
+// 			        });
+// 			        return isPurchase;
+// 			    })();
+// 			    return purchase;
+
+return window.purchase;
 			}
 		  
 		  function checkAuth() {
@@ -396,23 +399,7 @@ img.displayImg {
 	                }
 		    }
 			
-// 		    function getRating(pno) {
-// 		    	 var rating = (function() {
-// 				        var rating1 = null;
-// 				        $.ajax({
-// 				            'async': false,
-// 				            'global': false,
-// 				            'data':{'pno':pno},
-// 				            'url': ctx+'/GetProductRating.do',
-// 				            'success': function(resp) {
-// 				                rating1 = resp;
-// 				            }
-// 				        });
-// 				        return rating1;
-// 				    })();
-// 				    return rating;
-// 		    }
-			
+	       function ratable(){
 		    if(checkAuth()){
 		    	if(checkPurchase()){
 			for (var i = 1; i < 6;i++)
@@ -423,6 +410,7 @@ img.displayImg {
                 document.getElementById("idimg" + i).onmousedown = mousedown;
 		    	}
 		    }
+	       }
 
 
             function mouseover(e) {
@@ -592,7 +580,10 @@ img.displayImg {
                                      })
                                      
                                      var button = $('<button></button').myCart(cartCart).addClass('btn btn-danger my-cart-btn').attr
-                                     ({'data-size':selectedSize,'data-unitPriceD':price,'data-unitPriceO':price,'data-id':selectedPno,'data-quantity':1,'data-name':datas.pName,'data-image':"productImages/"+selectedPno}).html('加到購物車');                                 	
+                                     ({'data-size':selectedSize,'data-unitPriceD':price,'data-unitPriceO':price,'data-id':selectedPno,'data-quantity':1,'data-name':datas.pName,'data-image':"productImages/"+selectedPno}).html('加到購物車').click(function(){
+                                    	 window.purchase = true;
+                                    	 ratable();
+                                     });                                 	
                                                                        
                                      div214.text('產品編號:'+selectedPno);
                                  	span2.append(select).append(button);
@@ -628,23 +619,25 @@ img.displayImg {
 					    					
 					    var $cartIcon = $(".my-cart-icon");
 					
-					   var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+ 					   var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
 
-					    $addTocartBtn.prepend($image);
+ 					    $addTocartBtn.prepend($image);
 					
 					    var position = $cartIcon.position();
+					    
+ 					    $image.remove();
 					
-					    $image.animate({
+// 					    $image.animate({
 					
-					      top: position.top,
+// 					      top: position.top,
 
-					      left: position.left
+// 					      left: position.left
 					
-					    }, 1500 , "linear", function() {
+// 					    }, 1500 , "linear", function() {
 					
-					      $image.remove();
+// 					      $image.remove();
 					
-					    });
+// 					    });
 					
 					  }
                 	

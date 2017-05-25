@@ -90,7 +90,7 @@
     var products = getAllProducts();
     var getIndexOfProduct = function(id){
       var productIndex = -1;
-//      var products = getAllProducts();
+      var products = getAllProducts();
       $.each(products, function(index, value){
         if(value.id == id){
           productIndex = index;
@@ -128,8 +128,7 @@
 //						 localStorage.products = JSON.stringify(products);
     }
     var addProduct = function(id, name, summary, unitPriceO, unitPriceD,size, quantity, image) {
-//      var products = getAllProducts();
-    	
+      var products = getAllProducts();
       products.push({
         id: id,
         name: name,
@@ -155,7 +154,7 @@
       if(productIndex < 0){
         return false;
       }
-//      var products = getAllProducts();
+      var products = getAllProducts();
       products[productIndex].quantity = typeof quantity === "undefined" ? products[productIndex].quantity * 1 + 1 : parseInt(products[productIndex].quantity)+parseInt(quantity);
       setAllProducts(products);
       return true;
@@ -200,7 +199,7 @@
       setAllProducts([]);
     }
     var removeProduct = function(id){
-//      var products = getAllProducts();
+      var products = getAllProducts();
       products = $.grep(products, function(value, index) {
         return value.id != id;
       });
@@ -208,14 +207,14 @@
     }
     var getTotalQuantity = function(){
       var total = 0;
-//      var products = getAllProducts();
+      var products = getAllProducts();
       $.each(products, function(index, value){
         total += value.quantity * 1;
       });
       return total;
     }
     var getTotalPrice = function(){
-//      var products = getAllProducts();
+      var products = getAllProducts();
       var total = 0;
       $.each(products, function(index, value){
         total += value.quantity * value.unitPriceD;
@@ -269,7 +268,7 @@
         '<div class="modal-content">' +
         '<div class="modal-header">' +
         '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-        '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;  &nbsp; &nbsp;&nbsp; 購物車 &nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;大小 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;原價 &nbsp; &nbsp; &nbsp; 折價 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;數量&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;總價</h4>' +
+        '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> 購物車 &nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;大小 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;原價 &nbsp; &nbsp; &nbsp; 折價 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;數量&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;總價</h4>' +
         '</div>' +
         '<div class="modal-body">' +
         '<table class="table table-hover table-responsive" id="' + idCartTable + '"></table>' +

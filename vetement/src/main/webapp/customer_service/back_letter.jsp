@@ -86,7 +86,7 @@
 						<td width='150' class="td11">
 							<c:choose>
 								<c:when test="${customer_serviceVO.reply_service.length() == '0'}">
-									<button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal${customer_serviceVO.no_service}">需回覆</button>
+									<button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal${customer_serviceVO.no_service}">需回覆</button>
 								</c:when>
 								<c:otherwise>
 									<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${customer_serviceVO.no_service}">已回覆</button>
@@ -128,11 +128,11 @@
 							</div>	
 						</td>
 					</form>
-<!-- 					<form method="post" action="customer_service.do"> -->
+<!-- 					<form method="post"> -->
 						<td width='50' class="td11">
 							<button class="btn btn-danger btn-lg" id="d2" value="${customer_serviceVO.no_service}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-				  			<input type="hidden" name="no_service" value="${customer_serviceVO.no_service}">
-				    		<input type="hidden" name="action"value="del">
+<%-- 				  			<input type="hidden" name="no_service" value="${customer_serviceVO.no_service}"> --%>
+<!-- 				    		<input type="hidden" name="action"value="del"> -->
 				    		</button>
 				    		
 						</td>
@@ -145,7 +145,7 @@
 
 <script>
 
-	$('#d2').click(function() {
+	$('button.btn-danger').click(function() {
 		
 		var deleteno = $(this).val();
 		console.log(deleteno);
@@ -169,7 +169,7 @@
 					'dataType':'xml',
 					'data':{action:"del",'no_service':deleteno},
 					'complete':
-						swal({title:"刪除成功"},function(){
+						swal({title:"刪除成功",type:"success"},function(){
 	    					window.location.reload();
 	    					}) 
 				});

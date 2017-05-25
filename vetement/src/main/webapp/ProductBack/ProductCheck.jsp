@@ -227,11 +227,16 @@ tr {
 			if(event.which==13){
 				var count = $(this).val();
 				var productId = $(this).parent().children('input[name="productId"]').val();
-  				location.href="Update.do?&cmd=update&productId="+productId+"&count="+count;
-				return false;//取消form submit的功能
-// 				var count = $(this).val();
-// 				var productId = $(this).parent().children('input[name="productId"]').val();
-//  				$.get("Update.do",{"cmd":"update","productId":productId,"count":count});
+				if(count<1){
+					swal({title: "商品購買數量須大於0",type: "warning"});
+					return false;//取消form submit的功能
+				}else{
+					location.href="Update.do?&cmd=update&productId="+productId+"&count="+count;
+					return false;//取消form submit的功能
+//	 				var count = $(this).val();
+//	 				var productId = $(this).parent().children('input[name="productId"]').val();
+//	  				$.get("Update.do",{"cmd":"update","productId":productId,"count":count});
+				}
 			}
 		})
 		
