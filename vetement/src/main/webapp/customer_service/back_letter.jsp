@@ -128,11 +128,11 @@
 							</div>	
 						</td>
 					</form>
-<!-- 					<form method="post" action="customer_service.do"> -->
+<!-- 					<form method="post"> -->
 						<td width='50' class="td11">
 							<button class="btn btn-danger btn-lg" id="d2" value="${customer_serviceVO.no_service}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-				  			<input type="hidden" name="no_service" value="${customer_serviceVO.no_service}">
-				    		<input type="hidden" name="action"value="del">
+<%-- 				  			<input type="hidden" name="no_service" value="${customer_serviceVO.no_service}"> --%>
+<!-- 				    		<input type="hidden" name="action"value="del"> -->
 				    		</button>
 				    		
 						</td>
@@ -145,7 +145,7 @@
 
 <script>
 
-	$('#d2').click(function() {
+	$('button.btn-danger').click(function() {
 		
 		var deleteno = $(this).val();
 		console.log(deleteno);

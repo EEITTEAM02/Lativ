@@ -36,7 +36,7 @@ public class CheckPurchaseServlet2 extends HttpServlet{
        
        ProductionService psrvc = new ProductionService();
        ProductionVO aProduct = psrvc.getOneProduct(pno);
-       int size = psrvc.getAll().size();
+//       int size = psrvc.getAll().size();
        String pname = aProduct.getProductName();
        
    

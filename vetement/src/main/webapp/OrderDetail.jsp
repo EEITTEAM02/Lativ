@@ -237,7 +237,7 @@ img.displayImg {
                                         tb1.append(docFrag1);
                                     },
                                     error: function(request, status, error) {
-                                        alert(request.responseText);
+//                                         alert(request.responseText);
                                     }
                                 })
                             });
@@ -247,7 +247,7 @@ img.displayImg {
                     },
                     //add this error handler you'll get alert
                     error: function(request, status, error) {
-                        alert(request.responseText);
+//                         alert(request.responseText);
                     }
                 });
             
