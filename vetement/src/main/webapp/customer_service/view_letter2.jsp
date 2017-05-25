@@ -71,7 +71,7 @@
 			</tr>
 			<tr>
 				<td style='text-align:center ; width:80px; font-size: 18px;'>標&nbsp;&nbsp;&nbsp;&nbsp;題:</td>
-				<td id="ta2"><input type="text" name="title_service" size="80"  placeholder='標題'></td>
+				<td id="ta2"><input type="text" name="title_service" size="70"  placeholder='標題'></td>
 			</tr>
 			<tr>
 				<td style='text-align:center ; width:80px; font-size: 18px;'></td>
@@ -79,7 +79,7 @@
 			</tr>
 			<tr>
 				<td style='text-align:center ; width:80px; font-size: 18px;'>問題內容:</td>
-				<td id="ta3"><textarea rows='10' cols='80'  name='content_service' placeholder='內文'></textarea></td>
+				<td id="ta3"><textarea rows='10' cols='70'  name='content_service' placeholder='內文'></textarea></td>
 			</tr>
 			<tr>
 				<td style='text-align:center ; width:80px'></td>
@@ -217,7 +217,7 @@
 		var day = (now.getDate()< 10 ? '0' : '')+now.getDate();
 		var inp = $('<input/>');
 		
-		inp.attr({type:'text',name:'receive_date',size:'80',readonly:"readonly",value:year+'-'+mon+'-'+day});
+		inp.attr({type:'text',name:'receive_date',size:'70',readonly:"readonly",value:year+'-'+mon+'-'+day});
 		
 		var ta1 =$('#ta1')
 		ta1.append(inp);
@@ -272,8 +272,8 @@
 						ta2.empty();
 						ta3.empty();
 			
-						ta2.html("<input type='text'  name='title_service' size='80' placeholder='標題'>");
-						ta3.html("<textarea rows='10' cols='80'  name='content_service' placeholder='內文'></textarea>");
+						ta2.html("<input type='text'  name='title_service' size='70' placeholder='標題'>");
+						ta3.html("<textarea rows='10' cols='70'  name='content_service' placeholder='內文'></textarea>");
 						window.location.href="memberPage.jsp";
 						});
 					};
@@ -287,8 +287,8 @@
 				ta2.empty();
 				ta3.empty();
 	
-				ta2.html("<input type='text'  name='title_service' size='80' placeholder='標題'>");
-				ta3.html("<textarea rows='10' cols='80'  name='content_service' placeholder='內文'></textarea>");	
+				ta2.html("<input type='text'  name='title_service' size='70' placeholder='標題'>");
+				ta3.html("<textarea rows='10' cols='70'  name='content_service' placeholder='內文'></textarea>");	
 			});
 
 
