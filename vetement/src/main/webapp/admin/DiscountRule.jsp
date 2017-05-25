@@ -555,7 +555,7 @@
 						
 // 						swal("刪除成功", "", "success")
 // 						location.href = "${pageContext.request.contextPath}/mangerPage.jsp";
-						swal({title:"刪除成功",type:"success"},function(){
+						swal({title:"刪除成功", type:"success"},function(){
 	    					window.location.reload();
 	    					})
 						
