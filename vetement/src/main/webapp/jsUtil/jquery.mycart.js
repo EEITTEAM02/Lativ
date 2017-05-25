@@ -268,7 +268,7 @@
         '<div class="modal-content">' +
         '<div class="modal-header">' +
         '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-        '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;  &nbsp; &nbsp;&nbsp; 購物車 &nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;大小 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;原價 &nbsp; &nbsp; &nbsp; 折價 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;數量&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;總價</h4>' +
+        '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> 購物車 &nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;大小 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;原價 &nbsp; &nbsp; &nbsp; 折價 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;數量&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;總價</h4>' +
         '</div>' +
         '<div class="modal-body">' +
         '<table class="table table-hover table-responsive" id="' + idCartTable + '"></table>' +
