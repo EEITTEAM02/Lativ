@@ -3,6 +3,7 @@ package com.cust.model;
 import org.hibernate.*;
 
 import com.order.model.OrderVO;
+import com.orderItem.model.OrderItemVO;
 
 import hibernate.util.HibernateUtil;
 
@@ -41,6 +42,8 @@ public class CustomerDAO implements ICustomerDAO {
 		return customerVO;
 	}			
 	
+
+
 	//搜尋符合該帳號與密碼的會員資料
 	@Override
 	public CustomerVO findbyAccountAndPassword(String mail, String pswd){

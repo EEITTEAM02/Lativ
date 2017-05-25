@@ -36,11 +36,9 @@ public class CheckPurchaseServlet2 extends HttpServlet{
        
        ProductionService psrvc = new ProductionService();
        ProductionVO aProduct = psrvc.getOneProduct(pno);
-//       int size = psrvc.getAll().size();
+
        String pname = aProduct.getProductName();
-       
-   
-       
+             
        Set<String> l3;       
        String mno1 = mno.toString();
 	    if (sctx.getAttribute(mno1)==null){      
@@ -50,9 +48,7 @@ public class CheckPurchaseServlet2 extends HttpServlet{
 	       else{		    	   
 	    	   l3 = (Set<String>) sctx.getAttribute(mno1);
 	       }
-	      
-//	      System.out.println("l3:"+l3);
-       
+      
        OrderService osrvc = new OrderService();
        List<OrderVO> listOfOrders = osrvc.getOrdersByCustomerId(mno);
        Iterator it =listOfOrders.iterator();
@@ -80,8 +76,10 @@ public class CheckPurchaseServlet2 extends HttpServlet{
        while(it3.hasNext()){
     	   String rated = (String) it3.next();
     	   
-    	   if (pname.equals(rated))
+    	   if (pname.equals(rated)){
     		   flag=false;
+    		   break;
+    	   }
        }
        if (flag){
 		   out.write("1");
